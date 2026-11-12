@@ -1,0 +1,76 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>IamFamous Brand Board</title>
+<style>
+@font-face{font-family:"Bricolage Grotesque";src:url(fonts/bricolage-grotesque-latin-wght-normal.woff2) format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Figtree";src:url(fonts/figtree-latin-wght-normal.woff2) format("woff2");font-weight:300 900;font-display:swap}
+:root{--red:#E11D2E;--red-deep:#B5122B;--red-signal:#F23131;--red-glow:#FF4D5A;--ink:#160F1F;--ink-2:#2A1F38;--gold:#FFB020;--rose-50:#FFF1F1;--rose-100:#FFE1E1;--cream:#FFF8F4;--body:#3D3647;--muted:#6B6475;--line:#EDE6EA;--ok:#15803D}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--body);font:400 16px/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;color:var(--ink);letter-spacing:-.02em;margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding:48px 32px}
+.k{font:800 12px/1 Figtree;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin:0 0 14px}
+.grid{display:grid;gap:16px}.g5{grid-template-columns:repeat(5,1fr)}.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}
+.sw{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff}.sw i{display:block;height:110px}.sw div{padding:12px 14px;font-size:13px}.sw b{display:block;color:var(--ink);font-size:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;height:52px;padding:0 22px;border-radius:14px;font:800 16px Figtree;text-decoration:none;border:0}
+.btn.p{background:var(--red);color:#fff;box-shadow:0 10px 24px rgba(225,29,46,.28)}.btn.s{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}.btn.g{background:var(--gold);color:var(--ink)}
+.hero{position:relative;overflow:hidden;border-radius:28px;background:radial-gradient(900px 420px at 85% 10%,rgba(225,29,46,.38),transparent 60%),radial-gradient(600px 300px at 10% 110%,rgba(255,176,32,.16),transparent 60%),var(--ink);color:#E9E3EE;padding:64px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{color:#fff;font-size:58px;line-height:1.02;font-weight:800}.hero h1 em{font-style:normal;color:var(--red-glow)}
+.chip{display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);color:#fff;border-radius:999px;padding:6px 12px;font-weight:700;font-size:13px}
+.chip s{width:8px;height:8px;border-radius:50%;background:var(--gold);text-decoration:none;display:inline-block}
+.ticks{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;font-size:14px;font-weight:600;color:#fff}.ticks span::before{content:"✓";color:var(--gold);margin-right:6px;font-weight:900}
+.panel{background:#fff;border-radius:22px;padding:22px;color:var(--body);box-shadow:0 30px 70px rgba(0,0,0,.35)}
+.row{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:14px;margin-top:10px;font-weight:700;color:var(--ink)}
+.row.on{border-color:var(--red);box-shadow:0 0 0 3px rgba(225,29,46,.14);background:var(--rose-50)}
+.price{font:800 30px "Bricolage Grotesque";color:var(--ink)}.price sup{font-size:.5em;vertical-align:.7em}
+.pill{background:#FFF4DB;color:#7A4B00;border:1px solid #FFE0A3;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:800}
+.type h1{font-size:64px;line-height:1}.type h2{font-size:40px;line-height:1.1}.type h3{font-size:24px}
+.logo-box{border-radius:18px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:120px}
+</style></head><body><div class="wrap">
+<p class="k">IamFamous.uk — brand board v1 · 12 Nov 2026</p>
+<h1 style="font-size:44px;margin-bottom:28px">Red heritage, sharper system</h1>
+
+<div class="hero">
+ <div>
+  <span class="chip"><s></s>Fixed prices · UK support</span>
+  <h1 style="margin:18px 0 16px">Get seen. Get chosen. <em>Get famous.</em></h1>
+  <p style="font-size:19px;max-width:34ch;margin:0 0 26px">SEO, social media and websites for UK small businesses, with clear packages and a report you can check.</p>
+  <a class="btn p">See packages →</a> <a class="btn s" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4)">Free growth check</a>
+  <div class="ticks"><span>No contracts</span><span>Work starts in 48h</span><span>Live-URL reports</span></div>
+ </div>
+ <div class="panel">
+  <div style="display:flex;justify-content:space-between;align-items:end"><div><div style="font:800 18px 'Bricolage Grotesque';color:var(--ink)">Local SEO</div><div style="font-size:13px;color:var(--muted)">Pick a package</div></div><span class="pill">Most popular</span></div>
+  <div class="row">Starter<span>£59</span></div>
+  <div class="row on">Growth · 30 citations<span>£119</span></div>
+  <div class="row">Dominate<span>£229</span></div>
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:16px"><div class="price"><sup>£</sup>119</div><a class="btn p" style="height:46px">Choose →</a></div>
+  <p style="font-size:12px;color:var(--muted);margin:10px 0 0">Prices shown are layout placeholders, not approved prices.</p>
+ </div>
+</div>
+
+<div style="height:40px"></div><p class="k">Colour</p>
+<div class="grid g5">
+ <div class="sw"><i style="background:#E11D2E"></i><div><b>Famous Red</b>#E11D2E · buttons, links<br>white text 4.75:1 AA</div></div>
+ <div class="sw"><i style="background:#B5122B"></i><div><b>Red Deep</b>#B5122B · hover, small red text<br>6.80:1 on white</div></div>
+ <div class="sw"><i style="background:#F23131"></i><div><b>Heritage Red</b>#F23131 (from .com.au)<br>large shapes &amp; art only</div></div>
+ <div class="sw"><i style="background:#160F1F"></i><div><b>Midnight Plum</b>#160F1F · headings, dark bands<br>18.7:1 on white</div></div>
+ <div class="sw"><i style="background:#FFB020"></i><div><b>Spotlight Gold</b>#FFB020 · stars, badges, ticks on dark<br>ink text 10.2:1</div></div>
+ <div class="sw"><i style="background:#2A1F38"></i><div><b>Plum 2</b>#2A1F38 · dark cards</div></div>
+ <div class="sw"><i style="background:#FFE1E1"></i><div><b>Rose 100</b>#FFE1E1 (from .com.au) · highlights</div></div>
+ <div class="sw"><i style="background:#FFF1F1"></i><div><b>Rose 50</b>#FFF1F1 · selected states</div></div>
+ <div class="sw"><i style="background:#FFF8F4"></i><div><b>Cream</b>#FFF8F4 · page sections</div></div>
+ <div class="sw"><i style="background:#3D3647"></i><div><b>Body / Muted / Line</b>#3D3647 · #6B6475 · #EDE6EA</div></div>
+</div>
+
+<div style="height:40px"></div>
+<div class="grid g2">
+ <div class="card type"><p class="k">Type: Bricolage Grotesque (headings)</p><h1>Get famous</h1><h2>Fixed-price growth</h2><h3>Local SEO from £59</h3><p style="margin:12px 0 0;color:var(--muted)">Variable 200–800, self-hosted woff2, SIL OFL. Headings 700–800, tight tracking (−2%).</p></div>
+ <div class="card"><p class="k">Type: Figtree (body &amp; UI)</p><p style="font-size:20px;color:var(--ink);font-weight:600;margin:0 0 10px">Clear, friendly and easy to read on phones.</p><p style="margin:0 0 10px">Body 17px/1.7. Labels 700–800 caps with +12% tracking. Numbers use tabular figures in tables and prices.</p><p style="margin:0"><a class="btn p">Primary</a> <a class="btn s">Secondary</a> <a class="btn g">Gold badge CTA</a></p></div>
+</div>
+
+<div style="height:40px"></div><p class="k">Logo</p>
+<div class="grid g3">
+ <div class="logo-box" style="background:#fff;border:1px solid var(--line)"><img src="logo.svg" alt="IamFamous logo" height="56"></div>
+ <div class="logo-box" style="background:var(--ink)"><img src="logo-on-dark.svg" alt="IamFamous logo on dark" height="56"></div>
+ <div class="logo-box" style="background:var(--rose-50);gap:20px"><img src="icon.svg" alt="" height="64"><img src="icon.svg" alt="" height="32"><img src="icon.svg" alt="" height="20"></div>
+</div>
+<p style="font-size:14px;color:var(--muted)">Keeps the .com.au idea (a person lifted by a crowd) but simplifies it: a cheering figure on a stage arc under a gold star. It stays legible down to favicon size. The wordmark is Bricolage Grotesque 800 converted to outlines, so it needs no font to display.</p>
+</div></body></html>

@@ -1,0 +1,49 @@
+48 currency: {'USD'}
+Backlink Services            | Authority Profile Boost                    | 29.99 | authority-profile-boost
+Backlink Services            | Basic Link Diversity                       | 19.99 | elite-backlinks-plan
+Backlink Services            | Business Visibility Pack                   | 9.99 | premium-backlinks-plan
+Backlink Services            | Citation Starter Pack                      | 14.99 | advanced-backlinks-plan
+Backlink Services            | Complete Link Starter                      | 49.99 | complete-link-starter
+Backlink Services            | Local Profile Boost                        | 5.99 | standard-backlinks-plan
+Backlink Services            | Monthly Profile Builder                    | 39.99 | monthly-profile-builder
+Backlink Services            | Starter Profile Links                      | 2.99 | basic-backlinks-plan
+Backlink Services            | Ultimate Backlinks Plan                    | 24.99 | ultimate-backlinks-plan
+Content Writing              | Content Advanced Plan                      | 125.0 | content-advanced-plan
+Content Writing              | Content Basic Plan                         | 50.0 | content-basic-plan
+Content Writing              | Content Elite Plan                         | 200.0 | content-elite-plan
+Content Writing              | Content Platinum Plan                      | 200.0 | content-platinum-plan
+Content Writing              | Content Premium Gold Plan                  | 150.0 | content-premium-gold-plan
+Content Writing              | Content Premium Plan                       | 150.0 | content-premium-plan
+Content Writing              | Content Premium Silver Plan                | 100.0 | content-premium-silver-plan
+Content Writing              | Content Standard Plan                      | 100.0 | content-standard-plan
+Content Writing              | Content Starter Plan                       | 30.0 | content-starter-plan
+Google Ads                   | Basic Campaign Setup                       | 99.0 | basic-campaign-setup
+Google Ads                   | Mini Ads Management                        | 199.0 | mini-ads-management
+Google Ads                   | Niche Launch Pack                          | 399.0 | niche-launch-pack
+Google Ads                   | Quick Audit                                | 49.0 | quick-audit
+Google Ads                   | Starter E-Commerce                         | 499.0 | starter-e-commerce
+Google Ads                   | Starter Growth Plan                        | 299.0 | starter-growth-plan
+On-Page SEO                  | Advanced Plan – OnPage                     | 199.99 | advanced-plan-onpage
+On-Page SEO                  | Basic Plan                                 | 49.99 | basic-plan
+On-Page SEO                  | Monthly Maintenance                        | 49.99 | monthly-maintenance
+On-Page SEO                  | Standard Plan                              | 99.99 | standard-plan
+On-Page SEO                  | Starter Plan                               | 19.99 | starter-plan
+On-Page SEO                  | Ultimate Plan – OnPage SEO                 | 499.99 | ultimate-plan-onpage
+SEO                          | SEO Enterprise Plan                        | 599.0 | seo-enterprise-plan
+SEO                          | SEO Professional Plan                      | 349.0 | seo-professional-plan
+SEO                          | SEO Stratup Plan                           | 199.0 | seo-stratup-plan
+Social Media Management      | SM Advanced Plan                           | 54.99 | sm-advanced-plan
+Social Media Management      | SM Basic Plan                              | 14.99 | sm-basic-plan
+Social Media Management      | SM Premium Plan                            | 299.0 | sm-premium-plan
+Social Media Management      | SM Standard Plan                           | 26.99 | sm-standard-plan
+Social Media Management      | SM Stratup Plan                            | 7.99 | sm-stratup-plan
+Social Media Management      | SM Ultimate Plan                           | 999.0 | sm-ultimate-plan
+Website Development          | Business Website Pro                       | 499.99 | business-website-pro
+Website Development          | E-Commerce Starter                         | 749.99 | e-commerce-starter
+Website Development          | Fix & Tune                                 | 24.99 | fix-tune
+Website Development          | Full-Scale Web Development                 | 999.99 | full-scale-web-development
+Website Development          | Landing Page Build                         | 149.99 | landing-page-build
+Website Development          | Multi-Page Mini Site                       | 249.99 | multi-page-mini-site
+Website Development          | Quick Fix                                  | 4.99 | quick-fix
+Website Development          | Speed Boost                                | 99.99 | speed-boost
+Website Development          | Starter Optimization                       | 49.99 | starter-optimization
