@@ -25,8 +25,50 @@ function ifm_nav_items(): array {
 			'url'   => '/',
 		),
 		array(
-			'label' => __( 'Services', 'iamfamous' ),
-			'url'   => '/services/',
+			'label'  => __( 'Services', 'iamfamous' ),
+			'url'    => '/services/',
+			'groups' => array(
+				array(
+					'label' => __( 'Get found on Google', 'iamfamous' ),
+					'links' => array(
+						array( __( 'Local SEO', 'iamfamous' ), '/services/local-seo/' ),
+						array( __( 'Monthly SEO', 'iamfamous' ), '/services/monthly-seo/' ),
+						array( __( 'Link Building', 'iamfamous' ), '/services/off-page-seo/' ),
+						array( __( 'SEO Audit', 'iamfamous' ), '/services/seo-audit/' ),
+						array( __( 'Technical SEO', 'iamfamous' ), '/services/technical-seo/' ),
+						array( __( 'On-Page SEO', 'iamfamous' ), '/services/on-page-seo/' ),
+						array( __( 'Ecommerce SEO', 'iamfamous' ), '/services/ecommerce-seo/' ),
+						array( __( 'AI SEO', 'iamfamous' ), '/services/ai-seo/' ),
+						array( __( 'White Label SEO', 'iamfamous' ), '/services/white-label-seo/' ),
+						array( __( 'SEO Consultancy', 'iamfamous' ), '/services/seo-consultancy/' ),
+					),
+				),
+				array(
+					'label' => __( 'Websites', 'iamfamous' ),
+					'links' => array(
+						array( __( 'Website Development', 'iamfamous' ), '/services/website-development/' ),
+						array( __( 'Ecommerce Websites', 'iamfamous' ), '/services/ecommerce-website-development/' ),
+						array( __( 'Website Maintenance', 'iamfamous' ), '/services/website-maintenance/' ),
+						array( __( 'Website Migration', 'iamfamous' ), '/services/website-migration/' ),
+					),
+				),
+				array(
+					'label' => __( 'Ads and social media', 'iamfamous' ),
+					'links' => array(
+						array( __( 'Social Media Management', 'iamfamous' ), '/services/social-media-management/' ),
+						array( __( 'Google Ads (PPC)', 'iamfamous' ), '/services/ppc-management/' ),
+						array( __( 'Facebook & Instagram Ads', 'iamfamous' ), '/services/facebook-ads/' ),
+						array( __( 'TikTok Ads', 'iamfamous' ), '/services/tiktok-ads/' ),
+					),
+				),
+				array(
+					'label' => __( 'Words and design', 'iamfamous' ),
+					'links' => array(
+						array( __( 'Content Writing', 'iamfamous' ), '/services/content-writing/' ),
+						array( __( 'Graphic Design & Branding', 'iamfamous' ), '/services/graphic-design/' ),
+					),
+				),
+			),
 		),
 		array(
 			'label' => __( 'Local SEO', 'iamfamous' ),
@@ -45,15 +87,7 @@ function ifm_nav_items(): array {
 			'url'   => '/contact/',
 		),
 	);
-	/*
-	 * Round 1 has three service pages, so the menu is flat. When more service pages go live, give the
-	 * Services item a 'groups' array and it becomes the mega panel (desktop) and an accordion (drawer):
-	 *
-	 *   'groups' => array(
-	 *       array( 'label' => 'SEO', 'links' => array( array( 'Local SEO', '/services/local-seo/' ), … ) ),
-	 *       …
-	 *   ),
-	 */
+	// The three lead offers also sit in the top bar, so a first-time visitor reaches them in one click.
 	return (array) apply_filters( 'ifm_nav_items', $items );
 }
 
@@ -85,7 +119,7 @@ function ifm_nav_is_active( array $item ): bool {
 		return '' !== ifm_nav_state( '/services/', true ) || ( function_exists( 'is_product' ) && is_product() );
 	}
 	if ( '/services/' === $item['url'] ) {
-		// Flat menu: the hub is active on itself and on package pages; each service link marks its own page.
+		// Fallback when the Services item has no groups: active on the hub and on package pages only.
 		return 'page' === ifm_nav_state( '/services/' ) || ( function_exists( 'is_product' ) && is_product() );
 	}
 	if ( '/insights/' === $item['url'] && ( is_singular( 'post' ) || is_category() || is_tag() ) ) {

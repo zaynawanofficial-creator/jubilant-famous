@@ -3,7 +3,7 @@ Theme Name: IamFamous
 Theme URI: https://iamfamous.uk/
 Author: IamFamous
 Description: Block theme for IamFamous.uk: fixed-price digital marketing packages for UK small businesses. Service pages, package picker, WooCommerce checkout and guides. Pairs with the IamFamous Core plugin.
-Version: 1.0.0
+Version: 1.1.0
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
@@ -942,3 +942,9 @@ body { font-variant-numeric: normal; }
 @media (prefers-reduced-motion: reduce) { .ifm-stickybar { transition: none; } }
 @media print { .ifm-js .ifm-reveal { opacity: 1 !important; transform: none !important; } .ifm-stickybar, .ifm-header, .ifm-drawer { display: none !important; } }
 .ifm-btn-full, .ifm-btn-full .wp-block-button__link { width: 100%; }
+
+/* Round 2: compact service cards (hub, home grid, related) */
+.ifm-card--mini { display: flex; flex-direction: column; }
+.ifm-card--mini h3 { margin-top: .75rem; }
+.ifm-card--mini .ifm-price-from { margin-top: auto !important; padding-top: .75rem; font-size: 1rem; }
+.ifm-card--mini .ifm-card__more { margin-top: .25rem !important; font-size: var(--wp--preset--font-size--small); }

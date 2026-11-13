@@ -1,0 +1,20 @@
+const { chromium } = require('playwright');
+(async () => {
+  const b = await chromium.launch(); const out = process.argv[2];
+  let p = await (await b.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 2 })).newPage();
+  await p.goto('http://127.0.0.1:8899/services/seo-audit/', { waitUntil: 'networkidle' });
+  await p.focus('.ifm-nav__trigger'); await p.keyboard.press('Enter'); await p.waitForTimeout(350);
+  const m = await p.evaluate(() => { const g = document.querySelector('.ifm-mega'); const r = g.getBoundingClientRect(); return { open: document.querySelector('.ifm-nav__trigger').getAttribute('aria-expanded'), links: g.querySelectorAll('.ifm-mega__link').length, w: Math.round(r.width), right: Math.round(r.right), vis: getComputedStyle(g).visibility, cur: g.querySelector('[aria-current=page]')?.textContent }; });
+  console.log('mega', JSON.stringify(m));
+  await p.screenshot({ path: out + '/mega-menu-1440.png' });
+  await p.keyboard.press('Escape'); await p.waitForTimeout(200);
+  console.log('escape closes + focus back:', await p.evaluate(() => document.querySelector('.ifm-nav__trigger').getAttribute('aria-expanded') === 'false' && document.activeElement.classList.contains('ifm-nav__trigger')));
+  p = await (await b.newContext({ viewport: { width: 1024, height: 800 } })).newPage();
+  await p.goto('http://127.0.0.1:8899/', { waitUntil: 'networkidle' }); await p.click('.ifm-nav__trigger'); await p.waitForTimeout(350);
+  console.log('1024 mega within viewport:', await p.evaluate(() => { const r = document.querySelector('.ifm-mega').getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth && document.documentElement.scrollWidth <= innerWidth; }));
+  p = await (await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 })).newPage();
+  await p.goto('http://127.0.0.1:8899/services/seo-audit/', { waitUntil: 'networkidle' }); await p.click('.ifm-burger'); await p.waitForTimeout(400);
+  console.log('drawer:', JSON.stringify(await p.evaluate(() => { const d = document.getElementById('ifm-drawer'); return { open: d.querySelector('details').open, sub: d.querySelectorAll('.ifm-drawer__sublink').length, cur: d.querySelector('[aria-current=page]')?.textContent }; })));
+  await p.screenshot({ path: out + '/drawer-services-390.png' });
+  await b.close();
+})();

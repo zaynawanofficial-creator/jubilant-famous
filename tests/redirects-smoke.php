@@ -22,7 +22,11 @@ $listed = array_filter( array_map( fn( $l ) => trim( (string) ( explode( '|', $l
 $missing = array_filter( $listed, fn( $slug ) => ! isset( $map[ 'product/' . $slug ] ) );
 check( 'every slug in the old product list has a rule (' . count( $listed ) . ' listed)', 48 === count( $listed ) && ! $missing );
 check( 'targets are internal paths', ! array_filter( $map, fn( $t ) => ! str_starts_with( $t, '/' ) || str_contains( $t, '//' ) ) );
-check( 'case and slashes are normalised', '/services/' === IFM_Redirects::target( '/Product/SEO-Enterprise-Plan/' ) );
+check( 'case and slashes are normalised', '/services/monthly-seo/' === IFM_Redirects::target( '/Product/SEO-Enterprise-Plan/' ) );
+check( 'old services map to their own new pages', '/services/ppc-management/' === IFM_Redirects::target( '/google-ads-service/' ) && '/services/off-page-seo/' === IFM_Redirects::target( '/backlinks-service/' ) && '/services/content-writing/' === IFM_Redirects::target( '/product/content-basic-plan/' ) );
+$pages = array_map( fn( $f ) => substr( basename( $f, '.php' ), 5 ), glob( __DIR__ . '/../wp-content/themes/iamfamous/patterns/page-*.php' ) );
+$dead = array_filter( array_unique( $map ), fn( $t ) => '/' !== $t && '/insights/' !== $t && ! in_array( basename( $t ), $pages, true ) );
+check( 'every redirect target is a page the theme builds', ! $dead );
 check( 'unknown paths and the home page are left alone', '' === IFM_Redirects::target( '/' ) && '' === IFM_Redirects::target( '/something-new/' ) );
 check( 'no rule shadows a new page', ! array_intersect( array_keys( $map ), array( 'services', 'contact', 'insights', 'free-growth-check', 'services/local-seo' ) ) );
 echo $fail ? "\n{$fail} FAILED\n" : "\nALL PASSED\n";

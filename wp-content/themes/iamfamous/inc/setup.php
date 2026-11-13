@@ -84,7 +84,7 @@ final class IFM_Setup {
 		echo '<form method="post">';
 		wp_nonce_field( self::ACTION );
 		$opts = array(
-			'pages'     => array( true, __( 'Create the pages: Home, Services, Local SEO, Website Development, Social Media Management, Free growth check, Contact and Insights (the blog index)', 'iamfamous' ) ),
+			'pages'     => array( true, __( 'Create the pages: Home, Services, all 20 service pages, Free growth check, Contact and Insights (the blog index)', 'iamfamous' ) ),
 			'overwrite' => array( false, __( 'Overwrite pages previously created by this screen with the latest design (tick this when updating the theme; your own pages are never touched)', 'iamfamous' ) ),
 			'posts'     => array( true, __( 'Create the starter articles shipped with this theme version, if any', 'iamfamous' ) ),
 			'reading'   => array( true, __( 'Set Home as the front page and Insights as the posts page', 'iamfamous' ) ),

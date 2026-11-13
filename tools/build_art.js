@@ -191,6 +191,35 @@ const SCENES = {
   <div class="row" style="margin-bottom:5px"><i class="tick"></i><span style="font-weight:600;color:#160F1F">More offer posts</span></div><div class="row"><i class="tick"></i><span style="font-weight:600;color:#160F1F">Plan ready for your approval</span></div>
 </div>`,
 };
+// ---- Round 2 scenes, generated from tools/scenes_round2.py (exported to _scenes.json by build_art.py).
+const esc = t => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const pill = st => ({ ok: 'ok', wait: 'wait', gold: 'gold' }[st] || 'wait');
+const heroScene = ([k, title, sub, ticks, sideTitle, rows, calls]) => `
+<div class="c" style="left:10px;top:40px;width:292px">
+  <span class="ex">Example</span><div class="k" style="margin-bottom:6px">${esc(k)}</div>
+  <div class="h" style="font-size:19px">${esc(title)}</div><div class="m" style="margin:3px 0 12px">${esc(sub)}</div>
+  <div style="border-top:1px solid #EDE6EA;padding-top:11px;display:grid;gap:9px;font-weight:600;color:#160F1F;font-size:11.5px">${ticks.map(t => `<div class="row"><i class="tick"></i>${esc(t)}</div>`).join('')}</div>
+</div>
+<div class="call" style="left:24px;top:6px"><span class="n">1</span>${esc(calls[0])}</div>
+<div class="c" style="left:226px;top:214px;width:324px;padding:12px 14px">
+  <div class="h" style="font-size:13.5px;margin-bottom:8px">${esc(sideTitle)}</div>
+  <table class="t">${rows.map(([a, b, st]) => `<tr><td style="white-space:normal;max-width:150px"><b>${esc(a)}</b></td><td style="text-align:right"><span class="pill ${pill(st)}" style="max-width:150px;white-space:normal;text-align:right;line-height:1.2">${esc(b)}</span></td></tr>`).join('')}</table>
+</div>
+<div class="call" style="left:330px;top:182px"><span class="n">2</span>${esc(calls[1])}</div>`;
+const reportScene = ([k, title, cols, rows, foot, sideTitle, side]) => `
+<div class="c" style="left:10px;top:12px;width:540px;padding:16px">
+  <span class="ex">Example</span><div class="k" style="margin-bottom:5px">${esc(k)}</div><div class="h" style="font-size:17px;margin-bottom:12px">${esc(title)}</div>
+  <table class="t"><tr>${cols.map((c, i) => `<th${i === 2 ? ' style="text-align:right"' : ''}>${esc(c)}</th>`).join('')}</tr>
+  ${rows.map(([a, b, c]) => `<tr><td><b>${esc(a)}</b></td><td class="m">${esc(b)}</td><td style="text-align:right"><span class="pill ${/pend|paus|not |wrong|outdat|^–$/i.test(c) ? 'wait' : /high|example/i.test(c) ? 'gold' : 'ok'}">${esc(c)}</span></td></tr>`).join('')}
+  <tr><td class="m" colspan="3">${esc(foot)}</td></tr></table>
+</div>
+<div class="c" style="left:170px;top:286px;width:370px;padding:13px 14px">
+  <div class="h" style="font-size:13px;margin-bottom:8px">${esc(sideTitle)}</div>
+  ${side.map(x => `<div class="row" style="margin-bottom:6px"><i class="tick"></i><span style="font-weight:600;color:#160F1F">${esc(x)}</span></div>`).join('')}
+</div>`;
+const extra = fs.existsSync(__dirname + '/_scenes.json') ? JSON.parse(fs.readFileSync(__dirname + '/_scenes.json', 'utf8')) : {};
+for (const [slug, sc] of Object.entries(extra)) { SCENES['art-' + slug] = heroScene(sc.hero); SCENES['report-' + slug] = reportScene(sc.report); }
+
 (async () => {
   const b = await chromium.launch();
   const p = await b.newPage({ viewport: { width: 560, height: 420 }, deviceScaleFactor: 2 });

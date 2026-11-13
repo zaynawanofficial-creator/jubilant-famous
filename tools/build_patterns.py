@@ -13,9 +13,12 @@ Content rules (CLAUDE.md, LESSONS_LEARNED.md section E):
   - Prices are never typed here: [ifm_from ...] and [ifm_packages ...] read them from WooCommerce.
   - UK spelling, second person, short paragraphs.
 Round 1 (theme 1.0.0): Home, Services hub, Local SEO, Website Development, Social Media Management,
-Free growth check, Contact. The other service pages, Packages, About, FAQ, legal pages and guides come later.
+Free growth check, Contact.
+Round 2 (theme 1.1.0): the other 17 service pages (data in services_seo.py and services_more.py).
+Still to come: Packages, About, FAQ, legal pages and guides.
 """
 import os
+import sys
 from blocks import (group, heading, para, eyebrow, lead, ul, buttons, image, columns, column, details,
                     shortcode, join, wrap)
 
@@ -31,47 +34,39 @@ EMAIL = 'support@iamfamous.uk'
 # Live service pages (round 1): slug == product_cat slug.
 LIVE = {
     'local-seo': dict(
-        name='Local SEO', icon='local', art='art-local.webp',
+        name='Local SEO', icon='local', art='art-local.webp', group='seo',
         short='Show up when people nearby search for what you do: a sorted Google Business Profile, correct UK directory listings and a site tuned for your area.',
         points=['Google Business Profile set up properly', 'Listings on the UK directories that matter', 'A report with every live link']),
     'website-development': dict(
-        name='Website Development', icon='webdev', art='art-webdev.webp',
+        name='Website Development', icon='webdev', art='art-webdev.webp', group='web',
         short='A WordPress website built for phones first, with your wording in place, a working enquiry form and a walkthrough so you can edit it yourself.',
         points=['1 to 10 pages at a fixed price', 'Two rounds of design changes', 'Yours to keep and edit']),
     'social-media-management': dict(
-        name='Social Media Management', icon='social', art='art-social.webp',
+        name='Social Media Management', icon='social', art='art-social.webp', group='ads',
         short='Regular posts in your colours and your voice. Take a plan and post it yourself, or hand over the designing, scheduling and replies.',
         points=['A month of posts planned ahead', 'Designed, captioned and scheduled', 'Real followers only, never bought']),
 }
 
-# Services in the catalogue whose pages arrive in later rounds: (form key, name, icon, one line).
-SOON = {
-    'seo': [
-        ('monthly-seo', 'Monthly SEO', 'chart', 'Technical fixes, page improvements, an article and new links each month, bought one month at a time.'),
-        ('off-page-seo', 'Link Building', 'link', 'Directory and profile links, guest posts on real sites and press releases, each with a live link you can open.'),
-        ('seo-audit', 'SEO Audit', 'audit', 'A plain-English list of what is holding your site back on Google, in the order to fix it.'),
-        ('technical-seo', 'Technical SEO', 'wrench', 'Hands-on fixes for speed, broken links, redirects and the code Google reads.'),
-        ('on-page-seo', 'On-Page SEO', 'page', 'Titles, headings, wording and internal links improved page by page.'),
-        ('ecommerce-seo', 'Ecommerce SEO', 'cart', 'Product and category pages set up to be found, on Shopify or WooCommerce.'),
-        ('ai-seo', 'AI SEO', 'spark', 'Help ChatGPT, Gemini and Google AI answers describe your business correctly.'),
-        ('white-label-seo', 'White Label SEO', 'label', 'SEO work delivered under your agency name, with reports you can forward.'),
-        ('seo-consultancy', 'SEO Consultancy', 'chat', 'An hour, a strategy session or a monthly adviser for your own team.'),
-    ],
-    'web': [
-        ('ecommerce-website-development', 'Ecommerce Websites', 'cart', 'A Shopify or WooCommerce shop with your products loaded and payments tested.'),
-        ('website-maintenance', 'Website Maintenance', 'wrench', 'One-off WordPress fixes, or monthly updates, backups and small changes.'),
-        ('website-migration', 'Website Migration', 'move', 'Move host or rebuild your site without losing the pages Google already knows.'),
-    ],
-    'ads': [
-        ('ppc-management', 'Google Ads (PPC)', 'target', 'Search campaigns set up or managed month to month. Ad spend goes straight to Google.'),
-        ('facebook-ads', 'Facebook &amp; Instagram Ads', 'megaphone', 'Audits, campaign setup, ad designs and monthly management.'),
-        ('tiktok-ads', 'TikTok Ads', 'video', 'Hooks, scripts, campaign setup and management for short-video ads.'),
-    ],
-    'content': [
-        ('content-writing', 'Content Writing', 'pen', 'Researched articles from 500 to 3,000 words, singly or as a monthly batch.'),
-        ('graphic-design', 'Graphic Design &amp; Branding', 'palette', 'Logos, brand kits, social graphics and Canva templates in your colours.'),
-    ],
-}
+LEAD = list(LIVE)  # the three lead offers keep their illustrated cards
+
+# Round 2 services: full page data in services_seo.py / services_more.py.
+sys.path.insert(0, HERE)
+from services_seo import SERVICES as _SEO
+from services_more import SERVICES as _MORE
+ROUND2 = _SEO + _MORE
+for _s in ROUND2:
+    LIVE[_s['slug']] = dict(name=_s['name'].replace('&', '&amp;'), icon=_s['icon'], art=f"art-{_s['slug']}.webp", group=_s['group'], short=_s['short'], points=[])
+
+GROUPS = [
+    ('seo', 'Get found on Google', 'For when people search for what you sell and find someone else.'),
+    ('web', 'Websites', 'A site that loads fast on a phone and makes it easy to get in touch or buy.'),
+    ('ads', 'Ads and social media', 'Reach people now with adverts, and stay visible where your customers already spend their time.'),
+    ('content', 'Words and design', 'The wording and visuals that make everything else look professional.'),
+]
+ORDER = ['local-seo', 'monthly-seo', 'off-page-seo', 'seo-audit', 'technical-seo', 'on-page-seo', 'ecommerce-seo', 'ai-seo', 'white-label-seo', 'seo-consultancy',
+         'website-development', 'ecommerce-website-development', 'website-maintenance', 'website-migration',
+         'social-media-management', 'ppc-management', 'facebook-ads', 'tiktok-ads', 'content-writing', 'graphic-design']
+assert sorted(ORDER) == sorted(LIVE), set(ORDER) ^ set(LIVE)
 
 
 def img(file, alt='', cls=''):
@@ -90,13 +85,17 @@ def svc_card(slug):
         cls='ifm-card ifm-card--svc', layout='flow')
 
 
-def soon_card(key, name, icon, text):
+def mini_card(slug):
+    """Compact service card: icon, name, one line, from-price, link."""
+    s = LIVE[slug]
+    plain = s['name'].replace('&amp;', 'and')
     return group(
-        img(f'icon-{icon}.svg', '', 'ifm-card__icon'),
-        heading(name, 3),
-        para(text),
-        para(f'<a href="{GROWTH}?service={key}">Ask for a price<span class="screen-reader-text"> for {name.replace("&amp;", "and")}</span> →</a>', 'ifm-card__more'),
-        cls='ifm-card ifm-card--soon', layout='flow')
+        img(f'icon-{s["icon"]}.svg', '', 'ifm-card__icon'),
+        heading(f'<a href="/services/{slug}/">{s["name"]}</a>', 3),
+        para(s['short']),
+        para(f'[ifm_from service="{slug}" prefix="From " fallback="Fixed price, agreed in writing"]', 'ifm-price-from'),
+        para(f'<a href="/services/{slug}/">See packages<span class="screen-reader-text"> for {plain}</span> →</a>', 'ifm-card__more'),
+        cls='ifm-card ifm-card--mini', layout='flow')
 
 
 def card(title, text, icon=None, cls='ifm-card'):
@@ -222,10 +221,11 @@ home = join(
                          'Start extra work without telling you the price first.'], 'ifm-crosses'),
                      cls='ifm-panel', layout='flow'), width='45%'),
         cls='ifm-split', center=True)),
-    section(head('More services', 'Need something else?',
-                 'We also take on SEO audits, link building, Google and Facebook ads, online shops, content writing and design. Their own pages are on the way. Until then, tell us what you need and we will reply with a fixed price.'),
-            buttons(('See all services', '/services/'), ('Ask for a price', GROWTH, 'outline'), cls='ifm-center-buttons'),
-            cls='ifm-section--rose ifm-section--tight'),
+    section(head('More services', 'Everything else a small business gets asked about',
+                 'Twenty services in all, each sold the same way: a package, a price, a delivery time and a list of what you get.'),
+            grid(*[mini_card(x) for x in ['monthly-seo', 'seo-audit', 'off-page-seo', 'ppc-management', 'facebook-ads', 'ecommerce-website-development', 'content-writing', 'graphic-design']], n=4),
+            para('<a href="/services/">See all 20 services →</a>', 'ifm-center ifm-card__more'),
+            cls='ifm-section--rose'),
     section(head('Questions', 'Before you order', None, center=True), faq([
         ('Do I have to sign a contract?', 'No. Every package is a single order. Monthly packages cover one month and stop unless you order another.'),
         ('Is VAT added at checkout?', 'No. IamFamous is not VAT registered, so no VAT is added. The price on the package is the amount you pay.'),
@@ -241,22 +241,17 @@ page('home', 'Home', home,
      'IamFamous | Local SEO, Websites &amp; Social Media for UK Small Businesses'.replace('&amp;', '&'))
 
 # ================================================================ SERVICES HUB
-hub_groups = [
-    ('seo', 'Get found on Google', 'For when people search for what you sell and find someone else.', ['local-seo']),
-    ('web', 'Websites', 'A site that loads fast on a phone and makes it easy to get in touch or buy.', ['website-development']),
-    ('ads', 'Ads and social media', 'Stay visible where your customers already spend their time.', ['social-media-management']),
-    ('content', 'Words and design', 'The wording and visuals that make everything else look professional.', []),
-]
 hub_sections = []
-for i, (key, title, sub, live) in enumerate(hub_groups):
-    cards = [svc_card(s) for s in live] + [soon_card(*x) for x in SOON[key]]
-    hub_sections.append(section(head('', title, sub), grid(*cards, n=3), cls='ifm-section--cream' if i % 2 else '', anchor=f'group-{key}'))
+for i, (key, title, sub) in enumerate(GROUPS):
+    slugs = [x for x in ORDER if LIVE[x]['group'] == key]
+    hub_sections.append(section(head('', title, sub), grid(*[mini_card(x) for x in slugs], n=3), cls='ifm-section--cream' if i % 2 == 0 else '', anchor=f'group-{key}'))
 hub = join(
     page_hero('art-services.webp', 'Example service menu with four groups (Google, websites, ads and social, words and design) beside a package card with a price and a Choose button',
               eyebrow('Services'), heading('Marketing help you can buy like anything else', 1),
               lead('Every service is sold as a package with a price, a delivery time and a list of what you get. Choose one below, or ask us which would make the biggest difference first.'),
               buttons(('Start with Local SEO', '/services/local-seo/'), ('Free growth check', GROWTH, 'outline')),
               ul(['Fixed prices in pounds', 'One-off orders, no contract', 'A report with every order'], 'ifm-checks')),
+    section(head('Start here', 'The three most small businesses need first', None), grid(*[svc_card(x) for x in LEAD], n=3, cls='ifm-grid--lead')),
     *hub_sections,
     section(head('Good to know', 'How to choose'), grid(
         card('Nobody can find you', 'Start with <a href="/services/local-seo/">Local SEO</a>. It is the cheapest way to appear when people nearby search for your trade.', 'local'),
@@ -266,15 +261,16 @@ hub = join(
     cta(),
 )
 page('services', 'Services', hub,
-     'Fixed-price marketing packages for UK small businesses: local SEO, websites, social media, ads, content and design. Priced in pounds, no contracts.',
+     'Twenty fixed-price marketing services for UK small businesses: SEO, websites, ads, social media, content and design. Priced in pounds, no contracts.',
      'Digital Marketing Services for UK Small Businesses | IamFamous', menu_order=1)
 
 
 # ================================================================ SERVICE PAGES
+LEADKEY = {}  # page slug -> key in the lead form's service list, where they differ
 def service_page(slug, eb, h1, sub, checks, for_list, not_for, pk_title, pk_sub, whatis, deliver, features, process, needs, faqs, related, excerpt, seo_title, order):
     s = LIVE[slug]
     content = join(
-        hero(eb, h1, sub, [('See packages', '#packages'), ('Ask a question', f'{GROWTH}?service={slug}', 'outline')], checks,
+        hero(eb, h1, sub, [('See packages', '#packages'), ('Ask a question', f'{GROWTH}?service={LEADKEY.get(slug, slug)}', 'outline')], checks,
              s['art'], deliver['hero_alt'], crumbs=True),
         section(columns(
             column(group(heading('A good fit if…', 3), ul(for_list, 'ifm-ticks'), cls='ifm-card', layout='flow')),
@@ -298,10 +294,10 @@ def service_page(slug, eb, h1, sub, checks, for_list, not_for, pk_title, pk_sub,
             cls='ifm-split', center=True)),
         section(head('Questions', f'{s["name"]}: your questions answered', None, center=True), faq(faqs), cls='ifm-section--cream'),
         section(head('Goes well with', 'Often ordered together', None),
-                grid(*[svc_card(r) for r in related], n=2, cls='ifm-grid--lead')),
+                grid(*[(svc_card(r) if r in LEAD else mini_card(r)) for r in related], n=2, cls='ifm-grid--lead')),
         cta(),
     )
-    page(slug, s['name'], content, excerpt, seo_title, parent='services', menu_order=order)
+    page(slug, s['name'].replace('&amp;', '&'), content, excerpt, seo_title, parent='services', menu_order=ORDER.index(slug) + 1)
 
 
 # ---------------------------------------------------------------- Local SEO
@@ -357,7 +353,7 @@ service_page(
      ('Do I need a website?', 'No, the Google Business Profile package works without one. A website helps though, and the Starter and Growth packages include changes to yours. If you do not have one, see our <a href="/services/website-development/">website packages</a>.'),
      ('Can you get me more reviews?', 'We give you a plan and the wording to ask your real customers. We never write, buy or filter reviews. It breaks Google rules and consumer law, and it is your listing that gets suspended.'),
      ('What happens after a one-off package?', 'Nothing, unless you want more. Your listings stay live. If you want regular posts, new listings and position checks, the monthly package covers one month at a time.')],
-    ['website-development', 'social-media-management'],
+    ['website-development', 'off-page-seo'],
     'Local SEO for UK small businesses: Google Business Profile, UK directory listings and local website fixes at a fixed price, with a live-link report.',
     'Local SEO Services UK | Google Business Profile &amp; Listings | IamFamous'.replace('&amp;', '&'), 1)
 
@@ -414,7 +410,7 @@ service_page(
      ('Will my website appear on Google?', 'We set up the basics Google needs to read and list your pages. Where you appear depends on your competition and on work beyond the build. For a local business, <a href="/services/local-seo/">Local SEO</a> is the natural next step.'),
      ('I already have a website. Can you redesign it?', 'Yes. Choose the package that matches the number of pages and tell us the current address in the order form. We keep your existing page addresses where we can, so links to your old pages still work.'),
      ('What happens after handover?', 'The site is yours and there is no ongoing fee to us. WordPress needs updates now and then. If you would rather not do them, ask us about a maintenance package.')],
-    ['local-seo', 'social-media-management'],
+    ['local-seo', 'website-maintenance'],
     'Fixed-price WordPress websites for UK small businesses, from 1 to 10 pages. Built for phones, yours to edit and keep, with two rounds of changes.',
     'Small Business Website Design UK | Fixed-Price WordPress Sites | IamFamous', 2)
 
@@ -471,9 +467,28 @@ service_page(
      ('Can you use my own photos and videos?', 'Yes, and we recommend it. Real photos of your work do better than stock images. Send what you have and we will build them into the designs.'),
      ('Do you film videos?', 'Not on site. The Growth package includes short-video scripts written so you can film them on a phone, and we can edit what you send.'),
      ('What happens after the month ends?', 'Nothing renews automatically. Everything we made is yours to keep and reuse. Order another month when you want one.')],
-    ['local-seo', 'website-development'],
+    ['facebook-ads', 'graphic-design'],
     'Social media management for UK small businesses: monthly content plans, designed posts, scheduling and replies at a fixed monthly price. No contract.',
     'Social Media Management UK | Fixed-Price Monthly Packages | IamFamous', 3)
+
+# ---------------------------------------------------------------- Round 2: the other 17 services
+from scenes_round2 import SCENES as _SC
+for d in ROUND2:
+    sc = _SC[d['slug']]
+    plain = d['name']
+    hero_alt = f"Example {plain} illustration: {sc['hero'][1].lower()} with {', '.join(x.lower() for x in sc['hero'][3][:4])}, beside a panel headed {sc['hero'][4].lower()}"
+    rep_alt = f"Example {sc['report'][0].lower()} for {plain}: a table with the columns {', '.join(c.lower() for c in sc['report'][2])}, and a short list headed {sc['report'][5].lower()}"
+    service_page(
+        d['slug'], d['eb'], d['h1'], d['sub'],
+        [f'[ifm_from service="{d["slug"]}" prefix="Packages from " fallback="Fixed price, agreed in writing"]'] + d['checks'],
+        d['fit'], d['notfit'], d['pk_title'], d['pk_sub'], d['whatis'],
+        dict(art=f"report-{d['slug']}.webp", hero_alt=hero_alt.replace('&', 'and').replace('"', ''), alt=rep_alt.replace('&', 'and').replace('"', ''),
+             eb=d['deliver'][0], title=d['deliver'][1], text=d['deliver'][2], bullets=d['deliver'][3]),
+        ('What the work covers', d['features']),
+        [('You order', 'Choose a package and fill in the short form on the package page. It takes a couple of minutes.'),
+         d['process'][0], d['process'][1],
+         ('You get the proof', 'The report or files arrive by email and in your account, inside the delivery time on your package.')],
+        d['needs'], d['faqs'], d['related'], d['excerpt'], d['seo_title'], 0)
 
 # ================================================================ FREE GROWTH CHECK
 growth = join(
@@ -552,16 +567,19 @@ footer = group(
         column(html('<a class="ifm-footer__logo" href="/"><img src="/wp-content/themes/iamfamous/assets/images/logo-on-dark.svg" width="186" height="28" alt="IamFamous" loading="lazy"></a>'),
                para('Fixed-price local SEO, websites and social media for UK small businesses. Clear packages, no contracts and a report you can check on every order.', 'ifm-footer__about'),
                para(f'<a href="mailto:{EMAIL}">{EMAIL}</a>', 'ifm-footer__contact'),
-               buttons(('Free growth check', GROWTH), cls='ifm-footer__cta'), width='31%'),
-        fcol('Services', ['<a href="/services/local-seo/">Local SEO</a>', '<a href="/services/website-development/">Website Development</a>',
-                          '<a href="/services/social-media-management/">Social Media Management</a>', '<a href="/services/">All services</a>']),
-        fcol('Get started', [f'<a href="{GROWTH}">Free growth check</a>', '<a href="/contact/">Contact</a>', '<a href="/my-account/">My account</a>', '<a href="/basket/">Basket</a>']),
-        fcol('How we work', ['Fixed prices in pounds', 'One-off orders, no contract', 'Full refund before work starts', 'No VAT added to prices']),
+               buttons(('Free growth check', GROWTH), cls='ifm-footer__cta'), width='28%'),
+        fcol('Get found', ['<a href="/services/local-seo/">Local SEO</a>', '<a href="/services/monthly-seo/">Monthly SEO</a>', '<a href="/services/off-page-seo/">Link Building</a>',
+                           '<a href="/services/seo-audit/">SEO Audit</a>', '<a href="/services/technical-seo/">Technical SEO</a>']),
+        fcol('Websites', ['<a href="/services/website-development/">Website Development</a>', '<a href="/services/ecommerce-website-development/">Ecommerce Websites</a>',
+                          '<a href="/services/website-maintenance/">Website Maintenance</a>', '<a href="/services/website-migration/">Website Migration</a>', '<a href="/services/content-writing/">Content Writing</a>']),
+        fcol('Ads &amp; social', ['<a href="/services/social-media-management/">Social Media</a>', '<a href="/services/ppc-management/">Google Ads</a>', '<a href="/services/facebook-ads/">Facebook Ads</a>',
+                                  '<a href="/services/tiktok-ads/">TikTok Ads</a>', '<a href="/services/graphic-design/">Graphic Design</a>']),
+        fcol('Get started', ['<a href="/services/">All 20 services</a>', f'<a href="{GROWTH}">Free growth check</a>', '<a href="/contact/">Contact</a>', '<a href="/my-account/">My account</a>', '<a href="/basket/">Basket</a>']),
         cls='ifm-footer__cols'),
     group(para('<strong>Secure checkout.</strong> Card details go straight to the payment provider and are never stored on this site.', 'ifm-footer__secure'),
           html(PAYMARKS), align='wide', cls='ifm-footer__pay', layout='flex'),
     group(para('© [ifm_year] IamFamous. All rights reserved.'),
-          para('Made for UK small businesses.', 'ifm-footer__legal'), align='wide', cls='ifm-footer__bottom', layout='flex'),
+          para('Prices in pounds. No VAT added. One-off orders, no contract.', 'ifm-footer__legal'), align='wide', cls='ifm-footer__bottom', layout='flex'),
     align='full', cls='ifm-footer', bg='ink', text='on-dark')
 # Footer flex groups: the reference markup uses justifyContent space-between.
 footer = footer.replace('"layout":{"type":"flex","flexWrap":"wrap"}}', '"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}}')

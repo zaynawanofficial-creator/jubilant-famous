@@ -76,4 +76,65 @@ return array(
 			),
 		),
 	),
+	// Round 2: IamFamous intros for the other package groups (shown above the picker on each service page).
+	'monthly-seo-plans' => array(
+		'intro' => 'A month of SEO work on your site: fixes, better pages, a new article and fresh links, all listed in a report at the end. Each plan covers one month and stops unless you order another.',
+	),
+	'profiles-and-citations' => array(
+		'intro' => 'Foundation links for any business: your details added by hand to directories, listing sites and brand profiles, with the same name, address and phone number on every one. Pick the number of links you want.',
+	),
+	'premium-links' => array(
+		'intro' => 'Guest posts on established websites, priced by the strength of the site (DR, a 0 to 100 score from the tool Ahrefs), plus a written and distributed press release. A higher DR means a stronger site that is harder to get on to.',
+	),
+	'audit-packages' => array(
+		'intro' => 'A check of your site from Google\'s point of view, written up as a short list of problems in the order to fix them. Choose the audit that matches your kind of site.',
+	),
+	'technical-seo-packages' => array(
+		'intro' => 'Hands-on fixes for the things that stop Google reading your site or make it slow on a phone. We back up first and show you the before and after for every change.',
+	),
+	'on-page-seo-packages' => array(
+		'intro' => 'Titles, descriptions, headings, wording and internal links reworked on the pages you choose, each built around one search term. Priced by the number of pages.',
+	),
+	'ecommerce-seo-packages' => array(
+		'intro' => 'SEO for online shops on Shopify or WooCommerce: category and product pages rewritten to be found, with product details labelled so Google can read them.',
+	),
+	'ai-seo-packages' => array(
+		'intro' => 'Find out what ChatGPT, Gemini and Google\'s AI answers say about your business, then make your website and business details clear enough for them to use.',
+	),
+	'white-label-packages' => array(
+		'intro' => 'SEO work for your clients, delivered to you without our name on it. Order one package per client and add your own logo to the report.',
+	),
+	'consultancy-packages' => array(
+		'intro' => 'Advice for owners and teams who do their own SEO: a call, a strategy session, a written 90-day plan or a month with an adviser to ask.',
+	),
+	'online-store-packages' => array(
+		'intro' => 'An online shop built on Shopify or WooCommerce with your products loaded and payments, delivery and tax set up, or product upload alone for a shop you already have.',
+	),
+	'maintenance-plans' => array(
+		'intro' => 'One-off WordPress fixes by a developer, or a month of updates, backups and small changes. Every job starts with a backup and ends with a note saying what was wrong.',
+	),
+	'migration-packages' => array(
+		'intro' => 'Move host or launch a redesign without losing the visitors Google already sends you. Every old address is redirected and tested, and we keep watch after launch.',
+	),
+	'ppc-packages' => array(
+		'intro' => 'Google Ads audited, set up or managed month to month. You pay Google directly for clicks; the package price is our fee for the work.',
+	),
+	'facebook-ads-packages' => array(
+		'intro' => 'Facebook and Instagram adverts audited, set up or managed, with ad designs made for you. You pay Meta directly for ad spend.',
+	),
+	'tiktok-ads-packages' => array(
+		'intro' => 'TikTok adverts planned around hooks and scripts you can film on a phone, with campaign setup and monthly management. You pay TikTok directly for ad spend.',
+	),
+	'article-writing' => array(
+		'intro' => 'A single researched article written in plain English, with a page title and description for Google. Choose the length that suits the subject.',
+	),
+	'content-batches' => array(
+		'intro' => 'A set of 1,000-word articles planned together around one subject, so they link to each other and to your service pages. You approve the topic list before we write.',
+	),
+	'social-creatives' => array(
+		'intro' => 'Graphics for posts and adverts in your colours and fonts, sized correctly for each platform and sent ready to upload. You supply the wording for each one.',
+	),
+	'branding' => array(
+		'intro' => 'A logo, colours and fonts that make your business look the same everywhere, with the files a printer or web designer will ask for.',
+	),
 );

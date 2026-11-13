@@ -1,6 +1,27 @@
 # INSTALL — IamFamous.uk
 
-## Round 1: theme 1.0.0 + plugin 1.0.0 (12 Nov 2026)
+## Which section do I follow?
+- **Nothing installed yet:** follow "First install" below, using the newest zips (theme 1.1.0, plugin 1.1.0). You get all 20 service pages in one go. Skip the update section.
+- **Round 1 already installed:** follow "Updating to theme 1.1.0 + plugin 1.1.0".
+
+## Updating to theme 1.1.0 + plugin 1.1.0 (13 Nov 2026) — only if round 1 is already installed
+Adds the other 17 service pages, the Services mega menu and sharper redirects. No prices change.
+1. **Backup** in Hostinger.
+2. **Plugin:** Plugins → Add Plugin → Upload Plugin → `iamfamous-core.zip` → **Replace current with uploaded**.
+3. **Import:** Tools → **IamFamous catalog** → untick Dry run → **Run import**. This refreshes the short intro shown above each package picker. Packages stay drafts until you approve prices.
+4. **Theme:** Appearance → Themes → Add Theme → Upload Theme → `iamfamous-theme.zip` → **Replace current with uploaded**.
+5. Appearance → **IamFamous Setup** → tick **Overwrite** → **Build the site**. This creates the 17 new service pages and rebuilds Home, Services and the three existing service pages with the new menu links and cards. If you edited any of those pages by hand, tell Claude first.
+6. LiteSpeed Cache → Toolbox → **Purge All** (plus CSS/JS and UCSS if on).
+7. **Check on your phone:**
+   - [ ] Menu → **Services** opens four groups listing all 20 services.
+   - [ ] `/services/` shows four groups of cards; every card opens a page.
+   - [ ] `/google-ads-service/` (old address) now lands on the Google Ads page.
+   - [ ] On desktop, hovering **Services** opens the wide menu.
+
+---
+
+## First install (theme + plugin, any version)
+
 
 Two files to upload: **`iamfamous-core.zip`** (plugin) and **`iamfamous-theme.zip`** (theme). Allow 15 minutes. Do the steps in this order.
 
@@ -29,7 +50,7 @@ Appearance → Themes → Add Theme → **Upload Theme** → `iamfamous-theme.zi
 Appearance → **IamFamous Setup** → leave the default ticks → **Build the site**.
 
 This:
-- creates Home, Services, Local SEO, Website Development, Social Media Management, Free growth check, Contact and Insights
+- creates Home, Services, all 20 service pages, Free growth check, Contact and Insights
 - sets Home as the front page and Insights as the blog page
 - uploads the logo and site icon, sets the title and tagline
 - moves the previous site's pages to **Draft** (nothing is deleted; if one sits on an address the new site needs, its address gets `-old` added)
@@ -43,7 +64,7 @@ Read the result log. Lines starting `ERROR` or `SKIP` should not appear; send th
 
 ### 8. Check on your phone (private tab)
 - [ ] Home shows the dark plum hero: "Get seen. Get chosen. Get famous."
-- [ ] Header shows only the logo, basket and **Menu**. Tap Menu: a panel slides in with Home first, then Services, Local SEO, Websites, Social media, Contact.
+- [ ] Header shows only the logo, basket and **Menu**. Tap Menu: a panel slides in with Home first, then Services (tap it for all 20 in four groups), Local SEO, Websites, Social media, Contact.
 - [ ] `/services/local-seo/`: scroll down past the hero. A **Choose package** bar appears at the bottom and disappears when you reach the packages section.
 - [ ] `/free-growth-check/`: send a test request. It should appear in wp-admin → **Leads** and arrive at the admin email.
 - [ ] `/web-development/` (an old address) lands on the new Website Development page.
@@ -71,18 +92,30 @@ Do not take live payments yet. When you want to test an order: Appearance → Ia
 
 The plugin redirects an old address **only when it would otherwise be a 404**, so a page that still exists is never hijacked. The map lives in `wp-content/plugins/iamfamous-core/includes/class-ifm-redirects.php`.
 
-| Old address | Goes to | Why |
-|---|---|---|
-| `/web-development/` | `/services/website-development/` | Same service |
-| `/social-media-management/` | `/services/social-media-management/` | Same service |
-| `/google-ads-service/`, `/backlinks-service/`, `/monthly-seo-service/`, `/on-page-seo/`, `/content-writing/`, `/faqs/`, `/shop/` | `/services/` | Their own pages come in later rounds; each rule is then pointed at its page |
-| `/contact-us/` | `/contact/` | Same page |
-| `/about-us/` | `/` | No About page yet |
-| `/blog/` | `/insights/` | Same page, new name |
-| `/product-category/…` (7 categories) | The matching service page, or `/services/` | Old shop categories |
-| `/product/sm-…` (6 products) | `/services/social-media-management/` | Old social plans |
-| `/product/…` website products (9) | `/services/website-development/` | Old website plans |
-| `/product/…` the other 33 products | `/services/` | Backlink, content, ads, on-page and SEO plans |
+| Old address | Goes to |
+|---|---|
+| `/web-development/` | `/services/website-development/` |
+| `/google-ads-service/` | `/services/ppc-management/` |
+| `/backlinks-service/` | `/services/off-page-seo/` |
+| `/monthly-seo-service/` | `/services/monthly-seo/` |
+| `/on-page-seo/` | `/services/on-page-seo/` |
+| `/content-writing/` | `/services/content-writing/` |
+| `/social-media-management/` | `/services/social-media-management/` |
+| `/contact-us/` | `/contact/` |
+| `/about-us/` | `/` (no About page yet) |
+| `/faqs/`, `/shop/` | `/services/` |
+| `/blog/` | `/insights/` |
+| `/product-category/…` (7 old categories) | The matching service page |
+| 9 backlink products | `/services/off-page-seo/` |
+| 9 content products | `/services/content-writing/` |
+| 6 Google Ads products | `/services/ppc-management/` |
+| 6 on-page products | `/services/on-page-seo/` |
+| 3 SEO plans | `/services/monthly-seo/` |
+| 6 social plans | `/services/social-media-management/` |
+| 4 website builds | `/services/website-development/` |
+| E-Commerce Starter | `/services/ecommerce-website-development/` |
+| Fix & Tune, Quick Fix | `/services/website-maintenance/` |
+| Speed Boost, Starter Optimization | `/services/technical-seo/` |
 
 **The 5 old blog posts** are not in the map because their addresses were not in the handover pack. They stay published and show in the new blog design. Before launch, decide for each one: keep, rewrite or redirect.
 

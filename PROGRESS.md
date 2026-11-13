@@ -1,5 +1,36 @@
 # PROGRESS
 
+## Round 2: theme 1.1.0 + plugin 1.1.0 · 13 Nov 2026 · 🟡 ready to install
+**Round 1 push:** done on 13 Nov (commit `24ea183`), after the owner asked again; the earlier attempts were refused by the session's permission layer.
+
+### Done
+- **17 new service pages**, original UK copy, same structure as the first three (hero, fit / not fit, picker with comparison table, "what is", delivery proof, what the work covers, process, what we need, five FAQs, related services, growth-check CTA): Monthly SEO, Link Building, SEO Audit, Technical SEO, On-Page SEO, Ecommerce SEO, AI SEO, White Label SEO, SEO Consultancy, Ecommerce Websites, Website Maintenance, Website Migration, Google Ads, Facebook & Instagram Ads, TikTok Ads, Content Writing, Graphic Design & Branding. Data in `tools/services_seo.py` and `tools/services_more.py`.
+- **34 new illustrations** (a labelled hero scene and a delivery-report scene for each new service), generated from `tools/scenes_round2.py`.
+- **Services hub** rebuilt: the three lead offers with illustrated cards, then all 20 in four groups. Home gets an eight-card "more services" grid. Related-service cards on every service page.
+- **Menu:** Services is now the mega panel (desktop) and accordion (drawer) with all 20 services in four groups. Footer has four equal link columns.
+- **Redirects** now point each old page, category and product at its own new service page.
+- **Package intros** rewritten in IamFamous wording for the other 20 package groups (shown above each picker).
+- Copy checked line by line against the package deliverables; three claims that went beyond the packages were removed.
+
+### Tests run
+- `php -l` on every PHP file in the theme, plugin and tests: clean.
+- `tests/importer-smoke.php`: ALL PASSED (25 checks). `tests/nav-smoke.php`: ALL PASSED (14 checks: all 20 services in the mega panel and drawer, each with a page pattern). `tests/redirects-smoke.php`: ALL PASSED (10 checks: every target is a page the theme builds).
+- `tests/validate-blocks.js`: 42 files, 4,377 blocks, **0 invalid** (13 Custom HTML blocks counted but not compared; WooCommerce blocks not registered in the validator).
+- Real render in the local WordPress: Setup screen run with Overwrite created the 17 new pages and updated the existing ones, with no errors or warnings.
+- Playwright full-page, **50 renders, no horizontal scroll**: home, hub and all 17 new service pages at 390 and 1440; home, hub, Link Building and Google Ads at 360, 768 and 1024.
+- `tests/local-wp/ui-checks.js`: 14/14. `tests/local-wp/menu-checks.js`: mega panel opens with Enter, lists 20 links, marks the current page, closes with Escape and returns focus; fits the viewport at 1024; the drawer accordion opens on a service page with 20 links.
+
+### Not run
+Same as round 1: the real WooCommerce basket, checkout, order confirmation and My Account, payments, emails, Lighthouse, and WordPress 7.1.4 / PHP 8.5 specifically.
+
+### Known gaps
+- Deliverable bullet lists for the 17 new services still use the shared scope wording (all are drafts until prices are approved). Reword them before or with price approval.
+- Packages page, How it works, About, FAQ, legal pages, original guides, bundles and add-ons.
+- A local-SEO-specific brief form.
+
+### Next step
+Install with INSTALL.md (first install, or the 1.1.0 update), then approve prices. Next round candidates: reword the remaining deliverables, Packages / How it works / FAQ pages, legal pages (needs company details), first guides.
+
 ## Round 1: theme 1.0.0 + plugin 1.0.0 · 12 Nov 2026 · 🟡 ready to install
 **Deploy route:** zips (see INSTALL.md). The Hostinger MCP address the owner supplied (`websites-agents.hostinger.com/iamfamous.uk/mcp`) and the Hostinger connector are both refused by this cloud environment's network policy, and wordpress.org is blocked too. Nothing on the live site was touched.
 

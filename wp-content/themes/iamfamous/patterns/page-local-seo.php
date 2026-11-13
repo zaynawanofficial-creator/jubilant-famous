@@ -532,39 +532,25 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-social.webp' ) ); ?>" alt=""/></figure>
+<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-link.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/social-media-management/">Social Media Management</a></h3>
+<h3 class="wp-block-heading"><a href="/services/off-page-seo/">Link Building</a></h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Regular posts in your colours and your voice. Take a plan and post it yourself, or hand over the designing, scheduling and replies.</p>
+<p>Directory and profile links, guest posts on real websites and press releases, each delivered with a live link you can open.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"><!-- wp:list-item -->
-<li>A month of posts planned ahead</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Designed, captioned and scheduled</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Real followers only, never bought</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
 <!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="social-media-management" prefix="From " fallback="Fixed price, agreed in writing"]</p>
+<p class="ifm-price-from">[ifm_from service="off-page-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/social-media-management/">See Social Media Management packages →</a></p>
+<p class="ifm-card__more"><a href="/services/off-page-seo/">See packages<span class="screen-reader-text"> for Link Building</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

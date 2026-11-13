@@ -23,19 +23,26 @@
 | Public email | **support@iamfamous.uk** (used in the footer, contact page, checkout, drawer and Organization schema). The mailbox must exist before launch |
 | Founder | **Not shown.** IamFamous speaks as an agency ("the IamFamous team"). No named person, bio or photo; articles are attributed to the organisation |
 | Prices | "Improve prices but round off after the exchange rate": rate rechecked (£1 = $1.333), rounding moved after conversion to clean price points, £5 minimum order. Still DRAFT (`price_approved=0`) |
-| Service scope for round 1 | Live pages: Local SEO, Website Development, Social Media Management. The other 17 services are listed on the hub with "Ask for a price" until their pages are written |
+| Service pages | Round 1: Local SEO, Website Development, Social Media Management. Round 2 (13 Nov 2026): the other 17. All 20 are live pages with their own packages |
 | Lead magnet | `/free-growth-check/` replaces "Get a quote" as the main form (it also takes price requests) |
 
 ## Decided by Claude in round 1 (change any of these by saying so)
 | Item | Decision and reason |
 |---|---|
-| Menu | Flat for now (Home, Services, Local SEO, Websites, Social media, Contact), because only three service pages exist. The mega panel code is kept and switches on when groups are added in `inc/nav.php` |
+| Menu | Home, Services (mega panel with all 20 in four groups), then the three lead offers (Local SEO, Websites, Social media) and Contact. Edit in `inc/nav.php` |
 | Footer and checkout links | No links to Terms, Refunds, Privacy or Cookies until those pages exist (a later round). The lead form states how the data is used |
 | Previous site pages | The Setup screen moves old published pages to Draft (never deletes) and renames a clashing address to `…-old` |
 | Old URLs | 301 only when the old address is a 404, so nothing live is hijacked. Map in `class-ifm-redirects.php` |
 | "From" prices | `[ifm_from]` shows a fallback line ("Fixed price, agreed in writing") while no price is published |
 | Response-time wording | The site says "we reply within one working day" (forms, checkout). Confirm you can keep it, or give the figure you want |
 | Payment marks | Footer shows Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay (what Stripe + PayPal provide). Trim once the gateways are chosen |
+
+## Decided by Claude in round 2
+| Item | Decision and reason |
+|---|---|
+| Analytics, Email Marketing, Marketing Automation | In the catalogue as drafts, no pages (the brief says publish only if the owner asks) |
+| Scope stated in copy | Page copy only promises what the package deliverables list. Where a draft said more (shop test orders, video editing, a refund if a fix fails) it was removed |
+| Service names | "Link Building" for Off-Page SEO, "Google Ads (PPC)" for PPC Management, "Facebook & Instagram Ads" for Facebook Ads. Page addresses keep the catalogue slugs |
 
 ## Open (ask the owner when it becomes blocking; don't invent)
 | Item | Status |
