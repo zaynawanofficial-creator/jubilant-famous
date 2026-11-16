@@ -1,9 +1,12 @@
-# IamFamous.uk pricing (v3, approved 15 Nov 2026)
+# IamFamous.uk pricing (v4, approved 15–16 Nov 2026)
 
 ## Status: APPROVED (15 Nov 2026)
 The owner approved the prices on 15 Nov 2026 and asked for "what is more professional and trust building". Two things were decided on that basis:
 - **Monthly plans are all held at the 10% discount** (not 25% on the smallest). They carry the ongoing work, and a steady monthly price reads as more credible than a cut-price one. Six prices rose by £10 to £20: Local SEO Management £159, SEO Starter £129, SEO Growth £269, White Label Starter £199, PPC Starter £199, Social Starter £159.
 - **Three starter bundles** were added: the sum of their parts less 10%, rounded down to a clean price.
+
+- **16 Nov 2026: minimum price raised from £5 to £10** at the owner's request, with the cheap tiers above it stepping up: citation links 5/10/15/20/30 are now £10/£12/£15/£18/£20, the DR 10+ guest post, 500-word article and single social graphic are £10, and the Local Starter Bundle is £119.
+- **Optional extras** on one-off packages: an extra round of changes (+15% of the package price, minimum £10) and express delivery (+25%, minimum £15).
 
 Every priced package with a live service page is now `price_approved=YES` and is published by the importer. Analytics, Email Marketing and Marketing Automation stay drafts because they have no page and no confirmed scope.
 
@@ -11,8 +14,8 @@ Every priced package with a live service page is now `price_approved=YES` and is
 `tools_price_draft.py` reads the SEO Booster USD catalogue (snapshot in `reference/seobooster-catalog-usd-2026-11-12.csv`) and writes `SERVICE_CATALOG.csv`, which the `iamfamous-core` importer reads. SKUs are prefixed `IF-` and the currency is GBP.
 1. Discount by price rank inside each group: 25% for the cheapest, 10% for the dearest, evenly in between. Monthly plans (unit "month") always get 10%.
 2. `GBP = USD × 0.75 × (1 − discount)`. **0.75 = £1 : $1.333**, from the 6 Nov 2026 market close of 1.3352.
-3. **Rounding happens after the exchange rate and discount**, to clean price points: £5, 6, 8, 9, 10, 12, 15, 18, 19, 22, 25, 29 under £30, then 32, 35, 39, 42, 45, 49, 55, 59 … 99, 109, 119 … Quantity ladders always rise with quantity.
-4. **£5 minimum order.**
+3. **Rounding happens after the exchange rate and discount**, to clean price points: £10, 12, 15, 18, 20, 22, 25, 29 under £30, then 32, 35, 39, 42, 45, 49, 55, 59 … 99, 109, 119 … Quantity ladders always rise with quantity.
+4. **£10 minimum price.**
 5. Quote-only packages stay quote-only.
 6. Bundles: sum of the component prices × 0.90, rounded down to a clean price.
 
@@ -26,22 +29,22 @@ python3 tools_price_draft.py reference/seobooster-catalog-usd-2026-11-12.csv SER
 - **Many at once:** tell Claude. The catalogue and the plugin zip are rebuilt, and you re-run Tools → IamFamous catalog.
 
 ## Worth watching after launch
-- **Micro tiers** (5 links £5, 10 links £6, DR 10+ guest post £6, 1 social graphic £5, 500-word article £8): check they still clear your fulfilment cost and card fees. Raise them in wp-admin if not.
+- **Express delivery** promises a refund of the express fee if an order takes longer than the standard delivery time. Switch it off (ask Claude) if you cannot staff it.
 - **VAT:** not registered, so none is charged or shown. If you register, tell Claude: every "no VAT" statement on the site has to change.
 - **Exchange rate:** prices are now fixed in pounds and do not move with the rate. Recheck the reference comparison only if you reprice.
 
 ## Price table (* cheaper = real-value discount against the SEO Booster price at £1 = $1.333)
 | Service | Package | Reference (USD) | IamFamous price | Cheaper* | On sale |
 |---|---|---:|---:|---:|---|
-| Off-Page SEO | 5 Profile & Citation Links | $5 | £5 | £5 minimum | Yes |
-| Off-Page SEO | 10 Profile & Citation Links | $10 | £6 | 20% | Yes |
-| Off-Page SEO | 15 Profile & Citation Links | $14 | £8 | 24% | Yes |
-| Off-Page SEO | 20 Profile & Citation Links | $17 | £10 | 22% | Yes |
-| Off-Page SEO | 30 Profile & Citation Links | $24 | £15 | 17% | Yes |
+| Off-Page SEO | 5 Profile & Citation Links | $5 | £10 | £10 minimum | Yes |
+| Off-Page SEO | 10 Profile & Citation Links | $10 | £12 | £10 minimum | Yes |
+| Off-Page SEO | 15 Profile & Citation Links | $14 | £15 | £10 minimum | Yes |
+| Off-Page SEO | 20 Profile & Citation Links | $17 | £18 | £10 minimum | Yes |
+| Off-Page SEO | 30 Profile & Citation Links | $24 | £20 | £10 minimum | Yes |
 | Off-Page SEO | 50 Profile & Citation Links | $37 | £25 | 10% | Yes |
 | Off-Page SEO | 75 Profile & Citation Links | $52 | £32 | 18% | Yes |
 | Off-Page SEO | 100 Profile & Citation Links | $65 | £42 | 14% | Yes |
-| Off-Page SEO | Guest Post – DR 10+ | $10 | £6 | 20% | Yes |
+| Off-Page SEO | Guest Post – DR 10+ | $10 | £10 | £10 minimum | Yes |
 | Off-Page SEO | Guest Post – DR 20+ | $25 | £15 | 20% | Yes |
 | Off-Page SEO | Guest Post – DR 30+ | $49 | £29 | 21% | Yes |
 | Off-Page SEO | Guest Post – DR 40+ | $69 | £42 | 19% | Yes |
@@ -58,7 +61,7 @@ python3 tools_price_draft.py reference/seobooster-catalog-usd-2026-11-12.csv SER
 | Website Maintenance | Multi-Fix Bundle (up to 5 issues) | $149 | £99 | 11% | Yes |
 | Website Maintenance | Basic Care – 1 Month | $49 | £29 | 21% | Yes |
 | Website Maintenance | Growth Care – 1 Month | $129 | £79 | 18% | Yes |
-| Content Writing | 500-Word SEO Article | $15 | £8 | 29% | Yes |
+| Content Writing | 500-Word SEO Article | $15 | £10 | 11% | Yes |
 | Content Writing | 1,000-Word SEO Article | $29 | £18 | 17% | Yes |
 | Content Writing | 1,500-Word SEO Article | $42 | £25 | 21% | Yes |
 | Content Writing | 2,000-Word SEO Article | $55 | £35 | 15% | Yes |
@@ -67,7 +70,7 @@ python3 tools_price_draft.py reference/seobooster-catalog-usd-2026-11-12.csv SER
 | Content Writing | 5 × 1,000-Word Articles | $129 | £75 | 22% | Yes |
 | Content Writing | 10 × 1,000-Word Articles | $249 | £149 | 20% | Yes |
 | Content Writing | 20 × 1,000-Word Articles | $469 | £299 | 15% | Yes |
-| Graphic Design | 1 Social Media Graphic | $10 | £6 | 20% | Yes |
+| Graphic Design | 1 Social Media Graphic | $10 | £10 | £10 minimum | Yes |
 | Graphic Design | 3 Social Media Graphics | $25 | £15 | 20% | Yes |
 | Graphic Design | 5 Social Media Graphics | $39 | £25 | 15% | Yes |
 | Graphic Design | 10 Social Media Graphics | $69 | £45 | 13% | Yes |
@@ -146,6 +149,6 @@ python3 tools_price_draft.py reference/seobooster-catalog-usd-2026-11-12.csv SER
 | Social Media Management | Social Management – 1 Month (Starter) | $249 | £159 | 15% | Yes |
 | Social Media Management | Social Management – 1 Month (Growth) | $449 | £299 | 11% | Yes |
 | Graphic Design | Canva Brand Kit Setup | $69 | £39 | 25% | Yes |
-| Bundles | Local Starter Bundle | – | £109 | 17% off £131 | Yes |
+| Bundles | Local Starter Bundle | – | £119 | 14% off £139 | Yes |
 | Bundles | Get Found Bundle | – | £329 | 11% off £368 | Yes |
 | Bundles | Online Presence Bundle | – | £399 | 13% off £457 | Yes |

@@ -3,7 +3,7 @@
 build_patterns.py calls build(g) with its own namespace, so the block helpers and page() are shared.
 Copy rules as everywhere: original, UK spelling, plain English, nothing invented, no guarantees.
 Legal pages are written to match how the site actually works. They are not legal advice: the owner
-should have them checked and must add the legal name of the trader (see DECISIONS.md).
+should have them checked. The trader is Mehreen, a sole trader trading as IamFamous (owner, 16 Nov 2026).
 """
 
 UPDATED = '15 November 2026'
@@ -33,6 +33,10 @@ COVERS = {
     'google-business-profile-checklist': ('Local SEO guide', 'Google Business Profile checklist', '12 things to get right'),
     'small-business-website-checklist': ('Website guide', 'What a small business website needs', 'Page by page'),
     'social-media-post-ideas-small-business': ('Social media guide', '20 post ideas for small businesses', 'With a simple weekly routine'),
+    'how-to-ask-customers-for-reviews': ('Reviews guide', 'How to ask customers for reviews', 'And stay within UK rules'),
+    'google-ads-vs-facebook-ads': ('Advertising guide', 'Google Ads or Facebook ads?', 'Which to try first'),
+    'how-seo-is-priced': ('SEO guide', 'How SEO is priced', 'Hourly, retainer or fixed package'),
+    'what-is-a-citation-local-seo': ('Local SEO guide', 'What is a citation?', 'Name, address and phone explained'),
 }
 
 
@@ -136,6 +140,7 @@ def build(g):
                    para('When the job is finished you get proof: the live links, the files, the before and after. If a package is not right for you, the page says so.'), width='58%'),
             column(group(heading('IamFamous at a glance', 3),
                          ul(['<strong>What we are:</strong> a digital marketing agency.',
+                             '<strong>Who runs it:</strong> IamFamous is the trading name of Mehreen, a sole trader.',
                              '<strong>Who we work for:</strong> small businesses across the United Kingdom.',
                              '<strong>What we sell:</strong> 20 services as fixed-price packages.',
                              '<strong>How you buy:</strong> online, in pounds, with no contract.',
@@ -190,6 +195,7 @@ def build(g):
             ('How will I receive the work?', 'By email, and saved in your account. Depending on the package you get live links, files or a written report.'),
             ('What if I want changes?', 'Each package lists the changes included. Send one list of what you would like altered and we rework it.'),
             ('What do you need from me?', 'It depends on the package and is listed on each package page. We ask for access by invite and never for a password.'),
+            ('Can I get my order faster?', 'Most one-off packages offer express delivery as an optional extra on the package page. Your order goes to the front of the queue and we aim to deliver in half the usual time. If it takes longer than the standard delivery time, the express fee is refunded.'),
         ]),
         ('Refunds', [
             ('Can I cancel?', 'Yes. Cancel before work starts and you get a full refund. After work has started, we refund the part that has not been done.'),
@@ -258,7 +264,7 @@ def build(g):
         page(slug, title, content, excerpt, seo_title, menu_order=order)
 
     P = para
-    who = f'This website is run by IamFamous ("we", "us"). Our postal address is {ADDRESS} and our email is {mail}.'
+    who = f'This website is run by Mehreen, a sole trader trading as IamFamous ("we", "us"). Our postal address is {ADDRESS} and our email is {mail}.'
 
     legal('terms', 'Terms of Service',
           'These terms apply when you order a package from iamfamous.uk. They say what you get, what we need from you, how payment, delivery, changes and refunds work, and where each of us stands if something goes wrong.',
@@ -274,6 +280,7 @@ def build(g):
            ('delivery', 'Delivery times', [P('The delivery time shown on a package starts when we have everything listed under "What we need from you". If we are waiting for something from you, the delivery time is paused until we receive it.'),
                                            P('Delivery times are our honest estimate of working days, Monday to Friday, excluding UK public holidays. If we expect to be late, we will tell you and explain why. If we are more than 10 working days late for reasons within our control, you may cancel the undelivered part and be refunded for it.')]),
            ('changes', 'Changes and revisions', [P('Each package states the changes or revisions included. A round of changes is one list sent together. Requests outside the scope of the package are quoted separately, and we only go ahead if you accept the price.')]),
+           ('extras', 'Optional extras', [P('Some packages offer optional extras at checkout. An extra round of changes adds one round to those included in the package. Express delivery moves your order to the front of our queue, and we aim to deliver in half the stated delivery time. If an express order takes longer than the standard delivery time shown on the package, we refund the express fee. Extras are not offered on monthly packages.')]),
            ('results', 'What we do and do not promise', [P('We promise to carry out the work listed on your package with reasonable care and skill, and to deliver what the package describes.'),
                                                         P('We do not promise results that depend on others. This includes positions in Google or other search engines, mentions by AI tools, numbers of visitors, followers, enquiries or sales, and whether a third-party site keeps, labels or indexes a link. Search engines, advertising platforms and other websites make their own decisions and change their rules without notice.')]),
            ('links', 'Links and listings on other websites', [P('Where a package includes links or listings, we replace free of charge any that are not live when we deliver. Guest posts removed within 90 days of publication are replaced. After that, placements are outside our control.')]),
@@ -308,7 +315,7 @@ def build(g):
 
     legal('privacy-policy', 'Privacy Policy',
           'This policy explains what personal information we collect when you use iamfamous.uk or order from us, why we collect it, who we share it with and what your rights are.',
-          ['We collect only what we need to reply to you and carry out your order.', 'We never sell personal information.', 'Card details go to the payment provider, not to us.', 'This site sets only essential cookies.', 'You can ask to see, correct or delete your information.'],
+          ['We collect only what we need to reply to you and carry out your order.', 'We never sell personal information.', 'Card details go to the payment provider, not to us.', 'Optional cookies are used only if you allow them.', 'You can ask to see, correct or delete your information.'],
           [('who', 'Who is responsible', [P(who + ' We are the controller of the personal information described here.')]),
            ('what', 'What we collect', [ul(['<strong>Enquiries:</strong> your name, email address, website, the service you ask about and your message.',
                                             '<strong>Orders:</strong> your name, email, billing details, what you bought and the order history.',
@@ -328,24 +335,26 @@ def build(g):
            ('rights', 'Your rights', [P('You can ask us for a copy of your information, ask us to correct or delete it, ask us to limit how we use it, object to our using it, and ask for it in a portable form. To use any of these rights, email us. We reply within one month and there is no charge.'),
                                       P('If you are unhappy with how we have handled your information, please tell us first. You also have the right to complain to the Information Commissioner\'s Office at ico.org.uk.')]),
            ('security', 'How we protect it', [P('The site uses an encrypted connection. Access to orders and files is limited to the people who need it, and uploaded files are stored outside the public part of the website. No system is perfectly secure, so please do not send us passwords or sensitive personal information that the order does not need.')]),
-           ('cookies', 'Cookies', [P('This site uses only the cookies needed for the basket, checkout and login to work. Details are in our <a href="/cookie-policy/">cookie policy</a>.')]),
+           ('cookies', 'Cookies', [P('This site uses the cookies needed for the basket, checkout and login, and remembers your cookie choice. Optional cookies are used only with your permission. Details are in our <a href="/cookie-policy/">cookie policy</a>.')]),
            ('changes', 'Changes to this policy', [P('If we change how we use personal information, we will update this page and change the date at the top.')])],
           'IamFamous privacy policy: what personal information we collect, why, who we share it with, how long we keep it and how to use your rights.',
           'Privacy Policy | IamFamous', 22)
 
     legal('cookie-policy', 'Cookie Policy',
-          'A cookie is a small file a website saves in your browser. This site uses only the cookies it needs to work. It does not use advertising or analytics cookies.',
-          ['Only essential cookies are used.', 'No advertising cookies.', 'No analytics cookies.', 'Nothing is shared with advertisers.', 'You can block cookies in your browser, but the basket will stop working.'],
-          [('what', 'What cookies are', [P('Cookies let a website remember things between pages, such as what is in your basket or that you are logged in. Essential cookies are the ones a site cannot work without. UK law allows these without asking for consent, which is why you do not see a cookie banner here.')]),
+          'A cookie is a small file a website saves in your browser. This site needs a few cookies to work, and asks before using any others. At the moment it uses no advertising or analytics cookies at all.',
+          ['Essential cookies are always on, because the basket and login need them.', 'Optional cookies are used only if you choose "Allow all".', 'No advertising or analytics cookies are in use today.', 'You can change your choice at any time with "Cookie settings" in the footer.', 'Nothing is shared with advertisers.'],
+          [('what', 'What cookies are', [P('Cookies let a website remember things between pages, such as what is in your basket or that you are logged in. Essential cookies are the ones a site cannot work without. UK law allows these without asking for consent. Anything else needs your permission first, which is what the cookie banner is for.')]),
+           ('choice', 'Your choice', [P('The first time you visit, a small banner asks whether you want "Essential only" or "Allow all". We remember your answer for 180 days in a cookie called ifm_consent. To change it, use the <a href="#cookie-settings">Cookie settings</a> link here or in the footer.'), P('No optional cookies are in use at the moment, so both choices currently give you the same site. If we add analytics or similar tools in future, they will load only for visitors who chose "Allow all", and this page will list them.')]),
            ('which', 'The cookies this site uses', [g['table'](['Cookie', 'What it does', 'How long it lasts'],
                                                              [['woocommerce_cart_hash, woocommerce_items_in_cart', 'Remember what is in your basket', 'Until you close the browser'],
                                                               ['wp_woocommerce_session_*', 'Links your basket to your visit', 'Up to 2 days'],
                                                               ['wordpress_logged_in_*, wordpress_sec_*', 'Keep you logged in to your account', 'Until you log out, or up to 14 days'],
-                                                              ['wordpress_test_cookie', 'Checks whether your browser accepts cookies', 'Until you close the browser']], cls='ifm-table')]),
+                                                              ['wordpress_test_cookie', 'Checks whether your browser accepts cookies', 'Until you close the browser'],
+                                                              ['ifm_consent', 'Remembers your cookie choice', '180 days']], cls='ifm-table')]),
            ('third', 'Payment providers', [P('When you pay, the payment provider may set its own cookies to process the payment securely and prevent fraud. Those are governed by the provider\'s own cookie policy.')]),
            ('control', 'How to control cookies', [P('You can block or delete cookies in your browser settings. If you block the cookies above, you will still be able to read the site, but the basket, checkout and account will not work.')]),
-           ('changes', 'If this changes', [P('If we ever add analytics or other non-essential cookies, we will ask for your consent first and update this page.')])],
-          'The cookies used on iamfamous.uk: only essential cookies for the basket, checkout and login. No advertising or analytics cookies.',
+           ('changes', 'If this changes', [P('If we add analytics or other optional cookies, we will list them here before they are switched on.')])],
+          'The cookies used on iamfamous.uk: essential cookies for the basket, checkout and login, your cookie choice, and no advertising or analytics cookies.',
           'Cookie Policy | IamFamous', 23)
 
     legal('accessibility', 'Accessibility Statement',
@@ -474,3 +483,107 @@ def build(g):
                   ('Should I use the same post on every platform?', 'You can reuse the idea, but adjust the size and wording. What reads well on LinkedIn is usually too formal for Instagram.')]),
         inline_cta('Want to know how your pages look to a customer?', 'Ask for a free growth check and we will review your social pages, Google listing and website.', 'Get my free growth check', GROWTH),
     ), '20 social media post ideas for small businesses in four groups (helpful, proof, personal, offers), with a simple weekly posting routine.', 'Social media')
+
+    post('how-to-ask-customers-for-reviews', 'How to ask customers for reviews (and stay within UK rules)', join(
+        takeaways(['Ask every customer, soon after the job, and make it one tap to do.', 'Never pay for reviews, offer rewards or ask only the happy customers.', 'Fake reviews are banned under UK consumer law, not just by Google.', 'Reply to every review, good or bad.']),
+        P('Reviews do two jobs for a local business. They help Google decide who to show on the map, and they help a stranger decide whether to call you. Most happy customers will leave one if you ask at the right moment and make it easy. This guide covers how to ask, what to say and what the rules do not allow.'),
+        H('When to ask'),
+        P('Ask when the customer is most pleased: straight after the job is finished, the order has arrived or the problem is fixed. A week later the moment has passed. If you see customers in person, ask in person and then send the link so they do not have to search for you.'),
+        H('Make it one tap'),
+        P('In your Google Business Profile, choose "Ask for reviews" to get a short link that opens the review box directly. Put that link in a text message or email, on your invoices and receipts, and as a QR code on a card or at the till. Every extra step you remove means more reviews.'),
+        H('What to say'),
+        P('Keep the message short, personal and free of pressure. For example: "Thanks for choosing us today. If you have a minute, a Google review really helps a small business like ours. Here is the link." Do not suggest what to write or which star rating to give.'),
+        inline_cta('Want this set up for you?', 'Our Local SEO Growth package includes a review request plan with message templates you can send.', 'See Local SEO packages', '/services/local-seo/#packages'),
+        H('What the rules do not allow'),
+        ul(['<strong>Paying for reviews or offering rewards.</strong> No discounts, gifts or prize draws in return for a review.', '<strong>Review gating.</strong> Asking only the customers you expect to be positive, or sending unhappy ones somewhere else first.', '<strong>Writing your own.</strong> That includes staff, family and friends posing as customers.', '<strong>Buying reviews.</strong> From anyone, anywhere.', '<strong>Hiding the bad ones.</strong> If you show reviews on your own website, you should not publish only the favourable ones in a misleading way.']),
+        P('These are Google\'s rules, and breaking them can get reviews removed or a profile suspended. They are also UK law. Since April 2025 the Digital Markets, Competition and Consumers Act has banned fake reviews and reviews that hide the fact they were paid for, and businesses are expected to take reasonable steps to make sure the reviews they publish are genuine.'),
+        H('Reply to every review'),
+        P('Thank people for good reviews, briefly and by name. For a bad review, reply once, calmly: acknowledge the problem, say what you have done or will do, and invite them to contact you directly. Future customers read your replies as closely as the reviews themselves. Never argue, and never reveal private details about the customer.'),
+        H('If a review is fake or abusive'),
+        P('You can report a review to Google from your profile if it breaks their policies, for example if it is spam, offensive or clearly about a different business. Google will not remove a review just because it is negative.'),
+        H('Frequently asked questions'),
+        g['faq']([('How many reviews do I need?', 'There is no magic number. A steady flow of recent reviews matters more than a large total collected years ago.'),
+                  ('Can I ask customers to mention my town or service?', 'It is better not to tell people what to write. Reviews in customers\' own words are more convincing, and scripted ones can look fake.'),
+                  ('Can I copy Google reviews on to my website?', 'You can quote them. Keep the wording exact, do not pick only the best in a misleading way, and make sure they are genuine.'),
+                  ('Should I use Trustpilot as well?', 'Start with Google, because that is where local customers look. Add another platform only if your customers use it.')]),
+        inline_cta('Not sure how your reviews look to a new customer?', 'Ask for a free growth check and we will look at your Google listing, website and social pages.', 'Get my free growth check', GROWTH),
+    ), 'How to ask customers for Google reviews: when to ask, what to say, how to make it one tap, and what Google and UK law do not allow.', 'Local SEO')
+
+    post('google-ads-vs-facebook-ads', 'Google Ads or Facebook ads: which should a small business try first?', join(
+        takeaways(['Google Ads reaches people who are already searching for what you sell.', 'Facebook and Instagram ads reach people who were not looking, by area and interest.', 'Urgent and searched-for services usually suit Google. Visual and impulse buys usually suit Facebook and Instagram.', 'Whichever you choose, set up tracking first and start small.']),
+        P('Small businesses often ask which advertising platform is better. Neither is. They work in different ways and suit different kinds of purchase. The useful question is how your customers buy.'),
+        H('How Google Ads works'),
+        P('You choose search terms, and your advert appears when someone types them into Google. You pay when they click. The strength is intent: a person searching "emergency locksmith near me" wants one now. The weakness is that you can only reach people who are already searching, and popular search terms can be expensive.'),
+        H('How Facebook and Instagram ads work'),
+        P('You choose an audience by location, age and interests, and your advert appears in their feed, stories or reels. Nobody asked to see it, so it has to catch the eye. The strength is reach: you can put a new product or offer in front of people who have never heard of you. The weakness is that most of them are not ready to buy today.'),
+        H('Which suits your business'),
+        ul(['<strong>People need you urgently</strong> (plumber, locksmith, vet): Google Ads.', '<strong>People research before buying</strong> (solicitor, builder, accountant): Google Ads, with a page that answers their questions.', '<strong>People buy when they see it</strong> (food, fashion, gifts, beauty): Facebook and Instagram.', '<strong>Something new that nobody searches for yet:</strong> Facebook and Instagram.', '<strong>A local event or offer with a deadline:</strong> Facebook and Instagram, targeted by area.', '<strong>You sell to other businesses:</strong> Google Ads first.']),
+        inline_cta('Want it set up properly?', 'We build and manage Google Ads and Facebook ads campaigns for small budgets. You pay the platform directly for ad spend.', 'See Google Ads packages', '/services/ppc-management/#packages'),
+        H('What you need before spending anything'),
+        ul(['<strong>Tracking.</strong> Know which clicks became calls, forms or sales. Without it you are guessing.', '<strong>A page that matches the advert.</strong> If the advert says "boiler servicing in Leeds", the page should too.', '<strong>A way to respond quickly.</strong> Enquiries from adverts go cold fast.', '<strong>A budget you can afford to learn with.</strong> The first weeks show you what works. Treat them as a test.']),
+        H('Can you use both?'),
+        P('Yes, and many businesses do. A common pattern is Google Ads to catch people searching, and Facebook or Instagram adverts shown to people who visited your website and did not buy. Start with one, get it paying for itself, then add the other.'),
+        H('Common mistakes'),
+        ul(['Sending every click to the home page.', 'Choosing broad search terms that attract people looking for jobs or free advice.', 'Boosting posts and calling it advertising.', 'Changing everything after three days, before there is enough data to judge.', 'Never checking which searches or audiences actually produced customers.']),
+        H('Frequently asked questions'),
+        g['faq']([('Which is cheaper?', 'It depends on your trade and area. A click on Google often costs more, but the person is closer to buying. Compare the cost of a customer, not the cost of a click.'),
+                  ('How long before I know if it is working?', 'Give a new campaign about a month with tracking in place before you judge it.'),
+                  ('Do I need a big budget?', 'No. Both platforms let you set a small daily limit. It is better to target one service in one area well than to spread a small budget thinly.'),
+                  ('What about TikTok?', 'It can work well for visual products and younger audiences. See our <a href="/services/tiktok-ads/">TikTok ads</a> page.')]),
+        inline_cta('Not sure where your budget should go?', 'Tell us what you sell and where. We will say which platform we would test first, and why.', 'Get my free growth check', GROWTH),
+    ), 'Google Ads or Facebook ads for a small business: how each works, which kinds of business suit which, and what to set up before spending.', 'Advertising')
+
+    post('how-seo-is-priced', 'How SEO is priced: hourly, monthly retainer or fixed package', join(
+        takeaways(['SEO is sold three ways: by the hour, on a monthly retainer or as fixed-price packages.', 'Whichever you choose, ask what will actually be done and how you will see it.', 'Be wary of guaranteed positions, long contracts and prices that are never written down.', 'Start with the one job most likely to matter, then build from there.']),
+        P('Prices for SEO vary enormously, and the reason is simple: "SEO" is not one thing. It covers fixing a website, rewriting pages, writing articles, building links and more. Before comparing prices, it helps to understand the three ways the work is sold.'),
+        H('Hourly or day rates'),
+        P('You pay for time, usually from a freelancer or consultant. This suits one-off advice, a specific problem or a second opinion. The risk is that you do not know the total in advance, so agree a limit and ask for a short written summary of what was done.'),
+        H('Monthly retainers'),
+        P('You pay a fixed amount each month and the agency works on your site continuously. This is the traditional model and suits businesses that need steady, ongoing work. The risks are the ones small businesses complain about most: contracts of six or twelve months, vague monthly reports and no clear list of what was done.'),
+        H('Fixed-price packages'),
+        P('You buy a defined piece of work at a published price: an audit, a set of pages improved, a number of directory listings, a month of defined tasks. You know the cost and the scope before you start. The limit is that a package covers what it lists and nothing more, so it suits jobs that can be clearly described.'),
+        P('This is how we sell SEO. Our <a href="/services/local-seo/">Local SEO</a> packages start [ifm_from service="local-seo" prefix="from " fallback="at a fixed price"], and <a href="/services/monthly-seo/">Monthly SEO</a> is sold one month at a time.'),
+        H('What changes the price'),
+        ul(['<strong>The size of your site.</strong> Fifty pages take longer to check and improve than five.', '<strong>How competitive your market is.</strong> A solicitor in a city needs more work than a village cafe.', '<strong>How much is done for you.</strong> Advice costs less than hands-on work.', '<strong>Content and links.</strong> Writing and placing them takes real time, so plans that include them cost more.', '<strong>The state of the site.</strong> A slow, broken site needs fixing before anything else will help.']),
+        inline_cta('Want to see real prices?', 'Every package we sell has its price, delivery time and scope on the page.', 'See packages and prices', '/packages/'),
+        H('Questions to ask before you pay'),
+        ul(['What exactly will be done this month?', 'How will I see the work: links, a change log, a report?', 'Who does the work?', 'Is there a contract, and how do I stop?', 'What do you need from me?', 'What will you not promise?']),
+        H('Warning signs'),
+        ul(['A guaranteed position on Google. Nobody controls Google.', 'Hundreds of links for very little money. These are usually automated and can do harm.', 'A long contract before any work has been shown.', 'Reports full of charts with no list of tasks.', 'Being asked for your passwords.']),
+        H('Where to start on a small budget'),
+        P('Pick the one job most likely to matter. For a local trade, that is usually your Google Business Profile and directory listings. For a site that gets visitors but few enquiries, it is the pages themselves. If you do not know what is wrong, an audit tells you where to spend first.'),
+        H('Frequently asked questions'),
+        g['faq']([('Is cheap SEO a waste of money?', 'Not if it is a clearly defined job done properly. Be suspicious when a low price is attached to a big promise.'),
+                  ('Do I have to pay every month?', 'No. One-off jobs such as an audit or a profile clean-up are useful by themselves. Ongoing work helps most in competitive markets.'),
+                  ('How long until it pays for itself?', 'It varies with your market. Some changes show within weeks, and most SEO builds over several months.'),
+                  ('Can I do it myself?', 'Much of it, yes, if you have the time. Our guides cover the basics, and a consultation can give you a plan to follow.')]),
+        inline_cta('Not sure what you need?', 'Ask for a free growth check and we will tell you the three things we would fix first.', 'Get my free growth check', GROWTH),
+    ), 'How SEO is priced for small businesses: hourly rates, monthly retainers and fixed-price packages, what changes the price and questions to ask.', 'SEO')
+
+    post('what-is-a-citation-local-seo', 'What is a citation? Name, address and phone consistency explained', join(
+        takeaways(['A citation is any online mention of your business name, address and phone number.', 'Google compares citations with your own profile to decide whether to trust your details.', 'Consistent details matter more than a large number of listings.', 'Fix the well-known directories first, then add trade-specific ones.']),
+        P('If you have looked into local SEO, you will have met the word "citation" and the letters NAP. Both are simpler than they sound, and getting them right is one of the cheapest ways to help a local business appear on Google Maps.'),
+        H('What a citation is'),
+        P('A citation is a mention of your business details on another website: a directory such as Yell, a map service such as Apple Maps or Bing Places, a review site, a trade body or a local chamber of commerce. It usually includes your name, address and phone number, and often your website, opening hours and a description.'),
+        H('What NAP means'),
+        P('NAP stands for name, address and phone number. "NAP consistency" means those three things appear in exactly the same form wherever your business is listed.'),
+        H('Why consistency matters'),
+        P('Google wants to show businesses that really exist, at the address and phone number shown. It checks your Google Business Profile against what it finds elsewhere. When everything matches, it can be confident. When one site has your old phone number and another has a different spelling of your name, it has less reason to trust any of them.'),
+        P('It matters to customers too. An old number on a directory is a lost call.'),
+        H('What counts as inconsistent'),
+        ul(['An old address or phone number after a move.', 'Different versions of the name: "Smith Plumbing", "Smith Plumbing Ltd", "Smiths Plumbers".', 'A mobile number in one place and a landline in another.', 'A tracking phone number used on some listings.', 'Duplicate listings for the same business on one site.']),
+        P('Small formatting differences, such as "Street" and "St", are not worth worrying about. Different numbers, names and addresses are.'),
+        inline_cta('Want your listings sorted out?', 'Local SEO Starter includes 20 UK directory listings with matching details, and a report with the live link to each.', 'See Local SEO packages', '/services/local-seo/#packages'),
+        H('How to check your own citations'),
+        ul(['Decide the one correct version of your name, address and phone number. Write it down.', 'Search Google for your business name, then your phone number, then any old phone numbers.', 'Open each result and note where the details are wrong.', 'Claim and correct the listings, starting with the best-known sites.', 'Remove or merge duplicates where the site allows it.']),
+        H('Which directories matter'),
+        P('Start with the places people and search engines actually use: Google Business Profile, Bing Places, Apple Maps, Yell and Facebook. Then add directories specific to your trade or town, where a listing also brings real customers. A few dozen good, accurate listings do more than hundreds of obscure ones.'),
+        H('If you do not have a public address'),
+        P('Many trades work from home or travel to customers. You can hide your address on Google and list the areas you serve. On directories that insist on an address, use the same one every time, or choose directories that support service-area businesses.'),
+        H('Frequently asked questions'),
+        g['faq']([('How many citations do I need?', 'There is no fixed number. Cover the main sites accurately, then add relevant trade and local directories.'),
+                  ('Do citations help me rank?', 'They support your position in local results by confirming your details. They work alongside your Google profile, reviews and website. Nobody can promise a position.'),
+                  ('I have moved. What should I do?', 'Update your Google Business Profile first, then your website, then every listing you can find. Search for the old address and phone number to catch the ones you have forgotten.'),
+                  ('Are paid directories worth it?', 'Occasionally, for a respected trade body. Most of the benefit comes from free listings on well-known sites.')]),
+        inline_cta('Want to know how consistent your details are?', 'Ask for a free growth check and we will look at how your business appears across Google and the main directories.', 'Get my free growth check', GROWTH),
+    ), 'What a citation is, what NAP consistency means and why it matters for local SEO, with a simple way to check and fix your own listings.', 'Local SEO')

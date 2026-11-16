@@ -84,31 +84,35 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#results">7. What we do and do not promise</a></li>
+<li><a href="#extras">7. Optional extras</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#links">8. Links and listings on other websites</a></li>
+<li><a href="#results">8. What we do and do not promise</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#ownership">9. Who owns the work</a></li>
+<li><a href="#links">9. Links and listings on other websites</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#cancelling">10. Cancelling and refunds</a></li>
+<li><a href="#ownership">10. Who owns the work</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#liability">11. Our responsibility to you</a></li>
+<li><a href="#cancelling">11. Cancelling and refunds</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#ending">12. Ending an order early</a></li>
+<li><a href="#liability">12. Our responsibility to you</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#general">13. Data, complaints and the law</a></li>
+<li><a href="#ending">13. Ending an order early</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="#general">14. Data, complaints and the law</a></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:group --></div>
@@ -149,7 +153,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>This website is run by IamFamous ("we", "us"). Our postal address is 27 Old Gloucester Street, London, WC1N 3AX, United Kingdom and our email is <a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a>.</p>
+<p>This website is run by Mehreen, a sole trader trading as IamFamous ("we", "us"). Our postal address is 27 Old Gloucester Street, London, WC1N 3AX, United Kingdom and our email is <a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a>.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -216,8 +220,16 @@
 <p>Each package states the changes or revisions included. A round of changes is one list sent together. Requests outside the scope of the package are quoted separately, and we only go ahead if you accept the price.</p>
 <!-- /wp:paragraph -->
 
+<!-- wp:heading {"anchor":"extras","className":"ifm-legal__h"} -->
+<h2 class="wp-block-heading ifm-legal__h" id="extras"><span>07</span> Optional extras</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Some packages offer optional extras at checkout. An extra round of changes adds one round to those included in the package. Express delivery moves your order to the front of our queue, and we aim to deliver in half the stated delivery time. If an express order takes longer than the standard delivery time shown on the package, we refund the express fee. Extras are not offered on monthly packages.</p>
+<!-- /wp:paragraph -->
+
 <!-- wp:heading {"anchor":"results","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="results"><span>07</span> What we do and do not promise</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="results"><span>08</span> What we do and do not promise</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -229,7 +241,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"links","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="links"><span>08</span> Links and listings on other websites</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="links"><span>09</span> Links and listings on other websites</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -237,7 +249,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"ownership","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="ownership"><span>09</span> Who owns the work</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="ownership"><span>10</span> Who owns the work</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -249,7 +261,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"cancelling","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="cancelling"><span>10</span> Cancelling and refunds</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="cancelling"><span>11</span> Cancelling and refunds</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -261,7 +273,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"liability","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="liability"><span>11</span> Our responsibility to you</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="liability"><span>12</span> Our responsibility to you</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -273,7 +285,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"ending","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="ending"><span>12</span> Ending an order early</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="ending"><span>13</span> Ending an order early</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -281,7 +293,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"general","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="general"><span>13</span> Data, complaints and the law</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="general"><span>14</span> Data, complaints and the law</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->

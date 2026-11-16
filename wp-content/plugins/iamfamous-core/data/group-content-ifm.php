@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 return array(
 	'local-seo-packages'    => array(
 		'intro'        => 'For businesses that serve a town, a city or a patch of postcodes. We sort out your Google Business Profile, list you correctly in the UK directories people and Google check, and tune your site for the places you cover.',
-		'brief'        => 'offpage',
+		'brief'        => 'local',
 		'exclusions'   => "A promised position in the map results (Google decides that)\nFake reviews, paid reviews or asking only happy customers to review you\nFees charged by paid directories\nGoogle's own verification step (video, phone or postcard), which only you can complete",
 		'requirements' => "Business name, address, phone number and opening hours exactly as you want them shown\nManager access to your Google Business Profile, by invite\nThe services you offer and the towns or postcodes you cover\nYour website address, if you have one",
 		'by_sku'       => array(

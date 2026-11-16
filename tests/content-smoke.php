@@ -18,7 +18,7 @@ $all      = '';
 foreach ( $files as $f ) { $all .= file_get_contents( $f ); }
 $all .= file_get_contents( $root . '/wp-content/themes/iamfamous/parts/footer.html' );
 
-check( 'manifest has 34 pages and at least 3 guides', 34 === count( $pages ) && count( $manifest['posts'] ) >= 3 );
+check( 'manifest has 34 pages and 7 guides', 34 === count( $pages ) && 7 === count( $manifest['posts'] ) );
 $bad = array_filter( $pages, fn( $p ) => '' === $p['seo_title'] || strlen( $p['seo_title'] ) > 70 || strlen( $p['excerpt'] ) < 70 || strlen( $p['excerpt'] ) > 158 || '' === $p['kw'] );
 check( 'every page has an SEO title (max 70), a description (70 to 158) and a focus keyword', ! $bad, implode( ', ', array_column( $bad, 'slug' ) ) );
 check( 'SEO titles and descriptions are unique', count( array_unique( array_column( $pages, 'seo_title' ) ) ) === count( $pages ) && count( array_unique( array_column( $pages, 'excerpt' ) ) ) === count( $pages ) );
@@ -29,6 +29,7 @@ check( 'nothing mentions the other brand, dollars or a named founder', ! preg_ma
 check( 'no hard-coded pound prices in page copy (prices come from WooCommerce)', ! preg_match( '/£\d/', preg_replace( '/Ad budgets[^<]*/', '', $all ), $m ), $m[0] ?? '' );
 preg_match_all( '#href="(/[a-z0-9/-]*?)(?:\#[a-z0-9-]*)?(?:\?[^"]*)?"#', $all, $links );
 $known = array( '/', '/insights/', '/my-account/', '/my-account/orders/', '/basket/' );
+check( 'the sole trader is named in the footer and the terms', str_contains( file_get_contents( $root . '/wp-content/themes/iamfamous/parts/footer.html' ), 'trading name of Mehreen' ) && str_contains( file_get_contents( $root . '/wp-content/themes/iamfamous/patterns/page-terms.php' ), 'Mehreen, a sole trader trading as IamFamous' ) );
 foreach ( $pages as $p ) { $known[] = ( $p['parent'] ? '/' . $p['parent'] : '' ) . '/' . ( 'home' === $p['slug'] ? '' : $p['slug'] . '/' ); }
 $dead = array_diff( array_unique( $links[1] ), $known, array( '' ) );
 check( 'every internal link points at a page that exists', ! $dead, implode( ' ', $dead ) );

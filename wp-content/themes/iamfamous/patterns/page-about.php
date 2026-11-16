@@ -86,6 +86,10 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
+<li><strong>Who runs it:</strong> IamFamous is the trading name of Mehreen, a sole trader.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
 <li><strong>Who we work for:</strong> small businesses across the United Kingdom.</li>
 <!-- /wp:list-item -->
 

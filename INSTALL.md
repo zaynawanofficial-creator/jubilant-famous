@@ -1,22 +1,25 @@
 # INSTALL — IamFamous.uk
 
 ## Which section do I follow?
-- **Nothing installed yet:** follow "First install" below with the newest zips (theme 1.2.0, plugin 1.2.0). You get the whole site in one go. Skip the update sections.
-- **An earlier version is installed:** follow "Updating to theme 1.2.0 + plugin 1.2.0".
+- **Nothing installed yet:** follow "First install" below with the newest zips (theme 1.3.0, plugin 1.3.0). You get the whole site in one go. Skip the update section.
+- **An earlier version is installed:** follow "Updating to theme 1.3.0 + plugin 1.3.0".
 
-## Updating to theme 1.2.0 + plugin 1.2.0 (15 Nov 2026) — only if an earlier version is installed
-Adds approved prices, bundles, customer feedback, Packages, How it works, About, FAQ, Reviews, five policy pages, three guides and Rank Math support.
+## Updating to theme 1.3.0 + plugin 1.3.0 (16 Nov 2026) — only if an earlier version is installed
+Brings everything up to the final build: approved prices (minimum £10), bundles, optional extras, customer feedback, all company and policy pages, seven guides, the cookie banner, the sole-trader details and Rank Math support.
 1. **Backup** in Hostinger.
 2. **Plugin:** Plugins → Add Plugin → Upload Plugin → `iamfamous-core.zip` → **Replace current with uploaded**.
-3. **Import:** Tools → **IamFamous catalog** → untick Dry run → tick **Refresh package images** → **Run import**. **This publishes the packages with their approved prices**, adds the three bundles and applies the new package wording.
+3. **Import:** Tools → **IamFamous catalog** → untick Dry run → tick **Refresh package images** → **Run import**. This publishes the packages with the approved prices and switches Local SEO to its own order form.
 4. **Theme:** Appearance → Themes → Add Theme → Upload Theme → `iamfamous-theme.zip` → **Replace current with uploaded**.
-5. Appearance → **IamFamous Setup** → tick **Overwrite** → **Build the site**. This creates the new pages and guides, rebuilds the existing ones, links the Terms and Privacy pages to the checkout, and sets the Rank Math title, description and focus keyword on every page.
+5. Appearance → **IamFamous Setup** → tick **Overwrite** → **Build the site**.
 6. Do the **Rank Math checks** below.
 7. LiteSpeed Cache → Toolbox → **Purge All** (plus CSS/JS and UCSS if on).
-8. **Check on your phone:**
-   - [ ] `/services/local-seo/` shows the package picker with prices, and customer feedback above the questions.
+8. **Check on your phone, in a private tab:**
+   - [ ] A small cookie bar appears at the bottom. Tap **Essential only**: it disappears and stays gone on the next page. **Cookie settings** in the footer brings it back.
+   - [ ] The footer shows "IamFamous is the trading name of Mehreen, a sole trader" and the address.
+   - [ ] `/services/off-page-seo/`: the smallest package is £10.
+   - [ ] Open any one-off package (for example a 5-Page Website): **Optional extras** shows an extra round of changes and express delivery, each with a price. Tick one and continue: the basket total includes it.
    - [ ] `/packages/` shows three bundles and a price table for all 20 services.
-   - [ ] The footer shows the address and links to Terms, Refunds, Privacy, Cookies and Accessibility.
+   - [ ] `/insights/` shows seven guides.
    - [ ] `/llms.txt` shows a plain-text summary of the business.
 
 ## Rank Math checks (after the Setup screen has run)
@@ -28,22 +31,6 @@ The Setup screen fills these in when they are empty. Check them once.
 5. Open any service page → Rank Math box in the editor: the title, description and focus keyword are already filled. Change them there if you want different wording. The Setup screen will not overwrite a field you have edited.
 
 What each plugin does once Rank Math is active: **Rank Math** writes page titles, descriptions, robots tags, the sitemap and the Organisation schema. **IamFamous Core** adds Service schema (with the lowest price) and FAQ schema to Rank Math's output, built from the questions shown on each page.
-
-## Updating to theme 1.1.0 + plugin 1.1.0 (13 Nov 2026) — superseded by 1.2.0 above
-Kept for the record. If you are updating now, use the 1.2.0 steps.
-1. **Backup** in Hostinger.
-2. **Plugin:** Plugins → Add Plugin → Upload Plugin → `iamfamous-core.zip` → **Replace current with uploaded**.
-3. **Import:** Tools → **IamFamous catalog** → untick Dry run → **Run import**. This refreshes the short intro shown above each package picker. Packages stay drafts until you approve prices.
-4. **Theme:** Appearance → Themes → Add Theme → Upload Theme → `iamfamous-theme.zip` → **Replace current with uploaded**.
-5. Appearance → **IamFamous Setup** → tick **Overwrite** → **Build the site**. This creates the 17 new service pages and rebuilds Home, Services and the three existing service pages with the new menu links and cards. If you edited any of those pages by hand, tell Claude first.
-6. LiteSpeed Cache → Toolbox → **Purge All** (plus CSS/JS and UCSS if on).
-7. **Check on your phone:**
-   - [ ] Menu → **Services** opens four groups listing all 20 services.
-   - [ ] `/services/` shows four groups of cards; every card opens a page.
-   - [ ] `/google-ads-service/` (old address) now lands on the Google Ads page.
-   - [ ] On desktop, hovering **Services** opens the wide menu.
-
----
 
 ## First install (theme + plugin, any version)
 
@@ -75,7 +62,7 @@ Appearance → Themes → Add Theme → **Upload Theme** → `iamfamous-theme.zi
 Appearance → **IamFamous Setup** → leave the default ticks → **Build the site**.
 
 This:
-- creates Home, Services, all 20 service pages, Packages, How it works, About, Reviews, FAQ, Free growth check, Contact, Insights, five policy pages and three guides
+- creates Home, Services, all 20 service pages, Packages, How it works, About, Reviews, FAQ, Free growth check, Contact, Insights, five policy pages and seven guides
 - links the Terms and Privacy pages to the checkout
 - sets the Rank Math title, description and focus keyword on every page
 - sets Home as the front page and Insights as the blog page
@@ -156,9 +143,8 @@ The plugin redirects an old address **only when it would otherwise be a 404**, s
 - **Leads:** wp-admin → Leads.
 
 ## Before launch (owner)
-- **Tell Claude the legal name behind IamFamous** (your own name if you are a sole trader, or the company name, number and registered office if it is a limited company). UK law expects a business website to show it, and the policy pages need it. See DECISIONS.md.
-- **Have the five policy pages checked** by someone qualified. They are written to match how the site works, but they are not legal advice.
+- **Have the five policy pages checked** by someone qualified. They match how the site works, but they are not legal advice.
 - Make sure the **support@iamfamous.uk** mailbox exists and receives mail.
 - Check whether you need to pay the **ICO data protection fee** (ico.org.uk).
-- Connect a payment provider in **test mode**, place a test order, then go live.
-- If you ever add Google Analytics, a Facebook pixel or a chat widget: you then need a cookie consent banner and an updated cookie policy. Tell Claude first.
+- Connect a payment provider in **test mode**, place a test order with an optional extra ticked, check the total, then go live.
+- If you add Google Analytics, a pixel or a chat widget later, tell Claude: it must be wired to the cookie banner so it only loads after "Allow all", and the cookie policy must list it.

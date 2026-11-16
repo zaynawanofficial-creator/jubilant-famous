@@ -3,7 +3,7 @@ Theme Name: IamFamous
 Theme URI: https://iamfamous.uk/
 Author: IamFamous
 Description: Block theme for IamFamous.uk: fixed-price digital marketing packages for UK small businesses. Service pages, package picker, WooCommerce checkout and guides. Pairs with the IamFamous Core plugin.
-Version: 1.2.0
+Version: 1.3.0
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
@@ -969,3 +969,18 @@ body { font-variant-numeric: normal; }
 .ifm-footer__addr { font-size: var(--wp--preset--font-size--x-small); color: var(--wp--preset--color--on-dark); opacity: .85; margin-top: .25rem !important; }
 .ifm-footer__legal a { margin-left: 1rem; }
 .ifm-footer__legal a:first-child { margin-left: 0; }
+
+/* Round 4: cookie banner (small card bottom-left; full-width bar on phones) */
+.ifm-cookie { position: fixed; left: 1rem; bottom: 1rem; z-index: 90; width: min(420px, calc(100vw - 2rem)); background: #fff; color: var(--wp--preset--color--body); border: 1px solid var(--wp--preset--color--line); border-radius: 18px; box-shadow: var(--wp--preset--shadow--lift); padding: 1rem 1.1rem; font-size: var(--wp--preset--font-size--small); line-height: 1.5; }
+.ifm-cookie[hidden] { display: none; }
+.ifm-cookie__text { margin: 0 0 .75rem; }
+.ifm-cookie__text strong { color: var(--wp--preset--color--ink); }
+.ifm-cookie__text a { color: var(--wp--preset--color--red-deep); font-weight: 700; white-space: nowrap; }
+.ifm-cookie__actions { display: flex; gap: .5rem; }
+.ifm-cookie__btn { flex: 1; min-height: 44px; padding: 0 .9rem; border-radius: 12px; border: 1.5px solid var(--wp--preset--color--ink); background: #fff; color: var(--wp--preset--color--ink); font: inherit; font-weight: 800; cursor: pointer; }
+.ifm-cookie__btn:hover { background: var(--wp--preset--color--cream); }
+.ifm-cookie__btn.is-primary { background: var(--wp--preset--color--ink); color: #fff; }
+.ifm-cookie__btn.is-primary:hover { background: var(--wp--preset--color--ink-2); }
+@media (max-width: 600px) { .ifm-cookie { left: 0; right: 0; bottom: 0; width: auto; border-radius: 18px 18px 0 0; border-width: 1px 0 0; padding-bottom: calc(1rem + env(safe-area-inset-bottom)); } }
+@media print { .ifm-cookie { display: none !important; } }
+.ifm-footer__legalname { font-size: var(--wp--preset--font-size--x-small); color: var(--wp--preset--color--on-dark); opacity: .85; margin: 0 !important; }

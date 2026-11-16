@@ -51,7 +51,7 @@ class IFM_Order_Flow {
 		if ( ! defined( 'DONOTCACHEPAGE' ) ) {
 			define( 'DONOTCACHEPAGE', true );
 		}
-		do_action( 'litespeed_control_set_nocache', 'sb order form' );
+		do_action( 'litespeed_control_set_nocache', 'ifm order form' );
 
 		$turn = (string) $product->get_meta( '_ifm_turnaround' );
 		ob_start();
@@ -93,6 +93,7 @@ class IFM_Order_Flow {
 		if ( $optional ) {
 			echo '<details class="ifm-order__more"><summary>' . esc_html__( 'More details (optional, you can add these later)', 'iamfamous-core' ) . '</summary><div class="ifm-order__fields">' . implode( '', $optional ) . '</div></details>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in field_html().
 		}
+		echo apply_filters( 'ifm_order_form_extras', '', $product ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped by IFM_Addons::render().
 		echo '<button type="submit" class="ifm-btn ifm-btn--primary ifm-order__submit single_add_to_cart_button">' . esc_html__( 'Continue to checkout', 'iamfamous-core' ) . ' →</button>';
 		echo '<ul class="ifm-order__trust"><li>' . esc_html__( 'Secure checkout', 'iamfamous-core' ) . '</li><li>' . esc_html__( 'Upload brand files after payment', 'iamfamous-core' ) . '</li><li>' . esc_html__( 'Never share passwords, we use user invites', 'iamfamous-core' ) . '</li></ul>';
 		echo '</form></div>';

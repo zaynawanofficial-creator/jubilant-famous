@@ -1,4 +1,4 @@
-/* IamFamous: section reveal and the sticky "Choose package" bar. No dependencies. */
+/* IamFamous: section reveal, the sticky "Choose package" bar and the cookie banner. No dependencies. */
 (function () {
 	'use strict';
 	var doc = document, root = doc.documentElement;
@@ -36,5 +36,29 @@
 		};
 		new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting; update(); }).observe(hero);
 		new IntersectionObserver(function (e) { onPackages = e[0].isIntersecting; update(); }, { rootMargin: '-20% 0px -20% 0px' }).observe(target);
+	}
+
+	/* ---------- Cookie banner: show until a choice is stored; "Cookie settings" links reopen it. ---------- */
+	var banner = doc.getElementById('ifm-cookie');
+	var read = function () { var m = doc.cookie.match(/(?:^|; )ifm_consent=(all|essential)/); return m ? m[1] : ''; };
+	window.ifmConsent = read;
+	if (banner) {
+		if (!read()) { banner.hidden = false; }
+		banner.addEventListener('click', function (e) {
+			var btn = e.target.closest('[data-ifm-consent]');
+			if (!btn) { return; }
+			var value = btn.getAttribute('data-ifm-consent') === 'all' ? 'all' : 'essential';
+			doc.cookie = 'ifm_consent=' + value + '; max-age=' + (180 * 24 * 60 * 60) + '; path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '');
+			banner.hidden = true;
+			doc.dispatchEvent(new CustomEvent('ifm:consent', { detail: value }));
+		});
+		doc.addEventListener('click', function (e) {
+			var link = e.target.closest('a[href$="#cookie-settings"]');
+			if (!link) { return; }
+			e.preventDefault();
+			banner.hidden = false;
+			var first = banner.querySelector('button');
+			if (first) { first.focus(); }
+		});
 	}
 })();

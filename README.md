@@ -8,9 +8,9 @@ Fixed-price digital marketing packages for UK small businesses, on WordPress + W
 |---|---|
 | `wp-content/themes/iamfamous/` | Block theme: theme.json tokens, templates, parts, generated page patterns, nav, Setup screen |
 | `wp-content/plugins/iamfamous-core/` | Packages, picker + comparison table, order flow, brief, order statuses, lead forms, SEO head, 301 redirects, catalogue importer |
-| `SERVICE_CATALOG.csv` | 116 packages in GBP (113 + 3 bundles), prices approved 15 Nov 2026. Built by `tools_price_draft.py` |
+| `SERVICE_CATALOG.csv` | 116 packages in GBP (113 + 3 bundles), prices approved 15–16 Nov 2026, minimum £10. Built by `tools_price_draft.py` |
 | `tools/` | Generators: `build_patterns.py` (pages, footer, manifest) with page data in `services_seo.py` / `services_more.py`; `build_art.py` + `build_art.js` (icons, illustrations) with `scenes_round2.py`; `build_package_images.*`; `pages_round3.py` (company, legal pages, guides); `package_copy.py` + `build_package_copy.py` (package wording); zip builders |
-| `tests/` | `*-smoke.php` (importer, nav, redirects, content), `validate-blocks.js`, `local-wp/` (real WordPress render) |
+| `tests/` | `*-smoke.php` (importer, nav, redirects, content, add-ons), `validate-blocks.js`, `local-wp/` (real WordPress render) |
 | `brand/`, `BRAND.md` | Brand system v1, logo files, fonts |
 | `docs/screens/` | Screenshots from the local WordPress render, per round |
 | `reference/` | Old-site snapshots, old product list, the SEO Booster USD catalogue used for pricing |

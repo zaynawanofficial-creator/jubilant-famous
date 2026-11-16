@@ -62,14 +62,27 @@
 | Reviews wording | Labelled "IamFamous customer" plus the service. No claims about who the customers are |
 | Guides | 3 of the planned 7+ are written (Google Business Profile checklist, small business website checklist, 20 social post ideas) |
 
+## Locked (16 Nov 2026, owner answers before round 4)
+| Item | Decision |
+|---|---|
+| Legal identity | **Mehreen, a sole trader trading as IamFamous.** Shown in the footer, About, Contact, the five policy pages and `llms.txt` |
+| Cookie banner | Built: small card (full-width bar on phones) with "Essential only" and "Allow all". The choice is kept for 180 days in `ifm_consent`; "Cookie settings" in the footer reopens it |
+| Prices | Minimum raised to £10, cheap tiers stepped up (see PRICING.md) |
+| Remaining jobs | Finished: four more guides (seven in total), add-ons, Local SEO order form, automatic 12-month clean-up |
+
+## Decided by Claude in round 4 (change any of these by saying so)
+| Item | Decision and reason |
+|---|---|
+| Add-on prices | Extra round of changes +15% (minimum £10); express delivery +25% (minimum £15). Not offered on monthly, booked-call or quote packages |
+| Express promise | "We aim to deliver in half the usual time; if it takes longer than the standard delivery time, the express fee is refunded." This is in the terms. Remove express with the `ifm_addons` filter if you cannot staff it |
+| Cookie banner behaviour | No optional cookies exist today, so both choices give the same site. Any analytics added later must check `window.ifmConsent() === 'all'` before loading |
+| Owner's name | Shown as "Mehreen", exactly as supplied. If a surname should appear, tell Claude |
+
 ## Open (ask the owner when it becomes blocking; don't invent)
 | Item | Status |
 |---|---|
-| **Legal name of the trader** | **Still needed.** UK law expects a website to show who is behind it: your own name if you trade as a sole trader, or the registered company name, number and registered office if IamFamous is a limited company. The site currently shows only "IamFamous" and the address. Tell Claude which it is and it will be added to the footer and legal pages |
 | ICO registration | Most businesses that handle customer details must pay the ICO data protection fee. Check ico.org.uk and tell Claude the registration number if you want it shown |
 | Phone / WhatsApp | Not supplied. No phone number or WhatsApp button is shown |
 | Hostinger MCP (`websites-agents.hostinger.com/iamfamous.uk/mcp`) | Not reachable from the cloud session (the environment's network policy refuses the host), so delivery is by zip. To use it, allow that host in the environment and add it as a connector |
-| Micro-tier prices | A £5 floor is applied. Tiers at £5–£8 still need checking against fulfilment cost |
-| Add-ons / order bumps | Not built. Needs your delivery promise for express orders |
 | Old site URLs | 301 map shipped for the old pages, product categories and 48 products. The 5 old posts are not redirected (not listed in the handover): decide keep, rewrite or redirect |
 | "IamFamous" capital I | In sans-serif type "I" can read as "l". Accepted for v1 (same as .com.au). Alternative: a slightly wider gap or a colour split after "I" if the owner wants it |

@@ -1,5 +1,39 @@
 # PROGRESS
 
+## Round 4 (final build): theme 1.3.0 + plugin 1.3.0 · 16 Nov 2026 · 🟢 ready for owner review
+All planned work is built. What remains is the owner's review, the install and the live checks that cannot be run here.
+
+### Done
+- **Legal identity:** "Mehreen, a sole trader trading as IamFamous" in the footer, About, Contact, the five policy pages and `llms.txt`.
+- **Cookie banner:** small card bottom-left, full-width bar on phones; "Essential only" / "Allow all"; choice kept 180 days in `ifm_consent`; reopened from "Cookie settings" in the footer; `window.ifmConsent()` and an `ifm:consent` event for any optional script added later. Cookie and privacy policies updated to match.
+- **Prices:** minimum raised from £5 to £10 with the cheap tiers stepped up (9 prices changed; Local Starter Bundle now £119).
+- **Add-ons** on one-off packages: extra round of changes (+15%, minimum £10) and express delivery (+25%, minimum £15). Carried in the basket, added to the price, shown at checkout and saved on the order line. Not offered on monthly, booked-call or quote packages. Covered in the terms and FAQ.
+- **Local SEO order form** of its own (business details, hours, services, areas, Google profile access) in place of the link-building form.
+- **Automatic clean-up** once a day: enquiries older than 12 months are deleted, and uploaded project files are deleted 12 months after an order is finished, as the privacy policy says.
+- **Four more guides** (seven in total): asking for reviews within UK rules, Google Ads or Facebook ads, how SEO is priced, what a citation is.
+- Fixed in the final check: the button on the quote-only package page overflowed on phones; guide category pages shared one description.
+
+### Final check (whole site)
+- `php -l` on every PHP file: clean.
+- Smoke tests: importer 30/30, nav 15/15, redirects 10/10, content 12/12, add-ons 8/8.
+- Block validation: 59 files, 5,723 blocks, **0 invalid** (13 Custom HTML blocks counted but not compared).
+- **Site audit** (`tests/local-wp/site-audit.js`) on the local WordPress, crawling every internal link from the home page: **156 URLs, 0 issues**. It checks HTTP status, one H1 per page, a unique title and description on every indexable page, no unrendered shortcodes, no broken images, no JavaScript errors, and no horizontal scroll at 390 and 1440. `/my-account/` is excluded because WooCommerce is not in the local copy.
+- Cookie banner: shows on first visit, fits a 390px screen, hides after a choice, stays hidden on the next page, reopens from the footer with focus on the first button, stores `essential` / `all`.
+- Add-ons appear on a one-off package and not on a monthly one; the basket-price calculation is covered by the add-ons smoke test.
+- `ui-checks.js` 14/14 and `menu-checks.js` pass.
+
+### Not run (needs the live site)
+- The real WooCommerce basket, checkout, order confirmation, My Account, payments and emails, **including the add-on price at checkout**. Place a test order with an extra ticked before going live.
+- The real Rank Math plugin (tested against a stand-in).
+- The daily clean-up job running on the server's schedule.
+- Lighthouse; WordPress 7.1.4 / PHP 8.5 specifically.
+
+### Owner review list
+1. Read the five policy pages and have them checked.
+2. Confirm you can staff express delivery, or ask for it to be removed.
+3. Install with INSTALL.md, do the Rank Math checks, place a test order in test mode.
+4. Confirm the support@iamfamous.uk mailbox works; check the ICO fee.
+
 ## Round 3: theme 1.2.0 + plugin 1.2.0 · 15–16 Nov 2026 · 🟡 ready to install
 Rounds 1 and 2 are pushed (`24ea183`, `e62825e`). Delivery is still by zip: the Hostinger MCP host is refused by this environment's network policy.
 

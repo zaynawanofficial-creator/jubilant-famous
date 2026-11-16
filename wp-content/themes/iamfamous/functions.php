@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'IFM_THEME_VERSION', '1.2.0' );
+define( 'IFM_THEME_VERSION', '1.3.0' );
 
 add_action(
 	'after_setup_theme',
@@ -42,7 +42,7 @@ add_action(
 			. '.ifm-header{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#fff}.ifm-burger-wrap{display:none}.ifm-drawer[hidden]{display:none}'
 			. '@media (max-width:1023px){.ifm-header .ifm-nav{display:none!important}.ifm-burger-wrap{display:block}}'
 			. '.ifm-shop-hero.ifm-hero{background:var(--wp--preset--gradient--plum-glow)!important}.ifm-shop-hero.ifm-hero h1{color:#fff!important}'
-			. '.ifm-stickybar{display:none}'
+			. '.ifm-stickybar{display:none}.ifm-cookie[hidden]{display:none!important}'
 			. '</style>' . "\n";
 	},
 	99
@@ -177,6 +177,26 @@ add_action(
 		echo '</p><a class="ifm-stickybar__btn" href="#packages">' . esc_html__( 'Choose package', 'iamfamous' ) . '</a></div>';
 	},
 	6
+);
+
+/**
+ * Cookie banner. Printed hidden; assets/js/site.js shows it until the visitor chooses, stores the choice in the
+ * "ifm_consent" cookie (all | essential) for 180 days and fires an "ifm:consent" event. Optional scripts added
+ * later must check window.ifmConsent() === 'all' before loading. "Cookie settings" in the footer reopens it.
+ */
+add_action(
+	'wp_footer',
+	static function () {
+		$policy = get_page_by_path( 'cookie-policy' );
+		echo '<div class="ifm-cookie" id="ifm-cookie" role="region" aria-label="' . esc_attr__( 'Cookie choices', 'iamfamous' ) . '" hidden>';
+		echo '<p class="ifm-cookie__text"><strong>' . esc_html__( 'Cookies', 'iamfamous' ) . '</strong> ' . esc_html__( 'We use essential cookies to run the basket and login. Optional cookies are only used if you allow them.', 'iamfamous' );
+		if ( $policy ) {
+			echo ' <a href="' . esc_url( get_permalink( $policy ) ) . '">' . esc_html__( 'Cookie policy', 'iamfamous' ) . '</a>';
+		}
+		echo '</p><div class="ifm-cookie__actions"><button type="button" class="ifm-cookie__btn" data-ifm-consent="essential">' . esc_html__( 'Essential only', 'iamfamous' ) . '</button>';
+		echo '<button type="button" class="ifm-cookie__btn is-primary" data-ifm-consent="all">' . esc_html__( 'Allow all', 'iamfamous' ) . '</button></div></div>';
+	},
+	7
 );
 
 require_once get_theme_file_path( 'inc/setup.php' );

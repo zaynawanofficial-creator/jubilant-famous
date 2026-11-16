@@ -95,7 +95,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-muted"} -->
-<p class="ifm-muted">We work online with businesses across the UK, so this address is for post only.</p>
+<p class="ifm-muted">IamFamous is the trading name of Mehreen, a sole trader. We work online with businesses across the UK, so this address is for post only.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>

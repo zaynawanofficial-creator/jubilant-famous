@@ -24,7 +24,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">A cookie is a small file a website saves in your browser. This site uses only the cookies it needs to work. It does not use advertising or analytics cookies.</p>
+<p class="ifm-lead">A cookie is a small file a website saves in your browser. This site needs a few cookies to work, and asks before using any others. At the moment it uses no advertising or analytics cookies at all.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"ifm-checks"} -->
@@ -64,19 +64,23 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#which">2. The cookies this site uses</a></li>
+<li><a href="#choice">2. Your choice</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#third">3. Payment providers</a></li>
+<li><a href="#which">3. The cookies this site uses</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#control">4. How to control cookies</a></li>
+<li><a href="#third">4. Payment providers</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#changes">5. If this changes</a></li>
+<li><a href="#control">5. How to control cookies</a></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><a href="#changes">6. If this changes</a></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:group --></div>
@@ -90,23 +94,23 @@
 
 <!-- wp:list {"className":"ifm-ticks"} -->
 <ul class="wp-block-list ifm-ticks"><!-- wp:list-item -->
-<li>Only essential cookies are used.</li>
+<li>Essential cookies are always on, because the basket and login need them.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>No advertising cookies.</li>
+<li>Optional cookies are used only if you choose "Allow all".</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>No analytics cookies.</li>
+<li>No advertising or analytics cookies are in use today.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>You can change your choice at any time with "Cookie settings" in the footer.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
 <li>Nothing is shared with advertisers.</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>You can block cookies in your browser, but the basket will stop working.</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:group -->
@@ -117,19 +121,31 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Cookies let a website remember things between pages, such as what is in your basket or that you are logged in. Essential cookies are the ones a site cannot work without. UK law allows these without asking for consent, which is why you do not see a cookie banner here.</p>
+<p>Cookies let a website remember things between pages, such as what is in your basket or that you are logged in. Essential cookies are the ones a site cannot work without. UK law allows these without asking for consent. Anything else needs your permission first, which is what the cookie banner is for.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"anchor":"choice","className":"ifm-legal__h"} -->
+<h2 class="wp-block-heading ifm-legal__h" id="choice"><span>02</span> Your choice</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The first time you visit, a small banner asks whether you want "Essential only" or "Allow all". We remember your answer for 180 days in a cookie called ifm_consent. To change it, use the <a href="#cookie-settings">Cookie settings</a> link here or in the footer.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>No optional cookies are in use at the moment, so both choices currently give you the same site. If we add analytics or similar tools in future, they will load only for visitors who chose "Allow all", and this page will list them.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"which","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="which"><span>02</span> The cookies this site uses</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="which"><span>03</span> The cookies this site uses</h2>
 <!-- /wp:heading -->
 
 <!-- wp:table {"className":"ifm-table"} -->
-<figure class="wp-block-table ifm-table"><table class="has-fixed-layout"><thead><tr><th>Cookie</th><th>What it does</th><th>How long it lasts</th></tr></thead><tbody><tr><td>woocommerce_cart_hash, woocommerce_items_in_cart</td><td>Remember what is in your basket</td><td>Until you close the browser</td></tr><tr><td>wp_woocommerce_session_*</td><td>Links your basket to your visit</td><td>Up to 2 days</td></tr><tr><td>wordpress_logged_in_*, wordpress_sec_*</td><td>Keep you logged in to your account</td><td>Until you log out, or up to 14 days</td></tr><tr><td>wordpress_test_cookie</td><td>Checks whether your browser accepts cookies</td><td>Until you close the browser</td></tr></tbody></table></figure>
+<figure class="wp-block-table ifm-table"><table class="has-fixed-layout"><thead><tr><th>Cookie</th><th>What it does</th><th>How long it lasts</th></tr></thead><tbody><tr><td>woocommerce_cart_hash, woocommerce_items_in_cart</td><td>Remember what is in your basket</td><td>Until you close the browser</td></tr><tr><td>wp_woocommerce_session_*</td><td>Links your basket to your visit</td><td>Up to 2 days</td></tr><tr><td>wordpress_logged_in_*, wordpress_sec_*</td><td>Keep you logged in to your account</td><td>Until you log out, or up to 14 days</td></tr><tr><td>wordpress_test_cookie</td><td>Checks whether your browser accepts cookies</td><td>Until you close the browser</td></tr><tr><td>ifm_consent</td><td>Remembers your cookie choice</td><td>180 days</td></tr></tbody></table></figure>
 <!-- /wp:table -->
 
 <!-- wp:heading {"anchor":"third","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="third"><span>03</span> Payment providers</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="third"><span>04</span> Payment providers</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -137,7 +153,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"control","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="control"><span>04</span> How to control cookies</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="control"><span>05</span> How to control cookies</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -145,11 +161,11 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"changes","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="changes"><span>05</span> If this changes</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="changes"><span>06</span> If this changes</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>If we ever add analytics or other non-essential cookies, we will ask for your consent first and update this page.</p>
+<p>If we add analytics or other optional cookies, we will list them here before they are switched on.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

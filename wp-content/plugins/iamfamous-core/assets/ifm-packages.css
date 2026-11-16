@@ -420,3 +420,15 @@
 	.ifm-pkcmp__table td:last-child { white-space: normal; }
 	.ifm-pkcmp__table td strong { display: inline; }
 }
+
+/* Optional extras on the order form */
+.ifm-addons { border: 1px solid var(--ifm-line, #ede6ea); border-radius: 14px; padding: .75rem .9rem .35rem; margin: .5rem 0 1rem; }
+.ifm-addons legend { padding: 0 .4rem; font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: #6b6475; }
+.ifm-addon { display: grid; grid-template-columns: 20px 1fr auto; gap: .65rem; align-items: start; padding: .55rem 0; cursor: pointer; border-top: 1px solid var(--ifm-line, #ede6ea); }
+.ifm-addon:first-of-type { border-top: 0; }
+.ifm-addon input { width: 18px; height: 18px; margin: .15rem 0 0; accent-color: #e11d2e; }
+.ifm-addon__text strong { display: block; color: #160f1f; font-size: .9375rem; }
+.ifm-addon__text small { display: block; color: #6b6475; font-size: .8125rem; line-height: 1.4; margin-top: .1rem; }
+.ifm-addon__price { font: 800 .9375rem/1.4 "Bricolage Grotesque", system-ui, sans-serif; color: #160f1f; white-space: nowrap; }
+.ifm-order__submit { box-sizing: border-box; max-width: 100%; }
+a.ifm-order__submit { display: flex; text-decoration: none; }

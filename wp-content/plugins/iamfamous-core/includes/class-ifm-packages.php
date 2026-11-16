@@ -33,7 +33,7 @@ class IFM_Packages {
 			'_ifm_requirements'   => array( __( 'What we need from you (one per line)', 'iamfamous-core' ), 'textarea' ),
 			'_ifm_turnaround'     => array( __( 'Turnaround', 'iamfamous-core' ), 'text' ),
 			'_ifm_revisions'      => array( __( 'Revisions / replacements', 'iamfamous-core' ), 'text' ),
-			'_ifm_brief_profile'  => array( __( 'Brief form', 'iamfamous-core' ), 'select', array( 'offpage' => 'Off-page SEO', 'web' => 'Website build', 'fix' => 'Fix / maintenance', 'content' => 'Content', 'design' => 'Design', 'seo' => 'SEO / audit', 'ads' => 'Paid ads', 'social' => 'Social media', 'generic' => 'Generic' ) ),
+			'_ifm_brief_profile'  => array( __( 'Brief form', 'iamfamous-core' ), 'select', array( 'offpage' => 'Off-page SEO', 'local' => 'Local SEO', 'web' => 'Website build', 'fix' => 'Fix / maintenance', 'content' => 'Content', 'design' => 'Design', 'seo' => 'SEO / audit', 'ads' => 'Paid ads', 'social' => 'Social media', 'generic' => 'Generic' ) ),
 			'_ifm_terms_version'  => array( __( 'Terms version', 'iamfamous-core' ), 'text' ),
 			'_ifm_sort'           => array( __( 'Sort order', 'iamfamous-core' ), 'number' ),
 			'_ifm_featured'       => array( __( 'Highlight as "Most popular"', 'iamfamous-core' ), 'checkbox' ),

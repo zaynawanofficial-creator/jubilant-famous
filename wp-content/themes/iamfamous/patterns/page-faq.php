@@ -155,6 +155,12 @@
 <details class="wp-block-details"><summary>What do you need from me?</summary><!-- wp:paragraph -->
 <p>It depends on the package and is listed on each package page. We ask for access by invite and never for a password.</p>
 <!-- /wp:paragraph --></details>
+<!-- /wp:details -->
+
+<!-- wp:details -->
+<details class="wp-block-details"><summary>Can I get my order faster?</summary><!-- wp:paragraph -->
+<p>Most one-off packages offer express delivery as an optional extra on the package page. Your order goes to the front of the queue and we aim to deliver in half the usual time. If it takes longer than the standard delivery time, the express fee is refunded.</p>
+<!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

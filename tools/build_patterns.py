@@ -539,7 +539,7 @@ contact = join(
                          f'<strong>Want a price?</strong> Use the <a href="{GROWTH}">growth check form</a> and tell us what you need.',
                          '<strong>Not sure what to order?</strong> Start with the <a href="/services/">services page</a>.'], 'ifm-ticks'),
                      cls='ifm-panel', layout='flow'),
-               group(heading('Email and post', 3), para(f'<a href="mailto:{EMAIL}">{EMAIL}</a>'), para('IamFamous, 27 Old Gloucester Street, London, WC1N 3AX'), para('We work online with businesses across the UK, so this address is for post only.', 'ifm-muted'),
+               group(heading('Email and post', 3), para(f'<a href="mailto:{EMAIL}">{EMAIL}</a>'), para('IamFamous, 27 Old Gloucester Street, London, WC1N 3AX'), para('IamFamous is the trading name of Mehreen, a sole trader. We work online with businesses across the UK, so this address is for post only.', 'ifm-muted'),
                      cls='ifm-card', layout='flow'),
                width='40%'),
         cls='ifm-split ifm-split--top'), cls='ifm-section--tight'),
@@ -583,6 +583,7 @@ footer = group(
                para('Fixed-price local SEO, websites and social media for UK small businesses. Clear packages, no contracts and a report you can check on every order.', 'ifm-footer__about'),
                para(f'<a href="mailto:{EMAIL}">{EMAIL}</a>', 'ifm-footer__contact'),
                para('IamFamous, 27 Old Gloucester Street, London, WC1N 3AX', 'ifm-footer__addr'),
+               para('IamFamous is the trading name of Mehreen, a sole trader.', 'ifm-footer__legalname'),
                buttons(('Free growth check', GROWTH), cls='ifm-footer__cta'), width='28%'),
         fcol('Get found', ['<a href="/services/local-seo/">Local SEO</a>', '<a href="/services/monthly-seo/">Monthly SEO</a>', '<a href="/services/off-page-seo/">Link Building</a>',
                            '<a href="/services/seo-audit/">SEO Audit</a>', '<a href="/services/technical-seo/">Technical SEO</a>']),
@@ -595,7 +596,7 @@ footer = group(
     group(para('<strong>Secure checkout.</strong> Card details go straight to the payment provider and are never stored on this site.', 'ifm-footer__secure'),
           html(PAYMARKS), align='wide', cls='ifm-footer__pay', layout='flex'),
     group(para('© [ifm_year] IamFamous. All rights reserved.'),
-          para('<a href="/terms/">Terms</a> <a href="/refund-policy/">Refunds</a> <a href="/privacy-policy/">Privacy</a> <a href="/cookie-policy/">Cookies</a> <a href="/accessibility/">Accessibility</a>', 'ifm-footer__legal'), align='wide', cls='ifm-footer__bottom', layout='flex'),
+          para('<a href="/terms/">Terms</a> <a href="/refund-policy/">Refunds</a> <a href="/privacy-policy/">Privacy</a> <a href="/cookie-policy/">Cookies</a> <a href="#cookie-settings">Cookie settings</a> <a href="/accessibility/">Accessibility</a>', 'ifm-footer__legal'), align='wide', cls='ifm-footer__bottom', layout='flex'),
     align='full', cls='ifm-footer', bg='ink', text='on-dark')
 # Footer flex groups: the reference markup uses justifyContent space-between.
 footer = footer.replace('"layout":{"type":"flex","flexWrap":"wrap"}}', '"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}}')

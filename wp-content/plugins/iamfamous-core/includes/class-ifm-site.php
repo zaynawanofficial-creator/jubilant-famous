@@ -18,6 +18,7 @@ class IFM_Site {
 		add_shortcode( 'ifm_year', static fn() => esc_html( wp_date( 'Y' ) ) );
 		add_shortcode( 'ifm_currency', static fn() => esc_html( get_woocommerce_currency() ) );
 		add_shortcode( 'ifm_breadcrumbs', array( __CLASS__, 'breadcrumbs' ) );
+		add_shortcode( 'ifm_legal', static fn() => esc_html( sprintf( /* translators: 1: trading name, 2: owner */ __( '%1$s is the trading name of %2$s, a sole trader.', 'iamfamous-core' ), self::business()['name'], self::business()['legal'] ) ) );
 		add_shortcode( 'ifm_address', static fn() => esc_html( implode( ', ', self::business()['address'] ) ) );
 		add_action( 'init', array( __CLASS__, 'llms_txt' ), 99 );
 		add_shortcode( 'ifm_author', array( __CLASS__, 'author_box' ) );
@@ -96,6 +97,8 @@ class IFM_Site {
 			'ifm_business',
 			array(
 				'name'     => 'IamFamous',
+				// Sole trader behind the trading name (owner, 16 Nov 2026).
+				'legal'    => 'Mehreen',
 				'email'    => apply_filters( 'ifm_public_email', 'support@iamfamous.uk' ),
 				'address'  => array( '27 Old Gloucester Street', 'London', 'WC1N 3AX', 'United Kingdom' ),
 				'street'   => '27 Old Gloucester Street',
@@ -127,7 +130,7 @@ class IFM_Site {
 			'',
 			'> ' . $b['name'] . ' is a UK digital marketing agency that sells fixed-price packages to small businesses: local SEO, websites, social media management, Google and social ads, content writing and design. Orders are placed online, priced in pounds sterling with no VAT added, and are one-off purchases with no contract.',
 			'',
-			'- Business name: ' . $b['name'],
+			'- Business name: ' . $b['name'] . ( ! empty( $b['legal'] ) ? ' (the trading name of ' . $b['legal'] . ', a sole trader)' : '' ),
 			'- Address: ' . implode( ', ', $b['address'] ),
 			'- Email: ' . $b['email'],
 			'- Area served: United Kingdom',
@@ -322,6 +325,10 @@ class IFM_Site {
 			$d  = $id && has_excerpt( $id ) ? get_the_excerpt( $id ) : '';
 		} elseif ( is_category() || is_tax() ) {
 			$d = term_description();
+			if ( '' === trim( wp_strip_all_tags( (string) $d ) ) ) {
+				/* translators: %s: topic name */
+				$d = sprintf( __( 'Plain-English guides about %s for UK small businesses, written by the IamFamous team.', 'iamfamous-core' ), strtolower( single_term_title( '', false ) ) );
+			}
 		}
 		if ( '' === $d ) {
 			$d = get_bloginfo( 'description' );

@@ -118,7 +118,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>This site sets only essential cookies.</li>
+<li>Optional cookies are used only if you allow them.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -133,7 +133,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>This website is run by IamFamous ("we", "us"). Our postal address is 27 Old Gloucester Street, London, WC1N 3AX, United Kingdom and our email is <a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a>. We are the controller of the personal information described here.</p>
+<p>This website is run by Mehreen, a sole trader trading as IamFamous ("we", "us"). Our postal address is 27 Old Gloucester Street, London, WC1N 3AX, United Kingdom and our email is <a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a>. We are the controller of the personal information described here.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"what","className":"ifm-legal__h"} -->
@@ -251,7 +251,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>This site uses only the cookies needed for the basket, checkout and login to work. Details are in our <a href="/cookie-policy/">cookie policy</a>.</p>
+<p>This site uses the cookies needed for the basket, checkout and login, and remembers your cookie choice. Optional cookies are used only with your permission. Details are in our <a href="/cookie-policy/">cookie policy</a>.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"changes","className":"ifm-legal__h"} -->

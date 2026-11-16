@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       IamFamous Core
  * Description:       Service packages, package picker, project briefs, order workflow, lead forms, SEO head tags and old-URL redirects for IamFamous.uk (WooCommerce).
- * Version:           1.2.0
+ * Version:           1.3.0
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'IFM_CORE_VERSION', '1.2.0' );
+define( 'IFM_CORE_VERSION', '1.3.0' );
 define( 'IFM_CORE_FILE', __FILE__ );
 define( 'IFM_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'IFM_CORE_URL', plugin_dir_url( __FILE__ ) );
@@ -32,6 +32,8 @@ require_once IFM_CORE_DIR . 'includes/class-ifm-service-page.php';
 require_once IFM_CORE_DIR . 'includes/class-ifm-redirects.php';
 require_once IFM_CORE_DIR . 'includes/class-ifm-reviews.php';
 require_once IFM_CORE_DIR . 'includes/class-ifm-schema.php';
+require_once IFM_CORE_DIR . 'includes/class-ifm-addons.php';
+require_once IFM_CORE_DIR . 'includes/class-ifm-cleanup.php';
 
 // Declare HPOS + cart/checkout blocks compatibility.
 add_action(
@@ -69,6 +71,8 @@ add_action(
 		IFM_Service_Page::init();
 		IFM_Reviews::init();
 		IFM_Schema::init();
+		IFM_Addons::init();
+		IFM_Cleanup::init();
 	}
 );
 
@@ -83,4 +87,10 @@ register_activation_hook(
 	}
 );
 
-register_deactivation_hook( __FILE__, 'flush_rewrite_rules' );
+register_deactivation_hook(
+	__FILE__,
+	static function () {
+		IFM_Cleanup::unschedule();
+		flush_rewrite_rules();
+	}
+);

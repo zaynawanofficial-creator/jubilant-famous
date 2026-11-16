@@ -6,7 +6,8 @@ Rule (owner decision 12 Nov 2026): IamFamous.uk is cheaper than SEO Booster in r
   - GBP = USD x FX x (1 - discount), rounded DOWN to a clean price point (nearest below GBP 30).
   - Quantity ladders (5/10/20 links ...) are forced to rise with quantity.
   - Rounding happens AFTER the exchange rate and discount are applied (owner instruction, 12 Nov 2026).
-  - No package is priced under GBP 5 (MIN_PRICE): card fees eat most of a smaller order.
+  - No package is priced under GBP 10 (MIN_PRICE, owner 16 Nov 2026; it was GBP 5). Cheap tiers above the
+    minimum step up with it, because quantity ladders must always rise.
   - Monthly plans (unit "month") are all held at the 10% discount: they carry the ongoing work, and a
     steady, credible monthly price builds more trust than a cut-price one (owner delegated, 15 Nov 2026).
   - APPROVED = True marks every priced row price_approved=YES (owner approval, 15 Nov 2026).
@@ -18,7 +19,7 @@ import csv, sys
 from collections import defaultdict
 
 FX = 0.75
-MIN_PRICE = 5
+MIN_PRICE = 10
 APPROVED = True
 BUNDLE_OFF = 0.10
 # (code, title, [component package codes], turnaround, ideal for)
@@ -28,7 +29,7 @@ BUNDLES = [
     ('IF-bundles-starter-bundles-3', 'Online Presence Bundle', ['IF-local-seo-local-seo-packages-2', 'IF-website-development-website-packages-3', 'IF-social-media-management-social-media-packages-2'], '10–14 working days'),
 ]
 D_ENTRY, D_TOP = 0.25, 0.10
-SMALL = [5, 6, 8, 9, 10, 12, 15, 18, 19, 22, 25, 29]  # clean price points under GBP 30
+SMALL = [10, 12, 15, 18, 20, 22, 25, 29]  # clean price points under GBP 30
 LADDER = sorted(set([v for v in SMALL if v >= MIN_PRICE] + [29, 32, 35, 39, 42, 45, 49, 55, 59, 65, 69, 75, 79, 85, 89, 95, 99, 109, 119, 129, 139, 149, 159, 169,
                 179, 189, 199, 219, 229, 249, 269, 279, 299, 329, 349, 379, 399, 429, 449, 479, 499, 549, 599, 649, 699, 749, 799, 849, 899, 949, 999]))
 
@@ -79,7 +80,7 @@ def build(src_path, out_path):
             real = 1 - gbp / (usd * FX)
             r['price'], r['price_approved'] = str(gbp), ('YES' if APPROVED else '0')
             cmp = f'{real:.0%} cheaper at FX {FX}' if real > 0 else f'held at the GBP {MIN_PRICE} minimum order'
-            note = f'Reference ${usd:g} -> GBP {gbp} ({cmp}); ' + ('approved by owner 15 Nov 2026. ' if APPROVED else 'DRAFT, needs owner approval. ')
+            note = f'Reference ${usd:g} -> GBP {gbp} ({cmp}); ' + ('approved by owner 15-16 Nov 2026. ' if APPROVED else 'DRAFT, needs owner approval. ')
         r['notes'] = (note + (r['notes'] or '')).strip()
         out.append(r)
     by_code = {r['package_code']: r for r in out}
