@@ -217,7 +217,9 @@ const reportScene = ([k, title, cols, rows, foot, sideTitle, side]) => `
   <div class="h" style="font-size:13px;margin-bottom:8px">${esc(sideTitle)}</div>
   ${side.map(x => `<div class="row" style="margin-bottom:6px"><i class="tick"></i><span style="font-weight:600;color:#160F1F">${esc(x)}</span></div>`).join('')}
 </div>`;
-const extra = fs.existsSync(__dirname + '/_scenes.json') ? JSON.parse(fs.readFileSync(__dirname + '/_scenes.json', 'utf8')) : {};
+const data = fs.existsSync(__dirname + '/_scenes.json') ? JSON.parse(fs.readFileSync(__dirname + '/_scenes.json', 'utf8')) : {};
+const extra = data.scenes || {};
+const covers = data.covers || {};
 for (const [slug, sc] of Object.entries(extra)) { SCENES['art-' + slug] = heroScene(sc.hero); SCENES['report-' + slug] = reportScene(sc.report); }
 
 (async () => {
@@ -229,6 +231,23 @@ for (const [slug, sc] of Object.entries(extra)) { SCENES['art-' + slug] = heroSc
     await p.goto('file://' + tmp);
     await p.evaluate(() => document.fonts.ready);
     await p.screenshot({ path: `${T}/images/_scene-${name}.png`, omitBackground: true });
+  }
+  // Guide covers: 1200x675, plum band with the guide title.
+  const logo = fs.readFileSync(`${T}/images/logo-on-dark.svg`, 'utf8');
+  const cp = await b.newPage({ viewport: { width: 1200, height: 675 }, deviceScaleFactor: 1 });
+  for (const [slug, [kicker, title, sub]] of Object.entries(covers)) {
+    fs.writeFileSync(tmp, `<!doctype html><meta charset="utf-8"><style>
+      @font-face{font-family:B;src:url(file://${T}/fonts/bricolage-grotesque-latin-wght-normal.woff2);font-weight:200 800}
+      @font-face{font-family:F;src:url(file://${T}/fonts/figtree-latin-wght-normal.woff2);font-weight:300 900}
+      body{margin:0;width:1200px;height:675px;overflow:hidden;color:#fff;font-family:F;background:radial-gradient(900px 420px at 85% 10%,rgba(225,29,46,.42),transparent 60%),radial-gradient(600px 300px at 10% 110%,rgba(255,176,32,.18),transparent 60%),#160F1F}
+      .k{position:absolute;left:80px;top:84px;font:800 22px F;letter-spacing:.12em;text-transform:uppercase;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:99px;padding:12px 22px 12px 44px}
+      .k:before{content:"";position:absolute;left:20px;top:19px;width:12px;height:12px;border-radius:50%;background:#FFB020}
+      h1{position:absolute;left:80px;top:190px;width:900px;margin:0;font:800 84px/1.02 B;letter-spacing:-.03em}
+      .s{position:absolute;left:80px;bottom:84px;font:600 30px F;color:#FF4D5A}
+      .l{position:absolute;right:80px;bottom:80px;width:240px}.l svg{width:240px;height:36px;display:block}
+    </style><body><div class="k">${esc(kicker)}</div><h1>${esc(title)}</h1><div class="s">${esc(sub)}</div><div class="l">${logo}</div></body>`);
+    await cp.goto('file://' + tmp); await cp.evaluate(() => document.fonts.ready);
+    await cp.screenshot({ path: `${T}/images/_cover-${slug}.png` });
   }
   fs.unlinkSync(tmp);
   await b.close();

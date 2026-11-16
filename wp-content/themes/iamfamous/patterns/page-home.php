@@ -1070,6 +1070,32 @@
 <!-- /wp:paragraph --></section>
 <!-- /wp:group -->
 
+<!-- wp:group {"tagName":"section","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
+<section class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
+<div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->
+<p class="ifm-eyebrow">What customers say</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">In their own words</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"className":"ifm-lead"} -->
+<p class="ifm-lead">Feedback sent to us by customers, published word for word and without names.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"wide"} -->
+<div class="wp-block-group alignwide"><!-- wp:shortcode -->
+[ifm_reviews service="general,seo,website-development,social-media-management,ppc-management" count="6"]
+<!-- /wp:shortcode --></div>
+<!-- /wp:group -->
+
+<!-- wp:paragraph {"className":"ifm-center ifm-card__more"} -->
+<p class="ifm-center ifm-card__more"><a href="/reviews/">Read all customer feedback →</a></p>
+<!-- /wp:paragraph --></section>
+<!-- /wp:group -->
+
 <!-- wp:group {"tagName":"section","align":"full","className":"ifm-section","layout":{"type":"constrained"}} -->
 <section class="wp-block-group alignfull ifm-section"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
 <div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->

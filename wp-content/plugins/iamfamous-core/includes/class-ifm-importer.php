@@ -138,15 +138,22 @@ class IFM_Importer {
 	}
 
 	/**
-	 * Package copy per group: the shared base, then IamFamous's own wording (data/group-content-ifm.php) on top.
+	 * Package copy per group: the shared base, then IamFamous's own wording (data/group-content-ifm*.php) on top.
 	 *
 	 * @return array<string,array>
 	 */
 	public static function content(): array {
 		$base = require IFM_CORE_DIR . 'data/group-content.php';
-		$own  = IFM_CORE_DIR . 'data/group-content-ifm.php';
-		if ( is_readable( $own ) ) {
+		foreach ( array( 'data/group-content-ifm.php', 'data/group-content-ifm-2.php' ) as $file ) {
+			$own = IFM_CORE_DIR . $file;
+			if ( ! is_readable( $own ) ) {
+				continue;
+			}
 			foreach ( (array) require $own as $k => $v ) {
+				// Our own per-package wording replaces the shared lists outright (index-based rules included).
+				if ( isset( $v['by_sku'] ) ) {
+					unset( $base[ $k ]['deliverables_by_index'], $base[ $k ]['ideal_for_index'] );
+				}
 				$base[ $k ] = isset( $base[ $k ] ) ? array_replace_recursive( $base[ $k ], $v ) : $v;
 			}
 		}

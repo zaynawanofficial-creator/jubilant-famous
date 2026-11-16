@@ -3,7 +3,7 @@ Theme Name: IamFamous
 Theme URI: https://iamfamous.uk/
 Author: IamFamous
 Description: Block theme for IamFamous.uk: fixed-price digital marketing packages for UK small businesses. Service pages, package picker, WooCommerce checkout and guides. Pairs with the IamFamous Core plugin.
-Version: 1.1.0
+Version: 1.2.0
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
@@ -948,3 +948,24 @@ body { font-variant-numeric: normal; }
 .ifm-card--mini h3 { margin-top: .75rem; }
 .ifm-card--mini .ifm-price-from { margin-top: auto !important; padding-top: .75rem; font-size: 1rem; }
 .ifm-card--mini .ifm-card__more { margin-top: .25rem !important; font-size: var(--wp--preset--font-size--small); }
+
+/* Round 3: customer feedback, price table, footer address */
+.ifm-reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.ifm-review { margin: 0; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--wp--preset--color--line); border-radius: 20px; padding: 1.5rem; box-shadow: var(--wp--preset--shadow--card); }
+.ifm-review blockquote { margin: 0; padding: 0; border: 0; position: relative; }
+.ifm-review blockquote::before { content: "\201C"; display: block; font-family: var(--wp--preset--font-family--bricolage); font-weight: 800; font-size: 3rem; line-height: .8; color: var(--wp--preset--color--gold); margin-bottom: .25rem; }
+.ifm-review blockquote p { margin: 0; color: var(--wp--preset--color--ink); font-size: 1rem; line-height: 1.6; }
+.ifm-review figcaption { margin-top: auto; padding-top: 1rem; display: flex; flex-direction: column; gap: .1rem; font-size: var(--wp--preset--font-size--small); }
+.ifm-review__who { font-weight: 700; color: var(--wp--preset--color--ink); }
+.ifm-review__what { color: var(--wp--preset--color--muted); }
+.ifm-reviews-group + .ifm-reviews-group { margin-top: 3rem; }
+.ifm-reviews-group h2 { font-size: var(--wp--preset--font-size--x-large); margin: 0 0 1.25rem; }
+@media (max-width: 900px) { .ifm-reviews { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .ifm-reviews { grid-template-columns: 1fr; } }
+.ifm-table--prices td:first-child { font-weight: 700; white-space: nowrap; }
+.ifm-table--prices td:first-child a { color: var(--wp--preset--color--ink); }
+.ifm-table--prices td:last-child { font-family: var(--wp--preset--font-family--bricolage); font-weight: 800; color: var(--wp--preset--color--ink); white-space: nowrap; }
+.ifm-table--prices table { table-layout: auto; }
+.ifm-footer__addr { font-size: var(--wp--preset--font-size--x-small); color: var(--wp--preset--color--on-dark); opacity: .85; margin-top: .25rem !important; }
+.ifm-footer__legal a { margin-left: 1rem; }
+.ifm-footer__legal a:first-child { margin-left: 0; }

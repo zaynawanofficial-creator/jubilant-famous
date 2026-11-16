@@ -51,12 +51,20 @@ $by = array(); foreach ( $GLOBALS['products'] as $p ) { $by[ $p->sku ] = $p; }
 check( ! array_filter( array_keys( $by ), fn( $k ) => ! str_starts_with( $k, 'if-' ) ), 'every SKU carries the if- prefix' );
 check( ! array_filter( $rows, fn( $r ) => 'GBP' !== $r['currency'] ), 'every catalogue row is in GBP' );
 
-// --- DRAFT gate: nothing with a fixed price may be published until the owner approves prices.
+// --- Approval gate: a fixed-price package is published only when the CSV says the owner approved its price.
 $published_fixed = array_filter( $by, fn( $p ) => 'publish' === $p->status && 'fixed' === $p->meta['_ifm_pricing_model'] );
-$approved_rows   = array_filter( $rows, fn( $r ) => 'YES' === $r['price_approved'] && 'fixed' === $r['pricing_model'] );
-check( count( $published_fixed ) === count( array_filter( $approved_rows, fn( $r ) => 'YES' === $r['scope_approved'] && 'READY' === $r['publish'] ) ), 'only owner-approved fixed prices are published (' . count( $published_fixed ) . ' now)' );
+$should          = array_filter( $rows, fn( $r ) => 'YES' === $r['price_approved'] && 'fixed' === $r['pricing_model'] && 'YES' === $r['scope_approved'] && 'READY' === $r['publish'] && is_numeric( $r['price'] ) );
+check( count( $published_fixed ) === count( $should ) && count( $should ) >= 100, 'published fixed packages = rows approved and READY (' . count( $published_fixed ) . ')' );
+check( ! array_filter( $published_fixed, fn( $x ) => ! ( (float) $x->price >= 5 ) ), 'every published package has a price of at least £5' );
 $p = $by['if-local-seo-local-seo-packages-2'];
-check( ( 'YES' === array_values( array_filter( $rows, fn( $r ) => 'IF-local-seo-local-seo-packages-2' === $r['package_code'] ) )[0]['price_approved'] ) === ( 'publish' === $p->status ), 'Local SEO Starter status follows price_approved' );
+check( 'publish' === $p->status, 'Local SEO Starter is published (prices approved 15 Nov 2026)' );
+check( 'draft' === $by['if-email-marketing-email-packages-1']->status, 'unscoped services (email, analytics, automation) stay draft even with an approved price' );
+$b = $by['if-bundles-starter-bundles-2'];
+check( 'publish' === $b->status && '1' === $b->meta['_ifm_featured'] && str_contains( $b->meta['_ifm_deliverables'], '5-Page Website' ), 'bundle imported, featured, with its own deliverables' );
+check( (float) $b->price < (float) $by['if-local-seo-local-seo-packages-2']->price + (float) $by['if-website-development-website-packages-3']->price, 'bundle costs less than its parts bought separately' );
+$monthly = array_filter( $rows, fn( $r ) => 'month' === $r['unit'] && str_contains( $r['notes'], 'cheaper' ) );
+check( $monthly && ! array_filter( $monthly, fn( $r ) => ! preg_match( '/\((\d+)% cheaper/', $r['notes'], $m ) || (int) $m[1] > 16 ), 'monthly plans are held near the 10% discount (none above 16% after rounding)' );
+check( str_contains( $by['if-seo-audit-audit-packages-1']->meta['_ifm_deliverables'], 'Your ten biggest problems' ) && str_contains( $by['if-website-maintenance-maintenance-plans-4']->meta['_ifm_deliverables'], 'One hour of small fixes' ), 'round 3 package wording applied per package' );
 check( true === $p->virtual && false === $p->downloadable, 'packages are virtual, not downloadable' );
 $min = min( array_map( fn( $r ) => (float) $r['price'], array_filter( $rows, fn( $r ) => is_numeric( $r['price'] ) ) ) );
 check( $min >= 5, 'no package is priced under £5 (lowest £' . $min . ')' );
@@ -72,7 +80,6 @@ check( '' === $by['if-off-page-seo-profiles-and-citations-2']->meta['_ifm_featur
 check( str_contains( $by['if-graphic-design-branding-5']->meta['_ifm_deliverables'], 'Canva' ), 'Canva package gets its own deliverables' );
 $q = $by['if-seo-audit-audit-packages-3'];
 check( '' === $q->price && 'quote' === $q->meta['_ifm_pricing_model'], 'quote package has no price' );
-check( 'draft' === $by['if-analytics-and-tracking-tracking-setup-1']->status, 'planned services stay draft' );
 check( str_contains( $p->description, '/services/local-seo/' ) && ! str_contains( $p->description, 'seobooster' ), 'product description links to its service page' );
 foreach ( $by as $sku => $x ) {
 	if ( 'publish' === $x->status && 'fixed' === $x->meta['_ifm_pricing_model'] && ! ( (float) $x->price > 0 ) ) { check( false, "published fixed package without price: $sku" ); }

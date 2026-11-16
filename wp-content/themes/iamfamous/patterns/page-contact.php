@@ -83,15 +83,19 @@
 
 <!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Email</h3>
+<h3 class="wp-block-heading">Email and post</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
 <p><a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a></p>
 <!-- /wp:paragraph -->
 
+<!-- wp:paragraph -->
+<p>IamFamous, 27 Old Gloucester Street, London, WC1N 3AX</p>
+<!-- /wp:paragraph -->
+
 <!-- wp:paragraph {"className":"ifm-muted"} -->
-<p class="ifm-muted">IamFamous works online with businesses across the UK.</p>
+<p class="ifm-muted">We work online with businesses across the UK, so this address is for post only.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>

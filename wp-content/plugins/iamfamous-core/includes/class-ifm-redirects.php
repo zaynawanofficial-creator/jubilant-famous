@@ -36,11 +36,11 @@ class IFM_Redirects {
 			'content-writing'         => '/services/content-writing/',
 			'social-media-management' => '/services/social-media-management/',
 			// Old company pages.
-			'about-us'                => '/',
+			'about-us'                => '/about/',
 			'contact-us'              => '/contact/',
-			'faqs'                    => '/services/',
+			'faqs'                    => '/faq/',
 			'blog'                    => '/insights/',
-			'shop'                    => '/services/',
+			'shop'                    => '/packages/',
 		);
 		// Old WooCommerce product categories.
 		$cats = array(

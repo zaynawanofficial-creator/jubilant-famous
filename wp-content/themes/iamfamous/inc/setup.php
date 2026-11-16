@@ -84,13 +84,14 @@ final class IFM_Setup {
 		echo '<form method="post">';
 		wp_nonce_field( self::ACTION );
 		$opts = array(
-			'pages'     => array( true, __( 'Create the pages: Home, Services, all 20 service pages, Free growth check, Contact and Insights (the blog index)', 'iamfamous' ) ),
+			'pages'     => array( true, __( 'Create the pages: Home, Services, all 20 service pages, Packages, How it works, About, Reviews, FAQ, Free growth check, Contact, Insights and the five policy pages', 'iamfamous' ) ),
 			'overwrite' => array( false, __( 'Overwrite pages previously created by this screen with the latest design (tick this when updating the theme; your own pages are never touched)', 'iamfamous' ) ),
-			'posts'     => array( true, __( 'Create the starter articles shipped with this theme version, if any', 'iamfamous' ) ),
-			'reading'   => array( true, __( 'Set Home as the front page and Insights as the posts page', 'iamfamous' ) ),
+			'posts'     => array( true, __( 'Create the guides shipped with this theme version (Insights), with their cover images', 'iamfamous' ) ),
+			'reading'   => array( true, __( 'Set Home as the front page and Insights as the posts page; UK date format and London time', 'iamfamous' ) ),
 			'brand'     => array( true, __( 'Upload the logo and site icon, set the site title and tagline', 'iamfamous' ) ),
 			'legacy'    => array( true, __( 'Move pages from the previous site to Draft (nothing is deleted). WooCommerce pages and pages created by this screen are left alone. Old addresses are redirected by the IamFamous Core plugin.', 'iamfamous' ) ),
 			'woo'       => array( true, __( 'WooCommerce for services: pounds sterling (£), account required at checkout (needed for the project brief), no tax calculation (IamFamous is not VAT registered)', 'iamfamous' ) ),
+			'seo'       => array( true, __( 'Rank Math: set the title, description and focus keyword on every page built here, and fill in the business name, address, email and logo if those settings are still empty (skipped when Rank Math is not active)', 'iamfamous' ) ),
 			'templates' => array( false, __( 'Use the theme files for header, footer and templates: move any copies saved in the Site Editor to the Trash (restore them from the Trash if needed). Tick this if the menu or a template does not match the latest theme.', 'iamfamous' ) ),
 			'bacs'      => array( false, __( 'Enable "Direct bank transfer" as a payment method so test orders can be placed (orders stay On hold until you confirm payment). Connect Stripe / PayPal separately, in test mode first.', 'iamfamous' ) ),
 		);
@@ -175,6 +176,9 @@ final class IFM_Setup {
 				if ( ! empty( $p['seo_title'] ) ) {
 					update_post_meta( $id, '_ifm_seo_title', $p['seo_title'] );
 				}
+				if ( ! empty( $o['seo'] ) && defined( 'RANK_MATH_VERSION' ) ) {
+					self::rank_math_meta( $id, $p['seo_title'] ?? '', $p['excerpt'], $p['kw'] ?? '' );
+				}
 				$ids[ $p['slug'] ] = $id;
 				$log[]             = ( $existing ? 'UPDATE ' : 'CREATE ' ) . wp_make_link_relative( get_permalink( $id ) );
 			}
@@ -240,6 +244,19 @@ final class IFM_Setup {
 			}
 		}
 
+		if ( ! empty( $o['seo'] ) && defined( 'RANK_MATH_VERSION' ) ) {
+			foreach ( $m['posts'] as $p ) {
+				$post = get_page_by_path( $p['slug'], OBJECT, 'post' );
+				if ( $post && get_post_meta( $post->ID, self::META, true ) ) {
+					self::rank_math_meta( $post->ID, '', $p['excerpt'], '' );
+				}
+			}
+			$log[] = 'SET   Rank Math titles, descriptions and focus keywords on the pages built here';
+			$log[] = self::rank_math_business();
+		} elseif ( ! empty( $o['seo'] ) ) {
+			$log[] = 'SKIP  Rank Math is not active: the IamFamous Core plugin prints titles, descriptions and schema itself';
+		}
+
 		if ( ! empty( $o['reading'] ) ) {
 			$home     = $ids['home'] ?? self::page_id( 'home' );
 			$insights = $ids['insights'] ?? self::page_id( 'insights' );
@@ -252,6 +269,10 @@ final class IFM_Setup {
 				update_option( 'page_for_posts', $insights );
 				$log[] = 'SET   posts page = Insights';
 			}
+			// UK conventions: "15 November 2026" and London time.
+			update_option( 'date_format', 'j F Y' );
+			update_option( 'timezone_string', 'Europe/London' );
+			$log[] = 'SET   date format = 15 November 2026, time zone = London';
 			if ( '' === get_option( 'permalink_structure' ) ) {
 				update_option( 'permalink_structure', '/%postname%/' );
 				$log[] = 'SET   permalinks = /%postname%/';
@@ -359,6 +380,59 @@ final class IFM_Setup {
 		flush_rewrite_rules();
 		$log[] = 'Done.';
 		return $log;
+	}
+
+	/** Per-page Rank Math fields. Titles and descriptions are only written when empty or previously written here. */
+	private static function rank_math_meta( int $id, string $title, string $desc, string $kw ): void {
+		$fields = array_filter( array( 'rank_math_title' => $title, 'rank_math_description' => $desc, 'rank_math_focus_keyword' => $kw ) );
+		foreach ( $fields as $key => $value ) {
+			$current = (string) get_post_meta( $id, $key, true );
+			$ours    = (string) get_post_meta( $id, '_ifm_' . $key, true );
+			if ( '' === $current || $current === $ours ) {
+				update_post_meta( $id, $key, $value );
+				update_post_meta( $id, '_ifm_' . $key, $value );
+			}
+		}
+	}
+
+	/** Business details for Rank Math's Organisation schema; only fills settings that are still empty. */
+	private static function rank_math_business(): string {
+		$opt = get_option( 'rank-math-options-titles' );
+		if ( ! is_array( $opt ) ) {
+			return 'SKIP  Rank Math settings not found: run its setup wizard, then build again';
+		}
+		$logo = (int) get_theme_mod( 'custom_logo' );
+		$want = array(
+			'knowledgegraph_type' => 'company',
+			'knowledgegraph_name' => 'IamFamous',
+			'website_name'        => 'IamFamous',
+			'local_business_type' => 'ProfessionalService',
+			'email'               => 'support@iamfamous.uk',
+			'local_address'       => array(
+				'streetAddress'   => '27 Old Gloucester Street',
+				'addressLocality' => 'London',
+				'addressRegion'   => 'London',
+				'postalCode'      => 'WC1N 3AX',
+				'addressCountry'  => 'GB',
+			),
+		);
+		if ( $logo ) {
+			$want['knowledgegraph_logo']    = (string) wp_get_attachment_image_url( $logo, 'full' );
+			$want['knowledgegraph_logo_id'] = $logo;
+		}
+		$changed = array();
+		foreach ( $want as $key => $value ) {
+			$empty = empty( $opt[ $key ] ) || ( is_array( $opt[ $key ] ) && ! array_filter( $opt[ $key ] ) );
+			if ( $empty || ( 'knowledgegraph_type' === $key && 'person' === $opt[ $key ] && empty( $opt['knowledgegraph_name'] ) ) ) {
+				$opt[ $key ] = $value;
+				$changed[]   = $key;
+			}
+		}
+		if ( $changed ) {
+			update_option( 'rank-math-options-titles', $opt );
+			return 'SET   Rank Math business details: ' . implode( ', ', $changed ) . ' (check them in Rank Math → Titles & Meta → Local SEO)';
+		}
+		return 'KEEP  Rank Math business details were already filled in';
 	}
 
 	private static function page_id( string $slug, int $parent = -1 ): int {

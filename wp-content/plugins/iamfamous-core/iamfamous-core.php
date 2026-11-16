@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       IamFamous Core
  * Description:       Service packages, package picker, project briefs, order workflow, lead forms, SEO head tags and old-URL redirects for IamFamous.uk (WooCommerce).
- * Version:           1.1.0
+ * Version:           1.2.0
  * Requires at least: 6.5
  * Requires PHP:      8.1
  * Requires Plugins:  woocommerce
@@ -15,7 +15,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'IFM_CORE_VERSION', '1.1.0' );
+define( 'IFM_CORE_VERSION', '1.2.0' );
 define( 'IFM_CORE_FILE', __FILE__ );
 define( 'IFM_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'IFM_CORE_URL', plugin_dir_url( __FILE__ ) );
@@ -30,6 +30,8 @@ require_once IFM_CORE_DIR . 'includes/class-ifm-leads.php';
 require_once IFM_CORE_DIR . 'includes/class-ifm-order-flow.php';
 require_once IFM_CORE_DIR . 'includes/class-ifm-service-page.php';
 require_once IFM_CORE_DIR . 'includes/class-ifm-redirects.php';
+require_once IFM_CORE_DIR . 'includes/class-ifm-reviews.php';
+require_once IFM_CORE_DIR . 'includes/class-ifm-schema.php';
 
 // Declare HPOS + cart/checkout blocks compatibility.
 add_action(
@@ -65,6 +67,8 @@ add_action(
 		IFM_Leads::init();
 		IFM_Order_Flow::init();
 		IFM_Service_Page::init();
+		IFM_Reviews::init();
+		IFM_Schema::init();
 	}
 );
 

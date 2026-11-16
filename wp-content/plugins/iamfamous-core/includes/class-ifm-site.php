@@ -18,6 +18,8 @@ class IFM_Site {
 		add_shortcode( 'ifm_year', static fn() => esc_html( wp_date( 'Y' ) ) );
 		add_shortcode( 'ifm_currency', static fn() => esc_html( get_woocommerce_currency() ) );
 		add_shortcode( 'ifm_breadcrumbs', array( __CLASS__, 'breadcrumbs' ) );
+		add_shortcode( 'ifm_address', static fn() => esc_html( implode( ', ', self::business()['address'] ) ) );
+		add_action( 'init', array( __CLASS__, 'llms_txt' ), 99 );
 		add_shortcode( 'ifm_author', array( __CLASS__, 'author_box' ) );
 		add_shortcode( 'ifm_byline', array( __CLASS__, 'byline' ) );
 		add_shortcode( 'ifm_author_photo', array( __CLASS__, 'author_photo' ) );
@@ -83,28 +85,103 @@ class IFM_Site {
 			. '<p class="ifm-author__bio">' . esc_html( $f['bio'] ) . '</p></div></aside>';
 	}
 
-	/* ------------------------------------------------------------------ prices */
+	/* ------------------------------------------------------------------ business facts */
 
 	/**
-	 * Lowest published price for a service (product_cat slug), optionally one package group.
-	 * [ifm_from] alone = lowest price in the whole catalogue.
-	 * prefix="From " is printed before a price; fallback="…" replaces the whole output when no price is published.
+	 * The business details shown on the site and in structured data (owner, 15 Nov 2026).
+	 * One place to change them; filter 'ifm_business' to override.
 	 */
-	public static function from_price( $atts ): string {
-		$atts = shortcode_atts( array( 'service' => '', 'group' => '', 'prefix' => '', 'fallback' => '' ), $atts, 'ifm_from' );
-		$key  = 'ifm_from_' . md5( $atts['service'] . '|' . $atts['group'] . '|' . (string) get_option( 'ifm_price_ver', '1' ) );
-		$min  = get_transient( $key );
+	public static function business(): array {
+		return (array) apply_filters(
+			'ifm_business',
+			array(
+				'name'     => 'IamFamous',
+				'email'    => apply_filters( 'ifm_public_email', 'support@iamfamous.uk' ),
+				'address'  => array( '27 Old Gloucester Street', 'London', 'WC1N 3AX', 'United Kingdom' ),
+				'street'   => '27 Old Gloucester Street',
+				'city'     => 'London',
+				'postcode' => 'WC1N 3AX',
+				'country'  => 'GB',
+			)
+		);
+	}
+
+	/** Basket, checkout, account, package and search pages: never indexed. */
+	public static function is_private_page(): bool {
+		return is_search() || ( function_exists( 'is_cart' ) && ( is_cart() || is_checkout() || is_account_page() ) ) || ( function_exists( 'is_product' ) && is_product() ) || ( function_exists( 'is_shop' ) && ( is_shop() || is_product_taxonomy() ) );
+	}
+
+	/**
+	 * /llms.txt: a plain-text summary of the business and its main pages for AI tools.
+	 * Built from the published pages, so it stays in step with the site.
+	 */
+	public static function llms_txt(): void {
+		$path = (string) wp_parse_url( isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '', PHP_URL_PATH );
+		$base = rtrim( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ), '/' );
+		if ( $base . '/llms.txt' !== rtrim( $path, '/' ) ) {
+			return;
+		}
+		$b     = self::business();
+		$lines = array(
+			'# ' . $b['name'],
+			'',
+			'> ' . $b['name'] . ' is a UK digital marketing agency that sells fixed-price packages to small businesses: local SEO, websites, social media management, Google and social ads, content writing and design. Orders are placed online, priced in pounds sterling with no VAT added, and are one-off purchases with no contract.',
+			'',
+			'- Business name: ' . $b['name'],
+			'- Address: ' . implode( ', ', $b['address'] ),
+			'- Email: ' . $b['email'],
+			'- Area served: United Kingdom',
+			'- Website: ' . home_url( '/' ),
+			'',
+		);
+		$hub      = get_page_by_path( 'services' );
+		$sections = array( 'Company' => 0 );
+		if ( $hub ) {
+			$sections = array( 'Services' => (int) $hub->ID, 'Company' => 0 );
+		}
+		foreach ( $sections as $title => $parent ) {
+			$pages = get_posts(
+				array(
+					'post_type'   => 'page',
+					'post_status' => 'publish',
+					'post_parent' => $parent,
+					'numberposts' => 60,
+					'orderby'     => 'menu_order title',
+					'order'       => 'ASC',
+					'meta_key'    => '_ifm_generated', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+				)
+			);
+			if ( ! $pages ) {
+				continue;
+			}
+			$lines[] = '## ' . $title;
+			foreach ( $pages as $pg ) {
+				$lines[] = '- [' . wp_strip_all_tags( get_the_title( $pg ) ) . '](' . get_permalink( $pg ) . ')' . ( $pg->post_excerpt ? ': ' . wp_strip_all_tags( $pg->post_excerpt ) : '' );
+			}
+			$lines[] = '';
+		}
+		nocache_headers();
+		header( 'Content-Type: text/plain; charset=utf-8' );
+		header( 'X-Robots-Tag: noindex' );
+		echo implode( "\n", $lines ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- plain text response.
+		exit;
+	}
+
+	/** Lowest published fixed price for a service (product_cat slug), optionally one package group. '' when none. Cached for a day. */
+	public static function min_price( string $service = '', string $group = '' ): string {
+		$key = 'ifm_from_' . md5( $service . '|' . $group . '|' . (string) get_option( 'ifm_price_ver', '1' ) );
+		$min = get_transient( $key );
 		if ( false === $min ) {
 			$args = array( 'status' => 'publish', 'limit' => 200, 'return' => 'objects' );
-			if ( $atts['service'] ) {
-				$args['category'] = array( sanitize_title( $atts['service'] ) );
+			if ( $service ) {
+				$args['category'] = array( sanitize_title( $service ) );
 			}
 			$min = '';
 			foreach ( wc_get_products( $args ) as $p ) {
 				if ( ! IFM_Packages::is_package( $p ) || 'quote' === $p->get_meta( '_ifm_pricing_model' ) ) {
 					continue;
 				}
-				if ( $atts['group'] && ! has_term( sanitize_title( $atts['group'] ), IFM_Packages::TAX, $p->get_id() ) ) {
+				if ( $group && ! has_term( sanitize_title( $group ), IFM_Packages::TAX, $p->get_id() ) ) {
 					continue;
 				}
 				$price = (float) $p->get_price();
@@ -114,6 +191,19 @@ class IFM_Site {
 			}
 			set_transient( $key, $min, DAY_IN_SECONDS );
 		}
+		return (string) $min;
+	}
+
+	/* ------------------------------------------------------------------ prices */
+
+	/**
+	 * Lowest published price for a service (product_cat slug), optionally one package group.
+	 * [ifm_from] alone = lowest price in the whole catalogue.
+	 * prefix="From " is printed before a price; fallback="…" replaces the whole output when no price is published.
+	 */
+	public static function from_price( $atts ): string {
+		$atts = shortcode_atts( array( 'service' => '', 'group' => '', 'prefix' => '', 'fallback' => '' ), $atts, 'ifm_from' );
+		$min  = self::min_price( (string) $atts['service'], (string) $atts['group'] );
 		if ( '' === $min ) {
 			// No published price yet (e.g. prices awaiting approval): show the page's own fallback wording.
 			return '' !== $atts['fallback'] ? esc_html( $atts['fallback'] ) : esc_html__( 'quote', 'iamfamous-core' );
@@ -214,7 +304,7 @@ class IFM_Site {
 
 	/** Keep transactional and thin pages out of the index. */
 	public static function robots( array $robots ): array {
-		$noindex = is_search() || ( function_exists( 'is_cart' ) && ( is_cart() || is_checkout() || is_account_page() ) ) || ( function_exists( 'is_product' ) && is_product() ) || ( function_exists( 'is_shop' ) && ( is_shop() || is_product_taxonomy() ) );
+		$noindex = self::is_private_page();
 		if ( $noindex ) {
 			$robots['noindex'] = true;
 			$robots['follow']  = true;
@@ -297,7 +387,9 @@ class IFM_Site {
 							'name'  => get_bloginfo( 'name' ),
 							'url'   => home_url( '/' ),
 							'logo'  => $logo ? wp_get_attachment_image_url( $logo, 'full' ) : null,
-							'email' => apply_filters( 'ifm_public_email', 'support@iamfamous.uk' ),
+							'email' => self::business()['email'],
+							'address' => array( '@type' => 'PostalAddress', 'streetAddress' => self::business()['street'], 'addressLocality' => self::business()['city'], 'postalCode' => self::business()['postcode'], 'addressCountry' => self::business()['country'] ),
+							'areaServed' => array( '@type' => 'Country', 'name' => 'United Kingdom' ),
 						)
 					),
 					array(

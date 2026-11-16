@@ -16,7 +16,7 @@ function check( string $name, bool $ok ): void {
 }
 $map = IFM_Redirects::map();
 check( 'old service pages map to the new ones', '/services/website-development/' === IFM_Redirects::target( '/web-development/' ) && '/services/social-media-management/' === IFM_Redirects::target( 'social-media-management' ) );
-check( 'old company pages are covered', '/contact/' === IFM_Redirects::target( '/contact-us/' ) && '/insights/' === IFM_Redirects::target( '/blog/' ) && '/' === IFM_Redirects::target( '/about-us' ) );
+check( 'old company pages are covered', '/contact/' === IFM_Redirects::target( '/contact-us/' ) && '/insights/' === IFM_Redirects::target( '/blog/' ) && '/about/' === IFM_Redirects::target( '/about-us' ) );
 check( 'all 48 old products are covered', 48 === count( array_filter( array_keys( $map ), fn( $k ) => str_starts_with( $k, 'product/' ) ) ) );
 $listed = array_filter( array_map( fn( $l ) => trim( (string) ( explode( '|', $l )[3] ?? '' ) ), file( __DIR__ . '/../reference/current-iamfamous-uk-products-2026-11-12.txt' ) ) );
 $missing = array_filter( $listed, fn( $slug ) => ! isset( $map[ 'product/' . $slug ] ) );

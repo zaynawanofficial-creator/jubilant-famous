@@ -71,23 +71,26 @@ function ifm_nav_items(): array {
 			),
 		),
 		array(
-			'label' => __( 'Local SEO', 'iamfamous' ),
-			'url'   => '/services/local-seo/',
+			'label' => __( 'Packages', 'iamfamous' ),
+			'url'   => '/packages/',
 		),
 		array(
-			'label' => __( 'Websites', 'iamfamous' ),
-			'url'   => '/services/website-development/',
+			'label' => __( 'How it works', 'iamfamous' ),
+			'url'   => '/how-it-works/',
 		),
 		array(
-			'label' => __( 'Social media', 'iamfamous' ),
-			'url'   => '/services/social-media-management/',
+			'label' => __( 'Reviews', 'iamfamous' ),
+			'url'   => '/reviews/',
+		),
+		array(
+			'label' => __( 'About', 'iamfamous' ),
+			'url'   => '/about/',
 		),
 		array(
 			'label' => __( 'Contact', 'iamfamous' ),
 			'url'   => '/contact/',
 		),
 	);
-	// The three lead offers also sit in the top bar, so a first-time visitor reaches them in one click.
 	return (array) apply_filters( 'ifm_nav_items', $items );
 }
 
@@ -179,7 +182,7 @@ function ifm_nav_shortcode(): string {
 			$out .= '</ul></div>';
 		}
 		$out .= '</div><div class="ifm-mega__foot"><p>' . esc_html__( 'Fixed prices in pounds, a written scope and a report you can check on every order.', 'iamfamous' ) . '</p>';
-		$out .= '<div class="ifm-mega__actions">' . ifm_nav_link( __( 'All services', 'iamfamous' ), $item['url'], 'ifm-mega__more' ) . ifm_nav_link( __( 'Free growth check', 'iamfamous' ), '/free-growth-check/', 'ifm-mega__btn' ) . '</div>';
+		$out .= '<div class="ifm-mega__actions">' . ifm_nav_link( __( 'All services', 'iamfamous' ), $item['url'], 'ifm-mega__more' ) . ifm_nav_link( __( 'Packages and prices', 'iamfamous' ), '/packages/', 'ifm-mega__more' ) . ifm_nav_link( __( 'Free growth check', 'iamfamous' ), '/free-growth-check/', 'ifm-mega__btn' ) . '</div>';
 		$out .= '</div></div></div></li>';
 	}
 	$out .= '</ul></nav>';

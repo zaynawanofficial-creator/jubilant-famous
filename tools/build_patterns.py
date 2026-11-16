@@ -15,12 +15,13 @@ Content rules (CLAUDE.md, LESSONS_LEARNED.md section E):
 Round 1 (theme 1.0.0): Home, Services hub, Local SEO, Website Development, Social Media Management,
 Free growth check, Contact.
 Round 2 (theme 1.1.0): the other 17 service pages (data in services_seo.py and services_more.py).
-Still to come: Packages, About, FAQ, legal pages and guides.
+Round 3 (theme 1.2.0): Packages, How it works, About, FAQ, Reviews, five legal pages and the first guides
+(tools/pages_round3.py), customer feedback sections, Rank Math keywords.
 """
 import os
 import sys
 from blocks import (group, heading, para, eyebrow, lead, ul, buttons, image, columns, column, details,
-                    shortcode, join, wrap)
+                    shortcode, join, wrap, table)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, '..', 'wp-content', 'themes', 'iamfamous')
@@ -156,7 +157,12 @@ def proof(art, alt, eb, title, text, bullets, note='Example layout. Yours shows 
     return section(columns(*((b, a) if flip else (a, b)), cls='ifm-split' + (' ifm-split--flip' if flip else ''), center=True), cls=cls)
 
 
+sys.path.insert(0, HERE)
+import pages_round3
+from pages_round3 import KEYWORDS, REVIEW_TAGS
+
 PAGES = []
+POSTS = []
 
 
 def write_pattern(name, title, content, cat='iamfamous-pages', post_types='page', inserter='yes'):
@@ -168,7 +174,7 @@ def write_pattern(name, title, content, cat='iamfamous-pages', post_types='page'
 
 def page(slug, title, content, excerpt, seo_title, parent='', template='landing', menu_order=0):
     assert len(excerpt) <= 158, (slug, len(excerpt))
-    PAGES.append(dict(slug=slug, title=title, parent=parent, template=template, excerpt=excerpt, pattern=f'iamfamous/page-{slug}', order=menu_order, seo_title=seo_title))
+    PAGES.append(dict(slug=slug, title=title, parent=parent, template=template, excerpt=excerpt, pattern=f'iamfamous/page-{slug}', order=menu_order, seo_title=seo_title, kw=KEYWORDS.get(slug, '')))
     write_pattern(f'page-{slug}', f'Page: {title}', content)
 
 
@@ -226,6 +232,9 @@ home = join(
             grid(*[mini_card(x) for x in ['monthly-seo', 'seo-audit', 'off-page-seo', 'ppc-management', 'facebook-ads', 'ecommerce-website-development', 'content-writing', 'graphic-design']], n=4),
             para('<a href="/services/">See all 20 services →</a>', 'ifm-center ifm-card__more'),
             cls='ifm-section--rose'),
+    section(head('What customers say', 'In their own words', 'Feedback sent to us by customers, published word for word and without names.', center=True),
+            group(shortcode('[ifm_reviews service="general,seo,website-development,social-media-management,ppc-management" count="6"]'), align='wide', layout='flow'),
+            para('<a href="/reviews/">Read all customer feedback →</a>', 'ifm-center ifm-card__more'), cls='ifm-section--cream'),
     section(head('Questions', 'Before you order', None, center=True), faq([
         ('Do I have to sign a contract?', 'No. Every package is a single order. Monthly packages cover one month and stop unless you order another.'),
         ('Is VAT added at checkout?', 'No. IamFamous is not VAT registered, so no VAT is added. The price on the package is the amount you pay.'),
@@ -292,6 +301,9 @@ def service_page(slug, eb, h1, sub, checks, for_list, not_for, pk_title, pk_sub,
                    width='45%'),
             column(group(ul(needs, 'ifm-ticks'), cls='ifm-panel', layout='flow'), width='55%'),
             cls='ifm-split', center=True)),
+        section(head('What customers say', 'Feedback from customers', 'Sent to us by customers and published word for word, without names.'),
+                group(shortcode(f'[ifm_reviews service="{REVIEW_TAGS.get(slug, "general")}" count="3"]'), align='wide', layout='flow'),
+                para('<a href="/reviews/">Read all customer feedback →</a>', 'ifm-card__more')),
         section(head('Questions', f'{s["name"]}: your questions answered', None, center=True), faq(faqs), cls='ifm-section--cream'),
         section(head('Goes well with', 'Often ordered together', None),
                 grid(*[(svc_card(r) if r in LEAD else mini_card(r)) for r in related], n=2, cls='ifm-grid--lead')),
@@ -412,7 +424,7 @@ service_page(
      ('What happens after handover?', 'The site is yours and there is no ongoing fee to us. WordPress needs updates now and then. If you would rather not do them, ask us about a maintenance package.')],
     ['local-seo', 'website-maintenance'],
     'Fixed-price WordPress websites for UK small businesses, from 1 to 10 pages. Built for phones, yours to edit and keep, with two rounds of changes.',
-    'Small Business Website Design UK | Fixed-Price WordPress Sites | IamFamous', 2)
+    'Small Business Website Design UK | Fixed-Price Sites | IamFamous', 2)
 
 # ---------------------------------------------------------------- Social Media Management
 service_page(
@@ -527,7 +539,7 @@ contact = join(
                          f'<strong>Want a price?</strong> Use the <a href="{GROWTH}">growth check form</a> and tell us what you need.',
                          '<strong>Not sure what to order?</strong> Start with the <a href="/services/">services page</a>.'], 'ifm-ticks'),
                      cls='ifm-panel', layout='flow'),
-               group(heading('Email', 3), para(f'<a href="mailto:{EMAIL}">{EMAIL}</a>'), para('IamFamous works online with businesses across the UK.', 'ifm-muted'),
+               group(heading('Email and post', 3), para(f'<a href="mailto:{EMAIL}">{EMAIL}</a>'), para('IamFamous, 27 Old Gloucester Street, London, WC1N 3AX'), para('We work online with businesses across the UK, so this address is for post only.', 'ifm-muted'),
                      cls='ifm-card', layout='flow'),
                width='40%'),
         cls='ifm-split ifm-split--top'), cls='ifm-section--tight'),
@@ -535,6 +547,9 @@ contact = join(
 page('contact', 'Contact', contact,
      'Contact IamFamous about packages, orders or a custom job. Send a message or email support@iamfamous.uk and a member of the team replies.',
      'Contact IamFamous | Questions, Orders &amp; Custom Work'.replace('&amp;', '&'), menu_order=8)
+
+# ================================================================ ROUND 3 PAGES AND GUIDES
+pages_round3.build(globals())
 
 # ================================================================ INSIGHTS HERO (blog index)
 write_pattern('hero-insights', 'Hero: Insights',
@@ -567,6 +582,7 @@ footer = group(
         column(html('<a class="ifm-footer__logo" href="/"><img src="/wp-content/themes/iamfamous/assets/images/logo-on-dark.svg" width="186" height="28" alt="IamFamous" loading="lazy"></a>'),
                para('Fixed-price local SEO, websites and social media for UK small businesses. Clear packages, no contracts and a report you can check on every order.', 'ifm-footer__about'),
                para(f'<a href="mailto:{EMAIL}">{EMAIL}</a>', 'ifm-footer__contact'),
+               para('IamFamous, 27 Old Gloucester Street, London, WC1N 3AX', 'ifm-footer__addr'),
                buttons(('Free growth check', GROWTH), cls='ifm-footer__cta'), width='28%'),
         fcol('Get found', ['<a href="/services/local-seo/">Local SEO</a>', '<a href="/services/monthly-seo/">Monthly SEO</a>', '<a href="/services/off-page-seo/">Link Building</a>',
                            '<a href="/services/seo-audit/">SEO Audit</a>', '<a href="/services/technical-seo/">Technical SEO</a>']),
@@ -574,12 +590,12 @@ footer = group(
                           '<a href="/services/website-maintenance/">Website Maintenance</a>', '<a href="/services/website-migration/">Website Migration</a>', '<a href="/services/content-writing/">Content Writing</a>']),
         fcol('Ads &amp; social', ['<a href="/services/social-media-management/">Social Media</a>', '<a href="/services/ppc-management/">Google Ads</a>', '<a href="/services/facebook-ads/">Facebook Ads</a>',
                                   '<a href="/services/tiktok-ads/">TikTok Ads</a>', '<a href="/services/graphic-design/">Graphic Design</a>']),
-        fcol('Get started', ['<a href="/services/">All 20 services</a>', f'<a href="{GROWTH}">Free growth check</a>', '<a href="/contact/">Contact</a>', '<a href="/my-account/">My account</a>', '<a href="/basket/">Basket</a>']),
+        fcol('Company', ['<a href="/about/">About</a>', '<a href="/packages/">Packages and prices</a>', '<a href="/how-it-works/">How it works</a>', '<a href="/reviews/">Reviews</a>', '<a href="/faq/">FAQ</a>', '<a href="/insights/">Guides</a>', '<a href="/contact/">Contact</a>']),
         cls='ifm-footer__cols'),
     group(para('<strong>Secure checkout.</strong> Card details go straight to the payment provider and are never stored on this site.', 'ifm-footer__secure'),
           html(PAYMARKS), align='wide', cls='ifm-footer__pay', layout='flex'),
     group(para('© [ifm_year] IamFamous. All rights reserved.'),
-          para('Prices in pounds. No VAT added. One-off orders, no contract.', 'ifm-footer__legal'), align='wide', cls='ifm-footer__bottom', layout='flex'),
+          para('<a href="/terms/">Terms</a> <a href="/refund-policy/">Refunds</a> <a href="/privacy-policy/">Privacy</a> <a href="/cookie-policy/">Cookies</a> <a href="/accessibility/">Accessibility</a>', 'ifm-footer__legal'), align='wide', cls='ifm-footer__bottom', layout='flex'),
     align='full', cls='ifm-footer', bg='ink', text='on-dark')
 # Footer flex groups: the reference markup uses justifyContent space-between.
 footer = footer.replace('"layout":{"type":"flex","flexWrap":"wrap"}}', '"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"}}')
@@ -595,7 +611,10 @@ lines = ["<?php", "/**", " * Generated by tools/build_patterns.py — pages crea
          "defined( 'ABSPATH' ) || exit;", "", "return array(", "\t'pages' => array("]
 for p in PAGES:
     lines.append("\t\tarray( " + ', '.join(f"'{k}' => {php_str(str(v)) if not isinstance(v, int) else v}" for k, v in p.items()) + " ),")
-lines += ["\t),", "\t'posts' => array(", "\t),", ");", ""]
+lines += ["\t),", "\t'posts' => array("]
+for p in POSTS:
+    lines.append("\t\tarray( " + ', '.join(f"'{k}' => {php_str(v)}" for k, v in p.items()) + " ),")
+lines += ["\t),", ");", ""]
 with open(os.path.join(ROOT, 'inc', 'site-manifest.php'), 'w') as f:
     f.write('\n'.join(lines))
-print(f'{len(PAGES)} pages written to {os.path.abspath(PAT)}')
+print(f'{len(PAGES)} pages and {len(POSTS)} guides written to {os.path.abspath(PAT)}')

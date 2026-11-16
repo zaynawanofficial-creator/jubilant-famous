@@ -44,15 +44,32 @@
 | Scope stated in copy | Page copy only promises what the package deliverables list. Where a draft said more (shop test orders, video editing, a refund if a fix fails) it was removed |
 | Service names | "Link Building" for Off-Page SEO, "Google Ads (PPC)" for PPC Management, "Facebook & Instagram Ads" for Facebook Ads. Page addresses keep the catalogue slugs |
 
+## Locked (15 Nov 2026, owner answers before round 3)
+| Item | Decision |
+|---|---|
+| Prices | **Approved.** The owner delegated the judgement ("what is more professional, trust building"): monthly plans held at −10%, three starter bundles added. See PRICING.md |
+| Reviews | 28 customer quotes supplied by the owner (`reference/owner-testimonials-2026-11-15.md`). Published word for word, without names, star ratings or review schema. The owner is responsible for holding the record of who said what |
+| Response time | "We reply within one working day" confirmed |
+| Business name and address | IamFamous, 27 Old Gloucester Street, London, WC1N 3AX, United Kingdom. Shown in the footer, contact, about and legal pages, Organisation schema and `llms.txt`. Described as a postal address (we work online) |
+| SEO plugin | Rank Math and WooCommerce are installed. Rank Math owns titles, descriptions, robots and the Organisation schema; our plugin adds Service and FAQ schema to its graph and sets the per-page fields from the Setup screen |
+
+## Decided by Claude in round 3 (change any of these by saying so)
+| Item | Decision and reason |
+|---|---|
+| Legal pages | Written to match how the site works and published without a "draft" banner. **Not legal advice: have them checked.** They commit you to: refunds paid within 5 working days of being agreed; the right to cancel an undelivered part if we are more than 10 working days late; complaints answered within one working day and resolved within 10; project files deleted 12 months after an order; unanswered enquiries deleted after 12 months. Tell Claude if any of these should change |
+| Cookies | The cookie policy says only essential cookies are used and no banner is shown. True for this build. **If you add Google Analytics, a pixel or a chat widget, you need a consent banner and the policy must change** |
+| Bundles | Three bundles at about 10% off the parts. Add-ons (express delivery, extra revisions) are not built: they need a delivery promise from you first |
+| Reviews wording | Labelled "IamFamous customer" plus the service. No claims about who the customers are |
+| Guides | 3 of the planned 7+ are written (Google Business Profile checklist, small business website checklist, 20 social post ideas) |
+
 ## Open (ask the owner when it becomes blocking; don't invent)
 | Item | Status |
 |---|---|
-| Company number / registered address | Not supplied. Left out of the site. Needed for the legal pages round |
+| **Legal name of the trader** | **Still needed.** UK law expects a website to show who is behind it: your own name if you trade as a sole trader, or the registered company name, number and registered office if IamFamous is a limited company. The site currently shows only "IamFamous" and the address. Tell Claude which it is and it will be added to the footer and legal pages |
+| ICO registration | Most businesses that handle customer details must pay the ICO data protection fee. Check ico.org.uk and tell Claude the registration number if you want it shown |
 | Phone / WhatsApp | Not supplied. No phone number or WhatsApp button is shown |
-| Reviews/testimonials | The owner said "reviews attached", but no review file reached the session (only the handover zip and two screenshots). No review blocks are shown. Send the reviews as text, a file or a link (Google / Trustpilot) |
-| Final price approval | Draft v2 is in `SERVICE_CATALOG.csv` and `PRICING.md`. Nothing is published until approved |
 | Hostinger MCP (`websites-agents.hostinger.com/iamfamous.uk/mcp`) | Not reachable from the cloud session (the environment's network policy refuses the host), so delivery is by zip. To use it, allow that host in the environment and add it as a connector |
 | Micro-tier prices | A £5 floor is applied. Tiers at £5–£8 still need checking against fulfilment cost |
-| Bundles and add-ons | Concept only. Prices need owner approval |
+| Add-ons / order bumps | Not built. Needs your delivery promise for express orders |
 | Old site URLs | 301 map shipped for the old pages, product categories and 48 products. The 5 old posts are not redirected (not listed in the handover): decide keep, rewrite or redirect |
 | "IamFamous" capital I | In sans-serif type "I" can read as "l". Accepted for v1 (same as .com.au). Alternative: a slightly wider gap or a colour split after "I" if the owner wants it |

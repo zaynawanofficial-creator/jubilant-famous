@@ -50,10 +50,15 @@ import json, sys
 sys.path.insert(0, HERE)
 from scenes_round2 import SCENES as ROUND2
 with open(os.path.join(HERE, '_scenes.json'), 'w') as f:
-    json.dump(ROUND2, f)
+    from pages_round3 import COVERS
+    json.dump({'scenes': ROUND2, 'covers': COVERS}, f)
 subprocess.run(['node', os.path.join(HERE, 'build_art.js')], check=True)
 os.remove(os.path.join(HERE, '_scenes.json'))
 n = 0
+os.makedirs(os.path.join(IMG, 'covers'), exist_ok=True)
+for png in glob.glob(os.path.join(IMG, '_cover-*.png')):
+    Image.open(png).convert('RGB').save(os.path.join(IMG, 'covers', os.path.basename(png)[len('_cover-'):-4] + '.webp'), 'WEBP', quality=86, method=4)
+    os.remove(png)
 for png in glob.glob(os.path.join(IMG, '_scene-*.png')):
     out = os.path.join(IMG, os.path.basename(png)[len('_scene-'):-4] + '.webp')
     Image.open(png).save(out, 'WEBP', quality=88, method=4)

@@ -8,7 +8,7 @@ const { chromium } = require('playwright');
   log('phone header: desktop menu hidden, Menu button shown, header CTA hidden', hdr.nav === 'none' && hdr.burger && hdr.cta === 'none', JSON.stringify(hdr));
   await p.focus('.ifm-burger'); await p.keyboard.press('Enter'); await p.waitForTimeout(400);
   const open = await p.evaluate(() => { const d = document.getElementById('ifm-drawer'); const r = d.querySelector('.ifm-drawer__panel').getBoundingClientRect(); return { hidden: d.hidden, h: Math.round(r.height), links: d.querySelectorAll('.ifm-drawer__link').length, focus: document.activeElement.className, first: d.querySelector('.ifm-drawer__link').textContent.trim() }; });
-  log('drawer opens with Enter, fills the screen height, lists every menu item, Home first', !open.hidden && open.h > 700 && open.links === 6 && open.first === 'Home', JSON.stringify(open));
+  log('drawer opens with Enter, fills the screen height, lists every menu item, Home first', !open.hidden && open.h > 700 && open.links === 7 && open.first === 'Home', JSON.stringify(open));
   log('focus moves into the drawer', /drawer/.test(open.focus), open.focus);
   await p.screenshot({ path: out + '/menu-390.png' });
   for (let i = 0; i < 25; i++) await p.keyboard.press('Tab');

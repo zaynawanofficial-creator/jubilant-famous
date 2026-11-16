@@ -1,5 +1,49 @@
 # PROGRESS
 
+## Round 3: theme 1.2.0 + plugin 1.2.0 · 15–16 Nov 2026 · 🟡 ready to install
+Rounds 1 and 2 are pushed (`24ea183`, `e62825e`). Delivery is still by zip: the Hostinger MCP host is refused by this environment's network policy.
+
+### Done
+- **Prices approved and live in the catalogue.** Monthly plans held at −10% (six prices rose £10 to £20); 106 priced packages publish on import. Three **starter bundles** added at about 10% off their parts.
+- **Customer feedback:** the owner's 28 quotes are in `data/reviews.php`, shown word for word and without names on Home, About, every service page (matched by service) and a Reviews page. No star ratings and no review schema.
+- **Package wording:** deliverables, exclusions, requirements and "ideal for" lines rewritten in IamFamous wording for all 17 newer services and the bundles (`tools/package_copy.py`). Maintenance plans and the press release now have their own correct lists. No package still uses the shared SEO Booster wording.
+- **New pages:** Packages (bundles + price table for all 20 services), How it works, About, FAQ (19 questions in 5 groups), Reviews, Terms, Refund policy, Privacy policy, Cookie policy, Accessibility statement.
+- **Guides:** Google Business Profile checklist, small business website checklist, 20 social media post ideas, each with a cover, key points, FAQs and internal links.
+- **SEO and GEO:**
+  - Service schema (with the lowest price) and FAQ schema built from the questions shown on each page.
+  - Organisation schema with the address.
+  - `/llms.txt` summarising the business and its pages for AI tools.
+  - **Rank Math support:** our Service and FAQ nodes join Rank Math's graph; basket, checkout, account and package pages are noindexed through Rank Math; the Setup screen sets title, description and focus keyword on every page and fills empty business settings.
+  - Every page has a unique title (max 70), description (70 to 158) and focus keyword, one H1, and only internal links that resolve.
+- **Business details:** IamFamous, 27 Old Gloucester Street, London, WC1N 3AX in the footer, contact, about and legal pages, described as a postal address.
+- **Menu:** Home, Services (20 in four groups), Packages, How it works, Reviews, About, Contact. Footer has legal links.
+- Setup screen sets UK date format and London time; redirects for `/about-us/`, `/faqs/` and `/shop/` now go to the new pages.
+
+### Tests run
+- `php -l` on every PHP file: clean.
+- `tests/importer-smoke.php` 30/30, `tests/nav-smoke.php` 15/15, `tests/redirects-smoke.php` 10/10, new `tests/content-smoke.php` 11/11 (titles, descriptions, keywords, one H1 per page, no banned words, no hard-coded prices, no dead internal links, quotes match the owner's file word for word, no review schema).
+- `tests/validate-blocks.js`: 55 files, 5,498 blocks, **0 invalid** (13 Custom HTML blocks counted but not compared).
+- Real render in the local WordPress with the approved catalogue: 116 rows imported, all new pages and guides created with covers, no errors or warnings.
+- Checked in that render: Service + FAQPage + BreadcrumbList on a service page (lowest price £42 on Local SEO), Organisation with address on Home, `/llms.txt` output, 6 quotes on Home and 3 service-matched quotes on a service page.
+- **Rank Math path, with a stand-in for the plugin:** Service and FAQ nodes added to its graph, our own head tags switched off, package page set to noindex, per-page fields and business settings written by the Setup screen. Not tested against the real Rank Math plugin.
+- Playwright full-page, **44 renders, no horizontal scroll**: 16 pages at 390 and 1440; Packages, Terms, Reviews and a guide at 360, 768 and 1024.
+- `ui-checks.js` 14/14 and `menu-checks.js` pass.
+
+### Not run
+- The real WooCommerce basket, checkout, order confirmation and My Account, payments and emails.
+- The real Rank Math plugin (option names and filters follow its documented behaviour; check the five points in INSTALL.md).
+- Lighthouse; WordPress 7.1.4 / PHP 8.5 specifically.
+
+### Not done, and why
+- **Add-ons / order bumps** (express delivery, extra revisions): need a delivery promise from the owner and cart fee logic.
+- **4 more guides** of the planned 7+.
+- **Legal name of the trader** on the site: not supplied (see DECISIONS.md, Open).
+- A local-SEO-specific brief form (it still uses the link-building form).
+- Automatic deletion of old enquiries and project files after 12 months, which the privacy policy promises: currently a manual job.
+
+### Next step
+Install with INSTALL.md, do the Rank Math checks, place a test order in test mode. Then: legal name, legal review of the policy pages, remaining guides, add-ons.
+
 ## Round 2: theme 1.1.0 + plugin 1.1.0 · 13 Nov 2026 · 🟡 ready to install
 **Round 1 push:** done on 13 Nov (commit `24ea183`), after the owner asked again; the earlier attempts were refused by the session's permission layer.
 
