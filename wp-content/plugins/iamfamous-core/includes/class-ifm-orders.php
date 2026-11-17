@@ -89,7 +89,7 @@ class IFM_Orders {
 		return array_diff( $statuses, array_keys( self::statuses() ) );
 	}
 
-	/** True when the order contains at least one service package. */
+	/** True when the order contains at least one service plan. */
 	public static function has_packages( WC_Order $order ): bool {
 		foreach ( $order->get_items() as $item ) {
 			if ( $item instanceof WC_Order_Item_Product && IFM_Packages::is_package( $item->get_product_id() ) ) {

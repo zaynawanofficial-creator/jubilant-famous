@@ -105,7 +105,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/local-seo/#packages">See Local SEO packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/local-seo/#plans">See Local SEO plans</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

@@ -1,10 +1,10 @@
 <?php
 /**
- * Optional add-ons on the package order form: an extra round of changes and express delivery.
+ * Optional add-ons on the plan order form: an extra round of changes and express delivery.
  *
  * The chosen add-ons travel with the basket item, raise that item's price, show in the basket and checkout,
- * and are saved on the order line so the team sees them. Prices are a percentage of the package price with a
- * minimum, in whole pounds. Not offered on quote-only packages or on month-long ("Ongoing") packages.
+ * and are saved on the order line so the team sees them. Prices are a percentage of the plan price with a
+ * minimum, in whole pounds. Not offered on quote-only plans or on month-long ("Ongoing") plans.
  *
  * Change or switch off with the 'ifm_addons' filter (return an empty array to remove them).
  *
@@ -33,7 +33,7 @@ class IFM_Addons {
 			array(
 				'revision' => array(
 					'label' => __( 'Extra round of changes', 'iamfamous-core' ),
-					'help'  => __( 'One more round of changes on top of those included in the package.', 'iamfamous-core' ),
+					'help'  => __( 'One more round of changes on top of those included in the plan.', 'iamfamous-core' ),
 					'pct'   => 15,
 					'min'   => 10,
 				),
@@ -47,7 +47,7 @@ class IFM_Addons {
 		);
 	}
 
-	/** Add-ons are for one-off, fixed-price packages only. */
+	/** Add-ons are for one-off, fixed-price plans only. */
 	public static function eligible( $product ): bool {
 		if ( ! $product || 'quote' === $product->get_meta( '_ifm_pricing_model' ) || ! $product->is_purchasable() || ! ( (float) $product->get_price() > 0 ) ) {
 			return false;
@@ -56,7 +56,7 @@ class IFM_Addons {
 		return 'month' !== (string) $product->get_meta( '_ifm_unit' ) && false === stripos( $turn, 'ongoing' ) && false === stripos( $turn, 'booked' );
 	}
 
-	/** Fee in whole pounds for one add-on on a given package price. */
+	/** Fee in whole pounds for one add-on on a given plan price. */
 	public static function fee( string $key, float $price ): int {
 		$o = self::options()[ $key ] ?? null;
 		return $o ? (int) max( (int) $o['min'], round( $price * (int) $o['pct'] / 100 ) ) : 0;
@@ -95,7 +95,7 @@ class IFM_Addons {
 		return $data;
 	}
 
-	/** Package price plus the chosen add-ons. Always recalculated from the product's own price, so it never compounds. */
+	/** Plan price plus the chosen add-ons. Always recalculated from the product's own price, so it never compounds. */
 	public static function apply_prices( $cart ): void {
 		if ( ! is_object( $cart ) || ( is_admin() && ! wp_doing_ajax() ) ) {
 			return;

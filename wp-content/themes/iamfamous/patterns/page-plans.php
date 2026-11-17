@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Page: Packages
- * Slug: iamfamous/page-packages
+ * Title: Page: Plans
+ * Slug: iamfamous/page-plans
  * Categories: iamfamous-pages
  * Post Types: page
  * Inserter: yes
@@ -16,15 +16,15 @@
 <!-- /wp:shortcode -->
 
 <!-- wp:paragraph {"className":"ifm-eyebrow"} -->
-<p class="ifm-eyebrow">Packages and prices</p>
+<p class="ifm-eyebrow">Plans and prices</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":1} -->
-<h1 class="wp-block-heading">Every package and price in one place</h1>
+<h1 class="wp-block-heading">Every plan and price in one place</h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">All our work is sold as packages with a fixed price in pounds. No VAT is added, there is no setup fee and nothing renews unless you order again. Start with a bundle, or jump to the service you need.</p>
+<p class="ifm-lead">All our work is sold as plans with a fixed price in pounds. No VAT is added, there is no setup fee and nothing renews unless you order again. Start with a bundle, or jump to the service you need.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
@@ -54,7 +54,7 @@
 
 <!-- wp:column {"width":"44%"} -->
 <div class="wp-block-column" style="flex-basis:44%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-hero__art"} -->
-<figure class="wp-block-image size-full ifm-hero__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-services.webp' ) ); ?>" alt="Example service menu with four groups beside a package card with a Choose button"/></figure>
+<figure class="wp-block-image size-full ifm-hero__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-services.webp' ) ); ?>" alt="Example service menu with four groups beside a plan card with a Choose button"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
@@ -71,7 +71,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Each bundle combines packages that small businesses usually order one after another. You pay less than buying them separately, and each part is delivered exactly as described on its own page.</p>
+<p class="ifm-lead">Each bundle combines plans that small businesses usually order one after another. You pay less than buying them separately, and each part is delivered exactly as described on its own page.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -93,7 +93,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Each service has several packages. The price shown is the lowest one. Open the service to compare its packages side by side.</p>
+<p class="ifm-lead">Each service has several plans. The price shown is the lowest one. Open the service to compare its plans side by side.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -111,12 +111,12 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">The three packages most businesses start with</h2>
+<h2 class="wp-block-heading">The three plans most businesses start with</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3 ifm-rail\u002d\u002dlead"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3 ifm-rail--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
 <div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
 <figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-local.webp' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -148,7 +148,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/local-seo/">See Local SEO packages →</a></p>
+<p class="ifm-card__more"><a href="/services/local-seo/">See Local SEO plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -184,7 +184,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-development/">See Website Development packages →</a></p>
+<p class="ifm-card__more"><a href="/services/website-development/">See Website Development plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -220,7 +220,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/social-media-management/">See Social Media Management packages →</a></p>
+<p class="ifm-card__more"><a href="/services/social-media-management/">See Social Media Management plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -240,25 +240,25 @@
 <!-- wp:group {"className":"ifm-faq","layout":{"type":"constrained"}} -->
 <div class="wp-block-group ifm-faq"><!-- wp:details -->
 <details class="wp-block-details"><summary>Are these the full prices?</summary><!-- wp:paragraph -->
-<p>Yes. The price on a package is what you pay at checkout. We are not VAT registered, so no VAT is added, and there are no setup or admin fees.</p>
+<p>Yes. The price on a plan is what you pay at checkout. We are not VAT registered, so no VAT is added, and there are no setup or admin fees.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Why are some services priced "from"?</summary><!-- wp:paragraph -->
-<p>Each service has several packages of different sizes. "From" is the price of the smallest. The service page lists every package with its own price.</p>
+<p>Each service has several plans of different sizes. "From" is the price of the smallest. The service page lists every plan with its own price.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Is there anything else to pay for?</summary><!-- wp:paragraph -->
-<p>Only things you buy from someone else in your own name: a domain name, hosting, paid plugins, or advertising spend paid to Google, Meta or TikTok. We tell you about these on the package page.</p>
+<p>Only things you buy from someone else in your own name: a domain name, hosting, paid plugins, or advertising spend paid to Google, Meta or TikTok. We tell you about these on the plan page.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
-<details class="wp-block-details"><summary>Do monthly packages renew?</summary><!-- wp:paragraph -->
-<p>No. A monthly package covers one month. If you want another month, you place another order. There is no subscription and no contract.</p>
+<details class="wp-block-details"><summary>Do monthly plans renew?</summary><!-- wp:paragraph -->
+<p>No. A monthly plan covers one month. If you want another month, you place another order. There is no subscription and no contract.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -270,7 +270,7 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>How do bundles work?</summary><!-- wp:paragraph -->
-<p>A bundle is one order containing two or three packages at a reduced price. After checkout we ask for the details each part needs. Everything else works exactly like a single package.</p>
+<p>A bundle is one order containing two or three plans at a reduced price. After checkout we ask for the details each part needs. Everything else works exactly like a single plan.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:group --></section>

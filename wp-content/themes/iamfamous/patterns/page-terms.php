@@ -24,7 +24,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">These terms apply when you order a package from iamfamous.uk. They say what you get, what we need from you, how payment, delivery, changes and refunds work, and where each of us stands if something goes wrong.</p>
+<p class="ifm-lead">These terms apply when you order a plan from iamfamous.uk. They say what you get, what we need from you, how payment, delivery, changes and refunds work, and where each of us stands if something goes wrong.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"ifm-checks"} -->
@@ -126,7 +126,7 @@
 
 <!-- wp:list {"className":"ifm-ticks"} -->
 <ul class="wp-block-list ifm-ticks"><!-- wp:list-item -->
-<li>You buy a package with a written scope at a fixed price in pounds.</li>
+<li>You buy a plan with a written scope at a fixed price in pounds.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -165,11 +165,11 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>A package page describes what is included, what is not, the delivery time, the changes included and the price. When you place an order and we send your order confirmation by email, a contract is formed on these terms and on the description of the package you bought.</p>
+<p>A plan page describes what is included, what is not, the delivery time, the changes included and the price. When you place an order and we send your order confirmation by email, a contract is formed on these terms and on the description of the plan you bought.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>If a package page and these terms disagree, the package page applies to that package.</p>
+<p>If a plan page and these terms disagree, the plan page applies to that plan.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"prices","className":"ifm-legal__h"} -->
@@ -181,11 +181,11 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Some packages rely on things you buy from others in your own name, such as a domain name, hosting, paid software or advertising spend. Those costs are not included and are paid by you directly to the supplier.</p>
+<p>Some plans rely on things you buy from others in your own name, such as a domain name, hosting, paid software or advertising spend. Those costs are not included and are paid by you directly to the supplier.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>Monthly packages cover one month of work. They are not subscriptions and do not renew.</p>
+<p>Monthly plans cover one month of work. They are not subscriptions and do not renew.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"your-part","className":"ifm-legal__h"} -->
@@ -193,7 +193,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Each package lists what we need. You agree to provide it accurately and promptly, and to give access by user invite where access is needed. Please never send us a password.</p>
+<p>Each plan lists what we need. You agree to provide it accurately and promptly, and to give access by user invite where access is needed. Please never send us a password.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -205,7 +205,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>The delivery time shown on a package starts when we have everything listed under "What we need from you". If we are waiting for something from you, the delivery time is paused until we receive it.</p>
+<p>The delivery time shown on a plan starts when we have everything listed under "What we need from you". If we are waiting for something from you, the delivery time is paused until we receive it.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -217,7 +217,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Each package states the changes or revisions included. A round of changes is one list sent together. Requests outside the scope of the package are quoted separately, and we only go ahead if you accept the price.</p>
+<p>Each plan states the changes or revisions included. A round of changes is one list sent together. Requests outside the scope of the plan are quoted separately, and we only go ahead if you accept the price.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"extras","className":"ifm-legal__h"} -->
@@ -225,7 +225,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Some packages offer optional extras at checkout. An extra round of changes adds one round to those included in the package. Express delivery moves your order to the front of our queue, and we aim to deliver in half the stated delivery time. If an express order takes longer than the standard delivery time shown on the package, we refund the express fee. Extras are not offered on monthly packages.</p>
+<p>Some plans offer optional extras at checkout. An extra round of changes adds one round to those included in the plan. Express delivery moves your order to the front of our queue, and we aim to deliver in half the stated delivery time. If an express order takes longer than the standard delivery time shown on the plan, we refund the express fee. Extras are not offered on monthly plans.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"results","className":"ifm-legal__h"} -->
@@ -233,7 +233,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>We promise to carry out the work listed on your package with reasonable care and skill, and to deliver what the package describes.</p>
+<p>We promise to carry out the work listed on your plan with reasonable care and skill, and to deliver what the plan describes.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -245,7 +245,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Where a package includes links or listings, we replace free of charge any that are not live when we deliver. Guest posts removed within 90 days of publication are replaced. After that, placements are outside our control.</p>
+<p>Where a plan includes links or listings, we replace free of charge any that are not live when we deliver. Guest posts removed within 90 days of publication are replaced. After that, placements are outside our control.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"ownership","className":"ifm-legal__h"} -->

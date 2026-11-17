@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'IFM_THEME_VERSION', '1.3.0' );
+define( 'IFM_THEME_VERSION', '1.4.0' );
 
 add_action(
 	'after_setup_theme',
@@ -140,7 +140,7 @@ add_filter(
 );
 
 /*
- * Small front-end script: section reveal (skipped for reduced motion) and the sticky "Choose package" bar.
+ * Small front-end script: section reveal (skipped for reduced motion) and the sticky "Choose a plan" bar.
  */
 add_action(
 	'wp_enqueue_scripts',
@@ -151,8 +151,8 @@ add_action(
 );
 
 /**
- * Sticky "Choose package" bar on service pages (phones and small tablets only, shown by CSS + site.js
- * once the hero has scrolled away and hidden again while the packages section is on screen).
+ * Sticky "Choose a plan" bar on service pages (phones and small tablets only, shown by CSS + site.js
+ * once the hero has scrolled away and hidden again while the plans section is on screen).
  */
 add_action(
 	'wp_footer',
@@ -170,11 +170,11 @@ add_action(
 		echo '<div class="ifm-stickybar" data-ifm-stickybar hidden><p class="ifm-stickybar__txt"><strong>' . esc_html( get_the_title( $page ) ) . '</strong>';
 		if ( $has ) {
 			/* translators: %s: price */
-			echo '<span>' . esc_html( sprintf( __( 'Packages from %s', 'iamfamous' ), $from ) ) . '</span>';
+			echo '<span>' . esc_html( sprintf( __( 'Plans from %s', 'iamfamous' ), $from ) ) . '</span>';
 		} else {
-			echo '<span>' . esc_html__( 'Fixed-price packages', 'iamfamous' ) . '</span>';
+			echo '<span>' . esc_html__( 'Fixed-price plans', 'iamfamous' ) . '</span>';
 		}
-		echo '</p><a class="ifm-stickybar__btn" href="#packages">' . esc_html__( 'Choose package', 'iamfamous' ) . '</a></div>';
+		echo '</p><a class="ifm-stickybar__btn" href="#plans">' . esc_html__( 'Choose a plan', 'iamfamous' ) . '</a></div>';
 	},
 	6
 );

@@ -14,7 +14,7 @@ SCENES = {
         hero=('Link building', 'Your links', '20 Profile & Citation Links', ['Business listings', 'Profile links', 'Same name and phone', 'Written descriptions', 'Built by hand', 'Live-link report'],
               'Placements', [('Directory listing', 'live link', 'ok'), ('Business profile', 'live link', 'ok'), ('Guest post · DR 30+', 'live link', 'ok'), ('Trade directory', 'submitted', 'wait')], ['Real sites, placed by hand', 'Every link listed']),
         report=('Link report', 'Every placement, with its address', ['Site', 'Live link', 'Status'], [('Yell', 'yell.com/biz/…', 'Live'), ('Bing Places', 'bing.com/maps/…', 'Live'), ('Guest post · DR 32', 'example-site.co.uk/…', 'Live'), ('Trade directory', 'checking', 'Pending')],
-                '…one row for every link in the package', 'Included', ['Free replacement if not live', 'DR recorded on the day', 'Sponsored labels where required'])),
+                '…one row for every link in the plan', 'Included', ['Free replacement if not live', 'DR recorded on the day', 'Sponsored labels where required'])),
     'seo-audit': dict(
         hero=('SEO audit', 'Fix these first', 'Full SEO Audit', ['Can Google read it?', 'Phone speed', 'Titles and content', 'Links compared', 'Ranked by impact', 'Fix for each issue'],
               'Findings', [('Service pages blocked', 'high', 'gold'), ('Slow images on phones', 'high', 'gold'), ('Duplicate page titles', 'medium', 'wait'), ('Missing image text', 'low', 'wait')], ['Ranked high, medium, low', 'The fix beside each one']),
@@ -29,7 +29,7 @@ SCENES = {
         hero=('On-page SEO', 'One page, one search', 'On-Page SEO · 5 Pages', ['Search term chosen', 'Title rewritten', 'Description rewritten', 'Headings restructured', 'Images described', 'Internal links added'],
               'Page title', [('Before', 'Home | Smith & Co', 'wait'), ('After', 'Boiler Repair in Leeds | Smith & Co', 'ok'), ('Target search', 'boiler repair leeds', 'gold'), ('Links added', '3 related pages', 'ok')], ['Old and new, side by side', 'A search term for every page']),
         report=('Page notes', 'Old and new for each page', ['Page', 'Target search', 'Status'], [('/boiler-repair/', 'boiler repair leeds', 'Updated'), ('/boiler-service/', 'boiler service cost', 'Updated'), ('/emergency/', 'emergency plumber leeds', 'Updated'), ('/about/', 'brand name', 'Updated')],
-                '…one row for every page in the package', 'On each page', ['Title and description', 'Headings and first paragraph', 'Links to related pages'])),
+                '…one row for every page in the plan', 'On each page', ['Title and description', 'Headings and first paragraph', 'Links to related pages'])),
     'ecommerce-seo': dict(
         hero=('Ecommerce SEO', 'Category page', 'Store SEO Setup', ['Category intro text', 'Product titles', 'Original descriptions', 'Product schema', 'Filter pages tidied', 'Image descriptions'],
               'Product schema', [('Price', 'labelled', 'ok'), ('In stock', 'labelled', 'ok'), ('Reviews', 'labelled', 'ok'), ('Duplicate variants', 'excluded', 'ok')], ['Pages shoppers land on', 'Details Google can show']),

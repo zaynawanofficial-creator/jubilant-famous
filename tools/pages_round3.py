@@ -1,4 +1,4 @@
-"""Round 3 pages: Packages, How it works, About, FAQ, Reviews, five legal pages and the first guides.
+"""Round 3 pages: Plans, How it works, About, FAQ, Reviews, five legal pages and the first guides.
 
 build_patterns.py calls build(g) with its own namespace, so the block helpers and page() are shared.
 Copy rules as everywhere: original, UK spelling, plain English, nothing invented, no guarantees.
@@ -20,12 +20,12 @@ REVIEW_TAGS = {
 
 # Focus keyword per page, for Rank Math.
 KEYWORDS = {
-    'home': 'digital marketing for small businesses', 'services': 'digital marketing services', 'local-seo': 'local SEO services', 'monthly-seo': 'monthly SEO packages', 'off-page-seo': 'link building services',
+    'home': 'digital marketing for small businesses', 'services': 'digital marketing services', 'local-seo': 'local SEO services', 'monthly-seo': 'monthly SEO plans', 'off-page-seo': 'link building services',
     'seo-audit': 'SEO audit', 'technical-seo': 'technical SEO services', 'on-page-seo': 'on-page SEO services', 'ecommerce-seo': 'ecommerce SEO services', 'ai-seo': 'AI SEO',
     'white-label-seo': 'white label SEO', 'seo-consultancy': 'SEO consultant', 'website-development': 'small business website design', 'ecommerce-website-development': 'ecommerce website design',
     'website-maintenance': 'WordPress maintenance', 'website-migration': 'website migration service', 'social-media-management': 'social media management', 'ppc-management': 'Google Ads management',
     'facebook-ads': 'Facebook ads management', 'tiktok-ads': 'TikTok ads management', 'content-writing': 'content writing services', 'graphic-design': 'logo design',
-    'packages': 'digital marketing packages', 'how-it-works': 'how to order', 'about': 'IamFamous', 'faq': 'IamFamous FAQ', 'reviews': 'IamFamous reviews', 'free-growth-check': 'free growth check', 'contact': 'contact IamFamous',
+    'plans': 'digital marketing plans', 'how-it-works': 'how to order', 'about': 'IamFamous', 'faq': 'IamFamous FAQ', 'reviews': 'IamFamous reviews', 'free-growth-check': 'free growth check', 'contact': 'contact IamFamous',
     'terms': 'terms of service', 'refund-policy': 'refund policy', 'privacy-policy': 'privacy policy', 'cookie-policy': 'cookie policy', 'accessibility': 'accessibility statement',
 }
 
@@ -35,7 +35,7 @@ COVERS = {
     'social-media-post-ideas-small-business': ('Social media guide', '20 post ideas for small businesses', 'With a simple weekly routine'),
     'how-to-ask-customers-for-reviews': ('Reviews guide', 'How to ask customers for reviews', 'And stay within UK rules'),
     'google-ads-vs-facebook-ads': ('Advertising guide', 'Google Ads or Facebook ads?', 'Which to try first'),
-    'how-seo-is-priced': ('SEO guide', 'How SEO is priced', 'Hourly, retainer or fixed package'),
+    'how-seo-is-priced': ('SEO guide', 'How SEO is priced', 'Hourly, retainer or fixed plan'),
     'what-is-a-citation-local-seo': ('Local SEO guide', 'What is a citation?', 'Name, address and phone explained'),
 }
 
@@ -43,6 +43,7 @@ COVERS = {
 def build(g):
     group, heading, para, ul, buttons, columns, column = g['group'], g['heading'], g['para'], g['ul'], g['buttons'], g['columns'], g['column']
     eyebrow, lead, shortcode, join, details = g['eyebrow'], g['lead'], g['shortcode'], g['join'], g['details']
+    rail = g['rail']
     section, head, grid, card, steps, faq, cta, page_hero, page, img = g['section'], g['head'], g['grid'], g['card'], g['steps'], g['faq'], g['cta'], g['page_hero'], g['page'], g['img']
     mini_card, svc_card, LIVE, ORDER, GROUPS, LEAD, GROWTH, EMAIL, HOW_STEPS = g['mini_card'], g['svc_card'], g['LIVE'], g['ORDER'], g['GROUPS'], g['LEAD'], g['GROWTH'], g['EMAIL'], g['HOW_STEPS']
     table, write_pattern, POSTS = g['table'], g['write_pattern'], g['POSTS']
@@ -51,35 +52,35 @@ def build(g):
     # ============================================================ PACKAGES
     price_rows = [[f'<a href="/services/{s}/">{LIVE[s]["name"]}</a>', LIVE[s]['short'],
                    f'[ifm_from service="{s}" fallback="On request"]'] for s in ORDER]
-    packages = join(
-        page_hero('art-services.webp', 'Example service menu with four groups beside a package card with a Choose button',
-                  eyebrow('Packages and prices'), heading('Every package and price in one place', 1),
-                  lead('All our work is sold as packages with a fixed price in pounds. No VAT is added, there is no setup fee and nothing renews unless you order again. Start with a bundle, or jump to the service you need.'),
+    plans = join(
+        page_hero('art-services.webp', 'Example service menu with four groups beside a plan card with a Choose button',
+                  eyebrow('Plans and prices'), heading('Every plan and price in one place', 1),
+                  lead('All our work is sold as plans with a fixed price in pounds. No VAT is added, there is no setup fee and nothing renews unless you order again. Start with a bundle, or jump to the service you need.'),
                   buttons(('See the bundles', '#bundles'), ('Prices by service', '#prices', 'outline')),
                   ul(['Fixed prices in pounds', 'No VAT added', 'One-off orders, no contract'], 'ifm-checks')),
         section(head('Starter bundles', 'Buy the first steps together and save',
-                     'Each bundle combines packages that small businesses usually order one after another. You pay less than buying them separately, and each part is delivered exactly as described on its own page.', center=True),
+                     'Each bundle combines plans that small businesses usually order one after another. You pay less than buying them separately, and each part is delivered exactly as described on its own page.', center=True),
                 group(shortcode('[ifm_packages service="bundles"]'), align='wide', layout='flow'),
                 cls='ifm-section--cream', anchor='bundles'),
         section(head('Prices by service', 'Starting prices for all 20 services',
-                     'Each service has several packages. The price shown is the lowest one. Open the service to compare its packages side by side.'),
+                     'Each service has several plans. The price shown is the lowest one. Open the service to compare its plans side by side.'),
                 group(table(['Service', 'What it covers', 'From'], price_rows, cls='ifm-table ifm-table--prices'), align='wide', layout='flow'),
                 anchor='prices'),
-        section(head('Most ordered', 'The three packages most businesses start with', None),
-                grid(*[svc_card(s) for s in LEAD], n=3, cls='ifm-grid--lead'), cls='ifm-section--rose'),
+        section(head('Most ordered', 'The three plans most businesses start with', None),
+                rail(*[svc_card(s) for s in LEAD], n=3, cls='ifm-rail--lead'), cls='ifm-section--rose'),
         section(head('Questions', 'About our prices', None, center=True), faq([
-            ('Are these the full prices?', 'Yes. The price on a package is what you pay at checkout. We are not VAT registered, so no VAT is added, and there are no setup or admin fees.'),
-            ('Why are some services priced "from"?', 'Each service has several packages of different sizes. "From" is the price of the smallest. The service page lists every package with its own price.'),
-            ('Is there anything else to pay for?', 'Only things you buy from someone else in your own name: a domain name, hosting, paid plugins, or advertising spend paid to Google, Meta or TikTok. We tell you about these on the package page.'),
-            ('Do monthly packages renew?', 'No. A monthly package covers one month. If you want another month, you place another order. There is no subscription and no contract.'),
+            ('Are these the full prices?', 'Yes. The price on a plan is what you pay at checkout. We are not VAT registered, so no VAT is added, and there are no setup or admin fees.'),
+            ('Why are some services priced "from"?', 'Each service has several plans of different sizes. "From" is the price of the smallest. The service page lists every plan with its own price.'),
+            ('Is there anything else to pay for?', 'Only things you buy from someone else in your own name: a domain name, hosting, paid plugins, or advertising spend paid to Google, Meta or TikTok. We tell you about these on the plan page.'),
+            ('Do monthly plans renew?', 'No. A monthly plan covers one month. If you want another month, you place another order. There is no subscription and no contract.'),
             ('Can I get a price for something that is not listed?', f'Yes. Use the <a href="{GROWTH}">free growth check form</a> to tell us what you need, and we will reply within one working day with a fixed price and a written scope.'),
-            ('How do bundles work?', 'A bundle is one order containing two or three packages at a reduced price. After checkout we ask for the details each part needs. Everything else works exactly like a single package.'),
+            ('How do bundles work?', 'A bundle is one order containing two or three plans at a reduced price. After checkout we ask for the details each part needs. Everything else works exactly like a single plan.'),
         ]), cls='ifm-section--cream'),
         cta(),
     )
-    page('packages', 'Packages', packages,
-         'All IamFamous packages and prices: starter bundles and starting prices for 20 marketing services. Fixed prices in pounds, no VAT, no contract.',
-         'Digital Marketing Packages & Prices UK | IamFamous', menu_order=2)
+    page('plans', 'Plans', plans,
+         'All IamFamous plans and prices: starter bundles and starting prices for 20 marketing services. Fixed prices in pounds, no VAT, no contract.',
+         'Digital Marketing Plans & Prices UK | IamFamous', menu_order=2)
 
     # ============================================================ HOW IT WORKS
     how = join(
@@ -87,12 +88,12 @@ def build(g):
                   eyebrow('How it works'), heading('How ordering works, from choosing to delivery', 1),
                   lead('You can order everything on this site without a phone call. Here is exactly what happens at each step, what we need from you and what you can expect from us.'),
                   ul(['Order online in minutes', 'A reply within one working day', 'Full refund before work starts'], 'ifm-checks')),
-        section(head('The four steps', 'From package to proof', None, center=True), steps(HOW_STEPS)),
+        section(head('The four steps', 'From plan to proof', None, center=True), steps(HOW_STEPS)),
         section(columns(
             column(eyebrow('Step by step'), heading('What happens after you pay'),
-                   para('The moment payment goes through you get an order number and a receipt by email. The answers you gave on the package page are already attached to the order, so most jobs can begin without any further questions.'),
+                   para('The moment payment goes through you get an order number and a receipt by email. The answers you gave on the plan page are already attached to the order, so most jobs can begin without any further questions.'),
                    para('If something is missing or unclear, we email you within one working day. You can add logos, photos and documents at any time from your account.'),
-                   para('The delivery time shown on your package starts once we have everything we asked for. When the work is finished, the report or files arrive by email and are saved in your account.'), width='55%'),
+                   para('The delivery time shown on your plan starts once we have everything we asked for. When the work is finished, the report or files arrive by email and are saved in your account.'), width='55%'),
             column(group(heading('Order statuses you will see', 3),
                          ul(['<strong>Awaiting details:</strong> we need something from you before we can start.',
                              '<strong>Details received:</strong> we have what we need and the delivery time is running.',
@@ -101,7 +102,7 @@ def build(g):
                          cls='ifm-panel', layout='flow'), width='45%'),
             cls='ifm-split', center=True), cls='ifm-section--cream'),
         section(head('Changes and refunds', 'If something is not right', None),
-                grid(card('Changes are built in', 'Each package says how many rounds of changes it includes. A round is one list of changes sent together. Tell us what to alter and we rework it.', 'pen'),
+                rail(card('Changes are built in', 'Each plan says how many rounds of changes it includes. A round is one list of changes sent together. Tell us what to alter and we rework it.', 'pen'),
                      card('Refund before we start', 'Change your mind before work begins and you get all of your money back. Email us with your order number.', 'shield'),
                      card('Fair refund after we start', 'If we have already started, we agree what has been done and refund the rest. The <a href="/refund-policy/">refund policy</a> explains how.', 'pound'),
                      n=3)),
@@ -115,34 +116,34 @@ def build(g):
                              'You can remove our access at any time, and we suggest you do when the job is finished.'], 'ifm-ticks'), cls='ifm-panel', layout='flow'), width='55%'),
             cls='ifm-split', center=True), cls='ifm-section--rose'),
         section(head('Questions', 'Ordering: your questions answered', None, center=True), faq([
-            ('Do I need to speak to anyone before ordering?', f'No. Everything you need to decide is on the package page. If you would like advice first, the <a href="{GROWTH}">free growth check</a> is the quickest way to get it.'),
-            ('When does the delivery time start?', 'When we have the details asked for on the package page. If you fill in the form fully when you order, that is straight after payment.'),
+            ('Do I need to speak to anyone before ordering?', f'No. Everything you need to decide is on the plan page. If you would like advice first, the <a href="{GROWTH}">free growth check</a> is the quickest way to get it.'),
+            ('When does the delivery time start?', 'When we have the details asked for on the plan page. If you fill in the form fully when you order, that is straight after payment.'),
             ('How do I pay?', 'At a secure checkout, in pounds. Your card details go straight to the payment provider and are never stored on this site.'),
-            ('Can I order more than one package?', 'Yes. Add as many as you like to your basket and pay once. Each package keeps its own details and delivery time.'),
+            ('Can I order more than one plan?', 'Yes. Add as many as you like to your basket and pay once. Each plan keeps its own details and delivery time.'),
             ('What if I ordered the wrong thing?', 'Email us before work starts and we will swap it or refund you in full.'),
         ]), cls='ifm-section--cream'),
         cta(),
     )
     page('how-it-works', 'How It Works', how,
-         'How ordering works at IamFamous: choose a package, send your details, pay securely and receive work you can check. Changes, refunds and access explained.',
+         'How ordering works at IamFamous: choose a plan, send your details, pay securely and receive work you can check. Changes, refunds and access explained.',
          'How It Works: Ordering, Delivery & Refunds | IamFamous', menu_order=3)
 
     # ============================================================ ABOUT
     about = join(
-        page_hero('art-services.webp', 'Example service menu with four groups beside a package card with a Choose button',
+        page_hero('art-services.webp', 'Example service menu with four groups beside a plan card with a Choose button',
                   eyebrow('About IamFamous'), heading('A marketing agency you can buy from like a shop', 1),
-                  lead('IamFamous is a UK digital marketing agency for small businesses. We sell local SEO, websites, social media, advertising, content and design as fixed-price packages that you order online.'),
+                  lead('IamFamous is a UK digital marketing agency for small businesses. We sell local SEO, websites, social media, advertising, content and design as fixed-price plans that you order online.'),
                   ul(['UK small businesses', 'Fixed prices in pounds', 'Work you can check'], 'ifm-checks')),
         section(columns(
             column(eyebrow('Why we work this way'), heading('Marketing without the mystery'),
                    para('Buying marketing as a small business is harder than it should be. Prices are hidden behind a call. Monthly retainers run on with little to show for them. Reports are full of charts and short on what was actually done.'),
-                   para('We set IamFamous up to do the opposite. Every service is a package with a price, a delivery time and a list of what you get. You can read it, compare it and order it without talking to a salesperson.'),
-                   para('When the job is finished you get proof: the live links, the files, the before and after. If a package is not right for you, the page says so.'), width='58%'),
+                   para('We set IamFamous up to do the opposite. Every service is a plan with a price, a delivery time and a list of what you get. You can read it, compare it and order it without talking to a salesperson.'),
+                   para('When the job is finished you get proof: the live links, the files, the before and after. If a plan is not right for you, the page says so.'), width='58%'),
             column(group(heading('IamFamous at a glance', 3),
                          ul(['<strong>What we are:</strong> a digital marketing agency.',
                              '<strong>Who runs it:</strong> IamFamous is the trading name of Mehreen, a sole trader.',
                              '<strong>Who we work for:</strong> small businesses across the United Kingdom.',
-                             '<strong>What we sell:</strong> 20 services as fixed-price packages.',
+                             '<strong>What we sell:</strong> 20 services as fixed-price plans.',
                              '<strong>How you buy:</strong> online, in pounds, with no contract.',
                              '<strong>VAT:</strong> not registered, so none is added.',
                              f'<strong>Email:</strong> {mail}',
@@ -150,7 +151,7 @@ def build(g):
                          cls='ifm-panel', layout='flow'), width='42%'),
             cls='ifm-split')),
         section(head('What we do', 'Four kinds of work', None),
-                grid(*[card(t, f'{sub} <a href="/services/#group-{k}">See these services →</a>', ic) for (k, t, sub), ic in zip(GROUPS, ['local', 'webdev', 'megaphone', 'pen'])], n=4),
+                rail(*[card(t, f'{sub} <a href="/services/#group-{k}">See these services →</a>', ic) for (k, t, sub), ic in zip(GROUPS, ['local', 'webdev', 'megaphone', 'pen'])], n=4),
                 cls='ifm-section--cream'),
         section(columns(
             column(eyebrow('How we work'), heading('The rules we hold ourselves to'),
@@ -167,43 +168,43 @@ def build(g):
                 group(shortcode('[ifm_reviews service="general,seo,website-development" count="6"]'), align='wide', layout='flow'),
                 para('<a href="/reviews/">Read all customer feedback →</a>', 'ifm-center ifm-card__more'), cls='ifm-section--rose'),
         section(head('Contact', 'How to reach us', None),
-                grid(card('Email', f'{mail}. We reply within one working day, Monday to Friday.', 'chat'),
+                rail(card('Email', f'{mail}. We reply within one working day, Monday to Friday.', 'chat'),
                      card('Post', f'{ADDRESS}. We work online, so this address is for post only.', 'local'),
                      card('Not sure what you need?', f'Ask for a <a href="{GROWTH}">free growth check</a> and we will tell you what we would fix first.', 'spark'), n=3)),
         cta(),
     )
     page('about', 'About', about,
-         'IamFamous is a UK digital marketing agency selling fixed-price packages to small businesses: local SEO, websites, social media, ads, content and design.',
+         'IamFamous is a UK digital marketing agency selling fixed-price plans to small businesses: local SEO, websites, social media, ads, content and design.',
          'About IamFamous | UK Digital Marketing Agency for Small Businesses', menu_order=4)
 
     # ============================================================ FAQ
     faq_groups = [
         ('Ordering', [
-            ('How do I order?', 'Choose a service, pick a package, fill in the short form on the package page and pay at the checkout. You get an order number and a receipt by email.'),
+            ('How do I order?', 'Choose a service, pick a plan, fill in the short form on the plan page and pay at the checkout. You get an order number and a receipt by email.'),
             ('Do I need an account?', 'An account is created for you at checkout. You use it to follow your order, add files and download what we deliver.'),
             ('Can I talk to someone first?', f'Yes. Email {mail} or use the <a href="{GROWTH}">free growth check form</a>. We reply within one working day.'),
-            ('Do you work with businesses outside the UK?', 'Our packages are written and priced for UK businesses. If you are elsewhere, ask first and we will tell you honestly whether we are a good fit.'),
+            ('Do you work with businesses outside the UK?', 'Our plans are written and priced for UK businesses. If you are elsewhere, ask first and we will tell you honestly whether we are a good fit.'),
         ]),
         ('Prices and payment', [
             ('Is VAT added to your prices?', 'No. IamFamous is not VAT registered, so the price shown is the price you pay.'),
             ('Which payment methods do you accept?', 'Card payments at a secure checkout. Your card details go to the payment provider and are never stored on this site.'),
-            ('Are there contracts or subscriptions?', 'No. Every package is a single order. Monthly packages cover one month and stop unless you order another.'),
-            ('Will the price change after I order?', 'No. If you want something outside the package, we tell you the price first and only go ahead if you agree.'),
+            ('Are there contracts or subscriptions?', 'No. Every plan is a single order. Monthly plans cover one month and stop unless you order another.'),
+            ('Will the price change after I order?', 'No. If you want something outside the plan, we tell you the price first and only go ahead if you agree.'),
         ]),
         ('Delivery and changes', [
-            ('How long does delivery take?', 'Each package shows its own delivery time. It starts when we have the details we asked for.'),
-            ('How will I receive the work?', 'By email, and saved in your account. Depending on the package you get live links, files or a written report.'),
-            ('What if I want changes?', 'Each package lists the changes included. Send one list of what you would like altered and we rework it.'),
-            ('What do you need from me?', 'It depends on the package and is listed on each package page. We ask for access by invite and never for a password.'),
-            ('Can I get my order faster?', 'Most one-off packages offer express delivery as an optional extra on the package page. Your order goes to the front of the queue and we aim to deliver in half the usual time. If it takes longer than the standard delivery time, the express fee is refunded.'),
+            ('How long does delivery take?', 'Each plan shows its own delivery time. It starts when we have the details we asked for.'),
+            ('How will I receive the work?', 'By email, and saved in your account. Depending on the plan you get live links, files or a written report.'),
+            ('What if I want changes?', 'Each plan lists the changes included. Send one list of what you would like altered and we rework it.'),
+            ('What do you need from me?', 'It depends on the plan and is listed on each plan page. We ask for access by invite and never for a password.'),
+            ('Can I get my order faster?', 'Most one-off plans offer express delivery as an optional extra on the plan page. Your order goes to the front of the queue and we aim to deliver in half the usual time. If it takes longer than the standard delivery time, the express fee is refunded.'),
         ]),
         ('Refunds', [
             ('Can I cancel?', 'Yes. Cancel before work starts and you get a full refund. After work has started, we refund the part that has not been done.'),
-            ('What if I am not happy with the result?', f'Tell us what is wrong. We put it right within the changes included in your package. If we cannot deliver what the package lists, you are refunded for the part not delivered. See the <a href="/refund-policy/">refund policy</a>.'),
+            ('What if I am not happy with the result?', f'Tell us what is wrong. We put it right within the changes included in your plan. If we cannot deliver what the plan lists, you are refunded for the part not delivered. See the <a href="/refund-policy/">refund policy</a>.'),
             ('How long do refunds take?', 'We send refunds to the original payment method within 5 working days of agreeing them. Your bank may take a few more days to show it.'),
         ]),
         ('Results', [
-            ('Do you guarantee a position on Google?', 'No. Nobody controls Google, so nobody can honestly promise a position. We guarantee that the work listed on your package is done and checked.'),
+            ('Do you guarantee a position on Google?', 'No. Nobody controls Google, so nobody can honestly promise a position. We guarantee that the work listed on your plan is done and checked.'),
             ('How long does SEO take to work?', 'It varies with your site and your competition. Some changes show in days. Most SEO work builds over several months.'),
             ('Do you use AI to do the work?', 'We use software for research and checks, as most agencies do. A person does the work and is responsible for everything you receive.'),
             ('Do you sell followers or likes?', 'No. Bought followers do not become customers and can get an account restricted.'),
@@ -219,7 +220,7 @@ def build(g):
         cta(),
     )
     page('faq', 'FAQ', faq_page,
-         'Answers about ordering, prices, VAT, payment, delivery times, changes, refunds and results at IamFamous, the UK agency with fixed-price packages.',
+         'Answers about ordering, prices, VAT, payment, delivery times, changes, refunds and results at IamFamous, the UK agency with fixed-price plans.',
          'FAQ: Ordering, Prices, Delivery & Refunds | IamFamous', menu_order=5)
 
     # ============================================================ REVIEWS
@@ -267,23 +268,23 @@ def build(g):
     who = f'This website is run by Mehreen, a sole trader trading as IamFamous ("we", "us"). Our postal address is {ADDRESS} and our email is {mail}.'
 
     legal('terms', 'Terms of Service',
-          'These terms apply when you order a package from iamfamous.uk. They say what you get, what we need from you, how payment, delivery, changes and refunds work, and where each of us stands if something goes wrong.',
-          ['You buy a package with a written scope at a fixed price in pounds.', 'No VAT is added. Nothing renews automatically.', 'The delivery time starts when we have the details we asked for.', 'Full refund before work starts; a fair partial refund after.', 'We guarantee the work listed, not rankings, followers or sales.'],
+          'These terms apply when you order a plan from iamfamous.uk. They say what you get, what we need from you, how payment, delivery, changes and refunds work, and where each of us stands if something goes wrong.',
+          ['You buy a plan with a written scope at a fixed price in pounds.', 'No VAT is added. Nothing renews automatically.', 'The delivery time starts when we have the details we asked for.', 'Full refund before work starts; a fair partial refund after.', 'We guarantee the work listed, not rankings, followers or sales.'],
           [('who-we-are', 'Who we are', [P(who), P('"You" means the person or business placing the order. If you order for a business, you confirm you are allowed to do so.')]),
-           ('the-contract', 'How the contract is made', [P('A package page describes what is included, what is not, the delivery time, the changes included and the price. When you place an order and we send your order confirmation by email, a contract is formed on these terms and on the description of the package you bought.'),
-                                                        P('If a package page and these terms disagree, the package page applies to that package.')]),
+           ('the-contract', 'How the contract is made', [P('A plan page describes what is included, what is not, the delivery time, the changes included and the price. When you place an order and we send your order confirmation by email, a contract is formed on these terms and on the description of the plan you bought.'),
+                                                        P('If a plan page and these terms disagree, the plan page applies to that plan.')]),
            ('prices', 'Prices and payment', [P('Prices are in pounds sterling. We are not registered for VAT, so no VAT is added. Payment is taken in full at checkout through a third-party payment provider. We do not see or store your card details.'),
-                                             P('Some packages rely on things you buy from others in your own name, such as a domain name, hosting, paid software or advertising spend. Those costs are not included and are paid by you directly to the supplier.'),
-                                             P('Monthly packages cover one month of work. They are not subscriptions and do not renew.')]),
-           ('your-part', 'What we need from you', [P('Each package lists what we need. You agree to provide it accurately and promptly, and to give access by user invite where access is needed. Please never send us a password.'),
+                                             P('Some plans rely on things you buy from others in your own name, such as a domain name, hosting, paid software or advertising spend. Those costs are not included and are paid by you directly to the supplier.'),
+                                             P('Monthly plans cover one month of work. They are not subscriptions and do not renew.')]),
+           ('your-part', 'What we need from you', [P('Each plan lists what we need. You agree to provide it accurately and promptly, and to give access by user invite where access is needed. Please never send us a password.'),
                                                    P('You confirm you have the right to use the text, images, logos and other material you send us, and that our using it for your order will not infringe anyone else\'s rights.')]),
-           ('delivery', 'Delivery times', [P('The delivery time shown on a package starts when we have everything listed under "What we need from you". If we are waiting for something from you, the delivery time is paused until we receive it.'),
+           ('delivery', 'Delivery times', [P('The delivery time shown on a plan starts when we have everything listed under "What we need from you". If we are waiting for something from you, the delivery time is paused until we receive it.'),
                                            P('Delivery times are our honest estimate of working days, Monday to Friday, excluding UK public holidays. If we expect to be late, we will tell you and explain why. If we are more than 10 working days late for reasons within our control, you may cancel the undelivered part and be refunded for it.')]),
-           ('changes', 'Changes and revisions', [P('Each package states the changes or revisions included. A round of changes is one list sent together. Requests outside the scope of the package are quoted separately, and we only go ahead if you accept the price.')]),
-           ('extras', 'Optional extras', [P('Some packages offer optional extras at checkout. An extra round of changes adds one round to those included in the package. Express delivery moves your order to the front of our queue, and we aim to deliver in half the stated delivery time. If an express order takes longer than the standard delivery time shown on the package, we refund the express fee. Extras are not offered on monthly packages.')]),
-           ('results', 'What we do and do not promise', [P('We promise to carry out the work listed on your package with reasonable care and skill, and to deliver what the package describes.'),
+           ('changes', 'Changes and revisions', [P('Each plan states the changes or revisions included. A round of changes is one list sent together. Requests outside the scope of the plan are quoted separately, and we only go ahead if you accept the price.')]),
+           ('extras', 'Optional extras', [P('Some plans offer optional extras at checkout. An extra round of changes adds one round to those included in the plan. Express delivery moves your order to the front of our queue, and we aim to deliver in half the stated delivery time. If an express order takes longer than the standard delivery time shown on the plan, we refund the express fee. Extras are not offered on monthly plans.')]),
+           ('results', 'What we do and do not promise', [P('We promise to carry out the work listed on your plan with reasonable care and skill, and to deliver what the plan describes.'),
                                                         P('We do not promise results that depend on others. This includes positions in Google or other search engines, mentions by AI tools, numbers of visitors, followers, enquiries or sales, and whether a third-party site keeps, labels or indexes a link. Search engines, advertising platforms and other websites make their own decisions and change their rules without notice.')]),
-           ('links', 'Links and listings on other websites', [P('Where a package includes links or listings, we replace free of charge any that are not live when we deliver. Guest posts removed within 90 days of publication are replaced. After that, placements are outside our control.')]),
+           ('links', 'Links and listings on other websites', [P('Where a plan includes links or listings, we replace free of charge any that are not live when we deliver. Guest posts removed within 90 days of publication are replaced. After that, placements are outside our control.')]),
            ('ownership', 'Who owns the work', [P('Once you have paid in full, you own the final work we create for you, such as your website, designs and written content. Material you gave us stays yours. We keep the right to use our own methods, templates and tools, and third-party software, fonts and images stay subject to their own licences.'),
                                                P('We will not show your work in our own marketing or name you as a customer without asking first.')]),
            ('cancelling', 'Cancelling and refunds', [P('You can cancel before work starts and receive a full refund. Once work has started, refunds follow our <a href="/refund-policy/">refund policy</a>, which forms part of these terms.'),
@@ -295,19 +296,19 @@ def build(g):
                                                          P(f'If you are unhappy, email {mail} with your order number. We reply within one working day and aim to resolve complaints within 10 working days.'),
                                                          P('These terms are governed by the law of England and Wales, and the courts of England and Wales have jurisdiction. If you are a consumer living in Scotland or Northern Ireland, you may also bring a claim in your local courts.'),
                                                          P('We may update these terms. The version in force when you order applies to that order.')])],
-          'IamFamous terms of service: how orders, prices, delivery, changes, refunds, ownership and liability work for packages bought on iamfamous.uk.',
+          'IamFamous terms of service: how orders, prices, delivery, changes, refunds, ownership and liability work for plans bought on iamfamous.uk.',
           'Terms of Service | IamFamous', 20)
 
     legal('refund-policy', 'Refund Policy',
           'We want refunds to be simple and fair. If we have not started, you get everything back. If we have, you pay only for what has been done.',
           ['Full refund if you cancel before work starts.', 'After work starts, you pay only for the work done.', 'Links not live at delivery are replaced free.', 'Refunds are sent within 5 working days of being agreed.', 'Your legal rights are not affected.'],
           [('before', 'Before work starts', [P(f'Email {mail} with your order number at any time before we start and we refund the full amount. We normally start within one working day of receiving your details, so tell us quickly if you have changed your mind.')]),
-           ('after', 'After work has started', [P('If you cancel after we have started, we work out the share of the package that has been completed and refund the rest. We tell you how we worked it out. For example, if two of five pages of a website have been built, we refund the price of the other three.'),
+           ('after', 'After work has started', [P('If you cancel after we have started, we work out the share of the plan that has been completed and refund the rest. We tell you how we worked it out. For example, if two of five pages of a website have been built, we refund the price of the other three.'),
                                                 P('Work that is finished and delivered is not refundable, except as set out below.')]),
-           ('monthly', 'Monthly packages', [P('A monthly package covers 30 days of work. If you cancel part-way through, we refund the tasks not yet done. Monthly packages do not renew, so there is nothing to cancel at the end of the month.')]),
-           ('not-delivered', 'If we do not deliver what the package lists', [P('Tell us what is missing or wrong. We put it right at no cost. If we cannot deliver something the package lists, we refund that part of the price.'),
+           ('monthly', 'Monthly plans', [P('A monthly plan covers 30 days of work. If you cancel part-way through, we refund the tasks not yet done. Monthly plans do not renew, so there is nothing to cancel at the end of the month.')]),
+           ('not-delivered', 'If we do not deliver what the plan lists', [P('Tell us what is missing or wrong. We put it right at no cost. If we cannot deliver something the plan lists, we refund that part of the price.'),
                                                                              P('Links and listings that are not live when we deliver are replaced free. Guest posts removed within 90 days of publication are replaced.')]),
-           ('not-refundable', 'What we cannot refund', [P('We cannot refund money you paid to someone else, such as advertising spend, domain names, hosting or software licences. We also cannot refund a package because a search engine, AI tool or social platform did not respond as hoped, since we do not promise results that depend on them.')]),
+           ('not-refundable', 'What we cannot refund', [P('We cannot refund money you paid to someone else, such as advertising spend, domain names, hosting or software licences. We also cannot refund a plan because a search engine, AI tool or social platform did not respond as hoped, since we do not promise results that depend on them.')]),
            ('consumers', 'Your legal rights', [P('If you buy as a consumer, you have a legal right to cancel within 14 days of ordering. Because you ask us to begin within that period when you send your project details, you pay for the work done up to the time you cancel, and the right ends once the service has been fully carried out. Nothing in this policy reduces your rights under consumer law.')]),
            ('how', 'How to ask for a refund', [P(f'Email {mail} with your order number and a sentence saying what you would like. We reply within one working day. Once a refund is agreed, we send it to the original payment method within 5 working days. Your bank may take a few more days to show it.')])],
           'IamFamous refund policy: full refund before work starts, a fair partial refund after, free replacement of links not live at delivery, and how to ask.',
@@ -359,16 +360,16 @@ def build(g):
 
     legal('accessibility', 'Accessibility Statement',
           'We want everyone to be able to use this website. This page says what we have done, what we know is not perfect yet and how to tell us about a problem.',
-          ['We aim to meet WCAG 2.2 level AA.', 'The menu, package picker and forms work with a keyboard.', 'Text contrast was checked when the colours were chosen.', 'Motion is switched off if your device asks for less.', 'Tell us about a problem and we reply within one working day.'],
+          ['We aim to meet WCAG 2.2 level AA.', 'The menu, plan picker and forms work with a keyboard.', 'Text contrast was checked when the colours were chosen.', 'Motion is switched off if your device asks for less.', 'Tell us about a problem and we reply within one working day.'],
           [('aim', 'Our aim', [P('We aim to meet the Web Content Accessibility Guidelines (WCAG) version 2.2 at level AA, the standard most widely used in the UK.')]),
-           ('done', 'What we have done', [ul(['Pages use proper headings, lists and landmarks so screen readers can move around them.', 'The menu, the package picker, the comparison table and the forms can all be used with a keyboard, and the focus position is always visible.',
+           ('done', 'What we have done', [ul(['Pages use proper headings, lists and landmarks so screen readers can move around them.', 'The menu, the plan picker, the comparison table and the forms can all be used with a keyboard, and the focus position is always visible.',
                                               'Colour combinations were checked for contrast, and colour is never the only way information is shown.', 'Text can be enlarged to 200% without losing content.',
                                               'Animations are turned off when your device is set to reduce motion.', 'Illustrations have text descriptions, and decorative images are hidden from screen readers.'], 'ifm-ticks')]),
            ('limits', 'Known limitations', [ul(['The basket, checkout and account pages are provided by WooCommerce. We style them, but we have not been able to test every step with assistive technology.',
                                                 'Illustrations are images of example screens. Their descriptions summarise them, but not every label is read out.',
                                                 'Some older blog posts may contain images without descriptions.'], 'ifm-ticks'),
                                             P('We tested the site with keyboard-only use and automated checks on phone, tablet and desktop sizes. We have not yet commissioned an independent audit.')]),
-           ('help', 'If you need information in another way', [P(f'If you cannot use part of this site, email {mail} and tell us what you need. We can take an order, send a package description or answer questions by email.')]),
+           ('help', 'If you need information in another way', [P(f'If you cannot use part of this site, email {mail} and tell us what you need. We can take an order, send a plan description or answer questions by email.')]),
            ('report', 'Reporting a problem', [P(f'If you find something that does not work for you, email {mail} with the page address and what happened. We reply within one working day and will tell you what we are going to do about it.')])],
           'Accessibility statement for iamfamous.uk: our WCAG 2.2 AA aim, what has been done, known limitations and how to report a problem.',
           'Accessibility Statement | IamFamous', 24)
@@ -401,11 +402,11 @@ def build(g):
         P('Your primary category is the strongest signal you give Google about what you do. Pick the most specific one that fits: "Emergency plumber" beats "Plumber" if emergencies are your main work. Then add secondary categories for your other real services. Do not add categories for work you do not offer.'),
         H('List your services and write the description'),
         P('Add each service you offer, with a short description. Then write the business description. You have up to 750 characters. Say what you do, where you do it and what makes you a sensible choice, in plain words. The first two sentences matter most because the rest is often hidden behind "More".'),
-        inline_cta('Rather have this done for you?', 'Our Google Business Profile Optimisation package covers every step on this page, with a report showing what was changed.', 'See Local SEO packages', '/services/local-seo/#packages'),
+        inline_cta('Rather have this done for you?', 'Our Google Business Profile Optimisation plan covers every step on this page, with a report showing what was changed.', 'See Local SEO plans', '/services/local-seo/#plans'),
         H('Add photos that show real work'),
         P('Upload your logo, a cover photo and pictures of your premises, your team at work and finished jobs. Real photos, even from a phone, do better than stock images. Add new ones regularly, since a profile with recent photos looks like a business that is open.'),
         H('Keep your details the same everywhere'),
-        P('Google compares your profile with what it finds on directories such as Yell, Bing Places and Apple Maps, and on your own website. If the name, address or phone number differ, it trusts them less. Decide on one exact version and use it everywhere. This is what a citation or directory listing package does.'),
+        P('Google compares your profile with what it finds on directories such as Yell, Bing Places and Apple Maps, and on your own website. If the name, address or phone number differ, it trusts them less. Decide on one exact version and use it everywhere. This is what a citation or directory listing plan does.'),
         H('Ask for reviews the right way'),
         P('Reviews influence both where you appear and whether people call. Ask every happy customer, soon after the job, and send them the direct link from your profile. Reply to every review, including the bad ones, calmly and briefly.'),
         P('Do not offer discounts or gifts for reviews, do not ask only the customers you think will be positive, and never buy reviews. All three break Google\'s rules, and fake reviews are also against UK consumer law.'),
@@ -435,7 +436,7 @@ def build(g):
         P('A sole trader can start with fewer. A business with several services or locations will need more, usually one page for each service and each area served.'),
         H('Things every page should have'),
         ul(['Your phone number or main button visible without scrolling.', 'Text large enough to read on a phone without zooming.', 'Photos of your real work, premises or products.', 'A clear page title that says what the page is about, because that is what shows in Google.', 'A link back to the home page and to the contact page.']),
-        inline_cta('Need a website built?', 'Our website packages run from one page to ten at a fixed price, built for phones first, with two rounds of design changes.', 'See website packages', '/services/website-development/#packages'),
+        inline_cta('Need a website built?', 'Our website plans run from one page to ten at a fixed price, built for phones first, with two rounds of design changes.', 'See website plans', '/services/website-development/#plans'),
         H('An enquiry form that works'),
         P('A surprising number of small business forms send messages to an old address or straight to spam. Keep the form short: name, contact details and message. Test it yourself after launch and again every few months. Add a note saying how quickly you reply, and then reply that quickly.'),
         H('Speed'),
@@ -467,7 +468,7 @@ def build(g):
         H('Offer posts'),
         P('Keep these to about one post in five. A feed that only sells gets ignored.'),
         ul(['16. A limited-time offer with a clear end date.', '17. A new service or product.', '18. Availability: "two slots left this month".', '19. A reminder of something people forget you do.', '20. A simple call to action: how to book, call or order.']),
-        inline_cta('No time to make the posts?', 'We can plan a month of content for you to post, or design, schedule and manage it all.', 'See social media packages', '/services/social-media-management/#packages'),
+        inline_cta('No time to make the posts?', 'We can plan a month of content for you to post, or design, schedule and manage it all.', 'See social media plans', '/services/social-media-management/#plans'),
         H('A simple weekly routine'),
         P('You do not need to post every day. Three good posts a week, every week, beats a burst of ten followed by a month of silence. A routine that works for most small businesses:'),
         ul(['<strong>Monday:</strong> a helpful post.', '<strong>Wednesday:</strong> a proof post.', '<strong>Friday:</strong> a personal post, with an offer in its place every other week.']),
@@ -493,7 +494,7 @@ def build(g):
         P('In your Google Business Profile, choose "Ask for reviews" to get a short link that opens the review box directly. Put that link in a text message or email, on your invoices and receipts, and as a QR code on a card or at the till. Every extra step you remove means more reviews.'),
         H('What to say'),
         P('Keep the message short, personal and free of pressure. For example: "Thanks for choosing us today. If you have a minute, a Google review really helps a small business like ours. Here is the link." Do not suggest what to write or which star rating to give.'),
-        inline_cta('Want this set up for you?', 'Our Local SEO Growth package includes a review request plan with message templates you can send.', 'See Local SEO packages', '/services/local-seo/#packages'),
+        inline_cta('Want this set up for you?', 'Our Local SEO Growth plan includes a review request plan with message templates you can send.', 'See Local SEO plans', '/services/local-seo/#plans'),
         H('What the rules do not allow'),
         ul(['<strong>Paying for reviews or offering rewards.</strong> No discounts, gifts or prize draws in return for a review.', '<strong>Review gating.</strong> Asking only the customers you expect to be positive, or sending unhappy ones somewhere else first.', '<strong>Writing your own.</strong> That includes staff, family and friends posing as customers.', '<strong>Buying reviews.</strong> From anyone, anywhere.', '<strong>Hiding the bad ones.</strong> If you show reviews on your own website, you should not publish only the favourable ones in a misleading way.']),
         P('These are Google\'s rules, and breaking them can get reviews removed or a profile suspended. They are also UK law. Since April 2025 the Digital Markets, Competition and Consumers Act has banned fake reviews and reviews that hide the fact they were paid for, and businesses are expected to take reasonable steps to make sure the reviews they publish are genuine.'),
@@ -518,7 +519,7 @@ def build(g):
         P('You choose an audience by location, age and interests, and your advert appears in their feed, stories or reels. Nobody asked to see it, so it has to catch the eye. The strength is reach: you can put a new product or offer in front of people who have never heard of you. The weakness is that most of them are not ready to buy today.'),
         H('Which suits your business'),
         ul(['<strong>People need you urgently</strong> (plumber, locksmith, vet): Google Ads.', '<strong>People research before buying</strong> (solicitor, builder, accountant): Google Ads, with a page that answers their questions.', '<strong>People buy when they see it</strong> (food, fashion, gifts, beauty): Facebook and Instagram.', '<strong>Something new that nobody searches for yet:</strong> Facebook and Instagram.', '<strong>A local event or offer with a deadline:</strong> Facebook and Instagram, targeted by area.', '<strong>You sell to other businesses:</strong> Google Ads first.']),
-        inline_cta('Want it set up properly?', 'We build and manage Google Ads and Facebook ads campaigns for small budgets. You pay the platform directly for ad spend.', 'See Google Ads packages', '/services/ppc-management/#packages'),
+        inline_cta('Want it set up properly?', 'We build and manage Google Ads and Facebook ads campaigns for small budgets. You pay the platform directly for ad spend.', 'See Google Ads plans', '/services/ppc-management/#plans'),
         H('What you need before spending anything'),
         ul(['<strong>Tracking.</strong> Know which clicks became calls, forms or sales. Without it you are guessing.', '<strong>A page that matches the advert.</strong> If the advert says "boiler servicing in Leeds", the page should too.', '<strong>A way to respond quickly.</strong> Enquiries from adverts go cold fast.', '<strong>A budget you can afford to learn with.</strong> The first weeks show you what works. Treat them as a test.']),
         H('Can you use both?'),
@@ -533,19 +534,19 @@ def build(g):
         inline_cta('Not sure where your budget should go?', 'Tell us what you sell and where. We will say which platform we would test first, and why.', 'Get my free growth check', GROWTH),
     ), 'Google Ads or Facebook ads for a small business: how each works, which kinds of business suit which, and what to set up before spending.', 'Advertising')
 
-    post('how-seo-is-priced', 'How SEO is priced: hourly, monthly retainer or fixed package', join(
-        takeaways(['SEO is sold three ways: by the hour, on a monthly retainer or as fixed-price packages.', 'Whichever you choose, ask what will actually be done and how you will see it.', 'Be wary of guaranteed positions, long contracts and prices that are never written down.', 'Start with the one job most likely to matter, then build from there.']),
+    post('how-seo-is-priced', 'How SEO is priced: hourly, monthly retainer or fixed plan', join(
+        takeaways(['SEO is sold three ways: by the hour, on a monthly retainer or as fixed-price plans.', 'Whichever you choose, ask what will actually be done and how you will see it.', 'Be wary of guaranteed positions, long contracts and prices that are never written down.', 'Start with the one job most likely to matter, then build from there.']),
         P('Prices for SEO vary enormously, and the reason is simple: "SEO" is not one thing. It covers fixing a website, rewriting pages, writing articles, building links and more. Before comparing prices, it helps to understand the three ways the work is sold.'),
         H('Hourly or day rates'),
         P('You pay for time, usually from a freelancer or consultant. This suits one-off advice, a specific problem or a second opinion. The risk is that you do not know the total in advance, so agree a limit and ask for a short written summary of what was done.'),
         H('Monthly retainers'),
         P('You pay a fixed amount each month and the agency works on your site continuously. This is the traditional model and suits businesses that need steady, ongoing work. The risks are the ones small businesses complain about most: contracts of six or twelve months, vague monthly reports and no clear list of what was done.'),
-        H('Fixed-price packages'),
-        P('You buy a defined piece of work at a published price: an audit, a set of pages improved, a number of directory listings, a month of defined tasks. You know the cost and the scope before you start. The limit is that a package covers what it lists and nothing more, so it suits jobs that can be clearly described.'),
-        P('This is how we sell SEO. Our <a href="/services/local-seo/">Local SEO</a> packages start [ifm_from service="local-seo" prefix="from " fallback="at a fixed price"], and <a href="/services/monthly-seo/">Monthly SEO</a> is sold one month at a time.'),
+        H('Fixed-price plans'),
+        P('You buy a defined piece of work at a published price: an audit, a set of pages improved, a number of directory listings, a month of defined tasks. You know the cost and the scope before you start. The limit is that a plan covers what it lists and nothing more, so it suits jobs that can be clearly described.'),
+        P('This is how we sell SEO. Our <a href="/services/local-seo/">Local SEO</a> plans start [ifm_from service="local-seo" prefix="from " fallback="at a fixed price"], and <a href="/services/monthly-seo/">Monthly SEO</a> is sold one month at a time.'),
         H('What changes the price'),
         ul(['<strong>The size of your site.</strong> Fifty pages take longer to check and improve than five.', '<strong>How competitive your market is.</strong> A solicitor in a city needs more work than a village cafe.', '<strong>How much is done for you.</strong> Advice costs less than hands-on work.', '<strong>Content and links.</strong> Writing and placing them takes real time, so plans that include them cost more.', '<strong>The state of the site.</strong> A slow, broken site needs fixing before anything else will help.']),
-        inline_cta('Want to see real prices?', 'Every package we sell has its price, delivery time and scope on the page.', 'See packages and prices', '/packages/'),
+        inline_cta('Want to see real prices?', 'Every plan we sell has its price, delivery time and scope on the page.', 'See plans and prices', '/plans/'),
         H('Questions to ask before you pay'),
         ul(['What exactly will be done this month?', 'How will I see the work: links, a change log, a report?', 'Who does the work?', 'Is there a contract, and how do I stop?', 'What do you need from me?', 'What will you not promise?']),
         H('Warning signs'),
@@ -558,7 +559,7 @@ def build(g):
                   ('How long until it pays for itself?', 'It varies with your market. Some changes show within weeks, and most SEO builds over several months.'),
                   ('Can I do it myself?', 'Much of it, yes, if you have the time. Our guides cover the basics, and a consultation can give you a plan to follow.')]),
         inline_cta('Not sure what you need?', 'Ask for a free growth check and we will tell you the three things we would fix first.', 'Get my free growth check', GROWTH),
-    ), 'How SEO is priced for small businesses: hourly rates, monthly retainers and fixed-price packages, what changes the price and questions to ask.', 'SEO')
+    ), 'How SEO is priced for small businesses: hourly rates, monthly retainers and fixed-price plans, what changes the price and questions to ask.', 'SEO')
 
     post('what-is-a-citation-local-seo', 'What is a citation? Name, address and phone consistency explained', join(
         takeaways(['A citation is any online mention of your business name, address and phone number.', 'Google compares citations with your own profile to decide whether to trust your details.', 'Consistent details matter more than a large number of listings.', 'Fix the well-known directories first, then add trade-specific ones.']),
@@ -573,7 +574,7 @@ def build(g):
         H('What counts as inconsistent'),
         ul(['An old address or phone number after a move.', 'Different versions of the name: "Smith Plumbing", "Smith Plumbing Ltd", "Smiths Plumbers".', 'A mobile number in one place and a landline in another.', 'A tracking phone number used on some listings.', 'Duplicate listings for the same business on one site.']),
         P('Small formatting differences, such as "Street" and "St", are not worth worrying about. Different numbers, names and addresses are.'),
-        inline_cta('Want your listings sorted out?', 'Local SEO Starter includes 20 UK directory listings with matching details, and a report with the live link to each.', 'See Local SEO packages', '/services/local-seo/#packages'),
+        inline_cta('Want your listings sorted out?', 'Local SEO Starter includes 20 UK directory listings with matching details, and a report with the live link to each.', 'See Local SEO plans', '/services/local-seo/#plans'),
         H('How to check your own citations'),
         ul(['Decide the one correct version of your name, address and phone number. Write it down.', 'Search Google for your business name, then your phone number, then any old phone numbers.', 'Open each result and note where the details are wrong.', 'Claim and correct the listings, starting with the best-known sites.', 'Remove or merge duplicates where the site allows it.']),
         H('Which directories matter'),

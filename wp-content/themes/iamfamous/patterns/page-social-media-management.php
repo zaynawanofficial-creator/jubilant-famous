@@ -24,12 +24,12 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Posting now and then, when you remember, makes a business look closed. We plan a month ahead, design the posts in your colours, write the captions and, on the managed packages, schedule them and reply to comments.</p>
+<p class="ifm-lead">Posting now and then, when you remember, makes a business look closed. We plan a month ahead, design the posts in your colours, write the captions and, on the managed plans, schedule them and reply to comments.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#packages">See packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#plans">See plans</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-outline"} -->
@@ -39,7 +39,7 @@
 
 <!-- wp:list {"className":"ifm-checks"} -->
 <ul class="wp-block-list ifm-checks"><!-- wp:list-item -->
-<li>[ifm_from service="social-media-management" prefix="Packages from " fallback="Fixed price, agreed in writing"]</li>
+<li>[ifm_from service="social-media-management" prefix="Plans from " fallback="Fixed price, agreed in writing"]</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -112,18 +112,18 @@
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"packages","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
-<section id="packages" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
+<!-- wp:group {"tagName":"section","anchor":"plans","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
+<section id="plans" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
 <div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->
-<p class="ifm-eyebrow">Packages</p>
+<p class="ifm-eyebrow">Plans</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Choose your social media package</h2>
+<h2 class="wp-block-heading">Choose your social media plan</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Two packages give you content to post yourself. Two are fully managed for a month, on one to three platforms. Each covers a single month and stops unless you order again.</p>
+<p class="ifm-lead">Two plans give you content to post yourself. Two are fully managed for a month, on one to three platforms. Each covers a single month and stops unless you order again.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -159,13 +159,15 @@
 <p>For a small business, the goal is rarely to go viral. It is to look open, active and good at what you do when someone checks you out before calling. A steady run of useful, on-brand posts does that better than an occasional burst.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
+<!-- wp:details {"className":"ifm-readmore"} -->
+<details class="wp-block-details ifm-readmore"><summary>Read more</summary><!-- wp:paragraph -->
 <p>We start with a monthly plan: what to post, on which platform and when, built around your offers, your seasons and the questions customers ask you. Posts are designed in your colours and fonts with captions written in your voice.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 <p>We work on Facebook, Instagram, TikTok and LinkedIn, and we can post to your Google Business Profile as well. You approve the month before anything goes out.</p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
@@ -188,7 +190,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Managed packages end with a short report. It shows what was posted, the reach and engagement figures taken from the platforms themselves, and what we plan to change next month.</p>
+<p>Managed plans end with a short report. It shows what was posted, the reach and engagement figures taken from the platforms themselves, and what we plan to change next month.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"ifm-ticks"} -->
@@ -227,8 +229,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-calendar.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -280,7 +282,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>On managed packages we publish for you at the times your audience is online.</p>
+<p>On managed plans we publish for you at the times your audience is online.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -294,7 +296,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Managed packages include answering comments and messages, passing sales questions to you.</p>
+<p>Managed plans include answering comments and messages, passing sales questions to you.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -325,8 +327,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4 ifm-steps"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4 ifm-steps"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
 <div class="wp-block-group ifm-card ifm-step"><!-- wp:paragraph {"className":"ifm-step__n"} -->
 <p class="ifm-step__n">01</p>
 <!-- /wp:paragraph -->
@@ -336,7 +338,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Choose a package and tell us your platforms, your offers and how you like to sound.</p>
+<p>Choose a plan and tell us your platforms, your offers and how you like to sound.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -364,7 +366,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Posts are finished and, on managed packages, scheduled. Replies are handled on weekdays.</p>
+<p>Posts are finished and, on managed plans, scheduled. Replies are handled on weekdays.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -396,7 +398,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>You add these on the package page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
+<p>You add these on the plan page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -486,7 +488,7 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Who answers comments and messages?</summary><!-- wp:paragraph -->
-<p>On the managed packages we reply on weekdays using answers agreed with you. Anything about prices, bookings or complaints is passed to you the same day.</p>
+<p>On the managed plans we reply on weekdays using answers agreed with you. Anything about prices, bookings or complaints is passed to you the same day.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -498,7 +500,7 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Do you film videos?</summary><!-- wp:paragraph -->
-<p>Not on site. The Growth package includes short-video scripts written so you can film them on a phone, and we can edit what you send.</p>
+<p>Not on site. The Growth plan includes short-video scripts written so you can film them on a phone, and we can edit what you send.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -521,8 +523,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d2 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--2 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
 <div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-megaphone.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -540,7 +542,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/facebook-ads/">See packages<span class="screen-reader-text"> for Facebook and Instagram Ads</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/facebook-ads/">See plans<span class="screen-reader-text"> for Facebook and Instagram Ads</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -562,7 +564,29 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/graphic-design/">See packages<span class="screen-reader-text"> for Graphic Design and Branding</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/graphic-design/">See plans<span class="screen-reader-text"> for Graphic Design and Branding</span> →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-target.svg' ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="/services/ppc-management/">Google Ads (PPC)</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Search campaigns set up or managed month to month. Your ad spend goes straight to Google, not through us.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-price-from"} -->
+<p class="ifm-price-from">[ifm_from service="ppc-management" prefix="From " fallback="Fixed price, agreed in writing"]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-card__more"} -->
+<p class="ifm-card__more"><a href="/services/ppc-management/">See plans<span class="screen-reader-text"> for Google Ads (PPC)</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

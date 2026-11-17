@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Article: How SEO is priced: hourly, monthly retainer or fixed package
+ * Title: Article: How SEO is priced: hourly, monthly retainer or fixed plan
  * Slug: iamfamous/post-how-seo-is-priced
  * Categories: iamfamous-sections
  * Post Types: post
@@ -15,7 +15,7 @@
 
 <!-- wp:list {"className":"ifm-ticks"} -->
 <ul class="wp-block-list ifm-ticks"><!-- wp:list-item -->
-<li>SEO is sold three ways: by the hour, on a monthly retainer or as fixed-price packages.</li>
+<li>SEO is sold three ways: by the hour, on a monthly retainer or as fixed-price plans.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -53,15 +53,15 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Fixed-price packages</h2>
+<h2 class="wp-block-heading">Fixed-price plans</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>You buy a defined piece of work at a published price: an audit, a set of pages improved, a number of directory listings, a month of defined tasks. You know the cost and the scope before you start. The limit is that a package covers what it lists and nothing more, so it suits jobs that can be clearly described.</p>
+<p>You buy a defined piece of work at a published price: an audit, a set of pages improved, a number of directory listings, a month of defined tasks. You know the cost and the scope before you start. The limit is that a plan covers what it lists and nothing more, so it suits jobs that can be clearly described.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>This is how we sell SEO. Our <a href="/services/local-seo/">Local SEO</a> packages start [ifm_from service="local-seo" prefix="from " fallback="at a fixed price"], and <a href="/services/monthly-seo/">Monthly SEO</a> is sold one month at a time.</p>
+<p>This is how we sell SEO. Our <a href="/services/local-seo/">Local SEO</a> plans start [ifm_from service="local-seo" prefix="from " fallback="at a fixed price"], and <a href="/services/monthly-seo/">Monthly SEO</a> is sold one month at a time.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -96,12 +96,12 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Every package we sell has its price, delivery time and scope on the page.</p>
+<p>Every plan we sell has its price, delivery time and scope on the page.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/packages/">See packages and prices</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/plans/">See plans and prices</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

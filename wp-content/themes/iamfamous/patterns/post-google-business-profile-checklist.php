@@ -96,12 +96,12 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Our Google Business Profile Optimisation package covers every step on this page, with a report showing what was changed.</p>
+<p>Our Google Business Profile Optimisation plan covers every step on this page, with a report showing what was changed.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/local-seo/#packages">See Local SEO packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/local-seo/#plans">See Local SEO plans</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
@@ -119,7 +119,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Google compares your profile with what it finds on directories such as Yell, Bing Places and Apple Maps, and on your own website. If the name, address or phone number differ, it trusts them less. Decide on one exact version and use it everywhere. This is what a citation or directory listing package does.</p>
+<p>Google compares your profile with what it finds on directories such as Yell, Bing Places and Apple Maps, and on your own website. If the name, address or phone number differ, it trusts them less. Decide on one exact version and use it everywhere. This is what a citation or directory listing plan does.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->

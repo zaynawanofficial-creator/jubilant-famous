@@ -106,12 +106,12 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Our website packages run from one page to ten at a fixed price, built for phones first, with two rounds of design changes.</p>
+<p>Our website plans run from one page to ten at a fixed price, built for phones first, with two rounds of design changes.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/website-development/#packages">See website packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/website-development/#plans">See website plans</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

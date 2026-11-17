@@ -67,7 +67,7 @@
 <!-- wp:group {"className":"ifm-faq","layout":{"type":"constrained"}} -->
 <div class="wp-block-group ifm-faq"><!-- wp:details -->
 <details class="wp-block-details"><summary>How do I order?</summary><!-- wp:paragraph -->
-<p>Choose a service, pick a package, fill in the short form on the package page and pay at the checkout. You get an order number and a receipt by email.</p>
+<p>Choose a service, pick a plan, fill in the short form on the plan page and pay at the checkout. You get an order number and a receipt by email.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -85,7 +85,7 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Do you work with businesses outside the UK?</summary><!-- wp:paragraph -->
-<p>Our packages are written and priced for UK businesses. If you are elsewhere, ask first and we will tell you honestly whether we are a good fit.</p>
+<p>Our plans are written and priced for UK businesses. If you are elsewhere, ask first and we will tell you honestly whether we are a good fit.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:group --></div>
@@ -113,13 +113,13 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Are there contracts or subscriptions?</summary><!-- wp:paragraph -->
-<p>No. Every package is a single order. Monthly packages cover one month and stop unless you order another.</p>
+<p>No. Every plan is a single order. Monthly plans cover one month and stop unless you order another.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Will the price change after I order?</summary><!-- wp:paragraph -->
-<p>No. If you want something outside the package, we tell you the price first and only go ahead if you agree.</p>
+<p>No. If you want something outside the plan, we tell you the price first and only go ahead if you agree.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:group --></div>
@@ -135,31 +135,31 @@
 <!-- wp:group {"className":"ifm-faq","layout":{"type":"constrained"}} -->
 <div class="wp-block-group ifm-faq"><!-- wp:details -->
 <details class="wp-block-details"><summary>How long does delivery take?</summary><!-- wp:paragraph -->
-<p>Each package shows its own delivery time. It starts when we have the details we asked for.</p>
+<p>Each plan shows its own delivery time. It starts when we have the details we asked for.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>How will I receive the work?</summary><!-- wp:paragraph -->
-<p>By email, and saved in your account. Depending on the package you get live links, files or a written report.</p>
+<p>By email, and saved in your account. Depending on the plan you get live links, files or a written report.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What if I want changes?</summary><!-- wp:paragraph -->
-<p>Each package lists the changes included. Send one list of what you would like altered and we rework it.</p>
+<p>Each plan lists the changes included. Send one list of what you would like altered and we rework it.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What do you need from me?</summary><!-- wp:paragraph -->
-<p>It depends on the package and is listed on each package page. We ask for access by invite and never for a password.</p>
+<p>It depends on the plan and is listed on each plan page. We ask for access by invite and never for a password.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Can I get my order faster?</summary><!-- wp:paragraph -->
-<p>Most one-off packages offer express delivery as an optional extra on the package page. Your order goes to the front of the queue and we aim to deliver in half the usual time. If it takes longer than the standard delivery time, the express fee is refunded.</p>
+<p>Most one-off plans offer express delivery as an optional extra on the plan page. Your order goes to the front of the queue and we aim to deliver in half the usual time. If it takes longer than the standard delivery time, the express fee is refunded.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:group --></div>
@@ -181,7 +181,7 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What if I am not happy with the result?</summary><!-- wp:paragraph -->
-<p>Tell us what is wrong. We put it right within the changes included in your package. If we cannot deliver what the package lists, you are refunded for the part not delivered. See the <a href="/refund-policy/">refund policy</a>.</p>
+<p>Tell us what is wrong. We put it right within the changes included in your plan. If we cannot deliver what the plan lists, you are refunded for the part not delivered. See the <a href="/refund-policy/">refund policy</a>.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -203,7 +203,7 @@
 <!-- wp:group {"className":"ifm-faq","layout":{"type":"constrained"}} -->
 <div class="wp-block-group ifm-faq"><!-- wp:details -->
 <details class="wp-block-details"><summary>Do you guarantee a position on Google?</summary><!-- wp:paragraph -->
-<p>No. Nobody controls Google, so nobody can honestly promise a position. We guarantee that the work listed on your package is done and checked.</p>
+<p>No. Nobody controls Google, so nobody can honestly promise a position. We guarantee that the work listed on your plan is done and checked.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 

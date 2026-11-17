@@ -1,8 +1,8 @@
 <?php
 /**
- * IamFamous's own wording for package groups, merged over group-content.php by IFM_Importer::content().
+ * IamFamous's own wording for plan groups, merged over group-content.php by IFM_Importer::content().
  * Scope, quantities, turnaround and revisions match the catalogue; only the wording is ours.
- * Keys: sanitize_title( group ) => fields; by_sku keys are the package code without the "if-" prefix.
+ * Keys: sanitize_title( group ) => fields; by_sku keys are the plan code without the "if-" prefix.
  *
  * Copy rules: UK spelling, plain English, no ranking / follower / lead guarantees, nothing we do not deliver.
  *
@@ -47,14 +47,14 @@ return array(
 			10 => 'Several services or locations',
 		),
 		'featured'     => array( 5 ),
-		'deliverables' => "WordPress pages designed and built to your brief, tested on phones first\nYour text, photos and logo added (you send them; writing is a separate package)\nAn enquiry form that emails you, tested before handover\nPage titles, descriptions, headings and a sitemap set up for search\nImages compressed and caching switched on\nA recorded walkthrough showing how to edit every page",
+		'deliverables' => "WordPress pages designed and built to your brief, tested on phones first\nYour text, photos and logo added (you send them; writing is a separate plan)\nAn enquiry form that emails you, tested before handover\nPage titles, descriptions, headings and a sitemap set up for search\nImages compressed and caching switched on\nA recorded walkthrough showing how to edit every page",
 		'exclusions'   => "Your domain name, hosting and any paid theme or plugin licences\nWriting the page text (order Content Writing, or send your own)\nOnline shops, booking systems and custom features, which we quote separately\nUpdates and changes after handover (see Website Maintenance)",
 		'requirements' => "Your logo and brand colours, or tell us you need them\nThe text for each page, or notes we can work from\nAccess to your hosting or WordPress by invite, never a shared password\nTwo or three websites you like, and what you like about them",
 	),
 	'social-media-packages' => array(
 		'intro'        => 'Regular, on-brand posting for the platforms your customers use, without you finding the time each week. Start with a plan you post yourself, or hand over the designing, scheduling and replies.',
 		'brief'        => 'social',
-		'exclusions'   => "Buying followers, likes or views, which we never do\nAd spend and paid campaigns (separate Facebook and TikTok ads packages)\nFilming or photography at your premises\nA promised number of followers or enquiries",
+		'exclusions'   => "Buying followers, likes or views, which we never do\nAd spend and paid campaigns (separate Facebook and TikTok ads plans)\nFilming or photography at your premises\nA promised number of followers or enquiries",
 		'requirements' => "Which platforms you want covered\nYour logo, colours, photos and how you like to sound\nThe products, services or offers to feature this month\nAccess through each platform's business tools, never a shared password",
 		'by_sku'       => array(
 			'social-media-management-social-media-packages-1' => array(

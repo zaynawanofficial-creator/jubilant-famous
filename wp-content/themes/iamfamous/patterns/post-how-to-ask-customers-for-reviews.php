@@ -66,12 +66,12 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Our Local SEO Growth package includes a review request plan with message templates you can send.</p>
+<p>Our Local SEO Growth plan includes a review request plan with message templates you can send.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/local-seo/#packages">See Local SEO packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/local-seo/#plans">See Local SEO plans</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

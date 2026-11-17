@@ -29,7 +29,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#packages">See packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#plans">See plans</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-outline"} -->
@@ -39,7 +39,7 @@
 
 <!-- wp:list {"className":"ifm-checks"} -->
 <ul class="wp-block-list ifm-checks"><!-- wp:list-item -->
-<li>[ifm_from service="website-maintenance" prefix="Packages from " fallback="Fixed price, agreed in writing"]</li>
+<li>[ifm_from service="website-maintenance" prefix="Plans from " fallback="Fixed price, agreed in writing"]</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -112,10 +112,10 @@
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"packages","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
-<section id="packages" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
+<!-- wp:group {"tagName":"section","anchor":"plans","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
+<section id="plans" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
 <div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->
-<p class="ifm-eyebrow">Packages</p>
+<p class="ifm-eyebrow">Plans</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
@@ -159,9 +159,11 @@
 <p>Leave the updates and the site slowly becomes easier to break into. Apply them carelessly and two parts can clash, which is how a site ends up showing a blank page on a Monday morning.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
+<!-- wp:details {"className":"ifm-readmore"} -->
+<details class="wp-block-details ifm-readmore"><summary>Read more</summary><!-- wp:paragraph -->
 <p>Looking after a site means doing the dull things in the right order. Back up. Update. Check the pages and the forms still work. Keep an eye on whether the site is up. When something does break, find the cause, so the same fault does not return next week.</p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
@@ -223,8 +225,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-audit.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -321,8 +323,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4 ifm-steps"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4 ifm-steps"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
 <div class="wp-block-group ifm-card ifm-step"><!-- wp:paragraph {"className":"ifm-step__n"} -->
 <p class="ifm-step__n">01</p>
 <!-- /wp:paragraph -->
@@ -332,7 +334,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Choose a package and fill in the short form on the package page. It takes a couple of minutes.</p>
+<p>Choose a plan and fill in the short form on the plan page. It takes a couple of minutes.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -374,7 +376,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>The report or files arrive by email and in your account, inside the delivery time on your package.</p>
+<p>The report or files arrive by email and in your account, inside the delivery time on your plan.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -392,7 +394,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>You add these on the package page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
+<p>You add these on the plan page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -472,7 +474,7 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What if you cannot fix it?</summary><!-- wp:paragraph -->
-<p>Some faults sit with your hosting company or an outside service. When that happens we tell you exactly what we found and what to ask them. Start with the Diagnosis package if you are unsure.</p>
+<p>Some faults sit with your hosting company or an outside service. When that happens we tell you exactly what we found and what to ask them. Start with the Diagnosis plan if you are unsure.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -501,8 +503,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d2 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--2 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
 <div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-wrench.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -520,13 +522,13 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/technical-seo/">See packages<span class="screen-reader-text"> for Technical SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/technical-seo/">See plans<span class="screen-reader-text"> for Technical SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-webdev.webp' ) ); ?>" alt=""/></figure>
+<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-webdev.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -537,26 +539,34 @@
 <p>A WordPress website built for phones first, with your wording in place, a working enquiry form and a walkthrough so you can edit it yourself.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"><!-- wp:list-item -->
-<li>1 to 10 pages at a fixed price</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Two rounds of design changes</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Yours to keep and edit</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
 <!-- wp:paragraph {"className":"ifm-price-from"} -->
 <p class="ifm-price-from">[ifm_from service="website-development" prefix="From " fallback="Fixed price, agreed in writing"]</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-development/">See Website Development packages →</a></p>
+<p class="ifm-card__more"><a href="/services/website-development/">See plans<span class="screen-reader-text"> for Website Development</span> →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-cart.svg' ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="/services/ecommerce-website-development/">Ecommerce Websites</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A Shopify or WooCommerce shop with your products loaded, payments set up and a walkthrough so you can run it yourself.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-price-from"} -->
+<p class="ifm-price-from">[ifm_from service="ecommerce-website-development" prefix="From " fallback="Fixed price, agreed in writing"]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-card__more"} -->
+<p class="ifm-card__more"><a href="/services/ecommerce-website-development/">See plans<span class="screen-reader-text"> for Ecommerce Websites</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

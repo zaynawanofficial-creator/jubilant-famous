@@ -80,7 +80,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>The three fixes we would do first, and the package that covers each</li>
+<li>The three fixes we would do first, and the plan that covers each</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:group -->

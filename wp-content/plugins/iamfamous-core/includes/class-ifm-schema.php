@@ -56,7 +56,7 @@ class IFM_Schema {
 				'@type'         => 'AggregateOffer',
 				'priceCurrency' => function_exists( 'get_woocommerce_currency' ) ? get_woocommerce_currency() : 'GBP',
 				'lowPrice'      => $min,
-				'url'           => get_permalink( $page ) . '#packages',
+				'url'           => get_permalink( $page ) . '#plans',
 			);
 		}
 		return array_filter( $node );
@@ -131,7 +131,7 @@ class IFM_Schema {
 		return $data;
 	}
 
-	/** Keep basket, checkout, account, package and search pages out of the index when Rank Math writes the robots tag. */
+	/** Keep basket, checkout, account, plan and search pages out of the index when Rank Math writes the robots tag. */
 	public static function rank_math_robots( $robots ) {
 		if ( is_array( $robots ) && IFM_Site::is_private_page() ) {
 			$robots['index']  = 'noindex';

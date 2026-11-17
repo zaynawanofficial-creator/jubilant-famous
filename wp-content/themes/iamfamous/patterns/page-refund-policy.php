@@ -68,11 +68,11 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#monthly">3. Monthly packages</a></li>
+<li><a href="#monthly">3. Monthly plans</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><a href="#not-delivered">4. If we do not deliver what the package lists</a></li>
+<li><a href="#not-delivered">4. If we do not deliver what the plan lists</a></li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -133,7 +133,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>If you cancel after we have started, we work out the share of the package that has been completed and refund the rest. We tell you how we worked it out. For example, if two of five pages of a website have been built, we refund the price of the other three.</p>
+<p>If you cancel after we have started, we work out the share of the plan that has been completed and refund the rest. We tell you how we worked it out. For example, if two of five pages of a website have been built, we refund the price of the other three.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -141,19 +141,19 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"monthly","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="monthly"><span>03</span> Monthly packages</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="monthly"><span>03</span> Monthly plans</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>A monthly package covers 30 days of work. If you cancel part-way through, we refund the tasks not yet done. Monthly packages do not renew, so there is nothing to cancel at the end of the month.</p>
+<p>A monthly plan covers 30 days of work. If you cancel part-way through, we refund the tasks not yet done. Monthly plans do not renew, so there is nothing to cancel at the end of the month.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"not-delivered","className":"ifm-legal__h"} -->
-<h2 class="wp-block-heading ifm-legal__h" id="not-delivered"><span>04</span> If we do not deliver what the package lists</h2>
+<h2 class="wp-block-heading ifm-legal__h" id="not-delivered"><span>04</span> If we do not deliver what the plan lists</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Tell us what is missing or wrong. We put it right at no cost. If we cannot deliver something the package lists, we refund that part of the price.</p>
+<p>Tell us what is missing or wrong. We put it right at no cost. If we cannot deliver something the plan lists, we refund that part of the price.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -165,7 +165,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>We cannot refund money you paid to someone else, such as advertising spend, domain names, hosting or software licences. We also cannot refund a package because a search engine, AI tool or social platform did not respond as hoped, since we do not promise results that depend on them.</p>
+<p>We cannot refund money you paid to someone else, such as advertising spend, domain names, hosting or software licences. We also cannot refund a plan because a search engine, AI tool or social platform did not respond as hoped, since we do not promise results that depend on them.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"consumers","className":"ifm-legal__h"} -->

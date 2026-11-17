@@ -79,12 +79,12 @@ final class IFM_Setup {
 		echo '<div class="wrap"><h1>' . esc_html__( 'IamFamous Setup', 'iamfamous' ) . '</h1>';
 		echo '<p>' . esc_html( sprintf( /* translators: 1: pages, 2: posts */ __( 'Builds %1$d pages from the theme patterns (plus %2$d starter articles when the theme ships them). Take a backup first. Everything created here can be edited in the block editor afterwards.', 'iamfamous' ), count( $m['pages'] ) + 1, count( $m['posts'] ) ) ) . '</p>';
 		if ( ! class_exists( 'IFM_Shortcode' ) ) {
-			echo '<div class="notice notice-warning inline"><p>' . esc_html__( 'The IamFamous Core plugin is not active. Activate it so package cards, prices, forms and breadcrumbs appear on the pages.', 'iamfamous' ) . '</p></div>';
+			echo '<div class="notice notice-warning inline"><p>' . esc_html__( 'The IamFamous Core plugin is not active. Activate it so plan cards, prices, forms and breadcrumbs appear on the pages.', 'iamfamous' ) . '</p></div>';
 		}
 		echo '<form method="post">';
 		wp_nonce_field( self::ACTION );
 		$opts = array(
-			'pages'     => array( true, __( 'Create the pages: Home, Services, all 20 service pages, Packages, How it works, About, Reviews, FAQ, Free growth check, Contact, Insights and the five policy pages', 'iamfamous' ) ),
+			'pages'     => array( true, __( 'Create the pages: Home, Services, all 20 service pages, Plans, How it works, About, Reviews, FAQ, Free growth check, Contact, Insights and the five policy pages', 'iamfamous' ) ),
 			'overwrite' => array( false, __( 'Overwrite pages previously created by this screen with the latest design (tick this when updating the theme; your own pages are never touched)', 'iamfamous' ) ),
 			'posts'     => array( true, __( 'Create the guides shipped with this theme version (Insights), with their cover images', 'iamfamous' ) ),
 			'reading'   => array( true, __( 'Set Home as the front page and Insights as the posts page; UK date format and London time', 'iamfamous' ) ),
@@ -181,6 +181,25 @@ final class IFM_Setup {
 				}
 				$ids[ $p['slug'] ] = $id;
 				$log[]             = ( $existing ? 'UPDATE ' : 'CREATE ' ) . wp_make_link_relative( get_permalink( $id ) );
+			}
+		}
+
+		if ( ! empty( $o['pages'] ) ) {
+			// Pages this screen created earlier but the theme no longer ships (e.g. /packages/, now /plans/): back to Draft.
+			$keep    = array_merge( array( 'insights' ), array_column( $m['pages'], 'slug' ) );
+			$retired = get_posts(
+				array(
+					'post_type'      => 'page',
+					'post_status'    => 'publish',
+					'posts_per_page' => 100,
+					'meta_key'       => self::META, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+				)
+			);
+			foreach ( $retired as $page ) {
+				if ( ! in_array( $page->post_name, $keep, true ) ) {
+					wp_update_post( array( 'ID' => $page->ID, 'post_status' => 'draft' ) );
+					$log[] = "DRAFT /{$page->post_name}/ (no longer part of the theme; its old address redirects)";
+				}
 			}
 		}
 
@@ -493,3 +512,44 @@ final class IFM_Setup {
 }
 
 IFM_Setup::init();
+
+/*
+ * Automatic rebuild after a theme update (owner request, 17 Nov 2026: deploys are done remotely).
+ * When the theme version changes, a one-off background job re-imports the catalogue (no image refresh) and rebuilds the
+ * pages and guides this screen created, with the same options as a manual "Build the site" + Overwrite. Pages you made
+ * yourself are never touched. Turn off with: add_filter( 'ifm_auto_build', '__return_false' );
+ */
+add_action(
+	'init',
+	static function () {
+		if ( ! apply_filters( 'ifm_auto_build', true ) || get_option( 'ifm_auto_build_done' ) === IFM_THEME_VERSION || wp_next_scheduled( 'ifm_auto_build' ) ) {
+			return;
+		}
+		wp_schedule_single_event( time() + 5, 'ifm_auto_build' );
+	},
+	30
+);
+add_action(
+	'ifm_auto_build',
+	static function () {
+		if ( get_transient( 'ifm_auto_build_lock' ) ) {
+			return;
+		}
+		set_transient( 'ifm_auto_build_lock', 1, 15 * MINUTE_IN_SECONDS );
+		if ( function_exists( 'set_time_limit' ) ) {
+			@set_time_limit( 600 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+		}
+		$log = array();
+		if ( class_exists( 'IFM_Importer' ) && class_exists( 'WooCommerce' ) ) {
+			$log = array_merge( $log, array_slice( IFM_Importer::import( IFM_Importer::default_file(), false, false ), -1 ) );
+		}
+		$log = array_merge( $log, IFM_Setup::run( array( 'pages' => true, 'overwrite' => true, 'posts' => true, 'seo' => true ) ) );
+		if ( class_exists( 'IFM_Site' ) ) {
+			IFM_Site::flush_prices();
+		}
+		do_action( 'litespeed_purge_all' );
+		update_option( 'ifm_auto_build_done', IFM_THEME_VERSION, false );
+		update_option( 'ifm_auto_build_log', array( 'version' => IFM_THEME_VERSION, 'time' => gmdate( 'c' ), 'log' => $log ), false );
+		delete_transient( 'ifm_auto_build_lock' );
+	}
+);

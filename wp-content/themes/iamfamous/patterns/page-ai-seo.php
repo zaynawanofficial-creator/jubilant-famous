@@ -29,7 +29,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#packages">See packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#plans">See plans</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-outline"} -->
@@ -39,7 +39,7 @@
 
 <!-- wp:list {"className":"ifm-checks"} -->
 <ul class="wp-block-list ifm-checks"><!-- wp:list-item -->
-<li>[ifm_from service="ai-seo" prefix="Packages from " fallback="Fixed price, agreed in writing"]</li>
+<li>[ifm_from service="ai-seo" prefix="Plans from " fallback="Fixed price, agreed in writing"]</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -112,14 +112,14 @@
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"packages","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
-<section id="packages" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
+<!-- wp:group {"tagName":"section","anchor":"plans","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
+<section id="plans" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
 <div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->
-<p class="ifm-eyebrow">Packages</p>
+<p class="ifm-eyebrow">Plans</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Choose your AI SEO package</h2>
+<h2 class="wp-block-heading">Choose your AI SEO plan</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
@@ -159,9 +159,11 @@
 <p>AI tools build answers from what they have read across the web, and many now search the web live. They favour information that is clear, consistent and backed up in more than one place. If your website, your Google listing and your directory profiles all say the same thing in plain words, a tool can use it. If they disagree, or bury the facts, it often cannot.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
+<!-- wp:details {"className":"ifm-readmore"} -->
+<details class="wp-block-details ifm-readmore"><summary>Read more</summary><!-- wp:paragraph -->
 <p>So the work overlaps heavily with good SEO: a clear description of what you do and where, labelled with schema, repeated consistently elsewhere, with pages that answer real questions directly. What we add is checking the AI tools themselves and writing content in the question-and-answer shape they draw on.</p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
@@ -223,8 +225,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-audit.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -321,8 +323,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4 ifm-steps"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4 ifm-steps"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
 <div class="wp-block-group ifm-card ifm-step"><!-- wp:paragraph {"className":"ifm-step__n"} -->
 <p class="ifm-step__n">01</p>
 <!-- /wp:paragraph -->
@@ -332,7 +334,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Choose a package and fill in the short form on the package page. It takes a couple of minutes.</p>
+<p>Choose a plan and fill in the short form on the plan page. It takes a couple of minutes.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -374,7 +376,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>The report or files arrive by email and in your account, inside the delivery time on your package.</p>
+<p>The report or files arrive by email and in your account, inside the delivery time on your plan.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -392,7 +394,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>You add these on the package page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
+<p>You add these on the plan page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -412,7 +414,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>Admin access by invite for the setup packages</li>
+<li>Admin access by invite for the setup plans</li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list --></div>
 <!-- /wp:group --></div>
@@ -501,8 +503,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d2 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--2 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
 <div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-wrench.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -520,7 +522,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/technical-seo/">See packages<span class="screen-reader-text"> for Technical SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/technical-seo/">See plans<span class="screen-reader-text"> for Technical SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -542,7 +544,29 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/content-writing/">See packages<span class="screen-reader-text"> for Content Writing</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/content-writing/">See plans<span class="screen-reader-text"> for Content Writing</span> →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-local.svg' ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="/services/local-seo/">Local SEO</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Show up when people nearby search for what you do: a sorted Google Business Profile, correct UK directory listings and a site tuned for your area.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-price-from"} -->
+<p class="ifm-price-from">[ifm_from service="local-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-card__more"} -->
+<p class="ifm-card__more"><a href="/services/local-seo/">See plans<span class="screen-reader-text"> for Local SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

@@ -24,7 +24,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">IamFamous is a UK digital marketing agency for small businesses. We sell local SEO, websites, social media, advertising, content and design as fixed-price packages that you order online.</p>
+<p class="ifm-lead">IamFamous is a UK digital marketing agency for small businesses. We sell local SEO, websites, social media, advertising, content and design as fixed-price plans that you order online.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"ifm-checks"} -->
@@ -44,7 +44,7 @@
 
 <!-- wp:column {"width":"44%"} -->
 <div class="wp-block-column" style="flex-basis:44%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-hero__art"} -->
-<figure class="wp-block-image size-full ifm-hero__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-services.webp' ) ); ?>" alt="Example service menu with four groups beside a package card with a Choose button"/></figure>
+<figure class="wp-block-image size-full ifm-hero__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-services.webp' ) ); ?>" alt="Example service menu with four groups beside a plan card with a Choose button"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
@@ -66,11 +66,11 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>We set IamFamous up to do the opposite. Every service is a package with a price, a delivery time and a list of what you get. You can read it, compare it and order it without talking to a salesperson.</p>
+<p>We set IamFamous up to do the opposite. Every service is a plan with a price, a delivery time and a list of what you get. You can read it, compare it and order it without talking to a salesperson.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>When the job is finished you get proof: the live links, the files, the before and after. If a package is not right for you, the page says so.</p>
+<p>When the job is finished you get proof: the live links, the files, the before and after. If a plan is not right for you, the page says so.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -94,7 +94,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>What we sell:</strong> 20 services as fixed-price packages.</li>
+<li><strong>What we sell:</strong> 20 services as fixed-price plans.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -129,8 +129,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-local.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -291,8 +291,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-chat.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->

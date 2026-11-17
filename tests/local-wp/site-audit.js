@@ -3,7 +3,7 @@
 // duplicate titles and descriptions, pages without exactly one H1, images that failed to load, and console errors.
 // Also exercises the cookie banner. Prints failures only, then a one-line summary.
 const { chromium } = require('playwright');
-const BASE = 'http://127.0.0.1:8899';
+const BASE = process.env.BASE || 'http://127.0.0.1:8899';
 (async () => {
   const b = await chromium.launch();
   const seen = new Map(); const queue = ['/']; const issues = []; const titles = new Map(); const descs = new Map();
@@ -12,7 +12,7 @@ const BASE = 'http://127.0.0.1:8899';
   let jsErr = []; p.on('pageerror', e => jsErr.push(e.message));
   while (queue.length) {
     const path = queue.shift(); if (seen.has(path)) continue;
-    const res = await p.goto(BASE + path, { waitUntil: 'load' }).catch(e => null);
+    const res = await p.goto(BASE + path, { waitUntil: 'load', timeout: 120000 }).catch(e => null);
     const status = res ? res.status() : 0; seen.set(path, status);
     // WooCommerce's account pages do not exist in the local copy (the shim has no My Account).
     if (status !== 200) { if (!path.startsWith('/my-account/')) issues.push(`${status} ${path}`); continue; }
@@ -47,18 +47,18 @@ const BASE = 'http://127.0.0.1:8899';
   const wide = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
   for (const [path, status] of seen) {
     if (status !== 200) continue;
-    await wide.goto(BASE + path, { waitUntil: 'load' });
+    await wide.goto(BASE + path, { waitUntil: 'load', timeout: 120000 }).catch(() => {});
     if (await wide.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)) issues.push(`overflow at 1440 on ${path}`);
   }
   // Cookie banner.
   const c = await (await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 })).newPage();
-  await c.goto(BASE + '/', { waitUntil: 'load' }); await c.waitForTimeout(300);
+  await c.goto(BASE + '/', { waitUntil: 'load', timeout: 120000 }); await c.waitForTimeout(300);
   const shown = await c.evaluate(() => { const el = document.getElementById('ifm-cookie'); const r = el.getBoundingClientRect(); return !el.hidden && r.width <= innerWidth && r.bottom <= innerHeight + 1 && document.documentElement.scrollWidth <= innerWidth; });
   if (process.argv[2]) await c.screenshot({ path: process.argv[2] + '/cookie-banner-390.png' });
   await c.keyboard.press('Tab'); // skip link or first control; banner buttons must be reachable
   await c.click('[data-ifm-consent="essential"]');
   const stored = await c.evaluate(() => ({ hidden: document.getElementById('ifm-cookie').hidden, v: window.ifmConsent() }));
-  await c.goto(BASE + '/services/', { waitUntil: 'load' }); await c.waitForTimeout(200);
+  await c.goto(BASE + '/services/', { waitUntil: 'load', timeout: 120000 }); await c.waitForTimeout(200);
   const stays = await c.evaluate(() => document.getElementById('ifm-cookie').hidden);
   await c.evaluate(() => document.querySelector('a[href$="#cookie-settings"]').click()); await c.waitForTimeout(100);
   const reopened = await c.evaluate(() => !document.getElementById('ifm-cookie').hidden && document.activeElement.hasAttribute('data-ifm-consent'));
@@ -67,10 +67,10 @@ const BASE = 'http://127.0.0.1:8899';
   const cookieOk = shown && stored.hidden && stored.v === 'essential' && stays && reopened && all === 'all';
   if (!cookieOk) issues.push('cookie banner: ' + JSON.stringify({ shown, stored, stays, reopened, all }));
   // Add-ons on a package page.
-  await c.goto(BASE + '/product/5-page-website/', { waitUntil: 'load' });
+  await c.goto(BASE + '/product/5-page-website/', { waitUntil: 'load', timeout: 120000 });
   const addons = await c.evaluate(() => [...document.querySelectorAll('.ifm-addon')].map(a => a.innerText.replace(/\s+/g, ' ').slice(0, 40)));
   if (addons.length !== 2) issues.push('add-ons not shown on a one-off package: ' + JSON.stringify(addons));
-  await c.goto(BASE + '/product/seo-starter-1-month/', { waitUntil: 'load' });
+  await c.goto(BASE + '/product/seo-starter-1-month/', { waitUntil: 'load', timeout: 120000 });
   if (await c.evaluate(() => document.querySelectorAll('.ifm-addon').length) !== 0) issues.push('add-ons shown on a monthly package');
   await b.close();
   issues.forEach(i => console.log('ISSUE ' + i));

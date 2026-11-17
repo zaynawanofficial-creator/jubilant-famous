@@ -41,11 +41,11 @@ class IFM_Importer {
 			$report = self::import( self::default_file(), ! empty( $_POST['ifm_dry_run'] ), ! empty( $_POST['ifm_refresh_images'] ) );
 		}
 		echo '<div class="wrap"><h1>' . esc_html__( 'IamFamous catalog', 'iamfamous-core' ) . '</h1>';
-		echo '<p>' . esc_html__( 'Creates or updates service packages from the bundled SERVICE_CATALOG.csv (GBP), matched by SKU. Packages whose price is not approved in the CSV are saved as drafts and stay hidden from the site. Prices you change later in wp-admin are overwritten only if you import again.', 'iamfamous-core' ) . '</p>';
+		echo '<p>' . esc_html__( 'Creates or updates service plans from the bundled SERVICE_CATALOG.csv (GBP), matched by SKU. Plans whose price is not approved in the CSV are saved as drafts and stay hidden from the site. Prices you change later in wp-admin are overwritten only if you import again.', 'iamfamous-core' ) . '</p>';
 		echo '<form method="post">';
 		wp_nonce_field( 'ifm_import' );
 		echo '<p><label><input type="checkbox" name="ifm_dry_run" value="1" checked> ' . esc_html__( 'Dry run (show what would change)', 'iamfamous-core' ) . '</label></p>';
-		echo '<p><label><input type="checkbox" name="ifm_refresh_images" value="1"> ' . esc_html__( 'Refresh package images (replaces only images added by this importer, never your own uploads)', 'iamfamous-core' ) . '</label></p>';
+		echo '<p><label><input type="checkbox" name="ifm_refresh_images" value="1"> ' . esc_html__( 'Refresh plan images (replaces only images added by this importer, never your own uploads)', 'iamfamous-core' ) . '</label></p>';
 		submit_button( __( 'Run import', 'iamfamous-core' ), 'primary', 'ifm_import' );
 		echo '</form>';
 		if ( $report ) {
@@ -68,9 +68,9 @@ class IFM_Importer {
 	}
 
 	/**
-	 * Product page description built from the package fields, so the single product page explains the package.
+	 * Product page description built from the plan fields, so the single product page explains the plan.
 	 *
-	 * @param array<string,string> $meta Package meta.
+	 * @param array<string,string> $meta Plan meta.
 	 */
 	public static function description( array $meta, string $service, string $service_slug ): string {
 		$list = static function ( string $title, string $lines ): string {
@@ -99,7 +99,7 @@ class IFM_Importer {
 			$html .= '</ul>';
 		}
 		$html .= '<p>' . esc_html__( 'After checkout you will complete a short project brief in your account. The delivery time starts when the brief is complete.', 'iamfamous-core' ) . '</p>';
-		$html .= '<p><a href="' . esc_url( home_url( '/services/' . $service_slug . '/' ) ) . '">' . esc_html( sprintf( /* translators: %s: service */ __( 'Compare all %s packages', 'iamfamous-core' ), $service ) ) . ' →</a></p>';
+		$html .= '<p><a href="' . esc_url( home_url( '/services/' . $service_slug . '/' ) ) . '">' . esc_html( sprintf( /* translators: %s: service */ __( 'Compare all %s plans', 'iamfamous-core' ), $service ) ) . ' →</a></p>';
 		return $html . '</div>';
 	}
 
@@ -138,7 +138,7 @@ class IFM_Importer {
 	}
 
 	/**
-	 * Package copy per group: the shared base, then IamFamous's own wording (data/group-content-ifm*.php) on top.
+	 * Plan copy per group: the shared base, then IamFamous's own wording (data/group-content-ifm*.php) on top.
 	 *
 	 * @return array<string,array>
 	 */
@@ -184,15 +184,24 @@ class IFM_Importer {
 
 	private static function term( string $name, string $tax, int $parent = 0 ): int {
 		$slug  = sanitize_title( $name );
+		// Shown to customers as "Plans" (owner, 17 Nov 2026); the slug keeps the catalogue's original wording.
+		$label = (string) preg_replace( '/\bPackages\b/', 'Plans', $name );
 		$found = get_term_by( 'slug', $slug, $tax );
 		if ( $found ) {
-			// Pre-existing term (e.g. created by hand or a theme demo): make sure it sits under the right parent.
+			// Pre-existing term (e.g. created by hand or a theme demo): make sure it sits under the right parent, with the current name.
+			$update = array();
 			if ( (int) $found->parent !== $parent ) {
-				wp_update_term( (int) $found->term_id, $tax, array( 'parent' => $parent ) );
+				$update['parent'] = $parent;
+			}
+			if ( $found->name !== $label ) {
+				$update['name'] = $label;
+			}
+			if ( $update ) {
+				wp_update_term( (int) $found->term_id, $tax, $update );
 			}
 			return (int) $found->term_id;
 		}
-		$res = wp_insert_term( $name, $tax, array( 'slug' => $slug, 'parent' => $parent ) );
+		$res = wp_insert_term( $label, $tax, array( 'slug' => $slug, 'parent' => $parent ) );
 		return is_wp_error( $res ) ? 0 : (int) $res['term_id'];
 	}
 
@@ -243,7 +252,7 @@ class IFM_Importer {
 			$product->set_sku( $sku );
 			$product->set_virtual( true );
 			$product->set_downloadable( false );
-			$product->set_sold_individually( false );
+			$product->set_sold_individually( true );
 			$product->set_tax_status( 'taxable' );
 			$product->set_regular_price( 'fixed' === $model ? $price : '' );
 			$product->set_category_ids( array( $service_id ) );

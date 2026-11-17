@@ -66,7 +66,7 @@ class IFM_Reviews {
 			}
 			$out = '';
 			foreach ( $groups as $label => $items ) {
-				$out .= '<section class="ifm-reviews-group"><h2>' . esc_html( $label ) . '</h2><div class="ifm-reviews">' . implode( '', array_map( array( __CLASS__, 'card' ), $items ) ) . '</div></section>';
+				$out .= '<section class="ifm-reviews-group"><h2>' . esc_html( $label ) . '</h2><div class="ifm-reviews ifm-rail ifm-rail--3">' . implode( '', array_map( array( __CLASS__, 'card' ), $items ) ) . '</div></section>';
 			}
 			return $out;
 		}
@@ -75,6 +75,6 @@ class IFM_Reviews {
 		if ( ! $items ) {
 			return '';
 		}
-		return '<div class="ifm-reviews">' . implode( '', array_map( array( __CLASS__, 'card' ), $items ) ) . '</div>';
+		return '<div class="ifm-reviews ifm-rail ifm-rail--3">' . implode( '', array_map( array( __CLASS__, 'card' ), $items ) ) . '</div>';
 	}
 }

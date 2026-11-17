@@ -57,18 +57,18 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">From package to proof</h2>
+<h2 class="wp-block-heading">From plan to proof</h2>
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4 ifm-steps"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4 ifm-steps"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
 <div class="wp-block-group ifm-card ifm-step"><!-- wp:paragraph {"className":"ifm-step__n"} -->
 <p class="ifm-step__n">01</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Pick a package</h3>
+<h3 class="wp-block-heading">Pick a plan</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -86,7 +86,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>A short form on the package page asks for the basics: your website, your area, your logins by invite. Two minutes, before you pay.</p>
+<p>A short form on the plan page asks for the basics: your website, your area, your logins by invite. Two minutes, before you pay.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -114,7 +114,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>We deliver inside the time shown on the package, with live links, files or a report. Changes are included where the package says so.</p>
+<p>We deliver inside the time shown on the plan, with live links, files or a report. Changes are included where the plan says so.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -132,7 +132,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>The moment payment goes through you get an order number and a receipt by email. The answers you gave on the package page are already attached to the order, so most jobs can begin without any further questions.</p>
+<p>The moment payment goes through you get an order number and a receipt by email. The answers you gave on the plan page are already attached to the order, so most jobs can begin without any further questions.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
@@ -140,7 +140,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
-<p>The delivery time shown on your package starts once we have everything we asked for. When the work is finished, the report or files arrive by email and are saved in your account.</p>
+<p>The delivery time shown on your plan starts once we have everything we asked for. When the work is finished, the report or files arrive by email and are saved in your account.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -183,8 +183,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-pen.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -194,7 +194,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Each package says how many rounds of changes it includes. A round is one list of changes sent together. Tell us what to alter and we rework it.</p>
+<p>Each plan says how many rounds of changes it includes. A round is one list of changes sent together. Tell us what to alter and we rework it.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -286,13 +286,13 @@
 <!-- wp:group {"className":"ifm-faq","layout":{"type":"constrained"}} -->
 <div class="wp-block-group ifm-faq"><!-- wp:details -->
 <details class="wp-block-details"><summary>Do I need to speak to anyone before ordering?</summary><!-- wp:paragraph -->
-<p>No. Everything you need to decide is on the package page. If you would like advice first, the <a href="/free-growth-check/">free growth check</a> is the quickest way to get it.</p>
+<p>No. Everything you need to decide is on the plan page. If you would like advice first, the <a href="/free-growth-check/">free growth check</a> is the quickest way to get it.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>When does the delivery time start?</summary><!-- wp:paragraph -->
-<p>When we have the details asked for on the package page. If you fill in the form fully when you order, that is straight after payment.</p>
+<p>When we have the details asked for on the plan page. If you fill in the form fully when you order, that is straight after payment.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -303,8 +303,8 @@
 <!-- /wp:details -->
 
 <!-- wp:details -->
-<details class="wp-block-details"><summary>Can I order more than one package?</summary><!-- wp:paragraph -->
-<p>Yes. Add as many as you like to your basket and pay once. Each package keeps its own details and delivery time.</p>
+<details class="wp-block-details"><summary>Can I order more than one plan?</summary><!-- wp:paragraph -->
+<p>Yes. Add as many as you like to your basket and pay once. Each plan keeps its own details and delivery time.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 

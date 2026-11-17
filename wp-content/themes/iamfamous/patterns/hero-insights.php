@@ -44,7 +44,7 @@
 
 <!-- wp:column {"width":"44%"} -->
 <div class="wp-block-column" style="flex-basis:44%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-hero__art"} -->
-<figure class="wp-block-image size-full ifm-hero__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-services.webp' ) ); ?>" alt="Example service menu with four groups beside a package card"/></figure>
+<figure class="wp-block-image size-full ifm-hero__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-services.webp' ) ); ?>" alt="Example service menu with four groups beside a plan card"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>

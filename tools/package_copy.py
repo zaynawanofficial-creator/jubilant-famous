@@ -1,11 +1,11 @@
-"""IamFamous wording for every package outside the three round 1 services.
+"""IamFamous wording for every plan outside the three round 1 services.
 
 tools/build_package_copy.py turns this into wp-content/plugins/iamfamous-core/data/group-content-ifm-2.php,
 which IFM_Importer::content() merges over the shared base. Scope, quantities, turnaround and revisions are
 unchanged; only the wording is ours. Keys:
   intro, X (not included), R (what we need), D (deliverables shared by the whole group),
-  ideal (quantity -> ideal-for line), sku (package number -> (ideal-for, [deliverables])), prefix (SKU stem).
-Rules: UK spelling, plain English, nothing promised that the package does not include.
+  ideal (quantity -> ideal-for line), sku (plan number -> (ideal-for, [deliverables])), prefix (SKU stem).
+Rules: UK spelling, plain English, nothing promised that the plan does not include.
 """
 
 GROUPS = {
@@ -118,12 +118,12 @@ GROUPS = {
         X=['Writing brand-new pages (see Content Writing)', 'Technical fixes (see Technical SEO)', 'A promised position', 'Design or layout changes'],
         R=['The addresses of the pages to improve', 'What each page should bring you: calls, bookings or sales', 'Editor access by invite, or ask for the changes in a document', 'Words you must use or avoid'],
         sku={1: ('Your single most important page', ['A search term chosen and checked against what people want', 'A new page title and description', 'Headings restructured', 'Wording improved and internal links added', 'Changes applied to the page, or sent as a document']),
-             2: ('Your main service or product pages', ['Everything in the 1 Page package, for 5 pages', 'A plan for linking those pages together', 'Schema recommendations']),
-             3: ('A whole small business website', ['Everything in the 1 Page package, for 10 pages', 'A map of which search term belongs to which page', 'A plan for internal links', 'Schema recommendations']),
-             4: ('Larger sites and shops', ['Everything in the 1 Page package, for 25 pages', 'A full map of search terms to pages', 'A check for pages competing with each other', 'A plan for internal links'])}),
+             2: ('Your main service or product pages', ['Everything in the 1 Page plan, for 5 pages', 'A plan for linking those pages together', 'Schema recommendations']),
+             3: ('A whole small business website', ['Everything in the 1 Page plan, for 10 pages', 'A map of which search term belongs to which page', 'A plan for internal links', 'Schema recommendations']),
+             4: ('Larger sites and shops', ['Everything in the 1 Page plan, for 25 pages', 'A full map of search terms to pages', 'A check for pages competing with each other', 'A plan for internal links'])}),
     'white-label-packages': dict(
         prefix='white-label-seo-white-label-packages',
-        intro='SEO work for your clients, delivered to you without our name on it. Order one package per client and add your own logo to the report.',
+        intro='SEO work for your clients, delivered to you without our name on it. Order one plan per client and add your own logo to the report.',
         X=['Contact with your client. That stays with you', 'A promised position', 'Advertising spend', 'Methods that break Google\'s rules'],
         R=['The client\'s website address and goals', 'Access by invite to their site and Search Console', 'Your report format, if you have one', 'How you want questions handled'],
         sku={1: ('Pitches and new client onboarding', ['A full technical and on-page audit', 'A PDF with no branding, or with your logo', 'An ordered list of fixes', 'A summary your client can read']),
@@ -134,7 +134,7 @@ GROUPS = {
         prefix='ai-seo-ai-seo-packages',
         intro='Find out what ChatGPT, Gemini and Google\'s AI answers say about your business, then make your website and business details clear enough for them to use.',
         X=['A promise that any AI tool will mention or recommend you', 'A promised position in Google', 'Paid listings or sponsorships'],
-        R=['Your website address', 'A short, accurate description of your business', 'The questions customers ask before they buy', 'Admin access by invite, for the setup packages'],
+        R=['Your website address', 'A short, accurate description of your business', 'The questions customers ask before they buy', 'Admin access by invite, for the setup plans'],
         sku={1: ('Seeing where you stand', ['15 customer questions checked in Google\'s AI answers and the main AI assistants', 'A comparison with competitors who are mentioned', 'A review of how consistently your business is described online', 'Recommendations in order of priority']),
              2: ('Businesses that AI tools miss or get wrong', ['Organisation and service schema', 'About, contact and author details made consistent on your site', 'Your business facts matched across your main profiles', 'Checked with Google\'s testing tools']),
              3: ('Pages you want quoted in answers', ['5 pages restructured around the questions people ask', 'Short, direct answers that can be quoted', 'FAQ sections where they help', 'Facts and sources checked']),
@@ -159,7 +159,7 @@ GROUPS = {
              4: ('A larger catalogue', ['Everything in the Starter shop', 'Up to 100 products and variants', 'Categories planned with search in mind', 'Reviews, wishlist or upsell features set up', 'Speed tuning'])}),
     'ppc-packages': dict(
         prefix='ppc-management-ppc-packages',
-        intro='Google Ads audited, set up or managed month to month. You pay Google directly for clicks; the package price is our fee for the work.',
+        intro='Google Ads audited, set up or managed month to month. You pay Google directly for clicks; the plan price is our fee for the work.',
         X=['Ad spend, which Google charges to you', 'A promised number of sales or return on spend', 'Building landing pages, which we quote separately'],
         R=['Access to your Google Ads account by invite', 'Your website and what counts as a result: a call, a form, a sale', 'Your monthly ad budget', 'The areas you want to reach'],
         sku={1: ('An account that feels wasteful', ['Account structure and settings reviewed', 'Search terms checked for wasted spend', 'Conversion tracking checked', 'An ordered list of fixes as a PDF']),
@@ -186,9 +186,9 @@ GROUPS = {
              4: ('Running campaigns month to month', ['Weekly adjustments', 'A plan for testing videos against each other', '5 new hook ideas', 'A monthly performance report'])}),
     'starter-bundles': dict(
         prefix='bundles-starter-bundles',
-        intro='Packages that are often ordered together, sold as one order at a lower price than buying them separately. Each part is delivered exactly as described on its own page.',
+        intro='Plans that are often ordered together, sold as one order at a lower price than buying them separately. Each part is delivered exactly as described on its own page.',
         brief='generic',
-        X=['A promised position on Google or number of followers', 'Domain, hosting and paid licences', 'Anything not listed on the included packages'],
+        X=['A promised position on Google or number of followers', 'Domain, hosting and paid licences', 'Anything not listed on the included plans'],
         R=['Your business name, address, phone number and opening hours', 'Manager access to your Google Business Profile, by invite', 'Your logo, colours, and the text and photos for your website', 'Hosting or WordPress access by invite'],
         sku={1: ('A new local business starting from nothing', ['Google Business Profile Optimisation: your profile corrected and completed', '20 Profile and Citation Links, each with a live link', 'A 1-Page Landing Website with an enquiry form', 'One order, one point of contact']),
              2: ('A local business that needs a proper website too', ['Local SEO Starter: profile, 20 UK directory listings and local schema', 'A 5-Page Website built for phones first', 'Two rounds of design changes on the website', 'A live-link report and a website walkthrough video']),

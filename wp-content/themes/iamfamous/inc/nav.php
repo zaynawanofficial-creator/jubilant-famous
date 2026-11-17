@@ -71,8 +71,8 @@ function ifm_nav_items(): array {
 			),
 		),
 		array(
-			'label' => __( 'Packages', 'iamfamous' ),
-			'url'   => '/packages/',
+			'label' => __( 'Plans', 'iamfamous' ),
+			'url'   => '/plans/',
 		),
 		array(
 			'label' => __( 'How it works', 'iamfamous' ),
@@ -122,7 +122,7 @@ function ifm_nav_is_active( array $item ): bool {
 		return '' !== ifm_nav_state( '/services/', true ) || ( function_exists( 'is_product' ) && is_product() );
 	}
 	if ( '/services/' === $item['url'] ) {
-		// Fallback when the Services item has no groups: active on the hub and on package pages only.
+		// Fallback when the Services item has no groups: active on the hub and on plan pages only.
 		return 'page' === ifm_nav_state( '/services/' ) || ( function_exists( 'is_product' ) && is_product() );
 	}
 	if ( '/insights/' === $item['url'] && ( is_singular( 'post' ) || is_category() || is_tag() ) ) {
@@ -182,7 +182,7 @@ function ifm_nav_shortcode(): string {
 			$out .= '</ul></div>';
 		}
 		$out .= '</div><div class="ifm-mega__foot"><p>' . esc_html__( 'Fixed prices in pounds, a written scope and a report you can check on every order.', 'iamfamous' ) . '</p>';
-		$out .= '<div class="ifm-mega__actions">' . ifm_nav_link( __( 'All services', 'iamfamous' ), $item['url'], 'ifm-mega__more' ) . ifm_nav_link( __( 'Packages and prices', 'iamfamous' ), '/packages/', 'ifm-mega__more' ) . ifm_nav_link( __( 'Free growth check', 'iamfamous' ), '/free-growth-check/', 'ifm-mega__btn' ) . '</div>';
+		$out .= '<div class="ifm-mega__actions">' . ifm_nav_link( __( 'All services', 'iamfamous' ), $item['url'], 'ifm-mega__more' ) . ifm_nav_link( __( 'Plans and prices', 'iamfamous' ), '/plans/', 'ifm-mega__more' ) . ifm_nav_link( __( 'Free growth check', 'iamfamous' ), '/free-growth-check/', 'ifm-mega__btn' ) . '</div>';
 		$out .= '</div></div></div></li>';
 	}
 	$out .= '</ul></nav>';

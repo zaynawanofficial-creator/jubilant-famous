@@ -109,7 +109,7 @@ class IFM_Site {
 		);
 	}
 
-	/** Basket, checkout, account, package and search pages: never indexed. */
+	/** Basket, checkout, account, plan and search pages: never indexed. */
 	public static function is_private_page(): bool {
 		return is_search() || ( function_exists( 'is_cart' ) && ( is_cart() || is_checkout() || is_account_page() ) ) || ( function_exists( 'is_product' ) && is_product() ) || ( function_exists( 'is_shop' ) && ( is_shop() || is_product_taxonomy() ) );
 	}
@@ -128,7 +128,7 @@ class IFM_Site {
 		$lines = array(
 			'# ' . $b['name'],
 			'',
-			'> ' . $b['name'] . ' is a UK digital marketing agency that sells fixed-price packages to small businesses: local SEO, websites, social media management, Google and social ads, content writing and design. Orders are placed online, priced in pounds sterling with no VAT added, and are one-off purchases with no contract.',
+			'> ' . $b['name'] . ' is a UK digital marketing agency that sells fixed-price plans to small businesses: local SEO, websites, social media management, Google and social ads, content writing and design. Orders are placed online, priced in pounds sterling with no VAT added, and are one-off purchases with no contract.',
 			'',
 			'- Business name: ' . $b['name'] . ( ! empty( $b['legal'] ) ? ' (the trading name of ' . $b['legal'] . ', a sole trader)' : '' ),
 			'- Address: ' . implode( ', ', $b['address'] ),
@@ -170,7 +170,7 @@ class IFM_Site {
 		exit;
 	}
 
-	/** Lowest published fixed price for a service (product_cat slug), optionally one package group. '' when none. Cached for a day. */
+	/** Lowest published fixed price for a service (product_cat slug), optionally one plan group. '' when none. Cached for a day. */
 	public static function min_price( string $service = '', string $group = '' ): string {
 		$key = 'ifm_from_' . md5( $service . '|' . $group . '|' . (string) get_option( 'ifm_price_ver', '1' ) );
 		$min = get_transient( $key );
@@ -200,7 +200,7 @@ class IFM_Site {
 	/* ------------------------------------------------------------------ prices */
 
 	/**
-	 * Lowest published price for a service (product_cat slug), optionally one package group.
+	 * Lowest published price for a service (product_cat slug), optionally one plan group.
 	 * [ifm_from] alone = lowest price in the whole catalogue.
 	 * prefix="From " is printed before a price; fallback="…" replaces the whole output when no price is published.
 	 */
@@ -415,7 +415,7 @@ class IFM_Site {
 	/* ------------------------------------------------------------------ product page quote button */
 
 	private static function quote_html( WC_Product $product ): string {
-		return '<p class="ifm-product-quote"><a class="wp-element-button ifm-btn ifm-btn--primary" href="' . esc_url( IFM_Packages::quote_url( $product ) ) . '">' . esc_html__( 'Get a quote for this package', 'iamfamous-core' ) . '</a></p>';
+		return '<p class="ifm-product-quote"><a class="wp-element-button ifm-btn ifm-btn--primary" href="' . esc_url( IFM_Packages::quote_url( $product ) ) . '">' . esc_html__( 'Get a quote for this plan', 'iamfamous-core' ) . '</a></p>';
 	}
 
 	public static function quote_button_block( string $html ): string {

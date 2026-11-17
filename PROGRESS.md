@@ -1,5 +1,35 @@
 # PROGRESS
 
+## Round 5: theme 1.4.0 + plugin 1.4.0 · 17 Nov 2026 · 🟢 deployed to iamfamous.uk
+**Deployed by Claude** through the Hostinger connector: 69 changed files uploaded straight into the live theme and plugin folders (`tools/deploy-hostinger.sh`), the stale `page-packages.php` pattern deleted, the automatic rebuild ran on the next visit, and the server and CDN cache were cleared. The LiteSpeed plugin purge returned a Hostinger 500; the server/CDN clear worked.
+
+### Fixed (owner feedback, 17 Nov)
+- **"Three jobs that bring in customers" showed all 20 services as large illustrated cards** (11,348px tall on a phone). Cause: a round 2 change made the home grid loop over every service instead of the three lead ones. It shows the three again.
+- **"Often ordered together"** mixed one large and one small card. Now three uniform cards, topped up from the same service group.
+- **Ticks in the illustrated service cards** sat outside the card padding.
+- **"Packages" renamed to "Plans"** in the menu, URLs (`/plans/`, `#plans`), page copy, plugin text, picker tab names, steps bar and buttons. `/packages/` redirects to `/plans/`.
+- **Checkout and basket:** the product picture is replaced by the service's own icon; no quantity box (each plan once per order); no product blurb; the details show the delivery time, "Project details: Received" and any extras, one per line.
+- The plan intro no longer repeats above the picker on single-group services.
+
+### Scroll depth (carousels)
+Card sets now sit in swipeable carousels with arrows, dots and keyboard support: services (home, hub, related), "What the work covers", the process steps, customer feedback, About and How it works cards. Long "What is …" explainers show two paragraphs with "Read more". Measured on the live site:
+
+| Page | Phone before | Phone after | Desktop before | Desktop after |
+|---|---:|---:|---:|---:|
+| Home | 25,106px | 10,714px | 12,225px | 8,176px |
+| Local SEO | 13,835px | 10,731px | 8,756px | 7,908px |
+
+### Automatic rebuild
+When the theme version changes, a one-off background job re-imports the catalogue and rebuilds the pages and guides the Setup screen created (Overwrite on, Rank Math fields on), then purges LiteSpeed. Pages made by hand are never touched. Turn it off with `add_filter( 'ifm_auto_build', '__return_false' )`.
+
+### Tests run
+- `php -l` on every PHP file; smoke tests importer 30/30, nav 15/15, redirects 10/10, content 12/12, add-ons 8/8.
+- Block validation: 59 files, 5,704 blocks, 0 invalid.
+- Local WordPress: carousels aligned and controls shown only when cards overflow, at 390, 768, 1024 and 1440 on five pages.
+- **Live site:** `/plans/` 200 and `/packages/` 301 to `/plans/`; new carousels and "Read more" served.
+- **Live checkout:** opened the On-Page SEO 5 Pages plan, filled the project form, ticked "Extra round of changes", continued. Checkout showed the service icon, no quantity box and £79.00 (£69 + £10). No order was placed.
+- Live whole-site audit: see below.
+
 ## Round 4 (final build): theme 1.3.0 + plugin 1.3.0 · 16 Nov 2026 · 🟢 ready for owner review
 All planned work is built. What remains is the owner's review, the install and the live checks that cannot be run here.
 

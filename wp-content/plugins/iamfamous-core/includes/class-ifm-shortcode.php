@@ -1,6 +1,6 @@
 <?php
 /**
- * [ifm_packages] — data-driven package groups (tabs), a tier picker and a comparison table for any page.
+ * [ifm_packages] — data-driven plan groups (tabs), a tier picker and a comparison table for any page.
  *
  * Usage: [ifm_packages service="off-page-seo"]  (service = product_cat slug)
  *        [ifm_packages service="off-page-seo" group="premium-links"]
@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Renders packages straight from WooCommerce data. No prices live in page content.
+ * Renders plans straight from WooCommerce data. No prices live in page content.
  */
 class IFM_Shortcode {
 
@@ -26,7 +26,7 @@ class IFM_Shortcode {
 	}
 
 	/**
-	 * Published packages for a service, grouped by package group.
+	 * Published plans for a service, grouped by plan group.
 	 *
 	 * @return array<int,array{term:WP_Term,products:WC_Product[]}>
 	 */
@@ -88,7 +88,7 @@ class IFM_Shortcode {
 		ob_start();
 		echo '<div class="ifm-packages" id="' . esc_attr( $uid ) . '">';
 		if ( count( $groups ) > 1 ) {
-			echo '<div class="ifm-tabs" role="tablist" aria-label="' . esc_attr__( 'Package groups', 'iamfamous-core' ) . '">';
+			echo '<div class="ifm-tabs" role="tablist" aria-label="' . esc_attr__( 'Plan groups', 'iamfamous-core' ) . '">';
 			foreach ( $groups as $i => $g ) {
 				$tid = $uid . '-tab-' . $i;
 				$pid = $uid . '-panel-' . $i;
@@ -113,7 +113,8 @@ class IFM_Shortcode {
 				$multi ? 'role="tabpanel" aria-labelledby="' . esc_attr( $tid ) . '" tabindex="0"' : 'aria-label="' . esc_attr( $g['term']->name ) . '"',
 				( $multi && $i > 0 ) ? 'hidden' : ''
 			);
-			if ( $g['term']->description ) {
+			// The intro duplicates the section text on single-group services, so it only shows with tabs.
+			if ( $multi && $g['term']->description ) {
 				echo '<p class="ifm-pkpanel__intro">' . esc_html( $g['term']->description ) . '</p>';
 			}
 			echo self::selector( $g['products'], $pid ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in selector().
@@ -124,7 +125,7 @@ class IFM_Shortcode {
 		return (string) ob_get_clean();
 	}
 
-	/** "£0.85 per link" style unit price, when the package has a countable quantity. */
+	/** "£0.85 per link" style unit price, when the plan has a countable quantity. */
 	public static function unit_price( WC_Product $p ): string {
 		$qty  = (int) $p->get_meta( '_ifm_quantity' );
 		$unit = (string) $p->get_meta( '_ifm_unit' );
@@ -154,7 +155,7 @@ class IFM_Shortcode {
 	}
 
 	/**
-	 * Compact package picker: tier list (left) + one detail panel (right).
+	 * Compact plan picker: tier list (left) + one detail panel (right).
 	 *
 	 * @param WC_Product[] $products Group products, sorted.
 	 */
@@ -168,7 +169,7 @@ class IFM_Shortcode {
 		}
 		ob_start();
 		echo '<div class="ifm-pk" data-ifm-pk>';
-		echo '<div class="ifm-pk__tiers" role="radiogroup" aria-label="' . esc_attr__( 'Choose a package', 'iamfamous-core' ) . '">';
+		echo '<div class="ifm-pk__tiers" role="radiogroup" aria-label="' . esc_attr__( 'Choose a plan', 'iamfamous-core' ) . '">';
 		foreach ( $products as $i => $p ) {
 			$on    = $i === $default;
 			$ideal = (string) $p->get_meta( '_ifm_ideal_for' );
@@ -221,8 +222,8 @@ class IFM_Shortcode {
 			if ( $quote ) {
 				echo '<a class="ifm-btn ifm-btn--primary" href="' . esc_url( IFM_Packages::quote_url( $p ) ) . '">' . esc_html__( 'Get a quote', 'iamfamous-core' ) . '</a>';
 			} else {
-				/* translators: %s: package name */
-				echo '<a class="ifm-btn ifm-btn--primary" href="' . esc_url( $p->get_permalink() . '#order' ) . '" aria-label="' . esc_attr( sprintf( __( 'Choose %s', 'iamfamous-core' ), $p->get_name() ) ) . '">' . esc_html__( 'Choose this package', 'iamfamous-core' ) . ' →</a>';
+				/* translators: %s: plan name */
+				echo '<a class="ifm-btn ifm-btn--primary" href="' . esc_url( $p->get_permalink() . '#order' ) . '" aria-label="' . esc_attr( sprintf( __( 'Choose %s', 'iamfamous-core' ), $p->get_name() ) ) . '">' . esc_html__( 'Choose this plan', 'iamfamous-core' ) . ' →</a>';
 			}
 			echo '<a class="ifm-pk__more" href="' . esc_url( $p->get_permalink() ) . '">' . esc_html__( 'Full details', 'iamfamous-core' ) . '</a></div>';
 			if ( $excl ) {
@@ -235,7 +236,7 @@ class IFM_Shortcode {
 	}
 
 	/**
-	 * Side-by-side comparison under the picker: one row per package, stacked into cards on phones.
+	 * Side-by-side comparison under the picker: one row per plan, stacked into cards on phones.
 	 *
 	 * @param WC_Product[] $products Group products, sorted.
 	 */
@@ -244,13 +245,13 @@ class IFM_Shortcode {
 			return '';
 		}
 		$cols = array(
-			'name'  => __( 'Package', 'iamfamous-core' ),
+			'name'  => __( 'Plan', 'iamfamous-core' ),
 			'ideal' => __( 'Best for', 'iamfamous-core' ),
 			'turn'  => __( 'Delivery', 'iamfamous-core' ),
 			'rev'   => __( 'Revisions', 'iamfamous-core' ),
 			'price' => __( 'Price', 'iamfamous-core' ),
 		);
-		$out  = '<details class="ifm-pkcmp"><summary>' . esc_html__( 'Compare all packages side by side', 'iamfamous-core' ) . '</summary>';
+		$out  = '<details class="ifm-pkcmp"><summary>' . esc_html__( 'Compare all plans side by side', 'iamfamous-core' ) . '</summary>';
 		$out .= '<div class="ifm-pkcmp__scroll"><table class="ifm-pkcmp__table"><thead><tr>';
 		foreach ( $cols as $label ) {
 			$out .= '<th scope="col">' . esc_html( $label ) . '</th>';
@@ -329,10 +330,10 @@ class IFM_Shortcode {
 		if ( 'quote' === $model || ! $product->is_purchasable() ) {
 			echo '<a class="ifm-btn ifm-btn--primary" href="' . esc_url( IFM_Packages::quote_url( $product ) ) . '">' . esc_html__( 'Get a quote', 'iamfamous-core' ) . '</a>';
 		} else {
-			/* translators: %s: package name */
-			echo '<a class="ifm-btn ifm-btn--primary" href="' . esc_url( $product->get_permalink() . '#order' ) . '" aria-label="' . esc_attr( sprintf( __( 'Choose %s', 'iamfamous-core' ), $product->get_name() ) ) . '">' . esc_html__( 'Choose package', 'iamfamous-core' ) . ' →</a>';
+			/* translators: %s: plan name */
+			echo '<a class="ifm-btn ifm-btn--primary" href="' . esc_url( $product->get_permalink() . '#order' ) . '" aria-label="' . esc_attr( sprintf( __( 'Choose %s', 'iamfamous-core' ), $product->get_name() ) ) . '">' . esc_html__( 'Choose plan', 'iamfamous-core' ) . ' →</a>';
 		}
-		echo '<a class="ifm-pkcard__details" href="' . esc_url( $product->get_permalink() ) . '">' . esc_html__( 'Full package details', 'iamfamous-core' ) . '</a>';
+		echo '<a class="ifm-pkcard__details" href="' . esc_url( $product->get_permalink() ) . '">' . esc_html__( 'Full plan details', 'iamfamous-core' ) . '</a>';
 		echo '</div></li>';
 		return (string) ob_get_clean();
 	}

@@ -24,7 +24,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Questions about a package, an order or something you cannot see on the site? Send a message here or email <a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a>. We reply within one working day.</p>
+<p class="ifm-lead">Questions about a plan, an order or something you cannot see on the site? Send a message here or email <a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a>. We reply within one working day.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"ifm-checks"} -->

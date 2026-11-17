@@ -40,7 +40,8 @@ class IFM_Redirects {
 			'contact-us'              => '/contact/',
 			'faqs'                    => '/faq/',
 			'blog'                    => '/insights/',
-			'shop'                    => '/packages/',
+			'packages'                => '/plans/',
+			'shop'                    => '/plans/',
 		);
 		// Old WooCommerce product categories.
 		$cats = array(

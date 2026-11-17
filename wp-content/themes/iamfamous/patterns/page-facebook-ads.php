@@ -29,7 +29,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#packages">See packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#plans">See plans</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-outline"} -->
@@ -39,7 +39,7 @@
 
 <!-- wp:list {"className":"ifm-checks"} -->
 <ul class="wp-block-list ifm-checks"><!-- wp:list-item -->
-<li>[ifm_from service="facebook-ads" prefix="Packages from " fallback="Fixed price, agreed in writing"]</li>
+<li>[ifm_from service="facebook-ads" prefix="Plans from " fallback="Fixed price, agreed in writing"]</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -112,14 +112,14 @@
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"packages","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
-<section id="packages" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
+<!-- wp:group {"tagName":"section","anchor":"plans","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
+<section id="plans" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
 <div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->
-<p class="ifm-eyebrow">Packages</p>
+<p class="ifm-eyebrow">Plans</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Choose your Facebook ads package</h2>
+<h2 class="wp-block-heading">Choose your Facebook ads plan</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
@@ -159,9 +159,11 @@
 <p>The big difference from Google is intent. On Google, people are searching for something. On Facebook and Instagram, they are scrolling. Your advert interrupts, so it has to earn attention in the first second: a clear picture or video, one message, one action.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
+<!-- wp:details {"className":"ifm-readmore"} -->
+<details class="wp-block-details ifm-readmore"><summary>Read more</summary><!-- wp:paragraph -->
 <p>Three things decide whether a campaign pays. The audience: the right people in the right area. The creative: the image, video and words. And tracking: a small piece of code on your site, called the Meta pixel, that tells the system which adverts led to enquiries or sales so it can find more people like them.</p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
@@ -184,7 +186,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>The managed package ends each month with a short report: spend, results, the best and worst adverts, and what we will change.</p>
+<p>The managed plan ends each month with a short report: spend, results, the best and worst adverts, and what we will change.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:list {"className":"ifm-ticks"} -->
@@ -223,8 +225,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-audit.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -321,8 +323,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4 ifm-steps"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4 ifm-steps"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
 <div class="wp-block-group ifm-card ifm-step"><!-- wp:paragraph {"className":"ifm-step__n"} -->
 <p class="ifm-step__n">01</p>
 <!-- /wp:paragraph -->
@@ -332,7 +334,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Choose a package and fill in the short form on the package page. It takes a couple of minutes.</p>
+<p>Choose a plan and fill in the short form on the plan page. It takes a couple of minutes.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -374,7 +376,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>The report or files arrive by email and in your account, inside the delivery time on your package.</p>
+<p>The report or files arrive by email and in your account, inside the delivery time on your plan.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -392,7 +394,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>You add these on the package page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
+<p>You add these on the plan page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -464,7 +466,7 @@
 <!-- wp:group {"className":"ifm-faq","layout":{"type":"constrained"}} -->
 <div class="wp-block-group ifm-faq"><!-- wp:details -->
 <details class="wp-block-details"><summary>Is the ad budget included?</summary><!-- wp:paragraph -->
-<p>No. The package price is our fee. Ad spend is charged by Meta to your own card.</p>
+<p>No. The plan price is our fee. Ad spend is charged by Meta to your own card.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -505,10 +507,10 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d2 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--2 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-social.webp' ) ); ?>" alt=""/></figure>
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-social.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -519,26 +521,12 @@
 <p>Regular posts in your colours and your voice. Take a plan and post it yourself, or hand over the designing, scheduling and replies.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"><!-- wp:list-item -->
-<li>A month of posts planned ahead</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Designed, captioned and scheduled</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Real followers only, never bought</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
 <!-- wp:paragraph {"className":"ifm-price-from"} -->
 <p class="ifm-price-from">[ifm_from service="social-media-management" prefix="From " fallback="Fixed price, agreed in writing"]</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/social-media-management/">See Social Media Management packages →</a></p>
+<p class="ifm-card__more"><a href="/services/social-media-management/">See plans<span class="screen-reader-text"> for Social Media Management</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -560,7 +548,29 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/tiktok-ads/">See packages<span class="screen-reader-text"> for TikTok Ads</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/tiktok-ads/">See plans<span class="screen-reader-text"> for TikTok Ads</span> →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-target.svg' ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="/services/ppc-management/">Google Ads (PPC)</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Search campaigns set up or managed month to month. Your ad spend goes straight to Google, not through us.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-price-from"} -->
+<p class="ifm-price-from">[ifm_from service="ppc-management" prefix="From " fallback="Fixed price, agreed in writing"]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-card__more"} -->
+<p class="ifm-card__more"><a href="/services/ppc-management/">See plans<span class="screen-reader-text"> for Google Ads (PPC)</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

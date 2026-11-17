@@ -1,6 +1,6 @@
 <?php
 /**
- * Package data model: group taxonomy, package meta, publish gate, order line snapshot.
+ * Plan data model: group taxonomy, plan meta, publish gate, order line snapshot.
  *
  * @package IamFamousCore
  */
@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Service package model on top of WooCommerce products.
+ * Service plan model on top of WooCommerce products.
  */
 class IFM_Packages {
 
@@ -62,8 +62,8 @@ class IFM_Packages {
 			'product',
 			array(
 				'labels'            => array(
-					'name'          => __( 'Package groups', 'iamfamous-core' ),
-					'singular_name' => __( 'Package group', 'iamfamous-core' ),
+					'name'          => __( 'Plan groups', 'iamfamous-core' ),
+					'singular_name' => __( 'Plan group', 'iamfamous-core' ),
 				),
 				'hierarchical'      => true,
 				'public'            => false,
@@ -91,7 +91,7 @@ class IFM_Packages {
 	}
 
 	public static function add_meta_box(): void {
-		add_meta_box( 'ifm_package', __( 'Service package', 'iamfamous-core' ), array( __CLASS__, 'render_meta_box' ), 'product', 'normal', 'high' );
+		add_meta_box( 'ifm_package', __( 'Service plan', 'iamfamous-core' ), array( __CLASS__, 'render_meta_box' ), 'product', 'normal', 'high' );
 	}
 
 	public static function render_meta_box( WP_Post $post ): void {
@@ -107,7 +107,7 @@ class IFM_Packages {
 					echo '<textarea class="large-text" rows="4" id="' . $id . '" name="' . esc_attr( $key ) . '">' . esc_textarea( (string) $val ) . '</textarea>';
 					break;
 				case 'select':
-					echo '<select id="' . $id . '" name="' . esc_attr( $key ) . '"><option value="">' . esc_html__( '— Not a service package —', 'iamfamous-core' ) . '</option>';
+					echo '<select id="' . $id . '" name="' . esc_attr( $key ) . '"><option value="">' . esc_html__( '— Not a service plan —', 'iamfamous-core' ) . '</option>';
 					foreach ( $def[2] as $opt => $label ) {
 						echo '<option value="' . esc_attr( $opt ) . '"' . selected( $val, $opt, false ) . '>' . esc_html( $label ) . '</option>';
 					}
@@ -124,7 +124,7 @@ class IFM_Packages {
 			}
 			echo '</td></tr>';
 		}
-		echo '</table><p class="description">' . esc_html__( 'Fixed-price packages can only be published when both approvals are ticked and a price is set. Quote-only packages show "Get a quote" instead of Add to cart.', 'iamfamous-core' ) . '</p>';
+		echo '</table><p class="description">' . esc_html__( 'Fixed-price plans can only be published when both approvals are ticked and a price is set. Quote-only plans show "Get a quote" instead of Add to cart.', 'iamfamous-core' ) . '</p>';
 	}
 
 	public static function save_meta( WC_Product $product ): void {
@@ -164,7 +164,7 @@ class IFM_Packages {
 		return '' !== (string) $product->get_meta( '_ifm_pricing_model' );
 	}
 
-	/** True when a package may be published. */
+	/** True when a plan may be published. */
 	public static function can_publish( int $product_id ): bool {
 		$model = get_post_meta( $product_id, '_ifm_pricing_model', true );
 		if ( '' === $model || 'quote' === $model ) {
@@ -177,7 +177,7 @@ class IFM_Packages {
 	}
 
 	/**
-	 * Keep unapproved fixed-price packages out of the public catalogue.
+	 * Keep unapproved fixed-price plans out of the public catalogue.
 	 * Runs before save; meta from this request is saved later, so it re-checks on the next save too.
 	 */
 	public static function publish_gate( array $data, array $postarr ): array {
@@ -209,7 +209,7 @@ class IFM_Packages {
 			return;
 		}
 		delete_transient( 'ifm_gate_' . get_current_user_id() );
-		echo '<div class="notice notice-warning"><p>' . esc_html__( 'Package kept as draft: a fixed-price package needs a price above zero plus "Price approved" and "Scope approved" before it can be published.', 'iamfamous-core' ) . '</p></div>';
+		echo '<div class="notice notice-warning"><p>' . esc_html__( 'Plan kept as draft: a fixed-price plan needs a price above zero plus "Price approved" and "Scope approved" before it can be published.', 'iamfamous-core' ) . '</p></div>';
 	}
 
 	public static function quote_not_purchasable( bool $purchasable, $product ): bool {
@@ -223,10 +223,10 @@ class IFM_Packages {
 	public static function quote_url( WC_Product $product ): string {
 		$page = get_page_by_path( 'free-growth-check' );
 		$base = $page ? get_permalink( $page ) : home_url( '/free-growth-check/' );
-		return add_query_arg( 'package', rawurlencode( $product->get_sku() ? $product->get_sku() : (string) $product->get_id() ), $base );
+		return add_query_arg( 'plan', rawurlencode( $product->get_sku() ? $product->get_sku() : (string) $product->get_id() ), $base );
 	}
 
-	/** Snapshot package terms onto the order line so the order stays accurate if the product changes. */
+	/** Snapshot plan terms onto the order line so the order stays accurate if the product changes. */
 	public static function snapshot_line_item( WC_Order_Item_Product $item, $cart_item_key, array $values ): void {
 		$product = $values['data'] ?? null;
 		if ( ! $product instanceof WC_Product ) {
@@ -249,7 +249,7 @@ class IFM_Packages {
 
 	public static function line_meta_label( string $key ): string {
 		$map = array(
-			'ifm_package_sku'   => __( 'Package', 'iamfamous-core' ),
+			'ifm_package_sku'   => __( 'Plan', 'iamfamous-core' ),
 			'ifm_group'         => __( 'Group', 'iamfamous-core' ),
 			'ifm_quantity'      => __( 'Quantity', 'iamfamous-core' ),
 			'ifm_unit'          => __( 'Unit', 'iamfamous-core' ),

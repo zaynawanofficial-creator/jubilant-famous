@@ -1,5 +1,20 @@
 # INSTALL — IamFamous.uk
 
+## How updates are deployed now (from 17 Nov 2026)
+**Claude deploys directly** through the Hostinger connector. Nothing to upload by hand.
+1. Claude uploads only the changed files into `wp-content/themes/iamfamous/` and `wp-content/plugins/iamfamous-core/` (`tools/deploy-hostinger.sh`).
+2. The theme version number changes, so on the next visit the site rebuilds itself once in the background: re-imports the catalogue, rebuilds the pages and guides made by the Setup screen, sets Rank Math fields and purges LiteSpeed. Pages you created yourself are never touched.
+3. Claude clears the Hostinger server and CDN cache and checks the live pages.
+
+**If you ever deploy by hand instead** (for example from a new session without the connector):
+1. Back up in Hostinger.
+2. Plugins → Add Plugin → Upload → `iamfamous-core.zip` → **Replace current with uploaded**.
+3. Appearance → Themes → Add Theme → Upload → `iamfamous-theme.zip` → **Replace current with uploaded**.
+4. Open the home page once. The automatic rebuild runs within a minute. (Or run Appearance → IamFamous Setup with **Overwrite** ticked.)
+5. LiteSpeed Cache → Toolbox → **Purge All**.
+
+**If you edit a page made by the Setup screen** in the block editor and want to keep your edit, tell Claude first: the next version's automatic rebuild overwrites those pages.
+
 ## Which section do I follow?
 - **Nothing installed yet:** follow "First install" below with the newest zips (theme 1.3.0, plugin 1.3.0). You get the whole site in one go. Skip the update section.
 - **An earlier version is installed:** follow "Updating to theme 1.3.0 + plugin 1.3.0".

@@ -93,7 +93,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/ppc-management/#packages">See Google Ads packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/ppc-management/#plans">See Google Ads plans</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

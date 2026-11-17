@@ -111,7 +111,7 @@ class IFM_Leads {
 		$token  = isset( $_GET['ifm_t'] ) ? sanitize_key( wp_unslash( $_GET['ifm_t'] ) ) : '';
 		$pre    = array(
 			'service' => isset( $_GET['service'] ) ? sanitize_key( wp_unslash( $_GET['service'] ) ) : '',
-			'package' => isset( $_GET['package'] ) ? sanitize_text_field( wp_unslash( $_GET['package'] ) ) : '',
+			'plan' => isset( $_GET['plan'] ) ? sanitize_text_field( wp_unslash( $_GET['plan'] ) ) : '',
 		);
 		// phpcs:enable
 		$errors = array();
@@ -154,14 +154,14 @@ class IFM_Leads {
 		}
 		echo '</select></p></div>';
 		if ( 'quote' === $type ) {
-			$pkg = $values['package'] ?? $pre['package'];
+			$pkg = $values['plan'] ?? $pre['plan'];
 			echo '<div class="ifm-form__row">';
 			echo '<p><label for="ifm-budget">' . esc_html__( 'Budget', 'iamfamous-core' ) . '</label><select id="ifm-budget" name="ifm_budget">';
 			foreach ( self::budgets() as $k => $label ) {
 				echo '<option value="' . esc_attr( $k ) . '"' . selected( $values['budget'] ?? '', $k, false ) . '>' . esc_html( $label ) . '</option>';
 			}
 			echo '</select></p>';
-			echo '<p><label for="ifm-package">' . esc_html__( 'Package of interest (optional)', 'iamfamous-core' ) . '</label><input type="text" id="ifm-package" name="ifm_package" value="' . esc_attr( $pkg ) . '"></p></div>';
+			echo '<p><label for="ifm-package">' . esc_html__( 'Plan of interest (optional)', 'iamfamous-core' ) . '</label><input type="text" id="ifm-package" name="ifm_package" value="' . esc_attr( $pkg ) . '"></p></div>';
 		}
 		echo '<p><label for="ifm-message">' . esc_html( 'quote' === $type ? __( 'What do you need?', 'iamfamous-core' ) : __( 'Message', 'iamfamous-core' ) ) . $req . '</label><textarea id="ifm-message" name="ifm_message" required rows="6" placeholder="' . esc_attr( 'quote' === $type ? __( 'Goals, pages, quantities, deadlines. Please do not include passwords.', 'iamfamous-core' ) : __( 'How can we help? Please do not include passwords.', 'iamfamous-core' ) ) . '">' . esc_textarea( $values['message'] ?? '' ) . '</textarea></p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static markup.
 		$privacy = get_privacy_policy_url();
@@ -187,7 +187,7 @@ class IFM_Leads {
 			'website' => esc_url_raw( wp_unslash( $_POST['ifm_website'] ?? '' ), array( 'http', 'https' ) ),
 			'service' => sanitize_key( wp_unslash( $_POST['ifm_service'] ?? '' ) ),
 			'budget'  => sanitize_key( wp_unslash( $_POST['ifm_budget'] ?? '' ) ),
-			'package' => sanitize_text_field( wp_unslash( $_POST['ifm_package'] ?? '' ) ),
+			'plan' => sanitize_text_field( wp_unslash( $_POST['ifm_package'] ?? '' ) ),
 			'message' => mb_substr( sanitize_textarea_field( wp_unslash( $_POST['ifm_message'] ?? '' ) ), 0, 5000 ),
 		);
 		// Silent drop for bots: honeypot filled or form submitted too fast.
@@ -243,7 +243,7 @@ class IFM_Leads {
 		$to      = apply_filters( 'ifm_lead_email', get_option( 'admin_email' ) );
 		$subject = sprintf( '[%s] %s: %s', get_bloginfo( 'name' ), 'quote' === $type ? 'New quote request' : 'New message', $values['name'] );
 		$body    = '';
-		foreach ( array( 'name', 'email', 'website', 'service', 'budget', 'package', 'message' ) as $k ) {
+		foreach ( array( 'name', 'email', 'website', 'service', 'budget', 'plan', 'message' ) as $k ) {
 			if ( '' !== $values[ $k ] ) {
 				$body .= ucfirst( $k ) . ': ' . ( 'service' === $k ? $label : $values[ $k ] ) . "\n";
 			}
@@ -290,7 +290,7 @@ class IFM_Leads {
 			__( 'Lead details', 'iamfamous-core' ),
 			static function ( WP_Post $post ) {
 				echo '<table class="widefat striped"><tbody>';
-				foreach ( array( 'type', 'name', 'email', 'website', 'service', 'budget', 'package', 'message', 'consent_at', 'source' ) as $k ) {
+				foreach ( array( 'type', 'name', 'email', 'website', 'service', 'budget', 'plan', 'message', 'consent_at', 'source' ) as $k ) {
 					$val = (string) get_post_meta( $post->ID, '_ifm_' . $k, true );
 					if ( 'service' === $k ) {
 						$val = self::services()[ $val ] ?? $val;

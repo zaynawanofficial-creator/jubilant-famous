@@ -29,7 +29,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#packages">See packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#plans">See plans</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-outline"} -->
@@ -39,7 +39,7 @@
 
 <!-- wp:list {"className":"ifm-checks"} -->
 <ul class="wp-block-list ifm-checks"><!-- wp:list-item -->
-<li>[ifm_from service="local-seo" prefix="Packages from " fallback="Fixed price, agreed in writing"]</li>
+<li>[ifm_from service="local-seo" prefix="Plans from " fallback="Fixed price, agreed in writing"]</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -112,18 +112,18 @@
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"packages","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
-<section id="packages" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
+<!-- wp:group {"tagName":"section","anchor":"plans","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
+<section id="plans" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
 <div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->
-<p class="ifm-eyebrow">Packages</p>
+<p class="ifm-eyebrow">Plans</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Choose your local SEO package</h2>
+<h2 class="wp-block-heading">Choose your local SEO plan</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Start with your Google Business Profile, or take a package that adds directory listings and work on your website. The monthly option keeps things moving after that.</p>
+<p class="ifm-lead">Start with your Google Business Profile, or take a plan that adds directory listings and work on your website. The monthly option keeps things moving after that.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -159,13 +159,15 @@
 <p>Google has said it chooses that list using three things: how relevant you are to the search, how close you are to the person searching, and how well known and trusted your business is. You cannot change where you are. The other two you can improve.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
+<!-- wp:details {"className":"ifm-readmore"} -->
+<details class="wp-block-details ifm-readmore"><summary>Read more</summary><!-- wp:paragraph -->
 <p>Relevance comes mostly from your Google Business Profile: the right categories, services, opening hours and description. Trust comes from the same name, address and phone number appearing on well-known UK directories, from genuine reviews, and from a website that clearly says what you do and where.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 <p>None of this is complicated. It is fiddly and slow to do properly, which is why most small businesses never finish it. That is the job we take off your hands.</p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
@@ -227,8 +229,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-local.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -325,8 +327,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4 ifm-steps"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4 ifm-steps"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
 <div class="wp-block-group ifm-card ifm-step"><!-- wp:paragraph {"className":"ifm-step__n"} -->
 <p class="ifm-step__n">01</p>
 <!-- /wp:paragraph -->
@@ -336,7 +338,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>Choose a package and fill in the short form with your business details and areas covered.</p>
+<p>Choose a plan and fill in the short form with your business details and areas covered.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -396,7 +398,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>You add these on the package page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
+<p>You add these on the plan page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -468,7 +470,7 @@
 <!-- wp:group {"className":"ifm-faq","layout":{"type":"constrained"}} -->
 <div class="wp-block-group ifm-faq"><!-- wp:details -->
 <details class="wp-block-details"><summary>How long until I show up on the map?</summary><!-- wp:paragraph -->
-<p>The work is delivered within the time shown on your package. How quickly Google reacts varies: some profile changes show within days, while the effect of new listings builds over several weeks. We cannot promise a position, because Google decides that.</p>
+<p>The work is delivered within the time shown on your plan. How quickly Google reacts varies: some profile changes show within days, while the effect of new listings builds over several weeks. We cannot promise a position, because Google decides that.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -492,7 +494,7 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Do I need a website?</summary><!-- wp:paragraph -->
-<p>No, the Google Business Profile package works without one. A website helps though, and the Starter and Growth packages include changes to yours. If you do not have one, see our <a href="/services/website-development/">website packages</a>.</p>
+<p>No, the Google Business Profile plan works without one. A website helps though, and the Starter and Growth plans include changes to yours. If you do not have one, see our <a href="/services/website-development/">website plans</a>.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
@@ -503,8 +505,8 @@
 <!-- /wp:details -->
 
 <!-- wp:details -->
-<details class="wp-block-details"><summary>What happens after a one-off package?</summary><!-- wp:paragraph -->
-<p>Nothing, unless you want more. Your listings stay live. If you want regular posts, new listings and position checks, the monthly package covers one month at a time.</p>
+<details class="wp-block-details"><summary>What happens after a one-off plan?</summary><!-- wp:paragraph -->
+<p>Nothing, unless you want more. Your listings stay live. If you want regular posts, new listings and position checks, the monthly plan covers one month at a time.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:group --></section>
@@ -521,10 +523,10 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d2 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--2 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-webdev.webp' ) ); ?>" alt=""/></figure>
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-webdev.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -535,26 +537,12 @@
 <p>A WordPress website built for phones first, with your wording in place, a working enquiry form and a walkthrough so you can edit it yourself.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"><!-- wp:list-item -->
-<li>1 to 10 pages at a fixed price</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Two rounds of design changes</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Yours to keep and edit</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
 <!-- wp:paragraph {"className":"ifm-price-from"} -->
 <p class="ifm-price-from">[ifm_from service="website-development" prefix="From " fallback="Fixed price, agreed in writing"]</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-development/">See Website Development packages →</a></p>
+<p class="ifm-card__more"><a href="/services/website-development/">See plans<span class="screen-reader-text"> for Website Development</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -576,7 +564,29 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/off-page-seo/">See packages<span class="screen-reader-text"> for Link Building</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/off-page-seo/">See plans<span class="screen-reader-text"> for Link Building</span> →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-chart.svg' ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="/services/monthly-seo/">Monthly SEO</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Technical fixes, page improvements, a new article and fresh links every month, bought one month at a time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-price-from"} -->
+<p class="ifm-price-from">[ifm_from service="monthly-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-card__more"} -->
+<p class="ifm-card__more"><a href="/services/monthly-seo/">See plans<span class="screen-reader-text"> for Monthly SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

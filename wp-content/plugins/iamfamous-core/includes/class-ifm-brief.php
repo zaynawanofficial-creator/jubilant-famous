@@ -1,6 +1,6 @@
 <?php
 /**
- * Post-purchase project brief: My Account endpoint, conditional fields per package type,
+ * Post-purchase project brief: My Account endpoint, conditional fields per plan type,
  * protected uploads, admin view, reminders.
  *
  * @package IamFamousCore
@@ -200,7 +200,7 @@ class IFM_Brief {
 		return $vars;
 	}
 
-	/** Profiles required by an order (one form section per package line). */
+	/** Profiles required by an order (one form section per plan line). */
 	public static function lines( WC_Order $order ): array {
 		$out = array();
 		foreach ( $order->get_items() as $item_id => $item ) {
@@ -477,7 +477,7 @@ class IFM_Brief {
 		}
 		$lines = self::lines( $order );
 		if ( ! $lines ) {
-			echo '<p>' . esc_html__( 'No service packages on this order.', 'iamfamous-core' ) . '</p>';
+			echo '<p>' . esc_html__( 'No service plans on this order.', 'iamfamous-core' ) . '</p>';
 			return;
 		}
 		$data = (array) $order->get_meta( '_ifm_brief_data' );

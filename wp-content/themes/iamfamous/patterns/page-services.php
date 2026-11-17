@@ -24,7 +24,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Every service is sold as a package with a price, a delivery time and a list of what you get. Choose one below, or ask us which would make the biggest difference first.</p>
+<p class="ifm-lead">Every service is sold as a plan with a price, a delivery time and a list of what you get. Choose one below, or ask us which would make the biggest difference first.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
@@ -54,7 +54,7 @@
 
 <!-- wp:column {"width":"44%"} -->
 <div class="wp-block-column" style="flex-basis:44%"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-hero__art"} -->
-<figure class="wp-block-image size-full ifm-hero__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-services.webp' ) ); ?>" alt="Example service menu with four groups (Google, websites, ads and social, words and design) beside a package card with a price and a Choose button"/></figure>
+<figure class="wp-block-image size-full ifm-hero__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-services.webp' ) ); ?>" alt="Example service menu with four groups (Google, websites, ads and social, words and design) beside a plan card with a price and a Choose button"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
@@ -71,8 +71,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3 ifm-rail\u002d\u002dlead"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3 ifm-rail--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
 <div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
 <figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-local.webp' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -104,7 +104,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/local-seo/">See Local SEO packages →</a></p>
+<p class="ifm-card__more"><a href="/services/local-seo/">See Local SEO plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -140,7 +140,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-development/">See Website Development packages →</a></p>
+<p class="ifm-card__more"><a href="/services/website-development/">See Website Development plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -176,7 +176,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/social-media-management/">See Social Media Management packages →</a></p>
+<p class="ifm-card__more"><a href="/services/social-media-management/">See Social Media Management plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -193,8 +193,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
 <div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-local.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -212,7 +212,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/local-seo/">See packages<span class="screen-reader-text"> for Local SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/local-seo/">See plans<span class="screen-reader-text"> for Local SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -234,7 +234,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/monthly-seo/">See packages<span class="screen-reader-text"> for Monthly SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/monthly-seo/">See plans<span class="screen-reader-text"> for Monthly SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -256,7 +256,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/off-page-seo/">See packages<span class="screen-reader-text"> for Link Building</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/off-page-seo/">See plans<span class="screen-reader-text"> for Link Building</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -278,7 +278,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/seo-audit/">See packages<span class="screen-reader-text"> for SEO Audit</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/seo-audit/">See plans<span class="screen-reader-text"> for SEO Audit</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -300,7 +300,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/technical-seo/">See packages<span class="screen-reader-text"> for Technical SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/technical-seo/">See plans<span class="screen-reader-text"> for Technical SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -322,7 +322,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/on-page-seo/">See packages<span class="screen-reader-text"> for On-Page SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/on-page-seo/">See plans<span class="screen-reader-text"> for On-Page SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -344,7 +344,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ecommerce-seo/">See packages<span class="screen-reader-text"> for Ecommerce SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/ecommerce-seo/">See plans<span class="screen-reader-text"> for Ecommerce SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -366,7 +366,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ai-seo/">See packages<span class="screen-reader-text"> for AI SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/ai-seo/">See plans<span class="screen-reader-text"> for AI SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -388,7 +388,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/white-label-seo/">See packages<span class="screen-reader-text"> for White Label SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/white-label-seo/">See plans<span class="screen-reader-text"> for White Label SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -410,7 +410,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/seo-consultancy/">See packages<span class="screen-reader-text"> for SEO Consultancy</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/seo-consultancy/">See plans<span class="screen-reader-text"> for SEO Consultancy</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -427,8 +427,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
 <div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-webdev.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -446,7 +446,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-development/">See packages<span class="screen-reader-text"> for Website Development</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/website-development/">See plans<span class="screen-reader-text"> for Website Development</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -468,7 +468,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ecommerce-website-development/">See packages<span class="screen-reader-text"> for Ecommerce Websites</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/ecommerce-website-development/">See plans<span class="screen-reader-text"> for Ecommerce Websites</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -490,7 +490,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-maintenance/">See packages<span class="screen-reader-text"> for Website Maintenance</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/website-maintenance/">See plans<span class="screen-reader-text"> for Website Maintenance</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -512,7 +512,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-migration/">See packages<span class="screen-reader-text"> for Website Migration</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/website-migration/">See plans<span class="screen-reader-text"> for Website Migration</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -529,8 +529,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
 <div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-social.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -548,7 +548,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/social-media-management/">See packages<span class="screen-reader-text"> for Social Media Management</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/social-media-management/">See plans<span class="screen-reader-text"> for Social Media Management</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -570,7 +570,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ppc-management/">See packages<span class="screen-reader-text"> for Google Ads (PPC)</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/ppc-management/">See plans<span class="screen-reader-text"> for Google Ads (PPC)</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -592,7 +592,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/facebook-ads/">See packages<span class="screen-reader-text"> for Facebook and Instagram Ads</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/facebook-ads/">See plans<span class="screen-reader-text"> for Facebook and Instagram Ads</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -614,7 +614,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/tiktok-ads/">See packages<span class="screen-reader-text"> for TikTok Ads</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/tiktok-ads/">See plans<span class="screen-reader-text"> for TikTok Ads</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -631,8 +631,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
 <div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-pen.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -650,7 +650,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/content-writing/">See packages<span class="screen-reader-text"> for Content Writing</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/content-writing/">See plans<span class="screen-reader-text"> for Content Writing</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -672,7 +672,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/graphic-design/">See packages<span class="screen-reader-text"> for Graphic Design and Branding</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/graphic-design/">See plans<span class="screen-reader-text"> for Graphic Design and Branding</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -689,8 +689,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-local.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->

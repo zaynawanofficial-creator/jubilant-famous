@@ -78,6 +78,13 @@
 | Cookie banner behaviour | No optional cookies exist today, so both choices give the same site. Any analytics added later must check `window.ifmConsent() === 'all'` before loading |
 | Owner's name | Shown as "Mehreen", exactly as supplied. If a surname should appear, tell Claude |
 
+## Decided in round 5 (17 Nov 2026)
+| Item | Decision |
+|---|---|
+| Wording | "Plans" everywhere customers see it (owner). Internal names (SKUs, shortcode `[ifm_packages]`, CSS classes, taxonomy slugs) are unchanged so nothing breaks |
+| Deployment | Claude deploys through the Hostinger connector: changed files are uploaded into the live theme and plugin folders, then the automatic rebuild runs on the next visit |
+| Basket | Each plan can be bought once per order; to buy two, order a bigger plan or ask for a price |
+
 ## Open (ask the owner when it becomes blocking; don't invent)
 | Item | Status |
 |---|---|

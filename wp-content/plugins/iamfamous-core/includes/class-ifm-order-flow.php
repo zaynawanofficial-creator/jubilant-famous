@@ -1,6 +1,6 @@
 <?php
 /**
- * Order flow: Package → Project details → Checkout → Kick-off.
+ * Order flow: Plan → Project details → Checkout → Kick-off.
  *
  * [ifm_order_form] renders the project-details form on the service details (product) page.
  * The answers travel with the cart item, are saved on the order line, pre-fill the project brief,
@@ -56,10 +56,10 @@ class IFM_Order_Flow {
 		$turn = (string) $product->get_meta( '_ifm_turnaround' );
 		ob_start();
 		echo '<div class="ifm-order" id="order">';
-		echo '<div class="ifm-order__price"><span class="ifm-order__label">' . esc_html__( 'Package price', 'iamfamous-core' ) . '</span>';
+		echo '<div class="ifm-order__price"><span class="ifm-order__label">' . esc_html__( 'Plan price', 'iamfamous-core' ) . '</span>';
 		if ( 'quote' === $product->get_meta( '_ifm_pricing_model' ) || ! $product->is_purchasable() ) {
 			echo '<strong>' . esc_html__( 'Custom quote', 'iamfamous-core' ) . '</strong></div>';
-			echo '<p>' . esc_html__( 'This package is priced to your requirements. Tell us what you need and we will reply with a fixed price.', 'iamfamous-core' ) . '</p>';
+			echo '<p>' . esc_html__( 'This plan is priced to your requirements. Tell us what you need and we will reply with a fixed price.', 'iamfamous-core' ) . '</p>';
 			echo '<a class="ifm-btn ifm-btn--primary ifm-order__submit" href="' . esc_url( IFM_Packages::quote_url( $product ) ) . '">' . esc_html__( 'Get a quote', 'iamfamous-core' ) . '</a></div>';
 			return (string) ob_get_clean();
 		}
@@ -69,7 +69,7 @@ class IFM_Order_Flow {
 		}
 		echo '</div>';
 
-		echo '<ol class="ifm-order__steps" aria-label="' . esc_attr__( 'Order steps', 'iamfamous-core' ) . '"><li class="is-done">' . esc_html__( 'Package', 'iamfamous-core' ) . '</li><li class="is-current" aria-current="step">' . esc_html__( 'Project details', 'iamfamous-core' ) . '</li><li>' . esc_html__( 'Checkout', 'iamfamous-core' ) . '</li><li>' . esc_html__( 'Kick-off', 'iamfamous-core' ) . '</li></ol>';
+		echo '<ol class="ifm-order__steps" aria-label="' . esc_attr__( 'Order steps', 'iamfamous-core' ) . '"><li class="is-done">' . esc_html__( 'Plan', 'iamfamous-core' ) . '</li><li class="is-current" aria-current="step">' . esc_html__( 'Project details', 'iamfamous-core' ) . '</li><li>' . esc_html__( 'Checkout', 'iamfamous-core' ) . '</li><li>' . esc_html__( 'Kick-off', 'iamfamous-core' ) . '</li></ol>';
 
 		// phpcs:disable WordPress.Security.NonceVerification.Missing -- refill after a failed validation only.
 		$posted = self::posted_for( $product->get_id() ) && isset( $_POST['ifm_order'] ) && is_array( $_POST['ifm_order'] ) ? wp_unslash( $_POST['ifm_order'] ) : array();
@@ -156,17 +156,14 @@ class IFM_Order_Flow {
 		if ( empty( $cart_item['ifm_details'] ) || empty( $cart_item['data'] ) ) {
 			return $item_data;
 		}
-		$fields = self::fields( $cart_item['data'] );
-		$shown  = 0;
-		foreach ( $cart_item['ifm_details'] as $key => $val ) {
-			if ( ! isset( $fields[ $key ] ) || ! $fields[ $key ][2] || $shown >= 3 ) {
-				continue;
-			}
+		// Short summary in the basket and checkout: the delivery time and a confirmation that the details are in.
+		$pid  = $cart_item['data']->get_parent_id() ? $cart_item['data']->get_parent_id() : $cart_item['data']->get_id();
+		$turn = (string) get_post_meta( $pid, '_ifm_turnaround', true );
+		if ( '' !== $turn ) {
 			$item_data[] = array(
-				'key'   => wp_strip_all_tags( $fields[ $key ][0] ),
-				'value' => esc_html( wp_html_excerpt( str_replace( "\n", ', ', IFM_Brief::display_value( $fields[ $key ], $val ) ), 60, '…' ) ),
+				'key'   => __( 'Delivery', 'iamfamous-core' ),
+				'value' => esc_html( $turn ),
 			);
-			++$shown;
 		}
 		$item_data[] = array(
 			'key'   => __( 'Project details', 'iamfamous-core' ),

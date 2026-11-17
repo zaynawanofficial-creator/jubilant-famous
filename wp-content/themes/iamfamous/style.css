@@ -3,7 +3,7 @@ Theme Name: IamFamous
 Theme URI: https://iamfamous.uk/
 Author: IamFamous
 Description: Block theme for IamFamous.uk: fixed-price digital marketing packages for UK small businesses. Service pages, package picker, WooCommerce checkout and guides. Pairs with the IamFamous Core plugin.
-Version: 1.3.0
+Version: 1.4.0
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
@@ -984,3 +984,70 @@ body { font-variant-numeric: normal; }
 @media (max-width: 600px) { .ifm-cookie { left: 0; right: 0; bottom: 0; width: auto; border-radius: 18px 18px 0 0; border-width: 1px 0 0; padding-bottom: calc(1rem + env(safe-area-inset-bottom)); } }
 @media print { .ifm-cookie { display: none !important; } }
 .ifm-footer__legalname { font-size: var(--wp--preset--font-size--x-small); color: var(--wp--preset--color--on-dark); opacity: .85; margin: 0 !important; }
+
+/* =====================================================================
+   Round 5: carousels ("rails"), checkout summary, card fixes
+   ===================================================================== */
+/* Rail: N cards per view; about two on tablets; one with a peek of the next on phones. */
+.ifm-rail { --n: 3; --gap: 1.25rem; display: grid !important; grid-auto-flow: column; grid-template-columns: none !important; grid-auto-columns: calc((100% - (var(--n) - 1) * var(--gap)) / var(--n)); gap: var(--gap) !important; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: .5rem .25rem 1rem !important; scrollbar-width: none; }
+.ifm-rail.alignwide { max-width: var(--wp--style--global--wide-size, 1240px); margin-left: auto !important; margin-right: auto !important; }
+.ifm-rail::-webkit-scrollbar { display: none; }
+.ifm-rail > * { scroll-snap-align: start; margin: 0 !important; min-width: 0; display: flex; flex-direction: column; }
+.ifm-rail--4 { --n: 4; }
+.ifm-rail:focus-visible { outline: 3px solid var(--wp--preset--color--ink); outline-offset: 4px; border-radius: 22px; }
+@media (max-width: 1023px) { .ifm-rail, .ifm-rail--4 { --n: 2.25; } }
+@media (max-width: 640px) { .ifm-rail, .ifm-rail--4 { --n: 1.18; --gap: .9rem; } }
+@media (prefers-reduced-motion: reduce) { .ifm-rail { scroll-behavior: auto; } }
+.ifm-rail .ifm-card:hover { transform: translateY(-2px); }
+/* Controls added by site.js: arrows, dots and a position count. Hidden when everything fits. */
+.ifm-rail-nav { display: flex; align-items: center; justify-content: flex-end; gap: .75rem; max-width: var(--wp--style--global--wide-size, 1240px); margin: .25rem auto 0 !important; }
+.ifm-rail-nav[hidden] { display: none; }
+.ifm-rail-nav__dots { display: flex; gap: .35rem; margin-right: auto; }
+.ifm-rail-nav__dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--wp--preset--color--line); cursor: pointer; transition: width .2s ease, background .2s ease; }
+.ifm-rail-nav__dot[aria-current="true"] { width: 22px; background: var(--wp--preset--color--red); }
+.ifm-rail-nav__btn { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--wp--preset--color--ink); background: #fff; color: var(--wp--preset--color--ink); display: grid; place-items: center; cursor: pointer; transition: background .15s ease, color .15s ease, opacity .15s ease; }
+.ifm-rail-nav__btn:hover:not(:disabled) { background: var(--wp--preset--color--ink); color: #fff; }
+.ifm-rail-nav__btn:disabled { opacity: .3; cursor: default; }
+.ifm-rail-nav__btn svg { width: 18px; height: 18px; }
+.ifm-section--cream .ifm-rail-nav__btn, .ifm-section--rose .ifm-rail-nav__btn { background: transparent; }
+@media (max-width: 640px) { .ifm-rail-nav__btn { width: 40px; height: 40px; } }
+/* Steps in a rail keep equal heights. */
+.ifm-rail.ifm-steps > .ifm-step { height: 100%; }
+
+/* Service cards: content padding and ticks aligned with the text. */
+.ifm-card--svc { padding: 0 !important; overflow: hidden; }
+.ifm-card--svc > :not(.ifm-card__art) { padding-inline: 1.4rem !important; }
+.ifm-card--svc > .ifm-card__art { margin: 0 0 1rem !important; }
+.ifm-card--svc > .ifm-card__art img { display: block; }
+.ifm-card--svc > :last-child { padding-bottom: 1.4rem !important; margin-top: auto !important; }
+.ifm-card--svc .ifm-ticks { padding-left: 1.4rem !important; }
+.ifm-card--svc .ifm-ticks li { padding-left: 28px; }
+.ifm-card--mini > :last-child, .ifm-card--mini .ifm-price-from { margin-top: auto; }
+
+/* "Read more" inside the explainer columns. */
+.ifm-readmore { border: 0 !important; background: none !important; padding: 0 !important; margin-top: .25rem !important; }
+.ifm-readmore > summary { display: inline-flex; align-items: center; gap: .4rem; cursor: pointer; list-style: none; font-weight: 800; color: var(--wp--preset--color--red-deep); padding: .25rem 0; }
+.ifm-readmore > summary::-webkit-details-marker { display: none; }
+.ifm-readmore > summary::after { content: ""; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg) translateY(-2px); transition: transform .2s ease; }
+.ifm-readmore[open] > summary { margin-bottom: .75rem; }
+.ifm-readmore[open] > summary::after { transform: rotate(-135deg) translateY(-1px); }
+.ifm-readmore[open] > summary { font-size: 0; }
+.ifm-readmore[open] > summary::before { content: "Show less"; font-size: 1rem; }
+
+/* Basket, mini basket and checkout: service icons instead of product photos, no product blurb, no quantity badge. */
+.wc-block-components-order-summary-item__image img, .wc-block-cart-item__image img, .wc-block-mini-cart__products-table .wc-block-cart-item__image img { background: var(--wp--preset--color--rose-50) !important; border-radius: 14px !important; object-fit: contain !important; padding: 0 !important; }
+.wc-block-components-order-summary-item__quantity { display: none !important; }
+.wc-block-components-product-metadata__description, .wc-block-mini-cart .wc-block-components-product-metadata__description { display: none !important; }
+.ifm-shop .wc-block-components-order-summary-item__image { width: 48px !important; flex: 0 0 48px; }
+.ifm-shop .wc-block-components-order-summary-item__image img { width: 48px !important; height: 48px !important; }
+.wc-block-components-product-details { list-style: none; padding: 0 !important; margin: .35rem 0 0 !important; display: grid; gap: .15rem; font-size: .8125rem; color: var(--wp--preset--color--muted); }
+.wc-block-components-product-details li { margin: 0 !important; }
+.wc-block-components-product-details__name { font-weight: 700; color: var(--wp--preset--color--ink); }
+.wc-block-components-order-summary-item__individual-prices { display: none; }
+.wc-block-cart-item__quantity .wc-block-components-quantity-selector { display: none !important; }
+.ifm-shop .wc-block-components-order-summary-item__total-price { font-family: var(--wp--preset--font-family--bricolage); font-weight: 800; color: var(--wp--preset--color--ink); }
+.wc-block-components-product-details li::after, .wc-block-components-product-details li:not(:last-of-type)::after { content: none !important; }
+.wc-block-components-product-details li { display: block !important; line-height: 1.45; }
+.wc-block-components-product-details__value { color: var(--wp--preset--color--body); }
+.ifm-shop .wc-block-components-order-summary-item__description { padding-left: .25rem !important; }
+.ifm-shop .wc-block-components-order-summary-item__total-price { white-space: nowrap; }

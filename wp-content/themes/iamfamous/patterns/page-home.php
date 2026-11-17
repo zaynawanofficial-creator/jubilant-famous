@@ -20,7 +20,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Local SEO, websites and social media for UK small businesses. Pick a fixed-price package, tell us about your business and get work you can check for yourself.</p>
+<p class="ifm-lead">Local SEO, websites and social media for UK small businesses. Pick a fixed-price plan, tell us about your business and get work you can check for yourself.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:buttons -->
@@ -64,7 +64,7 @@
 <!-- /wp:image -->
 
 <!-- wp:paragraph -->
-<p><strong>The price is the price</strong>Shown on the package before you pay. No VAT, no setup fee.</p>
+<p><strong>The price is the price</strong>Shown on the plan before you pay. No VAT, no setup fee.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -115,8 +115,8 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3 ifm-rail\u002d\u002dlead"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3 ifm-rail--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
 <div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
 <figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-local.webp' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -148,7 +148,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/local-seo/">See Local SEO packages →</a></p>
+<p class="ifm-card__more"><a href="/services/local-seo/">See Local SEO plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -184,7 +184,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-development/">See Website Development packages →</a></p>
+<p class="ifm-card__more"><a href="/services/website-development/">See Website Development plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -220,466 +220,24 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/social-media-management/">See Social Media Management packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-monthly-seo.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/monthly-seo/">Monthly SEO</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Technical fixes, page improvements, a new article and fresh links every month, bought one month at a time.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="monthly-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/monthly-seo/">See Monthly SEO packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-off-page-seo.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/off-page-seo/">Link Building</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Directory and profile links, guest posts on real websites and press releases, each delivered with a live link you can open.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="off-page-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/off-page-seo/">See Link Building packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-seo-audit.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/seo-audit/">SEO Audit</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>A plain-English list of what is holding your site back on Google, in the order to fix it.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="seo-audit" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/seo-audit/">See SEO Audit packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-technical-seo.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/technical-seo/">Technical SEO</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Hands-on fixes for speed, broken links, redirects and the code Google reads, with before and after for each change.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="technical-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/technical-seo/">See Technical SEO packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-on-page-seo.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/on-page-seo/">On-Page SEO</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Titles, headings, wording and internal links improved page by page, so each one matches what people search for.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="on-page-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/on-page-seo/">See On-Page SEO packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-ecommerce-seo.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/ecommerce-seo/">Ecommerce SEO</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Product and category pages set up to be found on Google, on Shopify or WooCommerce.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="ecommerce-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ecommerce-seo/">See Ecommerce SEO packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-ai-seo.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/ai-seo/">AI SEO</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Help ChatGPT, Gemini and Google AI answers describe your business correctly and mention you when it is relevant.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="ai-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ai-seo/">See AI SEO packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-white-label-seo.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/white-label-seo/">White Label SEO</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>SEO work delivered under your agency name, with unbranded reports you can forward to your clients.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="white-label-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/white-label-seo/">See White Label SEO packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-seo-consultancy.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/seo-consultancy/">SEO Consultancy</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>An hour of advice, a strategy session, a 90-day roadmap or a monthly adviser for you or your own team.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="seo-consultancy" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/seo-consultancy/">See SEO Consultancy packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-ecommerce-website-development.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/ecommerce-website-development/">Ecommerce Websites</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>A Shopify or WooCommerce shop with your products loaded, payments set up and a walkthrough so you can run it yourself.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="ecommerce-website-development" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ecommerce-website-development/">See Ecommerce Websites packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-website-maintenance.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/website-maintenance/">Website Maintenance</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>One-off WordPress fixes, or monthly updates, backups and small changes handled by a developer.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="website-maintenance" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-maintenance/">See Website Maintenance packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-website-migration.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/website-migration/">Website Migration</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Move host or rebuild your site without losing the pages Google already knows.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="website-migration" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-migration/">See Website Migration packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-ppc-management.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/ppc-management/">Google Ads (PPC)</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Search campaigns set up or managed month to month. Your ad spend goes straight to Google, not through us.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="ppc-management" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ppc-management/">See Google Ads (PPC) packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-facebook-ads.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/facebook-ads/">Facebook &amp; Instagram Ads</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Audits, campaign setup, ad designs and monthly management for Facebook and Instagram.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="facebook-ads" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/facebook-ads/">See Facebook &amp; Instagram Ads packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-tiktok-ads.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/tiktok-ads/">TikTok Ads</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Hooks, scripts, campaign setup and management for short-video adverts.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="tiktok-ads" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/tiktok-ads/">See TikTok Ads packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-content-writing.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/content-writing/">Content Writing</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Researched articles from 500 to 3,000 words, ordered singly or as a monthly batch.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="content-writing" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/content-writing/">See Content Writing packages →</a></p>
-<!-- /wp:paragraph --></div>
-<!-- /wp:group -->
-
-<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-graphic-design.webp' ) ); ?>" alt=""/></figure>
-<!-- /wp:image -->
-
-<!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading"><a href="/services/graphic-design/">Graphic Design &amp; Branding</a></h3>
-<!-- /wp:heading -->
-
-<!-- wp:paragraph -->
-<p>Logos, brand kits, social media graphics and Canva templates in your colours, delivered ready to use.</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"></ul>
-<!-- /wp:list -->
-
-<!-- wp:paragraph {"className":"ifm-price-from"} -->
-<p class="ifm-price-from">[ifm_from service="graphic-design" prefix="From " fallback="Fixed price, agreed in writing"]</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/graphic-design/">See Graphic Design &amp; Branding packages →</a></p>
+<p class="ifm-card__more"><a href="/services/social-media-management/">See Social Media Management plans →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"packages","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
-<section id="packages" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
+<!-- wp:group {"tagName":"section","anchor":"plans","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
+<section id="plans" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
 <div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->
 <p class="ifm-eyebrow">Most popular first order</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Local SEO packages</h2>
+<h2 class="wp-block-heading">Local SEO plans</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Pick a tier on the left to see what it includes. Every package is a one-off order: there is no contract and nothing renews by itself.</p>
+<p class="ifm-lead">Pick a tier on the left to see what it includes. Every plan is a one-off order: there is no contract and nothing renews by itself.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -751,14 +309,14 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4 ifm-steps"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4 ifm-steps"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
 <div class="wp-block-group ifm-card ifm-step"><!-- wp:paragraph {"className":"ifm-step__n"} -->
 <p class="ifm-step__n">01</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"level":3} -->
-<h3 class="wp-block-heading">Pick a package</h3>
+<h3 class="wp-block-heading">Pick a plan</h3>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
@@ -776,7 +334,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>A short form on the package page asks for the basics: your website, your area, your logins by invite. Two minutes, before you pay.</p>
+<p>A short form on the plan page asks for the basics: your website, your area, your logins by invite. Two minutes, before you pay.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -804,7 +362,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>We deliver inside the time shown on the package, with live links, files or a report. Changes are included where the package says so.</p>
+<p>We deliver inside the time shown on the plan, with live links, files or a report. Changes are included where the plan says so.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>
@@ -831,7 +389,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li><strong>Buy one thing at a time.</strong> Start with a single package and add more when it has paid for itself.</li>
+<li><strong>Buy one thing at a time.</strong> Start with a single plan and add more when it has paid for itself.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -883,12 +441,12 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Twenty services in all, each sold the same way: a package, a price, a delivery time and a list of what you get.</p>
+<p class="ifm-lead">Twenty services in all, each sold the same way: a plan, a price, a delivery time and a list of what you get.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
 <div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-chart.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -906,7 +464,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/monthly-seo/">See packages<span class="screen-reader-text"> for Monthly SEO</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/monthly-seo/">See plans<span class="screen-reader-text"> for Monthly SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -928,7 +486,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/seo-audit/">See packages<span class="screen-reader-text"> for SEO Audit</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/seo-audit/">See plans<span class="screen-reader-text"> for SEO Audit</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -950,7 +508,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/off-page-seo/">See packages<span class="screen-reader-text"> for Link Building</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/off-page-seo/">See plans<span class="screen-reader-text"> for Link Building</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -972,7 +530,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ppc-management/">See packages<span class="screen-reader-text"> for Google Ads (PPC)</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/ppc-management/">See plans<span class="screen-reader-text"> for Google Ads (PPC)</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -994,7 +552,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/facebook-ads/">See packages<span class="screen-reader-text"> for Facebook and Instagram Ads</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/facebook-ads/">See plans<span class="screen-reader-text"> for Facebook and Instagram Ads</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -1016,7 +574,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/ecommerce-website-development/">See packages<span class="screen-reader-text"> for Ecommerce Websites</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/ecommerce-website-development/">See plans<span class="screen-reader-text"> for Ecommerce Websites</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -1038,7 +596,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/content-writing/">See packages<span class="screen-reader-text"> for Content Writing</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/content-writing/">See plans<span class="screen-reader-text"> for Content Writing</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -1060,7 +618,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/graphic-design/">See packages<span class="screen-reader-text"> for Graphic Design and Branding</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/graphic-design/">See plans<span class="screen-reader-text"> for Graphic Design and Branding</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
@@ -1110,25 +668,25 @@
 <!-- wp:group {"className":"ifm-faq","layout":{"type":"constrained"}} -->
 <div class="wp-block-group ifm-faq"><!-- wp:details -->
 <details class="wp-block-details"><summary>Do I have to sign a contract?</summary><!-- wp:paragraph -->
-<p>No. Every package is a single order. Monthly packages cover one month and stop unless you order another.</p>
+<p>No. Every plan is a single order. Monthly plans cover one month and stop unless you order another.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Is VAT added at checkout?</summary><!-- wp:paragraph -->
-<p>No. IamFamous is not VAT registered, so no VAT is added. The price on the package is the amount you pay.</p>
+<p>No. IamFamous is not VAT registered, so no VAT is added. The price on the plan is the amount you pay.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>How soon does work start?</summary><!-- wp:paragraph -->
-<p>Each package shows its delivery time. That time starts once we have the details we ask for on the package page, so filling in the form properly is the fastest way to get going.</p>
+<p>Each plan shows its delivery time. That time starts once we have the details we ask for on the plan page, so filling in the form properly is the fastest way to get going.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>Will this get me to the top of Google?</summary><!-- wp:paragraph -->
-<p>We cannot promise a position and neither can anyone else. What we do promise is the work listed on the package, done properly, with proof you can check.</p>
+<p>We cannot promise a position and neither can anyone else. What we do promise is the work listed on the plan, done properly, with proof you can check.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 

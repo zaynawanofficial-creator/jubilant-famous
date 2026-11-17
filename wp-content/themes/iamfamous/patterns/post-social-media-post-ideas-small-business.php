@@ -167,7 +167,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/social-media-management/#packages">See social media packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/services/social-media-management/#plans">See social media plans</a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->

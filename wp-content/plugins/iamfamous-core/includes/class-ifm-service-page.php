@@ -1,6 +1,6 @@
 <?php
 /**
- * Service details page parts for a package (product) page:
+ * Service details page parts for a plan (product) page:
  * [ifm_service_hero], [ifm_service_body], [ifm_service_more]. The theme's single-product template lays them out
  * around [ifm_order_form].
  *
@@ -10,7 +10,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Package detail page.
+ * Plan detail page.
  */
 class IFM_Service_Page {
 
@@ -124,7 +124,7 @@ class IFM_Service_Page {
 			__( 'When does delivery start?', 'iamfamous-core' )  => __( 'The clock starts when we have the details asked for in the form on this page. Fill it in fully and we can begin as soon as you have paid.', 'iamfamous-core' ),
 			__( 'Can I send files?', 'iamfamous-core' )          => __( 'Yes. Once you have ordered, you can upload logos, photos and documents from your account.', 'iamfamous-core' ),
 			__( 'Is a result guaranteed?', 'iamfamous-core' )  => __( 'We guarantee the work listed above is done and checked. We cannot promise a position on Google, a number of followers or a number of enquiries, because those depend on things outside our control.', 'iamfamous-core' ),
-			__( 'What if I want changes?', 'iamfamous-core' )    => __( 'The changes included are shown above. If you want something outside the package, we tell you the price first and only go ahead if you agree.', 'iamfamous-core' ),
+			__( 'What if I want changes?', 'iamfamous-core' )    => __( 'The changes included are shown above. If you want something outside the plan, we tell you the price first and only go ahead if you agree.', 'iamfamous-core' ),
 		);
 		foreach ( $faq as $q => $a ) {
 			echo '<details><summary>' . esc_html( $q ) . '</summary><p>' . esc_html( $a ) . '</p></details>';
@@ -141,7 +141,7 @@ class IFM_Service_Page {
 		list( $svc, $url, $slug ) = self::service( $p );
 		$group                    = self::group( $p );
 		ob_start();
-		echo '<div class="ifm-svc-more"><div class="ifm-svc-more__head"><div><p class="ifm-eyebrow">' . esc_html__( 'Compare', 'iamfamous-core' ) . '</p><h2>' . esc_html( sprintf( /* translators: %s: service */ __( 'Other %s packages', 'iamfamous-core' ), $svc ) ) . '</h2></div>';
+		echo '<div class="ifm-svc-more"><div class="ifm-svc-more__head"><div><p class="ifm-eyebrow">' . esc_html__( 'Compare', 'iamfamous-core' ) . '</p><h2>' . esc_html( sprintf( /* translators: %s: service */ __( 'Other %s plans', 'iamfamous-core' ), $svc ) ) . '</h2></div>';
 		echo '<a class="ifm-card__more" href="' . esc_url( $url ) . '">' . esc_html__( 'About this service', 'iamfamous-core' ) . ' →</a></div>';
 		echo IFM_Shortcode::render( array( 'service' => $slug, 'group' => $group ? $group->slug : '' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
 		echo '</div>';

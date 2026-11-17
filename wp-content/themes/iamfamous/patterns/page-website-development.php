@@ -29,7 +29,7 @@
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#packages">See packages</a></div>
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#plans">See plans</a></div>
 <!-- /wp:button -->
 
 <!-- wp:button {"className":"is-style-outline"} -->
@@ -96,7 +96,7 @@
 
 <!-- wp:list {"className":"ifm-crosses"} -->
 <ul class="wp-block-list ifm-crosses"><!-- wp:list-item -->
-<li>You need an online shop. That is a separate ecommerce package, so ask us for a price</li>
+<li>You need an online shop. That is a separate ecommerce plan, so ask us for a price</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -112,18 +112,18 @@
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
 
-<!-- wp:group {"tagName":"section","anchor":"packages","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
-<section id="packages" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
+<!-- wp:group {"tagName":"section","anchor":"plans","align":"full","className":"ifm-section ifm-section\u002d\u002dcream","layout":{"type":"constrained"}} -->
+<section id="plans" class="wp-block-group alignfull ifm-section ifm-section--cream"><!-- wp:group {"align":"wide","className":"ifm-section-head ifm-center"} -->
 <div class="wp-block-group alignwide ifm-section-head ifm-center"><!-- wp:paragraph {"className":"ifm-eyebrow"} -->
-<p class="ifm-eyebrow">Packages</p>
+<p class="ifm-eyebrow">Plans</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading -->
-<h2 class="wp-block-heading">Choose your website package</h2>
+<h2 class="wp-block-heading">Choose your website plan</h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"ifm-lead"} -->
-<p class="ifm-lead">Packages go by number of pages. A page is one screen with its own address, such as Home, About, Services or Contact. If you are unsure, five pages suits most small businesses.</p>
+<p class="ifm-lead">Plans go by number of pages. A page is one screen with its own address, such as Home, About, Services or Contact. If you are unsure, five pages suits most small businesses.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -159,13 +159,15 @@
 <p>So the first screen has to answer three questions without scrolling. What do you do? Where do you do it? How do I get in touch? Everything after that exists to back those answers up: your services, your prices or price guide, photos of real work, and reviews if you have them.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
+<!-- wp:details {"className":"ifm-readmore"} -->
+<details class="wp-block-details ifm-readmore"><summary>Read more</summary><!-- wp:paragraph -->
 <p>We build on WordPress because it runs a large share of the world's websites, any developer can work on it, and you can edit it yourself from a browser. You are not locked in to us or to a monthly website-builder fee.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph -->
 <p>Speed matters as much as looks. A page that takes too long on a phone signal loses people before they have read a word, so we compress images, switch on caching and test on a real phone before we hand over.</p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph --></details>
+<!-- /wp:details --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></section>
 <!-- /wp:group -->
@@ -227,8 +229,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d3"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--3"><!-- wp:group {"className":"ifm-card"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card"} -->
 <div class="wp-block-group ifm-card"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
 <figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-webdev.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
@@ -325,8 +327,8 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d4 ifm-steps"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d4 ifm-steps"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--4 ifm-steps"><!-- wp:group {"className":"ifm-card ifm-step"} -->
 <div class="wp-block-group ifm-card ifm-step"><!-- wp:paragraph {"className":"ifm-step__n"} -->
 <p class="ifm-step__n">01</p>
 <!-- /wp:paragraph -->
@@ -396,7 +398,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>You add these on the package page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
+<p>You add these on the plan page before you pay, so we can start straight away. Please do not send passwords. If we need access we ask for an invite.</p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -498,13 +500,13 @@
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>I already have a website. Can you redesign it?</summary><!-- wp:paragraph -->
-<p>Yes. Choose the package that matches the number of pages and tell us the current address in the order form. We keep your existing page addresses where we can, so links to your old pages still work.</p>
+<p>Yes. Choose the plan that matches the number of pages and tell us the current address in the order form. We keep your existing page addresses where we can, so links to your old pages still work.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details -->
 
 <!-- wp:details -->
 <details class="wp-block-details"><summary>What happens after handover?</summary><!-- wp:paragraph -->
-<p>The site is yours and there is no ongoing fee to us. WordPress needs updates now and then. If you would rather not do them, ask us about a maintenance package.</p>
+<p>The site is yours and there is no ongoing fee to us. WordPress needs updates now and then. If you would rather not do them, ask us about a maintenance plan.</p>
 <!-- /wp:paragraph --></details>
 <!-- /wp:details --></div>
 <!-- /wp:group --></section>
@@ -521,10 +523,10 @@
 <!-- /wp:heading --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"wide","className":"ifm-grid ifm-grid\u002d\u002d2 ifm-grid\u002d\u002dlead"} -->
-<div class="wp-block-group alignwide ifm-grid ifm-grid--2 ifm-grid--lead"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dsvc"} -->
-<div class="wp-block-group ifm-card ifm-card--svc"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__art"} -->
-<figure class="wp-block-image size-full ifm-card__art"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/art-local.webp' ) ); ?>" alt=""/></figure>
+<!-- wp:group {"align":"wide","className":"ifm-rail ifm-rail\u002d\u002d3"} -->
+<div class="wp-block-group alignwide ifm-rail ifm-rail--3"><!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-local.svg' ) ); ?>" alt=""/></figure>
 <!-- /wp:image -->
 
 <!-- wp:heading {"level":3} -->
@@ -535,26 +537,12 @@
 <p>Show up when people nearby search for what you do: a sorted Google Business Profile, correct UK directory listings and a site tuned for your area.</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:list {"className":"ifm-ticks ifm-ticks\u002d\u002dsm"} -->
-<ul class="wp-block-list ifm-ticks ifm-ticks--sm"><!-- wp:list-item -->
-<li>Google Business Profile set up properly</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>Listings on the UK directories that matter</li>
-<!-- /wp:list-item -->
-
-<!-- wp:list-item -->
-<li>A report with every live link</li>
-<!-- /wp:list-item --></ul>
-<!-- /wp:list -->
-
 <!-- wp:paragraph {"className":"ifm-price-from"} -->
 <p class="ifm-price-from">[ifm_from service="local-seo" prefix="From " fallback="Fixed price, agreed in writing"]</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/local-seo/">See Local SEO packages →</a></p>
+<p class="ifm-card__more"><a href="/services/local-seo/">See plans<span class="screen-reader-text"> for Local SEO</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -576,7 +564,29 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"className":"ifm-card__more"} -->
-<p class="ifm-card__more"><a href="/services/website-maintenance/">See packages<span class="screen-reader-text"> for Website Maintenance</span> →</a></p>
+<p class="ifm-card__more"><a href="/services/website-maintenance/">See plans<span class="screen-reader-text"> for Website Maintenance</span> →</a></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"ifm-card ifm-card\u002d\u002dmini"} -->
+<div class="wp-block-group ifm-card ifm-card--mini"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","className":"ifm-card__icon"} -->
+<figure class="wp-block-image size-full ifm-card__icon"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/icon-cart.svg' ) ); ?>" alt=""/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading"><a href="/services/ecommerce-website-development/">Ecommerce Websites</a></h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>A Shopify or WooCommerce shop with your products loaded, payments set up and a walkthrough so you can run it yourself.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-price-from"} -->
+<p class="ifm-price-from">[ifm_from service="ecommerce-website-development" prefix="From " fallback="Fixed price, agreed in writing"]</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"className":"ifm-card__more"} -->
+<p class="ifm-card__more"><a href="/services/ecommerce-website-development/">See plans<span class="screen-reader-text"> for Ecommerce Websites</span> →</a></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group --></section>

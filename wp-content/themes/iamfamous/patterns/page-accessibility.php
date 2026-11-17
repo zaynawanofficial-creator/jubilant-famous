@@ -94,7 +94,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>The menu, package picker and forms work with a keyboard.</li>
+<li>The menu, plan picker and forms work with a keyboard.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -130,7 +130,7 @@
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
-<li>The menu, the package picker, the comparison table and the forms can all be used with a keyboard, and the focus position is always visible.</li>
+<li>The menu, the plan picker, the comparison table and the forms can all be used with a keyboard, and the focus position is always visible.</li>
 <!-- /wp:list-item -->
 
 <!-- wp:list-item -->
@@ -177,7 +177,7 @@
 <!-- /wp:heading -->
 
 <!-- wp:paragraph -->
-<p>If you cannot use part of this site, email <a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a> and tell us what you need. We can take an order, send a package description or answer questions by email.</p>
+<p>If you cannot use part of this site, email <a href="mailto:support@iamfamous.uk">support@iamfamous.uk</a> and tell us what you need. We can take an order, send a plan description or answer questions by email.</p>
 <!-- /wp:paragraph -->
 
 <!-- wp:heading {"anchor":"report","className":"ifm-legal__h"} -->
