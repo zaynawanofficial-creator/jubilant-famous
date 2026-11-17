@@ -23,6 +23,22 @@ class IFM_Schema {
 		add_action( 'wp_head', array( __CLASS__, 'head' ), 3 );
 		add_filter( 'rank_math/json_ld', array( __CLASS__, 'rank_math' ), 20 );
 		add_filter( 'rank_math/frontend/robots', array( __CLASS__, 'rank_math_robots' ) );
+		// Plan (product) pages and shop categories are noindex, so keep them out of Rank Math's sitemap too.
+		add_filter( 'rank_math/sitemap/exclude_post_type', static fn( $exclude, $type ) => in_array( $type, array( 'product' ), true ) ? true : $exclude, 10, 2 );
+		// Basket, checkout and account pages redirect or are private: not for the sitemap.
+		add_filter(
+			'rank_math/sitemap/posts_to_exclude',
+			static function ( $ids ) {
+				foreach ( array( 'cart', 'checkout', 'myaccount', 'shop' ) as $page ) {
+					$id = function_exists( 'wc_get_page_id' ) ? (int) wc_get_page_id( $page ) : 0;
+					if ( $id > 0 ) {
+						$ids[] = $id;
+					}
+				}
+				return $ids;
+			}
+		);
+		add_filter( 'rank_math/sitemap/exclude_taxonomy', static fn( $exclude, $tax ) => in_array( $tax, array( 'product_cat', 'product_tag' ), true ) ? true : $exclude, 10, 2 );
 	}
 
 	/** Is the current request a service page (a child of /services/)? Returns the page or null. */

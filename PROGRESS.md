@@ -28,7 +28,8 @@ When the theme version changes, a one-off background job re-imports the catalogu
 - Local WordPress: carousels aligned and controls shown only when cards overflow, at 390, 768, 1024 and 1440 on five pages.
 - **Live site:** `/plans/` 200 and `/packages/` 301 to `/plans/`; new carousels and "Read more" served.
 - **Live checkout:** opened the On-Page SEO 5 Pages plan, filled the project form, ticked "Extra round of changes", continued. Checkout showed the service icon, no quantity box and £79.00 (£69 + £10). No order was placed.
-- Live whole-site audit: see below.
+- Live whole-site audit: every URL in the live sitemap was status-checked (179 URLs: all 200 except `/checkout/`, which redirects with an empty basket, as expected). A full page-by-page browser crawl was stopped because it ran too slowly from this container. That check found 107 noindex package pages and the WooCommerce pages still listed in Rank Math's sitemap.
+- Fix (plugin 1.4.1, deployed live): `class-ifm-schema.php` removes products, product categories/tags and the basket, checkout, account and shop pages from the Rank Math sitemap. Live `sitemap_index.xml` now lists only posts, pages and categories. Hostinger cache cleared.
 
 ## Round 4 (final build): theme 1.3.0 + plugin 1.3.0 · 16 Nov 2026 · 🟢 ready for owner review
 All planned work is built. What remains is the owner's review, the install and the live checks that cannot be run here.

@@ -33,7 +33,7 @@ Brings everything up to the final build: approved prices (minimum £10), bundles
    - [ ] The footer shows "IamFamous is the trading name of Mehreen, a sole trader" and the address.
    - [ ] `/services/off-page-seo/`: the smallest package is £10.
    - [ ] Open any one-off package (for example a 5-Page Website): **Optional extras** shows an extra round of changes and express delivery, each with a price. Tick one and continue: the basket total includes it.
-   - [ ] `/packages/` shows three bundles and a price table for all 20 services.
+   - [ ] `/plans/` shows three bundles and a price table for all 20 services.
    - [ ] `/insights/` shows seven guides.
    - [ ] `/llms.txt` shows a plain-text summary of the business.
 
@@ -77,7 +77,7 @@ Appearance → Themes → Add Theme → **Upload Theme** → `iamfamous-theme.zi
 Appearance → **IamFamous Setup** → leave the default ticks → **Build the site**.
 
 This:
-- creates Home, Services, all 20 service pages, Packages, How it works, About, Reviews, FAQ, Free growth check, Contact, Insights, five policy pages and seven guides
+- creates Home, Services, all 20 service pages, Plans, How it works, About, Reviews, FAQ, Free growth check, Contact, Insights, five policy pages and seven guides
 - links the Terms and Privacy pages to the checkout
 - sets the Rank Math title, description and focus keyword on every page
 - sets Home as the front page and Insights as the blog page
@@ -131,7 +131,8 @@ The plugin redirects an old address **only when it would otherwise be a 404**, s
 | `/contact-us/` | `/contact/` |
 | `/about-us/` | `/about/` |
 | `/faqs/` | `/faq/` |
-| `/shop/` | `/packages/` |
+| `/shop/` | `/plans/` |
+| `/packages/` | `/plans/` |
 | `/blog/` | `/insights/` |
 | `/product-category/…` (7 old categories) | The matching service page |
 | 9 backlink products | `/services/off-page-seo/` |
