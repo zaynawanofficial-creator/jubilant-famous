@@ -93,3 +93,5 @@
 | Hostinger MCP (`websites-agents.hostinger.com/iamfamous.uk/mcp`) | Not reachable from the cloud session (the environment's network policy refuses the host), so delivery is by zip. To use it, allow that host in the environment and add it as a connector |
 | Old site URLs | 301 map shipped for the old pages, product categories and 48 products. The 5 old posts are not redirected (not listed in the handover): decide keep, rewrite or redirect |
 | "IamFamous" capital I | In sans-serif type "I" can read as "l". Accepted for v1 (same as .com.au). Alternative: a slightly wider gap or a colour split after "I" if the owner wants it |
+
+- 17 Nov 2026: Hostinger Tools' own llms.txt generator switched off: it flooded the job queue (247k jobs) and its static file hid ours. IamFamous Core serves `/llms.txt`.

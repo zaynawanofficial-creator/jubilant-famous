@@ -166,7 +166,19 @@ final class IFM_Setup {
 				if ( $existing ) {
 					$data['ID'] = $existing;
 				}
-				$id = wp_insert_post( $data, true );
+				// Saving an unchanged page still fires every save hook (and other plugins' background jobs), so skip it.
+				// WordPress tidies HTML on save, so compare a fingerprint of the source rather than the stored text.
+				$src_hash = md5( wp_json_encode( array( $content, $p['title'], $p['excerpt'], (int) $parent_id, (int) $p['order'] ) ) );
+				$cur      = $existing ? get_post( $existing ) : null;
+				$same     = $cur && 'publish' === $cur->post_status && get_post_meta( $existing, '_ifm_src_hash', true ) === $src_hash;
+				if ( $same ) {
+					$id = $existing;
+				} else {
+					$id = wp_insert_post( $data, true );
+					if ( ! is_wp_error( $id ) ) {
+						update_post_meta( $id, '_ifm_src_hash', $src_hash );
+					}
+				}
 				if ( is_wp_error( $id ) ) {
 					$log[] = "ERROR {$p['slug']}: " . $id->get_error_message();
 					continue;
@@ -180,7 +192,7 @@ final class IFM_Setup {
 					self::rank_math_meta( $id, $p['seo_title'] ?? '', $p['excerpt'], $p['kw'] ?? '' );
 				}
 				$ids[ $p['slug'] ] = $id;
-				$log[]             = ( $existing ? 'UPDATE ' : 'CREATE ' ) . wp_make_link_relative( get_permalink( $id ) );
+				$log[]             = ( $same ? 'SAME   ' : ( $existing ? 'UPDATE ' : 'CREATE ' ) ) . wp_make_link_relative( get_permalink( $id ) );
 			}
 		}
 
@@ -207,7 +219,10 @@ final class IFM_Setup {
 			foreach ( $m['posts'] as $p ) {
 				$existing_post = get_page_by_path( $p['slug'], OBJECT, 'post' );
 				if ( $existing_post ) {
-					if ( ! empty( $o['overwrite'] ) && get_post_meta( $existing_post->ID, self::META, true ) ) {
+					$post_hash = md5( wp_json_encode( array( self::pattern( $p['pattern'] ), $p['title'], $p['excerpt'] ) ) );
+					if ( get_post_meta( $existing_post->ID, '_ifm_src_hash', true ) === $post_hash ) {
+						$log[] = "SAME  article {$p['slug']}";
+					} elseif ( ! empty( $o['overwrite'] ) && get_post_meta( $existing_post->ID, self::META, true ) ) {
 						wp_update_post(
 							array(
 								'ID'           => $existing_post->ID,
@@ -219,6 +234,7 @@ final class IFM_Setup {
 						$cat = term_exists( $p['category'], 'category' );
 						$cat = $cat ? (int) $cat['term_id'] : (int) wp_insert_term( $p['category'], 'category' )['term_id'];
 						wp_set_post_categories( $existing_post->ID, array( $cat ) );
+						update_post_meta( $existing_post->ID, '_ifm_src_hash', $post_hash );
 						$log[] = "UPDATE article {$p['slug']}";
 					} else {
 						$log[] = "KEEP  article {$p['slug']} exists";
@@ -525,6 +541,11 @@ add_action(
 		if ( ! apply_filters( 'ifm_auto_build', true ) || get_option( 'ifm_auto_build_done' ) === IFM_THEME_VERSION || wp_next_scheduled( 'ifm_auto_build' ) ) {
 			return;
 		}
+		// Give up after three attempts for one version, so a run the server keeps killing cannot loop forever.
+		$tries = (array) get_option( 'ifm_auto_build_tries', array() );
+		if ( ( $tries['v'] ?? '' ) === IFM_THEME_VERSION && (int) ( $tries['n'] ?? 0 ) >= 3 ) {
+			return;
+		}
 		wp_schedule_single_event( time() + 5, 'ifm_auto_build' );
 	},
 	30
@@ -536,12 +557,23 @@ add_action(
 			return;
 		}
 		set_transient( 'ifm_auto_build_lock', 1, 15 * MINUTE_IN_SECONDS );
+		$tries = (array) get_option( 'ifm_auto_build_tries', array() );
+		$n     = ( $tries['v'] ?? '' ) === IFM_THEME_VERSION ? (int) ( $tries['n'] ?? 0 ) + 1 : 1;
+		update_option( 'ifm_auto_build_tries', array( 'v' => IFM_THEME_VERSION, 'n' => $n ), false );
 		if ( function_exists( 'set_time_limit' ) ) {
 			@set_time_limit( 600 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 		}
 		$log = array();
 		if ( class_exists( 'IFM_Importer' ) && class_exists( 'WooCommerce' ) ) {
-			$log = array_merge( $log, array_slice( IFM_Importer::import( IFM_Importer::default_file(), false, false ), -1 ) );
+			// Re-import only when the catalogue file or the plugin changed: an import re-saves all ~116 products.
+			$file = IFM_Importer::default_file();
+			$sig  = md5( ( is_readable( $file ) ? (string) md5_file( $file ) : '' ) . ( defined( 'IFM_CORE_VERSION' ) ? IFM_CORE_VERSION : '' ) );
+			if ( get_option( 'ifm_catalog_sig' ) !== $sig ) {
+				$log = array_merge( $log, array_slice( IFM_Importer::import( $file, false, false ), -1 ) );
+				update_option( 'ifm_catalog_sig', $sig, false );
+			} else {
+				$log[] = 'Catalogue unchanged, products not re-saved.';
+			}
 		}
 		$log = array_merge( $log, IFM_Setup::run( array( 'pages' => true, 'overwrite' => true, 'posts' => true, 'seo' => true ) ) );
 		if ( class_exists( 'IFM_Site' ) ) {
