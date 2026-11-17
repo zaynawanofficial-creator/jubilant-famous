@@ -5,8 +5,8 @@
 **Done:**
 - Hostinger Tools → llms.txt generation switched **off** (`hostinger_tools[enable_llms_txt]=false`). Our plugin already serves `/llms.txt` dynamically.
 - Theme `inc/setup.php` (deployed, version unchanged so no rebuild triggered): pages and guides store a source fingerprint (`_ifm_src_hash`) and are only re-saved when it changes (local test: run 1 = 42 saves, run 2 = 0). The product import in the automatic rebuild runs only when `SERVICE_CATALOG.csv` or the plugin version changes. Automatic rebuild gives up after 3 attempts per version.
-**Blocked (needs owner OK):** cancelling the 247k queued jobs through Action Scheduler (`as_unschedule_all_actions`) was stopped by the session's safety check. Until they are cancelled the site stays slow. Also delete the static `public_html/llms.txt` written by Hostinger so ours is served.
-**Tests:** PHP lint, 5 smoke suites passed; local double-run test above. Live speed after the fix: not yet measured (waits on the cancel).
+**Owner approved, done:** 244,199 queued jobs cancelled via `as_unschedule_all_actions` (0 pending left); Hostinger's static `public_html/llms.txt` deleted (ours now served); temporary scripts removed; Hostinger cache cleared.
+**Tests:** PHP lint, 5 smoke suites passed; local double-run test above. Live time to first byte after the fix: uncached home 1.4s, cached pages 0.17-0.52s, wp-login 0.29s (was 25-33s). PageSpeed API from this container: daily quota exceeded, not run.
 
 ## Round 5: theme 1.4.0 + plugin 1.4.0 · 17 Nov 2026 · 🟢 deployed to iamfamous.uk
 **Deployed by Claude** through the Hostinger connector: 69 changed files uploaded straight into the live theme and plugin folders (`tools/deploy-hostinger.sh`), the stale `page-packages.php` pattern deleted, the automatic rebuild ran on the next visit, and the server and CDN cache were cleared. The LiteSpeed plugin purge returned a Hostinger 500; the server/CDN clear worked.
