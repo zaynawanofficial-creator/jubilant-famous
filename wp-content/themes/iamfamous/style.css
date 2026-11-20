@@ -3,7 +3,7 @@ Theme Name: IamFamous
 Theme URI: https://iamfamous.uk/
 Author: IamFamous
 Description: Block theme for IamFamous.uk: fixed-price digital marketing packages for UK small businesses. Service pages, package picker, WooCommerce checkout and guides. Pairs with the IamFamous Core plugin.
-Version: 1.4.0
+Version: 1.4.1
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 8.1
@@ -989,7 +989,7 @@ body { font-variant-numeric: normal; }
    Round 5: carousels ("rails"), checkout summary, card fixes
    ===================================================================== */
 /* Rail: N cards per view; about two on tablets; one with a peek of the next on phones. */
-.ifm-rail { --n: 3; --gap: 1.25rem; display: grid !important; grid-auto-flow: column; grid-template-columns: none !important; grid-auto-columns: calc((100% - (var(--n) - 1) * var(--gap)) / var(--n)); gap: var(--gap) !important; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: .5rem .25rem 1rem !important; scrollbar-width: none; }
+.ifm-rail { --n: 3; --gap: 1.25rem; display: grid !important; grid-auto-flow: column; grid-template-columns: none !important; grid-auto-columns: calc((100% - (var(--n) - 1) * var(--gap)) / var(--n)); gap: var(--gap) !important; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scroll-padding-inline: .25rem; padding: .5rem .25rem 1rem !important; scrollbar-width: none; }
 .ifm-rail.alignwide { max-width: var(--wp--style--global--wide-size, 1240px); margin-left: auto !important; margin-right: auto !important; }
 .ifm-rail::-webkit-scrollbar { display: none; }
 .ifm-rail > * { scroll-snap-align: start; margin: 0 !important; min-width: 0; display: flex; flex-direction: column; }
@@ -997,7 +997,7 @@ body { font-variant-numeric: normal; }
 .ifm-rail:focus-visible { outline: 3px solid var(--wp--preset--color--ink); outline-offset: 4px; border-radius: 22px; }
 @media (max-width: 1023px) { .ifm-rail, .ifm-rail--4 { --n: 2.25; } }
 @media (max-width: 640px) { .ifm-rail, .ifm-rail--4 { --n: 1.18; --gap: .9rem; } }
-@media (prefers-reduced-motion: reduce) { .ifm-rail { scroll-behavior: auto; } }
+/* No CSS smooth scrolling on rails: with mandatory snap it makes Chrome animate a scroll at load, which stops LCP being recorded (PageSpeed NO_LCP). The arrows scroll smoothly from JS instead. */
 .ifm-rail .ifm-card:hover { transform: translateY(-2px); }
 /* Controls added by site.js: arrows, dots and a position count. Hidden when everything fits. */
 .ifm-rail-nav { display: flex; align-items: center; justify-content: flex-end; gap: .75rem; max-width: var(--wp--style--global--wide-size, 1240px); margin: .25rem auto 0 !important; }

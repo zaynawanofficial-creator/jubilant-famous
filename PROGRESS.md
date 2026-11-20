@@ -1,5 +1,12 @@
 # PROGRESS
 
+## 20 Nov 2026: PageSpeed "NO_LCP" / TBT "Error!" fixed (theme 1.4.1)
+**Cause:** the carousel CSS combined `scroll-snap-type: x mandatory` with `scroll-behavior: smooth`. At load Chrome animated a small snap scroll inside each rail, treated it like user scrolling and stopped recording Largest Contentful Paint, so Lighthouse could not compute LCP or TBT (mobile always, desktop sometimes). Found by reproducing Lighthouse 12.6.1 locally (same NO_LCP on the local copy without LiteSpeed), then bisecting style.css (removing either property fixes it).
+**Fix:** removed CSS `scroll-behavior: smooth` from `.ifm-rail` and added `scroll-padding-inline` so nothing snaps on load; arrows and dots now scroll smoothly from JS (`behavior: smooth`, `auto` when reduced motion is set). Theme 1.4.1.
+**Tests:** Lighthouse mobile on the local copy: home 0.83 (LCP 4.3s, TBT 0 ms, CLS 0), on-page SEO 0.88, plans 0.81 (the local PHP server is slow; live should be faster); carousel arrow scrolls (0→309px), no horizontal overflow at 390px; smoke tests passed. Server response on live 0.8-1.5s.
+**Not deployed:** the Hostinger connector refused to reconnect (needs sign-in again). Owner to upload `dist/iamfamous-theme.zip` (see INSTALL) or re-authorise the connector.
+**Also noted:** LiteSpeed (Hostinger "Advanced" preset) delays every script until first tap/scroll and referenced a combined JS file that returned 404; a Purge All after deploying regenerates it.
+
 ## 17 Nov 2026 (late): site slow (25-33s per page): diagnosed
 **Cause:** the Hostinger Tools plugin (v3.0.82) queues a self-repeating `hostinger_tools/jobs/generate_llmstxt/create_batch` background job every time a page, post or product is published or saved. Its batch chain does not check whether llms.txt is still enabled. Our automatic rebuild re-saved ~150 pages and products per run (runs killed by server time limits were retried), so the Action Scheduler queue grew to **247,303 pending jobs**. Every PHP request (front end and wp-admin) carried that queue: static files took 0.5s, WordPress pages 25-33s. The database itself answers in milliseconds (measured with a temporary token-protected probe, since removed).
 **Done:**

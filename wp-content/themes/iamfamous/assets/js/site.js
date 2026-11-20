@@ -63,6 +63,7 @@
 	}
 
 	/* ---------- Rails (carousels): arrows, dots, labels. The rail itself is plain CSS scroll-snap and works without this. ---------- */
+	var smooth = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ? 'auto' : 'smooth';
 	var arrow = function (d) { return '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="' + (d < 0 ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7') + '" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; };
 	doc.querySelectorAll('.ifm-rail').forEach(function (rail, n) {
 		var items = Array.prototype.slice.call(rail.children);
@@ -80,14 +81,14 @@
 		items.forEach(function (it, i) {
 			var b = doc.createElement('button'); b.type = 'button'; b.className = 'ifm-rail-nav__dot';
 			b.setAttribute('aria-label', 'Show card ' + (i + 1) + ' of ' + items.length); b.setAttribute('aria-controls', id);
-			b.addEventListener('click', function () { rail.scrollTo({ left: it.offsetLeft - rail.offsetLeft - 4 }); });
+			b.addEventListener('click', function () { rail.scrollTo({ left: it.offsetLeft - rail.offsetLeft - 4, behavior: smooth }); });
 			dots.appendChild(b);
 		});
 		var mk = function (dir) {
 			var b = doc.createElement('button'); b.type = 'button'; b.className = 'ifm-rail-nav__btn';
 			b.setAttribute('aria-label', dir < 0 ? 'Previous cards' : 'Next cards'); b.setAttribute('aria-controls', id);
 			b.innerHTML = arrow(dir);
-			b.addEventListener('click', function () { rail.scrollBy({ left: dir * Math.max(rail.clientWidth * 0.85, 240) }); });
+			b.addEventListener('click', function () { rail.scrollBy({ left: dir * Math.max(rail.clientWidth * 0.85, 240), behavior: smooth }); });
 			return b;
 		};
 		var prev = mk(-1), next = mk(1);

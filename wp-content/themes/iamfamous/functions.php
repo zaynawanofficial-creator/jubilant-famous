@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'IFM_THEME_VERSION', '1.4.0' );
+define( 'IFM_THEME_VERSION', '1.4.1' );
 
 add_action(
 	'after_setup_theme',
